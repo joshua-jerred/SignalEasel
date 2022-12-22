@@ -74,7 +74,7 @@ bool modulators::Morse(WavGen &wavgen, std::string callsign) {
     }
     std::string morse_callsign = "";
     // Convert callsign to lowercase and convert to morse
-    for (int i = 0; i < callsign.size(); i++) {
+    for (int i = 0; i < (int) callsign.size(); i++) {
         callsign[i] = tolower(callsign[i]);
         char c = callsign[i];
         if (c >= '0' && c <= '9') {
@@ -89,7 +89,7 @@ bool modulators::Morse(WavGen &wavgen, std::string callsign) {
     }
 
     // Add morse callsign to wavgen
-    for (int i = 0; i < morse_callsign.size(); i++) {
+    for (int i = 0; i < (int) morse_callsign.size(); i++) {
         char c = morse_callsign[i];
         if (c == '.') {
             wavgen.addSineWave(AUDIO_FREQ, AUDIO_AMP, DOT_LENGTH);

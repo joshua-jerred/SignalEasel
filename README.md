@@ -44,3 +44,7 @@ Even the AX.25 spec is incorrect in one spot, and it's the spec document.
  - https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf
 
 Currently unlicensed, will become part of https://github.com/joshua-jerred/Giraffe
+
+## Quick Reference
+Decoding with minimodem:
+``minimodem --read -f afsk1200.wav 1200 --binary-raw 16``

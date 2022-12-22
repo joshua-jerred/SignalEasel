@@ -1,4 +1,4 @@
-#include <math.h>
+#include <cmath>
 
 #include "modulators.h"
 
@@ -73,7 +73,7 @@ void addSymbol(WavGen &wavgen, PskWave &wave, double shift, int filter_end) {
     double time = 0 - (wave.samples_per_symbol / 2);
     for (int i = 0; i < wave.samples_per_symbol; i++) {
         double unfiltered = std::cos(wave.carrier_wave_angle + shift);
-        double filter = std::pow(std::cos( (abs(time) / wave.samples_per_symbol) * roll_off ), power);
+        double filter = std::pow(std::cos( (std::abs(time) / wave.samples_per_symbol) * roll_off ), power);
         if (!wave.last_symbol_end_filtered && (time < 0)) {
             filter = 1;
         }

@@ -28,12 +28,14 @@ class BitStream {
     int popNextBit();
     int peakNextBit();
     void pushBufferToBitStream();
+    int getBitStreamLength();
 
   private:
     std::vector<uint32_t> bit_stream_;
     int bit_stream_index_ = 0;
     uint32_t bit_stream_buffer_ = 0;
     int bit_stream_offset_ = 0; // Write left to right. [0 - 31]
+    int bit_stream_length_ = 0;
 };
 
 #endif // BIT_STREAM_H_

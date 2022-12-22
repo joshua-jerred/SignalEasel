@@ -9,7 +9,7 @@ void BitStream::addBits(unsigned char *data, int num_bits) {
     int data_index = 0;
     int bit_index = 0; // Index of the bit in the byte, left to right [0 - 7]
     int buffer_space;
-    
+    bit_stream_length_ += num_bits;
     while (num_bits > 0) {
         buffer_space = 32 - bit_stream_offset_;
         
@@ -70,7 +70,7 @@ int BitStream::popNextBit() {
         bit_stream_offset_ = 0;
         bit_stream_index_++;
     }
-
+    bit_stream_length_--;
     return bit ? 1 : 0;
 }
 
@@ -91,4 +91,8 @@ void BitStream::dumpBitStream() {
     for (int i = 0; i < bit_stream_.size(); i++) {
         std::cout << "[" << i << "]" << std::bitset<32>(bit_stream_[i]) << std::endl;
     }
+}
+
+int BitStream::getBitStreamLength() {
+    return bit_stream_length_;
 }

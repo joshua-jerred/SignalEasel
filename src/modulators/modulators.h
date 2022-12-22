@@ -21,9 +21,13 @@ namespace modulators {
     bool PskAscii(
         WavGen &wavgen, 
         const std::string &message,
-        const PskMode mode,
-        const PskSymbolRate sym_rate
+        const PskMode &mode,
+        const PskSymbolRate &sym_rate
                   );
+
+    bool AfskAscii(
+        WavGen &wavgen, 
+        const std::string &message);
 }
 
 #endif // MODULATORS_H_

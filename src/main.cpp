@@ -60,5 +60,8 @@ int main() {
     if (!encode(MODULATION::QPSK_500, input, "qpsk-500.wav")) {
         std::cout << "Failed to encode QPSK 500 without callsign" << std::endl;
     }
-
+    // --------------------- AFSK ----------------------
+    if (!encode(MODULATION::AFSK1200, input, "afsk1200.wav")) {
+        std::cout << "Failed to encode AFSK1200" << std::endl;
+    }
 }

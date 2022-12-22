@@ -12,13 +12,19 @@
 bool addPSK(WavGen &wavgen, const std::string &message,
 		       const MWAVData::MODULATION modulation);
 
+// ------------------------------ STRING INPUT ------------------------------
 bool MWAVData::encode(  // <-- Does not include a morse code callsign
 		const MODULATION modulation, 
 		const std::string input,
 		const std::string out_file_path
 		) {
 	WavGen wavgen = WavGen(out_file_path);
-	return addPSK(wavgen, input, modulation);
+
+	if (modulation == MODULATION::AFSK1200) {
+		return modulators::AfskAscii(wavgen, input);
+	} else {
+		return addPSK(wavgen, input, modulation);
+	}
 }
 
 bool MWAVData::encode(  // <-- Includes a morse code callsign
@@ -36,6 +42,9 @@ bool MWAVData::encode(  // <-- Includes a morse code callsign
 	
 	return addPSK(wavgen, input, modulation);// Add the modulated data
 }
+
+// ------------------------------ BINARY INPUT ------------------------------
+
 
 /**
  * @brief Abstraction layer for PSK Modulation to prevent code duplication

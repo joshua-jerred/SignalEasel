@@ -128,8 +128,8 @@ void encodeQpsk(WavGen &wavgen, BitStream &bit_stream, PskWave &wave) {
 bool modulators::PskAscii(
         WavGen &wavgen, 
         const std::string &message,
-        const PskMode mode = PskMode::BPSK,
-        const PskSymbolRate sym_rate = PskSymbolRate::S125)
+        const PskMode &mode,
+        const PskSymbolRate &sym_rate)
     {
 
     BitStream bit_stream = BitStream();

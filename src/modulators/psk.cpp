@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "modulators.h"
 
 #include "convolutional-code.h"
@@ -30,7 +32,7 @@ double SymbolRate(PskSymbolRate rate) {
 }
 
 void addVaricode(BitStream &bit_stream, char c) {
-    uint16_t varicode = ascii_to_varicode[c];
+    uint16_t varicode = ascii_to_varicode[(int) c];
     unsigned char bits[2];
     int previous_bit = 1;
 
@@ -103,7 +105,7 @@ void encodeBpsk(WavGen &wavgen, BitStream &bit_stream, PskWave &wave) {
             addSymbol(wavgen, wave, last_phase ? M_PI : 0, filter_end);
             last_phase = !last_phase;
         }
-        last_phase ? "1" : "0";
+        //last_phase ? "1" : "0";
         bit = bit_stream.popNextBit();
         next_bit = bit_stream.peakNextBit();
     }
@@ -116,7 +118,7 @@ void encodeQpsk(WavGen &wavgen, BitStream &bit_stream, PskWave &wave) {
     while (bit != -1) {
         buffer = ((buffer << 1) | bit) & 0x1f;
         int filter_end = 0;
-        if (shift != conv_code[buffer]) {
+        if ((int)shift != (int)conv_code[buffer]) {
             filter_end = 1;
         }
         shift += conv_code[buffer];

@@ -2,6 +2,7 @@
 #define BIT_STREAM_H_
 
 #include <vector>
+#include <cstdint>
 
 /**
  * @details Bit stream is an array of 32 bit integers.
@@ -31,7 +32,7 @@ class BitStream {
     int getBitStreamLength();
 
   private:
-    std::vector<uint32_t> bit_stream_;
+    std::vector<uint32_t> bit_stream_ = std::vector<uint32_t>();
     int bit_stream_index_ = 0;
     uint32_t bit_stream_buffer_ = 0;
     int bit_stream_offset_ = 0; // Write left to right. [0 - 31]

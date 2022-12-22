@@ -1,9 +1,8 @@
 #ifndef MWAV_H_
 #define MWAV_H_
 
-#include <string>
-
-#include "psk.h"
+#include "wavgen.h"
+#include "modulators.h"
 
 namespace MWAVData {
 
@@ -27,6 +26,12 @@ namespace MWAVData {
                 MODULATION modulation, 
                 std::string input, 
                 std::string out_file_path);
+
+    bool encode(MODE mode, 
+            MODULATION modulation, 
+            std::string input, 
+            std::string out_file_path,
+            std::string callsign);
 }
 
 #endif // MWAV_H_

@@ -14,6 +14,8 @@
 
 #include "wavgen.h"
 
+#define SINE_FILTER_SAMPLES 150 // Look at the sine wave in Audacity, you'll see the smoothing on sine waves
+
 WavGen::WavGen(std::string filename) {
     wav_file_.open(filename, std::ios::binary);
 
@@ -41,7 +43,7 @@ WavGen::WavGen(std::string filename) {
 }
 
 WavGen::~WavGen() {
-    wav_file_.close();
+    done();
 }
 
 void WavGen::addSineWave(int freq, float amp, float duration) {
@@ -51,13 +53,25 @@ void WavGen::addSineWave(int freq, float amp, float duration) {
     // These 2 values are persistent through the for Loop
     float amplitude = amp;
     
-
-    for(int i = 0; i < std::floor(sample_rate_ * duration); i++ ) { // For each sample
+    int total_samples = std::floor(sample_rate_ * duration);
+    float filter = 0.0f; // Filter to reduce the amplitude of the wav in the first and last SINE_FILTER_SAMPLES samples
+    float filter_step = 1.0f / SINE_FILTER_SAMPLES; // The amount to increase the filter by each sample to get a smooth transition
+    
+    for(int i = 0; i < total_samples; i++ ) { // For each sample
         wave_angle_ += offset;
-        int sample = static_cast<int> ((amplitude * sin(wave_angle_)) * max_amplitude_);
+        int sample = static_cast<int> ((filter * amplitude * sin(wave_angle_)) * max_amplitude_);
         writeBytes(sample, 2);
+
         if (wave_angle_ > 2 * M_PI) {
             wave_angle_ -= 2 * M_PI;
+        }
+
+        if (i < SINE_FILTER_SAMPLES) { // Adjust the filter
+            filter += filter_step;
+        } else if (i > total_samples - SINE_FILTER_SAMPLES) {
+            filter -= filter_step;
+        } else {
+            filter = 1.0f;
         }
     }
 }
@@ -84,6 +98,7 @@ bool WavGen::done() {
     wav_file_.seekp(4, std::ios::beg); // Go to the beginning of the file
     writeBytes(data_end_ - 8, 4); // Write the size of the overall file
     wav_file_.close();
+    file_open_ = false;
     return true;
 }
 

@@ -20,9 +20,9 @@ namespace modulators {
     
     bool PskAscii(
         WavGen &wavgen, 
-        std::string message,
-        PskMode mode,
-        PskSymbolRate sym_rate
+        const std::string &message,
+        const PskMode mode,
+        const PskSymbolRate sym_rate
                   );
 }
 

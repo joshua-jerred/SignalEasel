@@ -1,19 +1,7 @@
-
-#include <string>
-#include <fstream>
-#include <map>
-#include <unordered_map>
-#include <stdexcept>
-#include <cmath>
-#include <vector>
-#include <math.h>
-#include <exception>
-#include <sstream>
-#include <iostream> // Debugging
+#include "modulators.h"
 
 #include "convolutional-code.h"
 #include "varicode.h"
-#include "modulators.h"
 #include "bit-stream.h"
 
 using namespace modulators;
@@ -139,9 +127,9 @@ void encodeQpsk(WavGen &wavgen, BitStream &bit_stream, PskWave &wave) {
 
 bool modulators::PskAscii(
         WavGen &wavgen, 
-        std::string message,
-        PskMode mode = PskMode::BPSK,
-        PskSymbolRate sym_rate = PskSymbolRate::S125)
+        const std::string &message,
+        const PskMode mode = PskMode::BPSK,
+        const PskSymbolRate sym_rate = PskSymbolRate::S125)
     {
 
     BitStream bit_stream = BitStream();
@@ -161,7 +149,7 @@ bool modulators::PskAscii(
 
     /*Encode the message info binary*/
     addPreamble(bit_stream, kPreambleLength);
-    for (char &c : message) { // Encode each character in the message to the BitStream (varicode)
+    for (const char &c : message) { // Encode each character in the message to the BitStream (varicode)
         addVaricode(bit_stream, c);
         static unsigned char zeros[1] = {0x00};
         bit_stream.addBits(zeros, 2);

@@ -16,16 +16,16 @@ bool MWAVData::encode(// <-- Includes a morse code callsign
             std::string input, 
             std::string out_file_path,
             std::string callsign
-            ) { 
+            ) {
     WavGen wavgen = WavGen(out_file_path);
 
-    if (!addMorseCallsign(wavgen, callsign)) {
+    if (!modulators::Morse(wavgen, callsign)) {// Add the callsign
         return false;
-    }; // Add the callsign
+    };
 
     wavgen.addSineWave(0, 0, 0.5); // Add a 0.5 second pause
     
-    if (!addPskASCII(wavgen, input)) { // Add the PSK ASCII data
+    if (!modulators::PskAscii(wavgen, input, modulators::PskMode::BPSK, modulators::PskSymbolRate::S125)) { // Add the PSK ASCII data
         return false;
     }; 
 

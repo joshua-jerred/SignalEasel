@@ -1,6 +1,6 @@
 # MWAV
 Everything here is thoroughly ***UNTESTED***. Although BPSK at 125 Symbols/s follows the correct waveform the others struggle. All PSK31 spec modes
-can reliably be decoded by Fldigi, but I would not reccomend broadcasting *anything* until you test functionality.
+can reliably be decoded by Fldigi, but I would not recommend broadcasting *anything* until you test functionality.
 
 A C++ library for modulating text and raw binary input into WAV files. Supports BPSK, QPSK, and AFSK.
 
@@ -13,10 +13,10 @@ This is a combination of my [PSK31 modulation project](https://github.com/joshua
 A lot of the code was shared between these and I'm currently working on combining them and creating reliable modulation for all modes.
 
 ## PSK Modulation
-You can read [my attempt to document the origonal process of BPSK and QPSK modulation here](https://joshuajer.red/projects/psk-modulation.html)
+You can read [my attempt to document the original process of BPSK and QPSK modulation here](https://joshuajer.red/projects/psk-modulation.html)
 
 ## AFSK Modulation
-Documentation from the origonal project:
+Documentation from the original project:
 
 Basic implementation of AFSK modulation according to AFSK1200 spec.
 Supports both NRZI (0 is change in tone, 1 is no change) and Bell 202 encoding.

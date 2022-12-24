@@ -59,7 +59,7 @@ void BitStream::pushBufferToBitStream() {
  * @return int [1, 0, -1] -1 = no more bits in bit stream
  */
 int BitStream::popNextBit() {
-    if (bit_stream_index_ >= bit_stream_.size()) { // No more bits in bit stream
+    if (bit_stream_index_ >= (int) bit_stream_.size()) { // No more bits in bit stream
         return -1;
     }
 
@@ -79,7 +79,7 @@ int BitStream::popNextBit() {
  * @return int [1, 0, -1] -1 = no more bits in bit stream
  */
 int BitStream::peakNextBit() {
-    if (bit_stream_index_ >= bit_stream_.size()) { // No more bits in bit stream
+    if (bit_stream_index_ >= (int) bit_stream_.size()) { // No more bits in bit stream
         return -1;
     }
     uint32_t bit = bit_stream_[bit_stream_index_] & (1 << (31 - bit_stream_offset_));
@@ -88,7 +88,7 @@ int BitStream::peakNextBit() {
 
 void BitStream::dumpBitStream() {
     std::cout << "BitStream:" << std::endl;
-    for (int i = 0; i < bit_stream_.size(); i++) {
+    for (int i = 0; i < (int) bit_stream_.size(); i++) {
         std::cout << "[" << i << "]" << std::bitset<32>(bit_stream_[i]) << std::endl;
     }
 }

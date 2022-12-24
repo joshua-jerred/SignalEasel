@@ -1,4 +1,8 @@
 afsk1200.wav - minimodem raw binary
+
+``minimodem --read -f afsk1200.wav 1200 --binary-raw 16``
+
+
 ```
 10010000110010101101100011011000
 11011110010110000100000011101110

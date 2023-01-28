@@ -22,3 +22,19 @@ add_executable(commandline
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
 )
+
+add_executable(audio-in-test
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp
+)
+
+find_path(PULSEAUDIO_INCLUDE_DIR
+    NAMES pulse/pulseaudio.h
+)
+
+find_library(PULSEAUDIO_LIBRARY
+    NAMES pulse
+)
+
+include_directories(${PULSEAUDIO_INCLUDE_DIRS})
+
+target_link_libraries(audio-in-test pulse-simple pulse)

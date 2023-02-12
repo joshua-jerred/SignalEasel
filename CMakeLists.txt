@@ -21,10 +21,15 @@ add_executable(commandline
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
 )
 
 add_executable(audio-in-test
     ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp
+)
+
+add_executable(aprs-test
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
 )
 
 find_path(PULSEAUDIO_INCLUDE_DIR

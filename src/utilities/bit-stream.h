@@ -1,3 +1,12 @@
+/**
+ * @file bit-stream.h
+ * @author Joshua Jerred (https://joshuajer.red)
+ * @brief A contiguous stream of bits.
+ * @date 2023-02-11
+ * @copyright Copyright (c) 2023
+ * @version 0.1
+ */
+
 #ifndef BIT_STREAM_H_
 #define BIT_STREAM_H_
 

@@ -18,22 +18,22 @@ class AFSK {
          AX25 = 0,
          MINIMODEM = 1
     };
-    AFSK(WavGen &wavgen);
-    //AFSK(std::string file_path, int baud_rate); // Sticking with 1200 for now
-    ~AFSK();
+    AFSK(WavGen &wavgen, AFSK::MODE mode) : wavgen_(wavgen), mode_(mode) {}
+    ~AFSK() {}
+
     bool encodeRawData(unsigned char *data, int length); // Probably an AX.25 frame (with bit stuffing)
     bool encodeAscii(const std::string &message);
 
  private:
-   MODE mode_ = MODE::MINIMODEM; // Change this
    WavGen &wavgen_;
+   const MODE mode_; // Change this
    BitStream bit_stream_ = BitStream();
     // ------------------------------
     // AFSK Modulation Stuff
     // ------------------------------
     void encodeBitStream();
     void addSymbol(bool change);
-    void NRZI();
+
     // Constants
     const int baud_rate_ = 1200; // 1200 Baud rate of the AFSK signal
     const int freq_center_ = 1700; // 1700 Center frequency of the AFSK signal
@@ -41,31 +41,7 @@ class AFSK {
 
     // Variables
     bool last_bit_ = false; // Used for modulation (NRZI)
-
-
-
-    // WAV File Constants
-    const int sample_rate_ = 44100; // Sample rate of the WAV file in Hz (44100)
-    const int bits_per_sample_ = 16; // Bits per sample (16-bit WAV)
-    const int max_amplitude_ = pow(2, bits_per_sample_ - 1) - 1;
-    double amplitude_ = 1;
 };
-
-AFSK::AFSK(WavGen &wavgen) : wavgen_(wavgen) {
-}
-
-/*
-AFSK::AFSK(std::string file_path, int baud_rate) {
-    baud_rate_ = baud_rate;
-    wave_angle_ = 0.0;
-    mark_delta_ = 2.0 * M_PI * ( (double) mark_freq_ / (double) sample_rate_ );
-    space_delta_ = 2.0 * M_PI * ( (double) space_freq_ / (double) sample_rate_ );
-}
-*/
-
-AFSK::~AFSK() {
-    // Nothing to do here
-}
 
 bool AFSK::encodeRawData(unsigned char *data, int length) { // length is in bytes
     for (int i = 0; i < length; i++) {
@@ -91,7 +67,7 @@ void AFSK::encodeBitStream() {
     // sample_freq_ = 44100 * 2
     // samples_per_bit_ = sample_freq_ / baud_rate_ = 147 
 
-    const int sample_freq_ = sample_rate_ * 4; // 176400
+    const int sample_freq_ = wavgen_.getSampleRate() * 4; // 176400
     const int samples_per_bit_ = sample_freq_/baud_rate_; // 147
     const int bits_to_encode_ = bit_stream_.getBitStreamLength();
 
@@ -157,19 +133,15 @@ void AFSK::encodeBitStream() {
             prev_bp_bit = current_bp_bit;
             current_bp_bit = nrzi_bipolar_bits_.front();
             nrzi_bipolar_bits_.pop();
-            //std::cout << "Change " << prev_bp_bit << " " << current_bp_bit << std::endl;
         } else {
             prev_bp_bit = current_bp_bit;
         }
         m += ((current_bp_bit + prev_bp_bit)/2);
         double lhs = 2.0 * M_PI * (double)i * f_center_over_time;
         double rhs = 2.0 * M_PI * (double)m * f_delta_over_time;
-        //std::cout << "lhs: " << lhs << " rhs: " << rhs << std::endl;
         double wave = cos(lhs + rhs);
-        //std::cout << "Sample: " << wave << std::endl;
-        double sample = (wave * amplitude_);
+        double sample = wave;
         if (i % 4 == 0) { // Only write every 4th sample, since we're using 4x oversampling for AFSK allignment
-            //std::cout << "Sample: " << sample << std::endl;
             wavgen_.addSample(sample);
         }
     }
@@ -180,6 +152,11 @@ bool AFSK::encodeAscii(const std::string &message) {
 }
 
 bool modulators::AfskAscii(WavGen &wavgen, const std::string &message) {
-    AFSK afsk(wavgen);
+    AFSK afsk(wavgen, AFSK::MODE::MINIMODEM);
     return afsk.encodeAscii(message);
+}
+
+bool modulators::AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &data) {
+    AFSK afsk(wavgen, AFSK::MODE::AX25);
+    return afsk.encodeRawData((unsigned char *)data.data(), data.size());
 }

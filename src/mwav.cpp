@@ -41,11 +41,38 @@ bool MWAVData::encode(  // <-- Includes a morse code callsign
 
 // -------------------------------- APRS INPUT ---------------------------------
 bool MWAVAprs::encodeLocation(const std::string callsign,
-                              const MWAVAprs::Location location,
+                              const Aprs::Location location,
                               const std::string out_file_path) {
+  if (callsign.length() > 6 || callsign.length() < 3) {
+    return false;
+  }
+
+  if (location.altitude < 0 || location.altitude > 999999) {
+    return false;
+  }
+
+  if (location.latitude < -90 || location.latitude > 90) {
+    return false;
+  }
+
+  if (location.longitude < -180 || location.longitude > 180) {
+    return false;
+  }
+
+  if (location.speed < 0 || location.speed > 999) {
+    return false;
+  }
+
+  if (location.course < 0 || location.course > 360) {
+    return false;
+  }
+
+  if (location.ssid > 15) {
+    return false;
+  }
+
   WavGen wavgen = WavGen(out_file_path);
-
-
+  modulators::APRSLocation(wavgen, location);
 
   return true;
 }

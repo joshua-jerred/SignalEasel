@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "wavgen.h"
+#include "aprs.h"
 
 namespace modulators {
     
@@ -16,6 +17,8 @@ enum class PskSymbolRate {
   S1000  // BPSK only
 };
 
+
+
 bool Morse(WavGen &wavgen, std::string callsign);
 
 bool PskAscii(WavGen &wavgen, const std::string &message, const PskMode &mode,
@@ -26,8 +29,9 @@ bool AfskAscii(WavGen &wavgen, const std::string &message);
 bool PskBinary(WavGen &wavgen, const std::vector<uint8_t> &message,
                const PskMode &mode, const PskSymbolRate &sym_rate);
 
-bool AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &message);
+bool AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &data);
 
+bool APRSLocation(WavGen &wavgen, const Aprs::Location &location);
 }  // namespace modulators
 
 #endif  // MODULATORS_H_

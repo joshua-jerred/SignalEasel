@@ -1,131 +1,39 @@
-/**
- * @file ax25.cpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Basic AX-25 Frame Encoding
- * @date 2023-02-11
- * @copyright Copyright (c) 2023
- * @version 0.1
- */
-
-#include "aprs.h"
+#include "modulators.h"
+#include "ax25.h"
 
 #include <cmath>
 #include <iostream>
 
-/*
-APLIGA,WIDE2-1,qAR,KE0NHQ-3:/031410h4238.13N/09049.05WO092/024/A=011473 058TxC
- -2.40C  658.57hPa  7.01V 12S http://www.lightaprs.com
-
- 2023-02-11 18:28:00 MST: EA4RCM>APRS,TCPIP*,qAC,T2EUSKADI:;
- EA4RCM-11*012815h4033.64N/00337.54WO311/038/A=011210U0230267|
- Radiosonda AEMET RS41 EA4RCM | T=-6.8C|Dir:311.6<0xc2><0xb0>|
- vVert:-5.2 m/s|-00005
-*/
-APRS::APRS() {}
-
-APRS::~APRS() {}
-
-bool APRS::CreateAPRSMicEFrame(std::string callsign, uint8_t ssid,
-                               float latitude, float longitude, float altitude,
-                               float speed, float course) {
-  const uint8_t message_type = 0b100;  // [A, B, C] 0b000 = Emergency
-  uint8_t destination_address[7];
-
-  (void)ssid;
-  (void)longitude;
-  (void)altitude;
-  (void)speed;
-  (void)course;
-
-  if (callsign.length() > 6 || callsign.length() < 4) {
-    return false;
-  }
-
-  if (latitude > 90 || latitude < -90) {
-    return false;
-  }
-
-  bool lat_positive = latitude > 0;
-  if (!lat_positive) {
-    latitude = -latitude;
-  }
-
-  bool lon_positive = longitude > 0;  // East = true, West = false
-  if (!lon_positive) {
-    longitude = -longitude;
-  }
-
-  bool lon_offset = longitude > 100;
-
-  // Convert Latitude from DD.DDDDD to DD MM.MMMM
-  int lat_degrees = (int)latitude;
-  float lat_minutes = (latitude - lat_degrees) * 60;
-
-  destination_address[0] =
-      ((lat_degrees / 10) + 48) | ((message_type & 0b100) << 4);
-  destination_address[1] =
-      ((lat_degrees % 10) + 48) | ((message_type & 0b010) << 5);
-  destination_address[2] =
-      ((int)lat_minutes / 10 + 48) | ((message_type & 0b001) << 6);
-  destination_address[3] =
-      ((int)lat_minutes % 10 + 48) | (lat_positive ? 0b01000000 : 0b00000000);
-  destination_address[4] = ((int)(lat_minutes * 10) % 10 + 48) |
-                           (lon_offset ? 0b01000000 : 0b00000000);
-  destination_address[5] = ((int)(lat_minutes * 100) % 10 + 48) |
-                           (lon_positive ? 0b00000000 : 0b01000000);
-  destination_address[6] = 0b00000000;
-
-  frame_.destination_address[0] = destination_address[0] << 1;
-  frame_.destination_address[1] = destination_address[1] << 1;
-  frame_.destination_address[2] = destination_address[2] << 1;
-  frame_.destination_address[3] = destination_address[3] << 1;
-  frame_.destination_address[4] = destination_address[4] << 1;
-  frame_.destination_address[5] = destination_address[5] << 1;
-  // 6 already in place
-
-  // Source address (callsign/ssid)
-  frame_.source_address[0] = callsign[0] << 1;
-  frame_.source_address[1] = callsign[1] << 1;
-  frame_.source_address[2] = callsign[2] << 1;
-  frame_.source_address[3] = callsign[3] << 1;
-  frame_.source_address[4] = callsign[4] << 1;
-  frame_.source_address[5] = callsign[5] << 1;
-  frame_.source_address[6] = '-' << 1;
-  frame_.source_address[7] = ssid << 1;
-
-  /*
-  Information field:
-  [Byte][info]
-  [0] Date Type ID []
-    ` = Mic-E Data (0x1c?)
-
-  [1] lon d+28 0–179 degrees.
-  [2] lon m+28
-  [3] lon h+28
-
-  [4] speed+28
-  [5] DC+28
-  [6] SE+28
-  [7] Symbol Code
-  [8] Symbol Table ID
-  [n] Mic-E Telemetry Data and Mic-E Status Text
-  */
-  frame_.information.push_back('`' << 1);
-
-  std::cout << frame_;
-  return true;
+bool modulators::APRSLocation(WavGen &wavgen, const Aprs::Location &location) {
+  // Create/encode the APRS position report
+  // Modulate the AX.25 frame
 }
+
+
+class APRS {
+ public:
+  APRS() {}
+  ~APRS() {}
+
+  bool CreateAPRSPositionReport(std::string callsign, char symbol[2],
+                                char time_code[2], uint8_t ssid, float latitude,
+                                float longitude, int altitude, float speed,
+                                float course);
+
+  const AX25UiFrame& getFrame() const { return frame_; }
+
+ private:
+  bool setDestinationAddressField();
+  bool setSourceAddressField(std::string callsign, uint8_t ssid);
+  std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
+
+  AX25UiFrame frame_ = {};
+};
 
 bool APRS::CreateAPRSPositionReport(std::string callsign, char symbol[2],
                                     char time_code[7], uint8_t ssid,
                                     float latitude, float longitude,
                                     int altitude, float speed, float course) {
-  (void)ssid;
-  (void)longitude;
-  (void)altitude;
-  (void)speed;
-  (void)course;
-  (void)symbol;
 
   if (callsign.length() > 6 || callsign.length() < 4) {
     return false;

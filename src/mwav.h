@@ -3,6 +3,7 @@
 
 #include "modulators.h"
 #include "wavgen.h"
+#include "aprs.h"
 
 namespace MWAVData {
 
@@ -63,24 +64,8 @@ bool encode(const MWAVData::MODULATION modulation, const unsigned char *input,
 
 namespace MWAVAprs {
 
-struct Location {
-  enum class SymbolTable { PRIMARY, SECONDARY };
-
-  uint8_t ssid;     // 0 - 15
-  std::string time_code;   // hhmmss
-
-  float latitude;   // Decimal degrees
-  float longitude;  // Decimal degrees
-  int altitude;     // Feet 0 - 99999
-  float speed;      // Knots 0 - 400
-
-  SymbolTable symbol_table;  // Symbol table
-  char symbol;               // Symbol character
-  int course;                // Degrees 0 - 359
-};
-
 bool encodeLocation(const std::string callsign,
-                    const MWAVAprs::Location location,
+                    const Aprs::Location location,
                     const std::string out_file_path);
 
 }  // namespace MWAVAprs

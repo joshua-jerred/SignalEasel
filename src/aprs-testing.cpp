@@ -9,16 +9,17 @@ int main() {
   float longitude = -72.75;
   int altitude = 1234;
   float speed = 36.2;  // knots
-  int course = 88;   // course
+  int course = 88;     // course
 
-  MWAVAprs::Location loc = {
+  Aprs::Location loc = {
+      .callsign = callsign,
       .ssid = ssid,
       .time_code = {time_code},
       .latitude = latitude,
       .longitude = longitude,
       .altitude = altitude,
       .speed = speed,
-      .symbol_table = MWAVAprs::Location::SymbolTable::PRIMARY,
+      .symbol_table = Aprs::Location::SymbolTable::PRIMARY,
       .symbol = symbol[0],
       .course = course,
   };

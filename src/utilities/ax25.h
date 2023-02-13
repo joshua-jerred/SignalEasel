@@ -12,8 +12,8 @@
 
 #include <stdint.h>
 
-#include <vector>
 #include <iostream>
+#include <vector>
 
 struct AX25UiFrame {
   const uint8_t flag = 0x7E;
@@ -71,6 +71,5 @@ std::ostream& operator<<(std::ostream& os, const AX25UiFrame& frame) {
   os << "0x" << std::hex << (int)frame.flag2 << std::endl;
   return os;
 }
-
 
 #endif  // AX25_H_

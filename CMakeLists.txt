@@ -21,7 +21,7 @@ add_executable(commandline
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/aprs.cpp
 )
 
 add_executable(aprs-testing
@@ -32,7 +32,7 @@ add_executable(aprs-testing
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/aprs.cpp
 )
 
 #add_executable(audio-in-test

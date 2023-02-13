@@ -27,37 +27,48 @@ struct AX25UiFrame {
   const uint8_t flag2 = 0x7E;
 };
 
-// Print overloads
 std::ostream& operator<<(std::ostream& os, const AX25UiFrame& frame) {
   os << "AX25 Frame: " << std::endl;
-  os << "  Destination Address: ";
-  for (auto byte : frame.destination_address) {
-    os << std::hex << (int)byte << " ";
+
+  os << "0x" << std::hex << (int)frame.flag;
+  std::cout << "|--|";
+  for (int i = 0; i < 7; i++) {
+    os << (char)(frame.destination_address[i] >> 1);
   }
-  os << std::endl;
-  os << "  Source Address: ";
-  for (auto byte : frame.source_address) {
-    os << std::hex << (int)byte << " ";
+
+  std::cout << "|--|";
+
+  for (int i = 0; i < 7; i++) {
+    os << (char)(frame.source_address[i] >> 1);
   }
-  os << std::endl;
-  os << "  Digipeater Addresses: ";
-  for (auto byte : frame.digipeater_addresses) {
-    os << std::hex << (int)byte << " ";
+
+  std::cout << "|--|";
+
+  for (unsigned int i = 0; i < frame.digipeater_addresses.size(); i++) {
+    os << (char)(frame.digipeater_addresses[i] >> 1);
   }
-  os << std::endl;
-  os << "  Control: " << std::hex << (int)frame.control << std::endl;
-  os << "  Protocol ID: " << std::hex << (int)frame.protocol_id << std::endl;
-  os << "  Information: ";
-  for (auto byte : frame.information) {
-    os << std::hex << (int)byte << " ";
+
+  std::cout << "|--|";
+
+  os << "0x" << std::hex << (int)frame.control;
+
+  std::cout << "|--|";
+
+  os << "0x" << std::hex << (int)frame.protocol_id;
+  std::cout << std::endl;
+
+  for (unsigned int i = 0; i < frame.information.size(); i++) {
+    os << (char)(frame.information[i] >> 1);
   }
-  os << std::endl;
-  os << "  FCS: ";
-  for (auto byte : frame.fcs) {
-    os << std::hex << (int)byte << " ";
-  }
-  os << std::endl;
-  os << "  Flag: " << std::hex << (int)frame.flag2 << std::endl;
+
+  std::cout << std::endl;
+
+  os << "0x" << std::hex << (int)frame.fcs[0] << " 0x" << std::hex
+     << (int)frame.fcs[1];
+
+  std::cout << "|--|";
+
+  os << "0x" << std::hex << (int)frame.flag2 << std::endl;
   return os;
 }
 

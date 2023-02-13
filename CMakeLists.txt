@@ -24,22 +24,30 @@ add_executable(commandline
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
 )
 
-add_executable(audio-in-test
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp
-)
-
-add_executable(aprs-test
+add_executable(aprs-testing
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/aprs-testing.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/wavgen.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
 )
 
-find_path(PULSEAUDIO_INCLUDE_DIR
-    NAMES pulse/pulseaudio.h
-)
+#add_executable(audio-in-test
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp
+#)
 
-find_library(PULSEAUDIO_LIBRARY
-    NAMES pulse
-)
+#add_executable(aprs-test
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
+#)
 
-include_directories(${PULSEAUDIO_INCLUDE_DIRS})
-
-target_link_libraries(audio-in-test pulse-simple pulse)
+#find_path(PULSEAUDIO_INCLUDE_DIR
+#    NAMES pulse/pulseaudio.h
+#)
+#find_library(PULSEAUDIO_LIBRARY
+#    NAMES pulse
+#)
+#include_directories(${PULSEAUDIO_INCLUDE_DIRS})
+#target_link_libraries(audio-in-test pulse-simple pulse)

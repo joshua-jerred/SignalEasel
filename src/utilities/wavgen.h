@@ -13,6 +13,10 @@ public:
     void addSample(double sample);
     bool done();
 
+    int getSampleRate() const { return sample_rate_; }
+    int getBitsPerSample() const { return bits_per_sample_; }
+    int getMaxAmplitude() const { return max_amplitude_; }
+
 private:
     void writeBytes(int data, int size); // Write the bytes to the file. 
                        //Automatically takes care of 16 bytes to chars conversion

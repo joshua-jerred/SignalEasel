@@ -1,6 +1,7 @@
 #include "mwav.h"
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 #define OUTPUT_FILE "output.wav"
 

@@ -1,40 +1,44 @@
-#include "modulators.h"
-#include "ax25.h"
-
 #include <cmath>
 #include <iostream>
+#include <vector>
 
-bool modulators::APRSLocation(WavGen &wavgen, const Aprs::Location &location) {
-  // Create/encode the APRS position report
-  // Modulate the AX.25 frame
-}
-
+#include "ax25.h"
+#include "modulators.h"
 
 class APRS {
  public:
-  APRS() {}
+  APRS(WavGen &wavgen) : wavgen_(wavgen) {}
   ~APRS() {}
+
+  bool encodeAX25Frame() {
+    if (!frame_.encode(wavgen_)) {
+      return false;
+    }
+
+    return true;
+  }
 
   bool CreateAPRSPositionReport(std::string callsign, char symbol[2],
                                 char time_code[2], uint8_t ssid, float latitude,
                                 float longitude, int altitude, float speed,
                                 float course);
 
-  const AX25UiFrame& getFrame() const { return frame_; }
+  const AX25UiFrame &getFrame() const { return frame_; }
 
  private:
   bool setDestinationAddressField();
   bool setSourceAddressField(std::string callsign, uint8_t ssid);
   std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
 
+  WavGen &wavgen_;
   AX25UiFrame frame_ = {};
+  int preamble_size_ = 0;
 };
 
 bool APRS::CreateAPRSPositionReport(std::string callsign, char symbol[2],
-                                    char time_code[7], uint8_t ssid,
+                                    char time_code[6], uint8_t ssid,
                                     float latitude, float longitude,
                                     int altitude, float speed, float course) {
-
   if (callsign.length() > 6 || callsign.length() < 4) {
     return false;
   }
@@ -130,7 +134,7 @@ bool APRS::CreateAPRSPositionReport(std::string callsign, char symbol[2],
   }
 
   for (int i = 0; i < 9; i++) {
-    frame_.information.push_back(alt[i] << 1); // Altitude
+    frame_.information.push_back(alt[i] << 1);  // Altitude
   }
 
   return true;
@@ -191,3 +195,35 @@ bool APRS::setSourceAddressField(std::string callsign, uint8_t ssid) {
   // Encode SSID
 }
 */
+
+bool modulators::APRSLocation(WavGen &wavgen, const Aprs::Location &location) {
+  APRS aprs = APRS(wavgen);
+
+  if (location.time_code.size() != 6) {
+    return false;
+  }
+  char time_code[6];
+  for (int i = 0; i < 6; i++) {
+    if (location.time_code[i] < '0' || location.time_code[i] > '9') {
+      return false;
+    }
+    time_code[i] = location.time_code[i];
+  }
+
+  char sym[2];
+  sym[0] = location.symbol_table == Aprs::Location::SymbolTable::PRIMARY ? '/'
+                                                                         : '\\';
+  sym[1] = location.symbol;
+
+  if (!aprs.CreateAPRSPositionReport(location.callsign, sym, time_code,
+                                     location.ssid, location.latitude,
+                                     location.longitude, location.altitude,
+                                     location.speed, location.course)) {
+    return false;
+  }
+  // Modulate the AX.25 frame
+  if (!aprs.encodeAX25Frame()) {
+    return false;
+  }
+  return true;
+}

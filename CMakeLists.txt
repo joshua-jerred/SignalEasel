@@ -18,6 +18,7 @@ add_executable(commandline
     ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/wavgen.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/ax25.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
@@ -29,6 +30,7 @@ add_executable(aprs-testing
     ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/wavgen.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/ax25.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp

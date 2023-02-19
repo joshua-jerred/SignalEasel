@@ -11,27 +11,73 @@
 #define AX25_H_
 
 #include <stdint.h>
-
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "wavgen.h"
 
-struct AX25UiFrame {
-  const uint8_t flag = 0x7E;
-  uint8_t destination_address[7] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-  uint8_t source_address[7] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-  std::vector<uint8_t> digipeater_addresses;
+namespace AX25 {
+
+/**
+ * @brief The frame type of the AX-25 frame
+ * @details There are three main frame types: Information, Supervisory, and
+ * Unnumbered.
+ * 
+ * Currently only Unnumbered Information frames are supported.
+ */
+enum class FrameType { // Currently only UI is supported
+  UI = 0x03 // Unnumbered Information
+};
+
+
+struct Address {
+  Address(std::string address, uint8_t ssid_num, bool last_address = false);
+
+  bool valid = false;
+  uint8_t address[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; 
+  uint8_t ssid = 0x00;
+};
+
+class Frame {
+ public:
+  Frame();
+  
+  void addAddAddress(Address address);
+
+  bool Verify();
+
+  void print();
+
+ private:
+  std::vector<Address> addresses_ = {};
+  bool last_address_set_ = false;
+
+  const uint8_t flag_ = 0x7E;
   const uint8_t control = 0x03;
   const uint8_t protocol_id = 0xF0;
-  std::vector<uint8_t> information;
-  uint8_t fcs[2] = {0x00, 0x00};
-  const uint8_t flag2 = 0x7E;
+  std::vector<uint8_t> information = {};
+  uint16_t fcs = 0xFFFF;
 
-  bool encode(WavGen& wavgen);
   void calculateFcs();
 };
 
-std::ostream& operator<<(std::ostream& os, const AX25UiFrame& frame);
+class AX25Exception : public std::exception {
+  public:
+    AX25Exception(std::string message) : message_(message) {}
+
+    const char* what() const throw() {
+      return message_.c_str();
+    }
+
+ private:
+  std::string message_;
+};
+
+} // namespace AX25
+
+// Debugging
+std::ostream& operator<<(std::ostream& os, const AX25::Address& address);
+std::ostream& operator<<(std::ostream& os, const AX25::Frame& frame);
 
 #endif  // AX25_H_

@@ -73,7 +73,7 @@ bool MWAVAprs::encodeLocation(const std::string callsign,
 
   WavGen wavgen = WavGen(out_file_path);
   modulators::APRSLocation(wavgen, location);
-
+  wavgen.done();
   return true;
 }
 

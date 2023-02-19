@@ -24,6 +24,8 @@ class AFSK {
     bool encodeRawData(unsigned char *data, int length); // Probably an AX.25 frame (with bit stuffing)
     bool encodeAscii(const std::string &message);
 
+    bool encodeManualBitStream(BitStream &bitstream);
+
  private:
    WavGen &wavgen_;
    const MODE mode_; // Change this
@@ -50,6 +52,17 @@ bool AFSK::encodeRawData(unsigned char *data, int length) { // length is in byte
     bit_stream_.pushBufferToBitStream();
 
     encodeBitStream();
+    return true;
+}
+
+bool AFSK::encodeManualBitStream(BitStream &bitstream) {
+    bit_stream_ = bitstream;
+    std::cout << "Encoding manual bit stream" << std::endl;
+    if (bit_stream_.getBitStreamLength() == 0) {
+        return false;
+    }
+    encodeBitStream();
+    std::cout << "Done";
     return true;
 }
 
@@ -140,7 +153,9 @@ void AFSK::encodeBitStream() {
         double lhs = 2.0 * M_PI * (double)i * f_center_over_time;
         double rhs = 2.0 * M_PI * (double)m * f_delta_over_time;
         double wave = cos(lhs + rhs);
-        double sample = wave;
+
+        const double amplitude = 0.7;
+        double sample = wave * amplitude;
         if (i % 4 == 0) { // Only write every 4th sample, since we're using 4x oversampling for AFSK allignment
             wavgen_.addSample(sample);
         }
@@ -159,4 +174,9 @@ bool modulators::AfskAscii(WavGen &wavgen, const std::string &message) {
 bool modulators::AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &data) {
     AFSK afsk(wavgen, AFSK::MODE::AX25);
     return afsk.encodeRawData((unsigned char *)data.data(), data.size());
+}
+
+bool modulators::AfskBitStream(WavGen &wavgen, BitStream &bitstream) {
+    AFSK afsk(wavgen, AFSK::MODE::AX25);
+    return afsk.encodeManualBitStream(bitstream);
 }

@@ -25,17 +25,21 @@ add_executable(commandline
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/aprs.cpp
 )
 
-add_executable(aprs-testing
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/aprs-testing.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/wavgen.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+add_executable(ax25-test
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/ax25.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/aprs.cpp
 )
+
+#add_executable(aprs-testing
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/aprs-testing.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/wavgen.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/ax25.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
+#    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/aprs.cpp
+#)
 
 #add_executable(audio-in-test
 #    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp

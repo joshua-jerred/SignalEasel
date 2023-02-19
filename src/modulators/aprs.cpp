@@ -221,6 +221,9 @@ bool modulators::APRSLocation(WavGen &wavgen, const Aprs::Location &location) {
                                      location.speed, location.course)) {
     return false;
   }
+
+  std::cout << aprs.getFrame() << std::endl;
+
   // Modulate the AX.25 frame
   if (!aprs.encodeAX25Frame()) {
     return false;

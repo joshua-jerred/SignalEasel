@@ -5,6 +5,7 @@
 
 #include "wavgen.h"
 #include "aprs.h"
+#include "bit-stream.h"
 
 namespace modulators {
     
@@ -29,9 +30,11 @@ bool AfskAscii(WavGen &wavgen, const std::string &message);
 bool PskBinary(WavGen &wavgen, const std::vector<uint8_t> &message,
                const PskMode &mode, const PskSymbolRate &sym_rate);
 
+bool APRSLocation(WavGen &wavgen, const Aprs::Location &location);
+
 bool AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &data);
 
-bool APRSLocation(WavGen &wavgen, const Aprs::Location &location);
+bool AfskBitStream(WavGen &wavgen, BitStream &bitstream);
 }  // namespace modulators
 
 #endif  // MODULATORS_H_

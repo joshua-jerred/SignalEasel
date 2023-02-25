@@ -33,33 +33,32 @@ enum class FrameType { // Currently only UI is supported
 
 struct Address {
   Address(std::string address, uint8_t ssid_num, bool last_address = false);
-
   bool valid = false;
   uint8_t address[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; 
   uint8_t ssid = 0x00;
+  
 };
 
 class Frame {
  public:
   Frame();
-  
-  void addAddAddress(Address address);
 
-  bool Verify();
+  void AddAddress(Address address);
+  void AddInformation(std::vector<uint8_t> information);
+  void BuildFrame();
 
-  void print();
+  void Print();
 
  private:
+
   std::vector<Address> addresses_ = {};
   bool last_address_set_ = false;
 
   const uint8_t flag_ = 0x7E;
-  const uint8_t control = 0x03;
-  const uint8_t protocol_id = 0xF0;
-  std::vector<uint8_t> information = {};
+  const uint8_t control_ = 0x03;
+  const uint8_t protocol_id_ = 0xF0;
+  std::vector<uint8_t> information_ = {};
   uint16_t fcs = 0xFFFF;
-
-  void calculateFcs();
 };
 
 class AX25Exception : public std::exception {
@@ -77,7 +76,32 @@ class AX25Exception : public std::exception {
 } // namespace AX25
 
 // Debugging
-std::ostream& operator<<(std::ostream& os, const AX25::Address& address);
-std::ostream& operator<<(std::ostream& os, const AX25::Frame& frame);
+std::ostream& operator<<(std::ostream& os, const AX25::Address& frame) {
+  for (int i = 0; i < 6; i++) {
+    if (frame.address[i] == 0x40) {
+      std::cout << "";
+    } else {
+      std::cout << (char)(frame.address[i] >> 1);
+    }
+  }
+
+  int ssid = (frame.ssid & 0b00011110) >> 1;
+  std::cout << "-" << ssid;
+
+  /*
+  std::cout << std::endl;
+
+  for (int i = 0; i < 6; i++) {
+    os << "0x";
+    os << std::uppercase << std::hex << std::setw(2) << std::setfill('0')
+       << (int)frame.address[i] << " ";
+  }
+
+  os << "0x";
+  os << std::uppercase << std::hex << std::setw(2) << std::setfill('0')
+     << (int)frame.ssid << std::endl;
+  */
+  return os;
+}
 
 #endif  // AX25_H_

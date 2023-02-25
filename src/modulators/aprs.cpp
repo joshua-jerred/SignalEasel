@@ -2,28 +2,21 @@
 #include <iostream>
 #include <vector>
 
-#include "ax25.h"
+//#include "ax25.h"
 #include "modulators.h"
+/*
 
 class APRS {
  public:
   APRS(WavGen &wavgen) : wavgen_(wavgen) {}
   ~APRS() {}
 
-  bool encodeAX25Frame() {
-    if (!frame_.encode(wavgen_)) {
-      return false;
-    }
-
-    return true;
-  }
+  bool encodeAX25Frame() {return false;}
 
   bool CreateAPRSPositionReport(std::string callsign, char symbol[2],
                                 char time_code[2], uint8_t ssid, float latitude,
                                 float longitude, int altitude, float speed,
                                 float course);
-
-  const AX25UiFrame &getFrame() const { return frame_; }
 
  private:
   bool setDestinationAddressField();
@@ -31,7 +24,6 @@ class APRS {
   std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
 
   WavGen &wavgen_;
-  AX25UiFrame frame_ = {};
   int preamble_size_ = 0;
 };
 
@@ -117,9 +109,9 @@ bool APRS::CreateAPRSPositionReport(std::string callsign, char symbol[2],
   frame_.information.push_back((0b00111010 + 33) << 1);
 
   // Comment (Max 40 chars)
-  /* From spec:
-    The comment may contain any printable ASCII characters (except | and ~,
-    which are reserved for TNC channel switching).*/
+  // From spec:
+  //  The comment may contain any printable ASCII characters (except | and ~,
+  //  which are reserved for TNC channel switching).
 
   // Altitude (Chap 6), Chapter 12, chapter 16 (status)
   // Altitude '/A=aaaaaa' in feet 001234 = 1234 feet
@@ -155,6 +147,8 @@ std::vector<uint8_t> APRS::base91Encode(int value, unsigned int num_bytes) {
 
   return encoded;
 }
+
+*/
 
 /*
 int main() {
@@ -197,36 +191,7 @@ bool APRS::setSourceAddressField(std::string callsign, uint8_t ssid) {
 */
 
 bool modulators::APRSLocation(WavGen &wavgen, const Aprs::Location &location) {
-  APRS aprs = APRS(wavgen);
-
-  if (location.time_code.size() != 6) {
-    return false;
-  }
-  char time_code[6];
-  for (int i = 0; i < 6; i++) {
-    if (location.time_code[i] < '0' || location.time_code[i] > '9') {
-      return false;
-    }
-    time_code[i] = location.time_code[i];
-  }
-
-  char sym[2];
-  sym[0] = location.symbol_table == Aprs::Location::SymbolTable::PRIMARY ? '/'
-                                                                         : '\\';
-  sym[1] = location.symbol;
-
-  if (!aprs.CreateAPRSPositionReport(location.callsign, sym, time_code,
-                                     location.ssid, location.latitude,
-                                     location.longitude, location.altitude,
-                                     location.speed, location.course)) {
-    return false;
-  }
-
-  std::cout << aprs.getFrame() << std::endl;
-
-  // Modulate the AX.25 frame
-  if (!aprs.encodeAX25Frame()) {
-    return false;
-  }
-  return true;
+  (void)wavgen;
+  (void)location;
+  return false;
 }

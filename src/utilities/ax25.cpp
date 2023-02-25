@@ -105,6 +105,7 @@ void AX25::Frame::Print() {
   std::cout << std::endl;
 }
 
+/*
 int main() {
   std::cout << std::bitset<8>(0x55) << std::endl;
   std::cout << std::bitset<8>(reverse_bits(0x55)) << std::endl;
@@ -124,3 +125,4 @@ int main() {
 
   return 0;
 }
+*/

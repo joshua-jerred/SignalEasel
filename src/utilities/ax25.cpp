@@ -1,5 +1,3 @@
-#include "ax25.h"
-
 #include <iomanip>
 #include <iostream>
 #include <bitset>
@@ -7,7 +5,9 @@
 #include "bit-stream.h"
 #include "modulators.h"
 
-uint8_t reverse_bits(uint8_t byte) {
+#include "ax25.h"
+
+uint8_t AX25::reverse_bits(uint8_t byte) {
   static uint8_t nibble_flip[16] = {
       0x0, 0x8, 0x4, 0xC, 0x2, 0xA, 0x6, 0xE,
       0x1, 0x9, 0x5, 0xD, 0x3, 0xB, 0x7, 0xF,
@@ -105,24 +105,15 @@ void AX25::Frame::Print() {
   std::cout << std::endl;
 }
 
-/*
-int main() {
-  std::cout << std::bitset<8>(0x55) << std::endl;
-  std::cout << std::bitset<8>(reverse_bits(0x55)) << std::endl;
-
-
-  AX25::Address address1("KK7EWJ", 0, false);
-  AX25::Address address2("KD9GDC", 11, false);
-  AX25::Address address3("WIDE2", 1, true);
-  std::vector<uint8_t> information = {'T', 'e', 's', 't', '.'};
-
-  AX25::Frame frame;
-  frame.AddAddress(address1);
-  frame.AddAddress(address2);
-  frame.AddAddress(address3);
-  frame.AddInformation(information);
-  frame.Print();
-
-  return 0;
+std::ostream& operator<<(std::ostream& os, const AX25::Address& frame) {
+  for (int i = 0; i < 6; i++) {
+    if (frame.address[i] == 0x40) {
+      std::cout << "";
+    } else {
+      std::cout << (char)(frame.address[i] >> 1);
+    }
+  }
+  int ssid = (frame.ssid & 0b00011110) >> 1;
+  std::cout << "-" << ssid;
+  return os;
 }
-*/

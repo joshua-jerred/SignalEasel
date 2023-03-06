@@ -19,6 +19,8 @@
 
 namespace AX25 {
 
+uint8_t reverse_bits(uint8_t byte);
+
 /**
  * @brief The frame type of the AX-25 frame
  * @details There are three main frame types: Information, Supervisory, and
@@ -76,32 +78,7 @@ class AX25Exception : public std::exception {
 } // namespace AX25
 
 // Debugging
-std::ostream& operator<<(std::ostream& os, const AX25::Address& frame) {
-  for (int i = 0; i < 6; i++) {
-    if (frame.address[i] == 0x40) {
-      std::cout << "";
-    } else {
-      std::cout << (char)(frame.address[i] >> 1);
-    }
-  }
 
-  int ssid = (frame.ssid & 0b00011110) >> 1;
-  std::cout << "-" << ssid;
-
-  /*
-  std::cout << std::endl;
-
-  for (int i = 0; i < 6; i++) {
-    os << "0x";
-    os << std::uppercase << std::hex << std::setw(2) << std::setfill('0')
-       << (int)frame.address[i] << " ";
-  }
-
-  os << "0x";
-  os << std::uppercase << std::hex << std::setw(2) << std::setfill('0')
-     << (int)frame.ssid << std::endl;
-  */
-  return os;
-}
+std::ostream& operator<<(std::ostream& os, const AX25::Address& frame);
 
 #endif  // AX25_H_

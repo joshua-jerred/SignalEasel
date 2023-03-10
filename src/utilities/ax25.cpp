@@ -1,11 +1,10 @@
+#include "ax25.h"
+
+#include <bitset>
 #include <iomanip>
 #include <iostream>
-#include <bitset>
 
-#include "bit-stream.h"
 #include "modulators.h"
-
-#include "ax25.h"
 
 uint8_t AX25::reverse_bits(uint8_t byte) {
   static uint8_t nibble_flip[16] = {
@@ -28,7 +27,7 @@ AX25::Address::Address(std::string address, uint8_t ssid_num,
   }
 
   for (unsigned int i = 0; i < address.length(); i++) {
-    if ((address[i] < 0x41 || address[i] > 0x5A) && 
+    if ((address[i] < 0x41 || address[i] > 0x5A) &&
         (address[i] < 0x30 || address[i] > 0x39)) {
       throw AX25::AX25Exception("Invalid character in address: " +
                                 std::to_string(address[i]));
@@ -72,21 +71,67 @@ void AX25::Frame::AddInformation(std::vector<uint8_t> information) {
 }
 
 void AX25::Frame::BuildFrame() {
+  if (addresses_.size() < 2) {
+    throw AX25::AX25Exception("Need at least 2 addresses");
+  }
+  if (frame_built_) {
+    throw AX25::AX25Exception("Frame already built");
+  }
+
+  for (int i = 0; i < kPreambleLength; i++) {
+    AddByteToStream(flag_, false, false);
+  }
+
   // Build the frame and calculate the FCS
   uint8_t fcshi = 0xFF;
   uint8_t fcslo = 0xFF;
 
-  int one_count = 0;
-
   for (Address address : addresses_) {
     for (uint8_t byte : address.address) {
-      uint8_t rev_byte = reverse_bits(byte);
-      
+      AddByteToStream(byte);
     }
+    AddByteToStream(address.ssid);
   }
+
+  AddByteToStream(control_);
+  AddByteToStream(pid_);
+
+  for (uint8_t byte : information_) {
+    AddByteToStream(byte);
+  }
+
+  AddByteToStream(fcslo, true, false);
+  AddByteToStream(fcshi, true, false);
+
+  AddByteToStream(flag_, false, false);
+
+  bit_stream_.pushBufferToBitStream();
+  frame_built_ = true;
+}
+
+void AX25::Frame::AddByteToStream(uint8_t byte, bool reverse,
+                                  bool include_in_fcs) {
+  if (include_in_fcs) {
+    AddByteForFcs(byte);
+  }
+
+  uint8_t rev_byte[1] = {0};
+  if (reverse) {
+    rev_byte[0] = reverse_bits(byte);
+  } else {
+    rev_byte[0] = byte;
+  }
+  bit_stream_.addBits(rev_byte, 8);
+}
+
+void AX25::Frame::AddByteForFcs(uint8_t byte) {
+  (void)byte;
 }
 
 void AX25::Frame::Print() {
+  if (!frame_built_) {
+    throw AX25::AX25Exception("Frame not built");
+  }
   if (addresses_.size() < 2) {
     throw AX25::AX25Exception("Need at least 2 addresses");
   }
@@ -103,6 +148,14 @@ void AX25::Frame::Print() {
     std::cout << (char)byte;
   }
   std::cout << std::endl;
+}
+
+void AX25::Frame::PrintBitStream() {
+  if (!frame_built_) {
+    throw AX25::AX25Exception("Frame not built");
+  }
+
+  bit_stream_.dumpBitStream();
 }
 
 std::ostream& operator<<(std::ostream& os, const AX25::Address& frame) {

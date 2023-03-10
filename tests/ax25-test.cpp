@@ -20,7 +20,9 @@ int main() {
   frame.AddAddress(address2);
   frame.AddAddress(address3);
   frame.AddInformation(information);
+  frame.BuildFrame();
   frame.Print();
+  frame.PrintBitStream();
 
   return 0;
 }

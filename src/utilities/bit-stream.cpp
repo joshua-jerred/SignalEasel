@@ -89,7 +89,12 @@ int BitStream::peakNextBit() {
 void BitStream::dumpBitStream() {
     std::cout << "BitStream:" << std::endl;
     for (int i = 0; i < (int) bit_stream_.size(); i++) {
-        std::cout << "[" << i << "]" << std::bitset<32>(bit_stream_[i]) << std::endl;
+        std::cout << "[" << i << "]" 
+        << std::bitset<8>(bit_stream_[i] >> 24) << " "
+        << std::bitset<8>(bit_stream_[i] >> 16) << " "
+        << std::bitset<8>(bit_stream_[i] >> 8) << " "
+        << std::bitset<8>(bit_stream_[i])
+        << std::endl;
     }
 }
 

@@ -16,6 +16,7 @@
 #include <string>
 
 #include "wavgen.h"
+#include "bit-stream.h"
 
 namespace AX25 {
 
@@ -50,17 +51,26 @@ class Frame {
   void BuildFrame();
 
   void Print();
+  void PrintBitStream();
 
  private:
+  void AddByteToStream(uint8_t byte, bool reverse = true, bool include_in_fcs = true);
+  void AddByteForFcs(uint8_t byte);
 
-  std::vector<Address> addresses_ = {};
+  bool frame_built_ = false;
   bool last_address_set_ = false;
 
   const uint8_t flag_ = 0x7E;
+  std::vector<Address> addresses_ = {};
   const uint8_t control_ = 0x03;
-  const uint8_t protocol_id_ = 0xF0;
+  const uint8_t pid_ = 0xF0;
   std::vector<uint8_t> information_ = {};
-  uint16_t fcs = 0xFFFF;
+
+  uint8_t fcs_lo = 0xFF;
+  uint8_t fcs_hi = 0xFF;
+
+  const int kPreambleLength = 20;
+  BitStream bit_stream_ = BitStream();
 };
 
 class AX25Exception : public std::exception {

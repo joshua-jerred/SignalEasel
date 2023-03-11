@@ -103,7 +103,7 @@ void AFSK::encodeBitStream() {
     
     int current_bit = bit_stream_.popNextBit();
     if (mode_ == MODE::AX25) {
-        int current = 1; // 1 = mark, -1 = space
+        int current = -1; // 1 = mark, -1 = space
         while (bit_stream_.getBitStreamLength() >= 0) {
             if (!current_bit) { // 0
                 current = -current;
@@ -154,7 +154,7 @@ void AFSK::encodeBitStream() {
         double rhs = 2.0 * M_PI * (double)m * f_delta_over_time;
         double wave = cos(lhs + rhs);
 
-        const double amplitude = 0.7;
+        const double amplitude = 0.3;
         double sample = wave * amplitude;
         if (i % 4 == 0) { // Only write every 4th sample, since we're using 4x oversampling for AFSK allignment
             wavgen_.addSample(sample);

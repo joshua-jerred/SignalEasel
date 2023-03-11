@@ -34,6 +34,7 @@
 class BitStream {
   public:
     void dumpBitStream();
+    void dumpBitStreamAsHex();
     void addBits(unsigned char *data, int num_bits);
     int popNextBit();
     int peakNextBit();

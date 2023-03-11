@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <iostream>
 #include <bitset>
+#include <iomanip>
 
 #include "bit-stream.h"
 
@@ -94,6 +95,18 @@ void BitStream::dumpBitStream() {
         << std::bitset<8>(bit_stream_[i] >> 16) << " "
         << std::bitset<8>(bit_stream_[i] >> 8) << " "
         << std::bitset<8>(bit_stream_[i])
+        << std::endl;
+    }
+}
+
+void BitStream::dumpBitStreamAsHex() {
+    std::cout << "BitStream:" << std::endl;
+    for (int i = 0; i < (int) bit_stream_.size(); i++) {
+        std::cout << "[" << i << "]" 
+        << std::hex << std::setfill('0') << std::setw(2) << ((bit_stream_[i] >> 24) & 0xFF) << " "
+        << std::hex << std::setfill('0') << std::setw(2) << ((bit_stream_[i] >> 16) & 0xFF) << " "
+        << std::hex << std::setfill('0') << std::setw(2) << ((bit_stream_[i] >> 8) & 0xFF) << " "
+        << std::hex << std::setfill('0') << std::setw(2) << ((bit_stream_[i]) & 0xFF)
         << std::endl;
     }
 }

@@ -4,6 +4,8 @@
 #include <iomanip>
 
 #include "ax25.h"
+#include "modulators.h"
+#include "wavgen.h"
 
 int main() {
   std::cout << std::bitset<8>(0x55) << std::endl;
@@ -11,18 +13,24 @@ int main() {
 
 
   AX25::Address address1("KK7EWJ", 0, false);
-  AX25::Address address2("KD9GDC", 11, false);
-  AX25::Address address3("WIDE2", 1, true);
-  std::vector<uint8_t> information = {'T', 'e', 's', 't', '.'};
+  AX25::Address address2("KD9GDC", 11, true);
+  std::vector<uint8_t> information = {};
+
+  std::string message = "Hello World!";
+  for (unsigned int i = 0; i < message.length(); i++) {
+    information.push_back(message[i]);
+  }
 
   AX25::Frame frame;
   frame.AddAddress(address1);
   frame.AddAddress(address2);
-  frame.AddAddress(address3);
   frame.AddInformation(information);
   frame.BuildFrame();
-  frame.Print();
-  frame.PrintBitStream();
+  frame.Print(true);
+  frame.PrintBitStream(true);
 
+  WavGen wavgen("ax25-test.wav");
+  modulators::AfskBitStream(wavgen, frame.GetBitStream());
+  wavgen.done();
   return 0;
 }

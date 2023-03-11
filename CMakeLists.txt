@@ -26,6 +26,8 @@ add_executable(ax25-test
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/ax25-test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/ax25.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/wavgen.cpp
 )
 
 #add_executable(aprs-testing

@@ -190,7 +190,7 @@ bool CheckPacketData(const mwav::AprsRequiredFields &packet) {
   return true;
 }
 
-bool CheckLocationData(const mwav::AprsLocationData &location) {
+bool CheckLocationData(const mwav::aprs_packet::AprsLocationData &location) {
   // time code
   if (location.time_code.length() != 6) {
     throw mwav::Exception("Invalid time code length");
@@ -259,7 +259,7 @@ bool AddRequiredFields(const mwav::AprsRequiredFields &required_fields,
   return true;
 }
 
-bool AddLocationData(const mwav::AprsLocationData &location,
+bool AddLocationData(const mwav::aprs_packet::AprsLocationData &location,
                      const mwav::AprsRequiredFields &required_fields,
                      AX25::Frame &frame) {
   if (!CheckLocationData(location)) {
@@ -351,7 +351,7 @@ bool AddTelemetryData(const mwav::AprsTelemetryData &telemetry,
 
 bool modulators::AprsEncodePacket(
     WavGen &wavgen, const mwav::AprsRequiredFields &required_fields,
-    const mwav::AprsLocationData &location_data,
+    const mwav::aprs_packet::AprsLocationData &location_data,
     const mwav::AprsTelemetryData &telemetry_data) {
   AX25::Frame frame;
   AddRequiredFields(required_fields, frame);

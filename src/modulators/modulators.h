@@ -21,7 +21,7 @@ bool AfskEncodeBitStream(WavGen &wavgen, BitStream &bit_stream);
 
 bool AprsEncodePacket(WavGen &wavgen,
                   const mwav::AprsRequiredFields &required_fields,
-                  const mwav::AprsLocationData &location_data = {},
+                  const mwav::aprs_packet::AprsLocationData &location_data = {},
                   const mwav::AprsTelemetryData &telemetry_data = {});
                   
 bool EncodeMorse(WavGen &wavgen, std::string callsign);

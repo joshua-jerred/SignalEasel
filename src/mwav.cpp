@@ -39,9 +39,9 @@ bool mwav::EncodeString(const mwav::DataModulation modulation,
 
 // -------------------------------- APRS INPUT ---------------------------------
 bool mwav::EncodeAprs(
-    const mwav::AprsRequiredFields required_fields,
     const std::string out_file_path,
-    const mwav::AprsLocationData location,
+    const mwav::AprsRequiredFields required_fields,
+    const mwav::aprs_packet::AprsLocationData location,
     const mwav::AprsTelemetryData telemetry,
     const std::string morse_callsign) {
 

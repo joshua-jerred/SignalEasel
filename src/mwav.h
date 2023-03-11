@@ -38,6 +38,7 @@ struct AprsRequiredFields {
   bool telemetry_data = false;
 };
 
+namespace aprs_packet {
 struct AprsLocationData {
   std::string time_code = "";  // hhmmss
   float latitude = 0.0;        // Decimal degrees
@@ -49,6 +50,7 @@ struct AprsLocationData {
   // A comment to add to the end of the packet 
   std::string comment = ""; /** @todo max length of comment */
 };
+} // namespace mwav::aprs_packet
 
 struct AprsTelemetryData {};
 
@@ -118,9 +120,10 @@ bool EncodeRawData(const DataModulation modulation, const unsigned char* input,
 
 
 // APRS ---------------------------------------------------------------
-bool EncodeAprs(const AprsRequiredFields required_fields,
+bool EncodeAprs(
             const std::string out_file_path,
-            const AprsLocationData location = {},
+            const AprsRequiredFields required_fields,
+            const aprs_packet::AprsLocationData location = {},
             const AprsTelemetryData telemetry = {},
             const std::string morse_callsign = "NOCALLSIGN");
 }  // namespace mwav

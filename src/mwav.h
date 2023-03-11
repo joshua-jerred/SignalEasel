@@ -28,7 +28,7 @@ struct AprsRequiredFields {
   std::string source_address = "";  // 3 - 6 characters, your callsign
   uint8_t source_ssid = 0;          // 0 - 15
 
-  std::string destination_address = "APRS";  // Default is APRS
+  std::string destination_address = "APZMWV";  // Default is APRS
   uint8_t destination_ssid = 0;              // 0 - 15
 
   AprsSymbolTable symbol_table = AprsSymbolTable::PRIMARY;

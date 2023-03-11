@@ -8,7 +8,7 @@ int main() {
   mwav::AprsLocationData location_data;
   mwav::AprsTelemetryData telemetry_data;
   
-  required_fields.source_address = "KD9GDC";
+  required_fields.source_address = "TSTCLL";
   required_fields.source_ssid = 11;
   required_fields.symbol = 'O';
   required_fields.location_data = true;
@@ -20,7 +20,7 @@ int main() {
   location_data.altitude = 1234;
   location_data.speed = 36.2;
   location_data.course = 88;
-  location_data.comment = "Test comment";
+  location_data.comment = " Testing the MWAV APRS Implementation";
   
   mwav::EncodeAprs(required_fields, "aprs-test.wav", location_data, telemetry_data);
 }

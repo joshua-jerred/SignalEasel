@@ -333,6 +333,10 @@ bool AddLocationData(const mwav::AprsLocationData &location,
     info.push_back(alt[i]);
   }
 
+  for (char c : location.comment) {
+    info.push_back(c);
+  }
+
   frame.AddInformation(info);
   return true;
 }

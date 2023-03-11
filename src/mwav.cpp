@@ -34,6 +34,7 @@ bool mwav::EncodeString(const mwav::DataModulation modulation,
   } catch (const mwav::Exception &e) {
     throw mwav::Exception("Error encoding data: " + std::string(e.what()));
   }
+  return true;
 }
 
 // -------------------------------- APRS INPUT ---------------------------------

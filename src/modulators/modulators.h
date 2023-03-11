@@ -3,38 +3,29 @@
 
 #include <vector>
 
-#include "wavgen.h"
-#include "aprs.h"
 #include "bit-stream.h"
+#include "wavgen.h"
+#include "mwav.h"
 
 namespace modulators {
-    
-enum class PskMode { BPSK, QPSK };
+using mwav::DataModulation;
+bool PskEncodeBinary(WavGen &wavgen, const std::vector<uint8_t> &message,
+                  const mwav::DataModulation &modulation_type);
+                  
+bool PskEncodeAscii(WavGen &wavgen, const std::string &message,
+                 const mwav::DataModulation &modulation_type);
 
-enum class PskSymbolRate {
-  S125,
-  S250,
-  S500,
-  S1000  // BPSK only
-};
+bool AfskEncodeAscii(WavGen &wavgen, const std::string &message);
+bool AfskEncodeBinary(WavGen &wavgen, const std::vector<uint8_t> &data);
+bool AfskEncodeBitStream(WavGen &wavgen, BitStream &bit_stream);
 
+bool AprsEncodePacket(WavGen &wavgen,
+                  const mwav::AprsRequiredFields &required_fields,
+                  const mwav::AprsLocationData &location_data = {},
+                  const mwav::AprsTelemetryData &telemetry_data = {});
+                  
+bool EncodeMorse(WavGen &wavgen, std::string callsign);
+}
 
-
-bool Morse(WavGen &wavgen, std::string callsign);
-
-bool PskAscii(WavGen &wavgen, const std::string &message, const PskMode &mode,
-              const PskSymbolRate &sym_rate);
-
-bool AfskAscii(WavGen &wavgen, const std::string &message);
-
-bool PskBinary(WavGen &wavgen, const std::vector<uint8_t> &message,
-               const PskMode &mode, const PskSymbolRate &sym_rate);
-
-bool APRSLocation(WavGen &wavgen, const Aprs::Location &location);
-
-bool AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &data);
-
-bool AfskBitStream(WavGen &wavgen, BitStream &bitstream);
-}  // namespace modulators
 
 #endif  // MODULATORS_H_

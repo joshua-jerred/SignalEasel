@@ -24,7 +24,7 @@ class AFSK {
     bool encodeRawData(unsigned char *data, int length); // Probably an AX.25 frame (with bit stuffing)
     bool encodeAscii(const std::string &message);
 
-    bool encodeManualBitStream(BitStream &bitstream);
+    bool encodeManualBitStream(BitStream &bit_stream);
 
  private:
    WavGen &wavgen_;
@@ -55,8 +55,8 @@ bool AFSK::encodeRawData(unsigned char *data, int length) { // length is in byte
     return true;
 }
 
-bool AFSK::encodeManualBitStream(BitStream &bitstream) {
-    bit_stream_ = bitstream;
+bool AFSK::encodeManualBitStream(BitStream &bit_stream) {
+    bit_stream_ = bit_stream;
     std::cout << "Encoding manual bit stream" << std::endl;
     if (bit_stream_.getBitStreamLength() == 0) {
         return false;
@@ -156,7 +156,7 @@ void AFSK::encodeBitStream() {
 
         const double amplitude = 0.3;
         double sample = wave * amplitude;
-        if (i % 4 == 0) { // Only write every 4th sample, since we're using 4x oversampling for AFSK allignment
+        if (i % 4 == 0) { // Only write every 4th sample, since we're using 4x oversampling for AFSK alignment
             wavgen_.addSample(sample);
         }
     }
@@ -166,17 +166,17 @@ bool AFSK::encodeAscii(const std::string &message) {
     return encodeRawData((unsigned char *)message.c_str(), message.length());
 }
 
-bool modulators::AfskAscii(WavGen &wavgen, const std::string &message) {
+bool modulators::AfskEncodeAscii(WavGen &wavgen, const std::string &message) {
     AFSK afsk(wavgen, AFSK::MODE::MINIMODEM);
     return afsk.encodeAscii(message);
 }
 
-bool modulators::AfskBinary(WavGen &wavgen, const std::vector<uint8_t> &data) {
+bool modulators::AfskEncodeBinary(WavGen &wavgen, const std::vector<uint8_t> &data) {
     AFSK afsk(wavgen, AFSK::MODE::AX25);
     return afsk.encodeRawData((unsigned char *)data.data(), data.size());
 }
 
-bool modulators::AfskBitStream(WavGen &wavgen, BitStream &bitstream) {
+bool modulators::AfskEncodeBitStream(WavGen &wavgen, BitStream &bit_stream) {
     AFSK afsk(wavgen, AFSK::MODE::AX25);
-    return afsk.encodeManualBitStream(bitstream);
+    return afsk.encodeManualBitStream(bit_stream);
 }

@@ -68,7 +68,7 @@ const MorseChar morse_chars[] = {
 
 
 
-bool modulators::Morse(WavGen &wavgen, std::string callsign) {
+bool modulators::EncodeMorse(WavGen &wavgen, std::string callsign) {
     if (callsign.size() < 4 || callsign.size() > 6) {
         return false;
     }

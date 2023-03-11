@@ -8,12 +8,8 @@
 #include "wavgen.h"
 
 int main() {
-  std::cout << std::bitset<8>(0x55) << std::endl;
-  std::cout << std::bitset<8>(AX25::reverse_bits(0x55)) << std::endl;
-
-
-  AX25::Address address1("KK7EWJ", 0, false);
-  AX25::Address address2("KD9GDC", 11, true);
+  AX25::Address address1("APRS", 0, false);
+  AX25::Address address2("TSTCAL", 11, true);
   std::vector<uint8_t> information = {};
 
   std::string message = "Hello World!";
@@ -30,7 +26,7 @@ int main() {
   frame.PrintBitStream(true);
 
   WavGen wavgen("ax25-test.wav");
-  modulators::AfskBitStream(wavgen, frame.GetBitStream());
+  modulators::AfskEncodeBitStream(wavgen, frame.GetBitStream());
   wavgen.done();
   return 0;
 }

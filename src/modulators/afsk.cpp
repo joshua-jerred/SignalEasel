@@ -57,12 +57,10 @@ bool AFSK::encodeRawData(unsigned char *data, int length) { // length is in byte
 
 bool AFSK::encodeManualBitStream(BitStream &bit_stream) {
     bit_stream_ = bit_stream;
-    std::cout << "Encoding manual bit stream" << std::endl;
     if (bit_stream_.getBitStreamLength() == 0) {
         return false;
     }
     encodeBitStream();
-    std::cout << "Done";
     return true;
 }
 

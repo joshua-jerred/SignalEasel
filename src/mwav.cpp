@@ -8,9 +8,20 @@
  * @version 0.1
  */
 
-#include "mwav-exception.h"
 #include "mwav.h"
+
 #include "modulators.h"
+#include "mwav-exception.h"
+
+void addCall(WavGen &wavgen, const std::string morse_callsign) {
+  if (morse_callsign != "NOCALLSIGN" &&
+      morse_callsign != "") {       // Callsign specified
+    wavgen.addSineWave(0, 0, 0.5);  // Add a 0.5 second pause
+    if (!modulators::EncodeMorse(wavgen, morse_callsign)) {
+      throw mwav::Exception("Failed to encode morse callsign.");
+    };
+  }
+}
 
 bool mwav::EncodeString(const mwav::DataModulation modulation,
                         const std::string input,
@@ -37,37 +48,129 @@ bool mwav::EncodeString(const mwav::DataModulation modulation,
   return true;
 }
 
-// -------------------------------- APRS INPUT ---------------------------------
+// -------------------------------- APRS ---------------------------------
+// Location
 bool mwav::EncodeAprs(
     const std::string out_file_path,
     const mwav::AprsRequiredFields required_fields,
-    const mwav::aprs_packet::AprsLocationData location,
-    const mwav::AprsTelemetryData telemetry,
+    const mwav::aprs_packet::CompressedPositionReport location,
     const std::string morse_callsign) {
-
-  (void) morse_callsign;
-
-  bool location_data = required_fields.location_data;
-  bool telemetry_data = required_fields.telemetry_data;
-
-  if (!location_data && !telemetry_data) {
-    throw mwav::Exception("No location or telemetry data specified.");
-  }
-
   WavGen wavgen = WavGen(out_file_path);
-  try {
-    modulators::AprsEncodePacket(wavgen, required_fields, location, telemetry);
-  } catch (mwav::Exception &e) {
-    throw mwav::Exception("Error encoding APRS packet: " + std::string(e.what()));
-  }
-
-  if (morse_callsign != "NOCALLSIGN" && morse_callsign != "") {  // Callsign specified
-    wavgen.addSineWave(0, 0, 0.5);                   // Add a 0.5 second pause
-    if (!modulators::EncodeMorse(wavgen, morse_callsign)) {
-      return false;
-    };
-  }
-  
+  modulators::AprsEncodePositionPacket(wavgen, required_fields, location);
+  addCall(wavgen, morse_callsign);
   wavgen.done();
   return true;
+}
+
+// Telemetry
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::Telemetry telem,
+                      const aprs_packet::TelemetryPacketType packet_type,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  if (packet_type == aprs_packet::TelemetryPacketType::DATA_REPORT) {
+    modulators::AprsEncodeTelemetryData(wavgen, required_fields, telem);
+  } else if (packet_type == aprs_packet::TelemetryPacketType::PARAM_NAME) {
+    modulators::AprsEncodeTelemetryParamName(wavgen, required_fields, telem);
+  } else if (packet_type == aprs_packet::TelemetryPacketType::PARAM_UNIT) {
+    modulators::AprsEncodeTelemetryParamUnits(wavgen, required_fields, telem);
+  } else if (packet_type == aprs_packet::TelemetryPacketType::PARAM_COEF) {
+    modulators::AprsEncodeTelemetryCoefs(wavgen, required_fields, telem);
+  } else if (packet_type ==
+             aprs_packet::TelemetryPacketType::BIT_SENSE_PROJ_NAME) {
+    modulators::AprsEncodeTelemetryBitSenseProjName(wavgen, required_fields,
+                                                    telem);
+  } else {
+    throw mwav::Exception("Invalid telemetry packet type.");
+  }
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return true;
+}
+
+// Message
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::Message message,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  modulators::AprsEncodeMessage(wavgen, required_fields, message);
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return true;
+}
+
+// Message Acknowledgement
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::MessageAck message_ack,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  mwav::aprs_packet::Message message = mwav::aprs_packet::Message();
+  message.addressee = message_ack.addressee;
+  int message_id_size = message_ack.message_id.size();
+  if (message_id_size < 1 || message_id_size < 5) {
+    mwav::Exception("Invalid message ID size.");
+  }
+  message.message = "ack" + message_ack.message_id;
+  modulators::AprsEncodeMessage(wavgen, required_fields, message);
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return true;
+}
+
+// Message No Acknowledgement
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::MessageNack message_no_ack,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  mwav::aprs_packet::Message message = mwav::aprs_packet::Message();
+  message.addressee = message_no_ack.addressee;
+  int message_id_size = message_no_ack.message_id.size();
+  if (message_id_size < 1 || message_id_size < 5) {
+    mwav::Exception("Invalid message ID size.");
+  }
+  message.message = "rej" + message_no_ack.message_id;
+  modulators::AprsEncodeMessage(wavgen, required_fields, message);
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return false;
+}
+
+// User Defined
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::UserDefined user_defined,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  modulators::AprsUserDefined(wavgen, required_fields, user_defined);
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return false;
+}
+
+// Experimental
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::Experimental experimental,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  modulators::AprsExperimental(wavgen, required_fields, experimental);
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return false;
+}
+
+// Invalid
+bool mwav::EncodeAprs(const std::string out_file_path,
+                      const AprsRequiredFields required_fields,
+                      const aprs_packet::Invalid invalid,
+                      const std::string morse_callsign) {
+  WavGen wavgen = WavGen(out_file_path);
+  modulators::AprsInvalidPacket(wavgen, required_fields, invalid);
+  addCall(wavgen, morse_callsign);
+  wavgen.done();
+  return false;
 }

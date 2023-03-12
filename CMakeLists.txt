@@ -11,9 +11,9 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/src/WavGen
 )
 
-add_executable(commandline
+add_executable(commandline-demo
     ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/commandline.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/examples/commandline-demo.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/WavGen/wavgen.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/ax25.cpp
@@ -26,7 +26,13 @@ add_executable(commandline
 add_executable(psk-example
     ${CMAKE_CURRENT_SOURCE_DIR}/examples/psk-example.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/mwav.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/WavGen/wavgen.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/psk.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/morse.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/bit-stream.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/aprs.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/ax25.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators/afsk.cpp
 )
 
 add_executable(ax25-example

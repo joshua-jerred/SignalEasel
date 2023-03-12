@@ -1,7 +1,5 @@
 
 #include <iostream>
-#include <bitset>
-#include <iomanip>
 
 #include "ax25.h"
 #include "modulators.h"

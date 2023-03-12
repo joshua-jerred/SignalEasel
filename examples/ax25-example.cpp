@@ -23,9 +23,8 @@ int main() {
   frame.AddInformation(information);
   frame.BuildFrame();
   frame.Print(true);
-  frame.PrintBitStream(true);
 
-  WavGen wavgen("ax25-test.wav");
+  WavGen wavgen("ax25-example.wav");
   modulators::AfskEncodeBitStream(wavgen, frame.GetBitStream());
   wavgen.done();
   return 0;

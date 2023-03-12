@@ -231,6 +231,7 @@ bool ValidateCoef(std::string coef) {
       throw mwav::Exception("Invalid character in coef: " + std::string(1, c));
     }
   }
+  return true;
 }
 
 bool ValidateAnalogTelem(mwav::aprs_packet::Telemetry::Analog value) {
@@ -242,9 +243,10 @@ bool ValidateAnalogTelem(mwav::aprs_packet::Telemetry::Analog value) {
     throw mwav::Exception("Invalid unit: " + value.unit);
   }
 
-  ValidateCoef(value.coef_a);
-  ValidateCoef(value.coef_b);
-  ValidateCoef(value.coef_c);
+  if (!ValidateCoef(value.coef_a) || !ValidateCoef(value.coef_b) ||
+      !ValidateCoef(value.coef_c)) {
+    throw mwav::Exception("Invalid coef");
+  }
 
   if (value.value.size() == 0 || value.value.size() > 3) {
     throw mwav::Exception("Invalid value: " + value.value);
@@ -322,7 +324,7 @@ bool modulators::AprsEncodeTelemetryData(
 }
 
 void AddTelemDestAddress(const mwav::aprs_packet::Telemetry &telem,
-                             std::vector<uint8_t> &info) {
+                         std::vector<uint8_t> &info) {
   std::string dest = telem.telem_destination_address;
   info.push_back(':');
   for (unsigned int i = 0; i < 9; i++) {
@@ -449,7 +451,7 @@ bool modulators::AprsEncodeTelemetryParamUnits(
 }
 
 bool AddParamCoefs(mwav::aprs_packet::Telemetry::Analog data,
-                      std::vector<uint8_t> &info, bool first = false) {
+                   std::vector<uint8_t> &info, bool first = false) {
   if (!ValidateAnalogTelem(data)) {
     return false;
   }
@@ -480,10 +482,8 @@ bool modulators::AprsEncodeTelemetryCoefs(
   info.push_back('N');
   info.push_back('S');
   info.push_back('.');
-  if (!AddParamCoefs(telem.A1, info, true) ||
-      !AddParamCoefs(telem.A2, info) ||
-      !AddParamCoefs(telem.A3, info) ||
-      !AddParamCoefs(telem.A4, info) ||
+  if (!AddParamCoefs(telem.A1, info, true) || !AddParamCoefs(telem.A2, info) ||
+      !AddParamCoefs(telem.A3, info) || !AddParamCoefs(telem.A4, info) ||
       !AddParamCoefs(telem.A5, info)) {
     return false;
   }

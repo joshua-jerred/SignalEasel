@@ -1,3 +1,6 @@
 [submodule "src/WavGen"]
 	path = src/WavGen
 	url = git@github.com:joshua-jerred/WavGen.git
+[submodule "src/SSTV-Image-Tools"]
+	path = src/SSTV-Image-Tools
+	url = git@github.com:joshua-jerred/SSTV-Image-Tools.git

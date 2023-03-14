@@ -2,11 +2,16 @@
 #define MWAV_H_
 
 #include <exception>
+#include <string>
 #include <vector>
 
 #include "wavgen.h"
 
 namespace mwav {
+
+namespace constants {
+  const double kAmplitude = 0.7;
+}
 // -----------------------------------------------------------------------------
 // Structs
 // -----------------------------------------------------------------------------
@@ -96,7 +101,7 @@ struct Telemetry {
   // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
   std::string project_title = "";  // 0-23 characters
 
-  std::string telem_destination_address = "   "; // between 3 and 9 chars
+  std::string telem_destination_address = "   ";  // between 3 and 9 chars
 
   struct Analog {
     std::string value = "";
@@ -197,7 +202,7 @@ bool EncodeString(const DataModulation modulation, const std::string input,
  * @return false - Failure
  * @exception mwav::Exception
  */
-bool EncodeRawData(const DataModulation modulation, const unsigned char* input,
+bool EncodeRawData(const DataModulation modulation, const unsigned char *input,
                    const int input_length, const std::string out_file_path,
                    const std::string callsign = "NOCALLSIGN");
 
@@ -251,6 +256,26 @@ bool EncodeAprs(const std::string out_file_path,
                 const AprsRequiredFields required_fields,
                 const aprs_packet::Invalid invalid_packet,
                 const std::string morse_callsign = "NOCALLSIGN");
+
+#if SSTV_ENABLED
+
+enum class Sstv_Mode {
+  ROBOT_36,
+  ROBOT_72  // Currently not supported
+};
+
+bool EncodeSSTV(
+    const std::string &out_file_path, 
+    const std::string &input_image_path,
+    const bool save_out_image = false,
+    const std::string &callsign = "NOCALLSIGN",
+    const Sstv_Mode mode = Sstv_Mode::ROBOT_36,
+    const std::vector<std::string> &comments = std::vector<std::string>(),
+    std::string out_image_path = "",
+    const bool morse_callsign = false
+    );
+
+#endif  // SSTV_ENABLED
 
 }  // namespace mwav
 

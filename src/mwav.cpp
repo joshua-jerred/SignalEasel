@@ -23,6 +23,10 @@ void addCall(WavGen &wavgen, const std::string morse_callsign) {
   }
 }
 
+/** @todo need to check return value of the modulators functions */
+
+// -------------------------------- PSK/AFSK ---------------------------------
+
 bool mwav::EncodeString(const mwav::DataModulation modulation,
                         const std::string input,
                         const std::string out_file_path,
@@ -136,7 +140,7 @@ bool mwav::EncodeAprs(const std::string out_file_path,
   modulators::AprsEncodeMessage(wavgen, required_fields, message);
   addCall(wavgen, morse_callsign);
   wavgen.done();
-  return false;
+  return true;
 }
 
 // User Defined
@@ -148,7 +152,7 @@ bool mwav::EncodeAprs(const std::string out_file_path,
   modulators::AprsUserDefined(wavgen, required_fields, user_defined);
   addCall(wavgen, morse_callsign);
   wavgen.done();
-  return false;
+  return true;
 }
 
 // Experimental
@@ -160,7 +164,7 @@ bool mwav::EncodeAprs(const std::string out_file_path,
   modulators::AprsExperimental(wavgen, required_fields, experimental);
   addCall(wavgen, morse_callsign);
   wavgen.done();
-  return false;
+  return true;
 }
 
 // Invalid
@@ -172,5 +176,41 @@ bool mwav::EncodeAprs(const std::string out_file_path,
   modulators::AprsInvalidPacket(wavgen, required_fields, invalid);
   addCall(wavgen, morse_callsign);
   wavgen.done();
-  return false;
+  return true;
 }
+
+// ------------------------------- SSTV ---------------------------------
+#if SSTV_ENABLED
+
+bool mwav::EncodeSSTV(const std::string &out_file_path,
+                      const std::string &input_image_path,
+                      const bool save_out_image,
+                      const std::string &callsign, 
+                      const mwav::Sstv_Mode mode,
+                      const std::vector<std::string> &comments,
+                      std::string out_image_path,
+                      const bool morse_callsign) {
+  if (callsign.size() > 10) { /** @todo Arbitrary, needs to be changed later */
+    throw mwav::Exception("Callsign too long.");
+  }
+  if (comments.size() > 40) { /** @todo Arbitrary, needs to be changed later */
+    throw mwav::Exception("Comments vector too long.");
+  }
+
+  for (std::string comment : comments) {
+    if (comment.size() > 15) { /** @todo Arbitrary, needs to be changed later */
+      throw mwav::Exception("Comment too long." + comment);
+    }
+  }
+
+  WavGen wavgen = WavGen(out_file_path);
+  modulators::SstvEncode(wavgen, input_image_path, callsign, mode, comments,
+                         out_image_path, save_out_image);
+  if (morse_callsign) {
+    addCall(wavgen, callsign);
+  }
+  wavgen.done();
+  return true;
+}
+
+#endif

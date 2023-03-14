@@ -10,7 +10,7 @@
 namespace mwav {
 
 namespace constants {
-  const double kAmplitude = 0.7;
+  const double kAmplitude = 0.2;
 }
 // -----------------------------------------------------------------------------
 // Structs

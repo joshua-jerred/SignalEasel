@@ -203,7 +203,7 @@ bool mwav::EncodeSSTV(const std::string &out_file_path,
     }
   }
 
-  WavGen wavgen = WavGen(out_file_path);
+  WavGen wavgen = WavGen(out_file_path, 48000); // 48 kHz, divisible by robot sync times
   modulators::SstvEncode(wavgen, input_image_path, callsign, mode, comments,
                          out_image_path, save_out_image);
   if (morse_callsign) {

@@ -18,7 +18,10 @@
 class RobotSstv {
  public:
   RobotSstv(WavGen &wavgen, SstvImage &image, const mwav::Sstv_Mode mode)
-      : wavgen_(wavgen), image_(image), mode(mode), sample_rate_(wavgen.getSampleRate()) {
+      : wavgen_(wavgen),
+        image_(image),
+        mode(mode),
+        sample_rate_(wavgen.getSampleRate()) {
     switch (mode) {
       // case mwav::Sstv_Mode::ROBOT_12:
       //   color_format_ = ColorFormat::_4_2_0_;
@@ -50,6 +53,7 @@ class RobotSstv {
 
   void Encode() {
     for (int i = 0; i < num_of_lines_; i++) {
+      // for (int i = 0; i < 1; i++) {
       ReadImageLine(i);
       EncodeScanLine(i);
     }
@@ -98,9 +102,11 @@ class RobotSstv {
 
   void EncodeScanLine(int line_number) {
     bool even_line = line_number % 2 == 0;
+    // bool even_line = true;
 
     // Start of Line
     Pulse(kSyncPulseLength_, kSyncPulseFrequency_);  // Sync Pulse
+
     Pulse(kSyncPorchLength_, kSyncPorchFrequency_);  // Sync Porch
 
     // Y Scan Line
@@ -126,39 +132,48 @@ class RobotSstv {
    * @param frequency in Hz
    */
   void Pulse(const double length, const int frequency) {
-    int num_of_samples = (int)((length * (double)sample_rate_) / 1000.0);
-    wavgen_.addSineWaveSamples(frequency, mwav::constants::kAmplitude, num_of_samples); 
+    int num_of_samples = std::ceil(((length / 1000.0) * (double)sample_rate_));
+    wavgen_.addSineWaveSamples(frequency, mwav::constants::kAmplitude,
+                               num_of_samples);
   }
 
   void WriteBuffer(const double total_time, RobotSstv::ColorType ycbcr_colors) {
     if (total_time <= 0) {
       throw mwav::Exception("Invalid total time");
     }
-    int num_of_samples = (int)((total_time * (double)sample_rate_) / 1000.0);
-    int samples_per_pixel = num_of_samples / line_width_;
+    int num_of_samples = (int)((total_time / 1000.0) * (double)sample_rate_);
 
-    for (int i = 0; i < line_width_; i++) {
-      double color = 0;
-      switch (ycbcr_colors) {
-        case RobotSstv::ColorType::Y:
-          color = scan_line_buffer_[i].y;
-          break;
-        case RobotSstv::ColorType::Cb:
-          color = scan_line_buffer_[i].cb;
-          break;
-        case RobotSstv::ColorType::Cr:
-          color = scan_line_buffer_[i].cr;
-          break;
-        default:
-          throw mwav::Exception("Invalid color type");
+    int previous_pixel_index = -1;
+    int frequency = 0;
+    double color = 0;
+    for (int i = 0; i < num_of_samples; i++) {
+      int new_pixel_index =
+          (int)((double)i / (double)num_of_samples * (double)line_width_);
+      if (new_pixel_index != previous_pixel_index) {
+        previous_pixel_index = new_pixel_index;
+        switch (ycbcr_colors) {
+          case RobotSstv::ColorType::Y:
+            color = scan_line_buffer_[previous_pixel_index].y;
+            break;
+          case RobotSstv::ColorType::Cb:
+            color = scan_line_buffer_[previous_pixel_index].cb;
+            break;
+          case RobotSstv::ColorType::Cr:
+            color = scan_line_buffer_[previous_pixel_index].cr;
+            break;
+          default:
+            throw mwav::Exception("Invalid color type");
+        }
+        frequency = ColorToFreq(color);
       }
-      double frequency = ColorToFreq(color);
-      wavgen_.addSineWaveSamples(frequency, mwav::constants::kAmplitude, samples_per_pixel); 
+      wavgen_.addSineWaveSamples(frequency, mwav::constants::kAmplitude, 1);
     }
-  
   }
 
-  inline double ColorToFreq(const double color) {
+  inline int ColorToFreq(const double color) {
+    if (color < 0 || color > 255) {
+      throw mwav::Exception("Invalid color value" + std::to_string(color));
+    }
     return 1500.0 + (color * 3.1372549);
   }
 
@@ -179,6 +194,9 @@ class RobotSstv {
       y = 16.0 + (0.003906 * ((65.738 * r) + (129.057 * g) + (25.064 * b)));
       cb = 128.0 + (0.003906 * ((-37.945 * r) + (-74.494 * g) + (112.439 * b)));
       cr = 128.0 + (0.003906 * ((112.439 * r) + (-94.154 * g) + (-18.285 * b)));
+      // y = r;
+      // cr = 127;
+      // cb = b;
     }
   };
 
@@ -251,6 +269,7 @@ bool modulators::SstvEncode(WavGen &wavgen, const std::string &input_image_path,
     if (save_out_image) {
       image.Write();
     }
+    image.AdjustColors();
     RobotSstv robot(wavgen, image, mode);
     robot.Encode();
   } catch (SstvImageToolsException &e) {

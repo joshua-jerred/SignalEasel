@@ -1,7 +1,7 @@
 # MWAV
 A C++ library for generating WAV files for various digital modes including PSK31, AFSK1200, AX.25, APRS, and SSTV.
 
-This is currently a work in progress, but the modes listed below are fully functional. Everything is subject to change.
+This is currently a work in progress, but the modes listed below are fully functional. Everything is subject to change. It used my [WAV file generation library](https://github.com/joshua-jerred/WavGen) and my [SSTV Image Manipulation Tool](https://github.com/joshua-jerred/SSTV-Image-Tools)
 
 ## Supported modes
 - APRS (Compressed Location, Telemetry, Messages with ACK/REJ, User Defined, Invalid Format)
@@ -56,13 +56,28 @@ mwav::EncodeAprs("out-file.wav", required, location);
 ```
 
 ***
-## Installation
+## Building/Installing
 
 ***Important:*** SSTV requires that you have magick++ installed with the modules related to fonts and the image formats you want to use. This is ***optional***. If you want to use the other modes, then you do not need any 3rd party libraries. This library was developed on a Linux system but it may work on others.
 
-Download the repository and its submodules:
+Build:
+```bash
+# Clone the repository with submodules (WavGen and SSTV-Image-Tools)
+`git clone --recursive https://github.com/joshua-jerred/MWAV.git`
 
-`git clone --recursive`
+# Create and enter the build directory
+cd MWAV && mkdir build && cd build
+
+# Configure
+cmake -DSSTV_ENABLED=OFF .. # Disable SSTV if you don't have magick++ installed, default is ON
+
+# Build
+make MWAVlib
+
+# Install
+# Installation is currently not supported, the library is in this directory
+# The header file is in the include directory
+```
 
 ***
 
@@ -102,9 +117,6 @@ Raw binary data is read with minimodem perfectly.
 Source of the formulas:
 https://notblackmagic.com/bitsnpieces/afsk/
 
-
-So far my biggest challenge is the fact that most documentation contradicts what I've found so far.
-Even the AX.25 spec is incorrect in one spot, and it's the spec document.
 
 ## Helpful resources:
  - http://www.aprs.org/doc/APRS101.PDF

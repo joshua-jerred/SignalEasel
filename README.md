@@ -1,7 +1,7 @@
 # MWAV
 A C++ library for generating WAV files for various digital modes including PSK31, AFSK1200, AX.25, APRS, and SSTV.
 
-This is currently a work in progress, but the modes listed below are fully functional. Everything is subject to change. It used my [WAV file generation library](https://github.com/joshua-jerred/WavGen) and my [SSTV Image Manipulation Tool](https://github.com/joshua-jerred/SSTV-Image-Tools)
+This is currently a work in progress, but the modes listed below are fully functional. Everything is subject to change. It uses my [WAV file generation library](https://github.com/joshua-jerred/WavGen) and my [SSTV Image Manipulation Tool](https://github.com/joshua-jerred/SSTV-Image-Tools).
 
 ## Supported modes
 - APRS (Compressed Location, Telemetry, Messages with ACK/REJ, User Defined, Invalid Format)

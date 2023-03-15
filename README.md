@@ -63,7 +63,7 @@ mwav::EncodeAprs("out-file.wav", required, location);
 Build:
 ```bash
 # Clone the repository with submodules (WavGen and SSTV-Image-Tools)
-`git clone --recursive https://github.com/joshua-jerred/MWAV.git`
+git clone --recurse-submodules  https://github.com/joshua-jerred/MWAV.git
 
 # Create and enter the build directory
 cd MWAV && mkdir build && cd build

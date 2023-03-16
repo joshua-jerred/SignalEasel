@@ -72,15 +72,15 @@ struct UserDefined {
   unsigned char UserId = 0;  // One character User ID
   unsigned char UserDefPacketType =
       0;                      // One character User Defined Packet Type
-  std::vector<uint8_t> data;  // 1-252
+  std::vector<uint8_t> data = {};  // 1-252
 };
 
 struct Experimental {
-  std::vector<uint8_t> data;  // 1-253 bytes
+  std::vector<uint8_t> data = {};  // 1-253 bytes
 };
 
 struct Invalid {
-  std::vector<uint8_t> data;  // 1-254 bytes
+  std::vector<uint8_t> data = {};  // 1-254 bytes
 };
 
 enum class TelemetryPacketType {

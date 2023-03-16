@@ -45,7 +45,7 @@ double GetSymbolRate(const mwav::DataModulation modulate_type) {
     case mwav::DataModulation::BPSK_1000:
       return 1000.0;
     default:
-    throw mwav::Exception("Invalid modulation type for PSK");
+      throw mwav::Exception("Invalid modulation type for PSK");
   }
 }
 
@@ -53,10 +53,10 @@ void addVaricode(BitStream &bit_stream, char c) {
   uint16_t varicode = ascii_to_varicode[(int)c];
   unsigned char bits[2];
   int previous_bit = 1;
-
   for (int i = 0; i < 16; i++) {
     if (!(varicode & (1 << i)) && (!previous_bit)) {
-      bits[0] = i > 9 ? varicode >> 1 : varicode << (9 - i);
+      bits[0] = i > 9 ? varicode >> (i - 9)
+                      : varicode << (9 - i);  // i > 9 = more than 8 bits
       bits[1] = i > 9 ? varicode << (17 - i) : 0x00;
       bit_stream.addBits(bits, i - 1);
       break;
@@ -74,12 +74,14 @@ void addPreamble(BitStream &bit_stream, int preamble_length) {
 }
 
 void addPostamble(BitStream &bit_stream, int postamble_length, PskMode mode) {
-  const int fldigi_postamble_mode_ = 0;
+  const bool kFldigiMode = true; // Fldigi uses 0x00 for QPSK
   static unsigned char zeros[1] = {0x00};
   static unsigned char ones[1] = {0xFF};
+  postamble_length +=
+      32 - (bit_stream.getBitStreamLength() % 32);  // pad to 32 bits
   for (int i = 0; i < postamble_length; i++) {
     bit_stream.addBits(
-        (mode == PskMode::QPSK && fldigi_postamble_mode_ ? zeros : ones), 1);
+        ((mode == PskMode::QPSK && kFldigiMode) ? zeros : ones), 1);
   }
 }
 
@@ -150,9 +152,8 @@ void encodeQpsk(WavGen &wavgen, BitStream &bit_stream, PskWave &wave) {
   }
 }
 
-bool modulators::PskEncodeAscii(
-    WavGen &wavgen, const std::string &message,
-    const mwav::DataModulation &modulation_type) {
+bool modulators::PskEncodeAscii(WavGen &wavgen, const std::string &message,
+                                const mwav::DataModulation &modulation_type) {
   BitStream bit_stream = BitStream();
 
   const int kCarrierFreq = 1500;    // PSK Carrier Frequency in Hz

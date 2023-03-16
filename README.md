@@ -15,7 +15,7 @@ This is currently a work in progress, but the modes listed below are fully funct
 
 ***
 
-## Usage
+## Usage/Examples
 Everything is contained in the `mwav` namespace and header file.
 ``#include "mwav.h"``
 

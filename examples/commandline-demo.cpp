@@ -1,3 +1,7 @@
+/**
+ * OUT OF DATE, NEEDS TO BE UPDATED
+*/
+
 #include "mwav.h"
 #include <iostream>
 #include <string>

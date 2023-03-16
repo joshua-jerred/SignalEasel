@@ -244,8 +244,6 @@ bool modulators::SstvEncode(WavGen &wavgen, const std::string &input_image_path,
                             const std::vector<std::string> &comments,
                             std::string output_image_path,
                             const bool save_out_image) {
-  (void)comments;
-
   SstvImage::Mode sstv_image_mode;
   switch (mode) {
     case mwav::Sstv_Mode::ROBOT_36:
@@ -266,6 +264,9 @@ bool modulators::SstvEncode(WavGen &wavgen, const std::string &input_image_path,
     if (callsign != "NOCALLSIGN") {
       image.AddCallSign(callsign);
     }
+    if (comments.size() > 0) {
+      image.AddText(comments);
+    }
     if (save_out_image) {
       image.Write();
     }
@@ -277,6 +278,5 @@ bool modulators::SstvEncode(WavGen &wavgen, const std::string &input_image_path,
                           std::string(e.what()));
   }
 
-  std::cout << "SSTV Encode " << callsign << std::endl;
   return true;
 }

@@ -13,6 +13,8 @@
 #include "modulators.h"
 #include "mwav-exception.h"
 
+#include <iostream>
+
 void addCall(WavGen &wavgen, const std::string morse_callsign) {
   if (morse_callsign != "NOCALLSIGN" &&
       morse_callsign != "") {       // Callsign specified
@@ -35,17 +37,11 @@ bool mwav::EncodeString(const mwav::DataModulation modulation,
 
   try {
     if (modulation == mwav::DataModulation::AFSK1200) {
-      return modulators::AfskEncodeAscii(wavgen, input);
+      modulators::AfskEncodeAscii(wavgen, input);
     } else {
-      return modulators::PskEncodeAscii(wavgen, input, modulation);
+      modulators::PskEncodeAscii(wavgen, input, modulation);
     }
-
-    if (callsign != "NOCALLSIGN" && callsign != "") {  // Callsign specified
-      wavgen.addSineWave(0, 0, 0.5);                   // Add a 0.5 second pause
-      if (!modulators::EncodeMorse(wavgen, callsign)) {
-        return false;
-      };
-    }
+    addCall(wavgen, callsign);
   } catch (const mwav::Exception &e) {
     throw mwav::Exception("Error encoding data: " + std::string(e.what()));
   }
@@ -193,12 +189,12 @@ bool mwav::EncodeSSTV(const std::string &out_file_path,
   if (callsign.size() > 10) { /** @todo Arbitrary, needs to be changed later */
     throw mwav::Exception("Callsign too long.");
   }
-  if (comments.size() > 40) { /** @todo Arbitrary, needs to be changed later */
+  if (comments.size() > 20) { /** @todo Arbitrary, needs to be changed later */
     throw mwav::Exception("Comments vector too long.");
   }
 
   for (std::string comment : comments) {
-    if (comment.size() > 15) { /** @todo Arbitrary, needs to be changed later */
+    if (comment.size() > 40) { /** @todo Arbitrary, needs to be changed later */
       throw mwav::Exception("Comment too long." + comment);
     }
   }

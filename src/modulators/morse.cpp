@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 
+#include "mwav.h"
 #include "modulators.h"
 
 #define AUDIO_FREQ 1000 // Hz
@@ -82,8 +83,7 @@ bool modulators::EncodeMorse(WavGen &wavgen, std::string callsign) {
         } else if (c >= 'a' && c <= 'z') {
             morse_callsign += morse_chars[c - 'a' + 10].morse;
         } else {
-            std::cout << "Invalid character in callsign: " << c << std::endl; // DEBUG
-            return false;
+            throw mwav::MwavException("Invalid character in callsign");
         }
         morse_callsign += " ";
     }
@@ -103,7 +103,7 @@ bool modulators::EncodeMorse(WavGen &wavgen, std::string callsign) {
     }
 
     // DEBUG
-    std::cout << "Callsign: " << callsign << std::endl;
-    std::cout << "Morse: " << morse_callsign << std::endl;
+    // std::cout << "Callsign: " << callsign << std::endl;
+    // std::cout << "Morse: " << morse_callsign << std::endl;
     return true;
 }

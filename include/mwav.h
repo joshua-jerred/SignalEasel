@@ -5,8 +5,6 @@
 #include <string>
 #include <vector>
 
-#include "wavgen.h"
-
 namespace mwav {
 
 namespace constants {

@@ -11,7 +11,7 @@
 #include "mwav.h"
 
 #include "modulators.h"
-#include "mwav-exception.h"
+#include "mwav.h"
 
 #include <iostream>
 

@@ -3,7 +3,6 @@
 #include "bit-stream.h"
 #include "convolutional-code.h"
 #include "modulators.h"
-#include "mwav-exception.h"
 #include "varicode.h"
 
 struct PskWave {

@@ -11,8 +11,8 @@
 #include <string>
 #include <vector>
 
+#include "mwav.h"
 #include "modulators.h"
-#include "mwav-exception.h"
 #include "sstv-image-tools.h"
 
 class RobotSstv {

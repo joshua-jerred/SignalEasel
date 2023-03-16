@@ -30,7 +30,7 @@ endif()
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/WavGen)
 
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities
     ${CMAKE_CURRENT_SOURCE_DIR}/src/modulators
     ${CMAKE_CURRENT_SOURCE_DIR}/src/WavGen

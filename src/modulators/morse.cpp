@@ -83,7 +83,7 @@ bool modulators::EncodeMorse(WavGen &wavgen, std::string callsign) {
         } else if (c >= 'a' && c <= 'z') {
             morse_callsign += morse_chars[c - 'a' + 10].morse;
         } else {
-            throw mwav::MwavException("Invalid character in callsign");
+            throw mwav::Exception("Invalid character in callsign");
         }
         morse_callsign += " ";
     }

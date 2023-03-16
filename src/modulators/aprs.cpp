@@ -4,7 +4,6 @@
 
 #include "ax25.h"
 #include "modulators.h"
-#include "mwav-exception.h"
 #include "mwav.h"
 
 std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes) {

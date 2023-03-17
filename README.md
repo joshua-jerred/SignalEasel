@@ -86,7 +86,7 @@ make MWAVlib
 ```c++
 sudo apt-get update
 sudo apt-get install build-essential
-sudo apt-get install -y libjpeg62-dev libpng-dev libfreetype6-dev
+sudo apt-get install libjpeg62-dev libpng-dev libfreetype6-dev
 
 git clone https://github.com/ImageMagick/ImageMagick.git ImageMagick-7.1.0
 cd ImageMagick-7.1.0

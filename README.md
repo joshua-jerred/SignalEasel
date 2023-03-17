@@ -82,6 +82,8 @@ make MWAVlib
 ```
 
 ***
+
+```c++
 sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install -y libjpeg62-dev libpng-dev libfreetype6-dev
@@ -92,6 +94,8 @@ cd ImageMagick-7.1.0
 make -j8
 sudo make install
 sudo ldconfig # May need to do more for linking
+```
+
 ***
 
 ## Audio Samples

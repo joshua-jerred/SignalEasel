@@ -15,7 +15,12 @@ target_link_libraries(aprs-example MWAVlib)
 
 if (SSTV_ENABLED)
   add_executable(sstv-example ${EXAMPLES_DIR}/sstv-example.cpp)
+  add_executable(sstvgen ${EXAMPLES_DIR}/sstv-commandline.cpp)
+
   target_link_libraries(sstv-example MWAVlib)
+  target_link_libraries(sstvgen MWAVlib)
+
   target_link_libraries(sstv-example sstv-image-tools)
+  target_link_libraries(sstvgen sstv-image-tools)
   configure_file(${EXAMPLES_DIR}/test1.png ${CMAKE_CURRENT_BINARY_DIR}/test1.png COPYONLY)
 endif()

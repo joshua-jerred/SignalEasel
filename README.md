@@ -82,6 +82,17 @@ make MWAVlib
 ```
 
 ***
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install -y libjpeg62-dev libpng-dev libfreetype6-dev
+
+git clone https://github.com/ImageMagick/ImageMagick.git ImageMagick-7.1.0
+cd ImageMagick-7.1.0
+./configure --with-modules
+make -j8
+sudo make install
+sudo ldconfig # May need to do more for linking
+***
 
 ## Audio Samples
 https://user-images.githubusercontent.com/19292194/209236564-4de990d9-40b4-4785-bb48-aa3a5e986aa6.mp4

@@ -10,10 +10,10 @@
 
 #include "mwav.h"
 
+#include <iostream>
+
 #include "modulators.h"
 #include "mwav.h"
-
-#include <iostream>
 
 void addCall(WavGen &wavgen, const std::string morse_callsign) {
   if (morse_callsign != "NOCALLSIGN" &&
@@ -26,27 +26,6 @@ void addCall(WavGen &wavgen, const std::string morse_callsign) {
 }
 
 /** @todo need to check return value of the modulators functions */
-
-// -------------------------------- PSK/AFSK ---------------------------------
-
-bool mwav::EncodeString(const mwav::DataModulation modulation,
-                        const std::string input,
-                        const std::string out_file_path,
-                        const std::string callsign) {
-  WavGen wavgen = WavGen(out_file_path);
-
-  try {
-    if (modulation == mwav::DataModulation::AFSK1200) {
-      modulators::AfskEncodeAscii(wavgen, input);
-    } else {
-      modulators::PskEncodeAscii(wavgen, input, modulation);
-    }
-    addCall(wavgen, callsign);
-  } catch (const mwav::Exception &e) {
-    throw mwav::Exception("Error encoding data: " + std::string(e.what()));
-  }
-  return true;
-}
 
 // -------------------------------- APRS ---------------------------------
 // Location
@@ -180,12 +159,10 @@ bool mwav::EncodeAprs(const std::string out_file_path,
 
 bool mwav::EncodeSSTV(const std::string &out_file_path,
                       const std::string &input_image_path,
-                      const bool save_out_image,
-                      const std::string &callsign, 
+                      const bool save_out_image, const std::string &callsign,
                       const mwav::Sstv_Mode mode,
                       const std::vector<std::string> &comments,
-                      std::string out_image_path,
-                      const bool morse_callsign) {
+                      std::string out_image_path, const bool morse_callsign) {
   if (callsign.size() > 10) { /** @todo Arbitrary, needs to be changed later */
     throw mwav::Exception("Callsign too long.");
   }
@@ -199,7 +176,8 @@ bool mwav::EncodeSSTV(const std::string &out_file_path,
     }
   }
 
-  WavGen wavgen = WavGen(out_file_path, 48000); // 48 kHz, divisible by robot sync times
+  WavGen wavgen =
+      WavGen(out_file_path, 48000);  // 48 kHz, divisible by robot sync times
   modulators::SstvEncode(wavgen, input_image_path, callsign, mode, comments,
                          out_image_path, save_out_image);
   if (morse_callsign) {

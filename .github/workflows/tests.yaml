@@ -1,0 +1,42 @@
+name: MWAV Tests (C++ CI)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configure CMake
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+    - name: Build the MWAV library
+      run: |
+        cd build
+        make MWAVlib
+
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install GTest
+      run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+    - name: Configure CMake
+      run: |
+        mkdir build
+        cd build
+        cmake -DMWAV_UNIT_TESTS=ON ..
+    - name: Build Tests
+      run: |
+        cd build
+        make mwav_unit_tests
+    - name: Run Tests
+      run: |
+        cd build/tests
+        ./mwav_unit_tests

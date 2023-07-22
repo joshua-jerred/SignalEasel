@@ -1,6 +1,6 @@
 [submodule "src/WavGen"]
-	path = src/WavGen
+	path = lib/WavGen
 	url = https://github.com/joshua-jerred/WavGen.git
 [submodule "src/SSTV-Image-Tools"]
-	path = src/SSTV-Image-Tools
+	path = lib/SSTV-Image-Tools
 	url = https://github.com/joshua-jerred/SSTV-Image-Tools.git

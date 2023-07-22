@@ -57,6 +57,9 @@ void encodeString(Mode modulation_mode, const std::string &input,
                   const std::string &out_file_path,
                   const std::string &call_sign = "");
 
+bool decodeString(Mode modulation_mode, const std::string &in_file_path,
+                  std::string &output);
+
 /**
  * @brief Encode a raw binary array of data into BPSK/QPSK/AFSK1200 audio with
  * a morse code call sign at the start.

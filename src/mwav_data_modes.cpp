@@ -8,7 +8,8 @@
 
 #include <wav_gen.hpp>
 
-#include "data_modulation.hpp"
+#include "data_modes.hpp"
+#include "demodulators.hpp"
 #include "modulators.hpp"
 
 namespace mwav::data {
@@ -25,6 +26,17 @@ void encodeString(Mode modulation_mode, const std::string &input,
   }
   // addCall(wavgen, call_sign);
   (void)call_sign;
+}
+
+bool decodeString(Mode modulation_mode, const std::string &in_file_path,
+                  std::string &output) {
+  wavgen::Reader wavgen = wavgen::Reader(in_file_path);
+  if (modulation_mode == Mode::AFSK1200) {
+    return demodulators::afskDecodeAscii(wavgen, output);
+    return false;
+  } else {
+    return demodulators::pskDecodeAscii(wavgen, output, modulation_mode);
+  }
 }
 
 } // namespace mwav::data

@@ -33,9 +33,11 @@ endif()
 # MWavLib
 # --------------------------------
 add_library(MWavLib
-    ${MWAV_SRC}/data_modulation.cpp
+    ${MWAV_SRC}/mwav_data_modes.cpp
     ${MWAV_SRC}/modulators/afsk.cpp
     ${MWAV_SRC}/modulators/psk.cpp
+    ${MWAV_SRC}/demodulators/afsk.cpp
+    ${MWAV_SRC}/demodulators/psk.cpp
     ${MWAV_SRC}/utilities/bit-stream.cpp
 )
 target_link_libraries(MWavLib WavGen)

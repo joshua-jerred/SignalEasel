@@ -1,10 +1,10 @@
-#ifndef MODULATORS_H_
-#define MODULATORS_H_
+#ifndef MODULATORS_HPP_
+#define MODULATORS_HPP_
 
 #include <vector>
 
 #include "bit-stream.h"
-#include "data_modulation.hpp"
+#include "data_modes.hpp"
 #include "wav_gen.hpp"
 
 namespace modulators {

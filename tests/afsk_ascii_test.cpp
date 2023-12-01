@@ -9,9 +9,9 @@ const mwav::data::Mode kMode = mwav::data::Mode::AFSK1200;
 /**
  * @brief Encodes a string into an AFSK1200 signal/WAV file and then decodes it.
  */
-TEST(DataModulation, EncodeAndDecodeAsciiAFSK) {
+TEST(Afsk, EncodeAndDecodeAscii) {
   const std::string kOutFilePath = "test.wav";
-  std::string input = "UUUUUUUUUUUUHello World!\x04";
+  std::string input = "\x16\x16\x16\x16Hello World!\x04";
   std::string output;
 
   mwav::data::encodeString(kMode, input, kOutFilePath);
@@ -29,10 +29,18 @@ TEST(DataModulation, EncodeAndDecodeAsciiAFSK) {
  * @details 20 samples is enough to throw the signal off by 1/2 of a bit. This
  * should test the ability of the demodulator to sync to the signal.
  */
-TEST(DataModulation, DecodeWithSignalSkew) {
+TEST(Afsk, DecodeWithSignalSkew) {
   const std::string kInputFile = "afsk_timing_skew.wav";
   std::string output;
   mwav::data::decodeString(kMode, kInputFile, output);
 
   std::cout << output << std::endl;
 }
+
+// TEST(Afsk, WhiteNoise) {
+//   const std::string kInputFile = "white_noise.wav";
+//   std::string output;
+//   mwav::data::decodeString(kMode, kInputFile, output);
+
+//   std::cout << output << std::endl;
+// }

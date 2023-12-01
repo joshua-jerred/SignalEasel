@@ -91,7 +91,7 @@ void afskBaseBandToBitStream(std::vector<int8_t> &base_band,
   /// @brief The sample clock counts up to 40 and then resets.
   /// @details Symbols are 40 samples long. This clock is used to determine when
   /// to add a bit to the bit stream.
-  int8_t sample_clock = 0;
+  int32_t sample_clock = 0;
   /// @brief Used to detect the actual symbol boundary.
   int8_t previous_sample = 0;
 
@@ -99,22 +99,42 @@ void afskBaseBandToBitStream(std::vector<int8_t> &base_band,
   int32_t clock_skew_sum_of_squares = 0;
   int32_t clock_skew_count = 0;
 
-  constexpr int32_t kClockSkewVarianceThreshold = 100;
+  int32_t samples_since_last_boundary = 0;
+  int32_t samples_since_last_boundary_sum = 0;
+  int32_t num_boundaries = 0;
+  int32_t mean_samples_between_boundaries = 0;
+
+  constexpr double kClockSkewAlpha = 0.5;
+  double clock_skew_accumulator = 0;
+
+  constexpr int32_t kMinSamplesBetweenClockAdjustments = 10;
+  int32_t samples_since_last_clock_adjustment = 0;
 
   for (int8_t sample : base_band) {
     sample_clock++;
+    samples_since_last_clock_adjustment++;
 
-    // trigger a reading of the current symbol's value. True every 40 samples.
-    if (sample_clock >= static_cast<int8_t>(mwav::AFSK_SAMPLES_PER_SYMBOL)) {
+    // trigger a reading of the current symbol's value. True every 40
+    // samples.
+    if (sample_clock % static_cast<int32_t>(mwav::AFSK_SAMPLES_PER_SYMBOL) ==
+        0) {
       /// @todo some form of 'confidence rating' could be helpful here
       // int8_t bit = sample > 0 ? 0xff : 0;
       output_bit_stream.addBits((unsigned char *)&sample, 1);
       sample_clock = 0;
     }
 
+    samples_since_last_boundary++;
+
     // detect symbol boundary
     if (sample != previous_sample) {
-      int8_t timing_error_num_samples = sample_clock - 20;
+      num_boundaries++;
+      samples_since_last_boundary_sum += samples_since_last_boundary;
+      samples_since_last_boundary = 0;
+      mean_samples_between_boundaries =
+          samples_since_last_boundary_sum / num_boundaries;
+
+      int8_t timing_error_num_samples = (sample_clock % 40) - 20;
       bool ahead = timing_error_num_samples > 0;
       timing_error_num_samples = abs(timing_error_num_samples);
 
@@ -128,41 +148,86 @@ void afskBaseBandToBitStream(std::vector<int8_t> &base_band,
           (clock_skew_sum_of_squares / clock_skew_count) -
           (clock_skew_mean * clock_skew_mean);
 
+      clock_skew_accumulator =
+          (kClockSkewAlpha * static_cast<double>(timing_error_num_samples)) +
+          (1.0 - kClockSkewAlpha) * clock_skew_accumulator;
+
       std::cout << "(" << (ahead ? "+" : "-") << (int)timing_error_num_samples
                 << ", " << clock_skew_mean << ", " << clock_skew_variance
-                << ") ";
+                << ", " << mean_samples_between_boundaries << ", "
+                << clock_skew_accumulator << ") ";
     }
     previous_sample = sample;
+
+    if (clock_skew_accumulator > 7 && samples_since_last_clock_adjustment >
+                                          kMinSamplesBetweenClockAdjustments) {
+      samples_since_last_clock_adjustment = 0;
+      if (clock_skew_accumulator > 15) {
+        sample_clock += 15;
+      }
+    }
   }
   output_bit_stream.pushBufferToBitStream();
 }
 
-std::string afskBitStreamToAscii(BitStream &bit_stream) {
-  std::string output;
+bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
+  output.clear();
   const auto &bit_vector = bit_stream.getBitVector();
-  for (int i = 0; i < (int)bit_vector.size(); i++) {
-    uint32_t bits = bit_vector.at(i);
-    uint8_t byte = (bits >> 24) & 0xFF;
-    output += byte;
-    byte = (bits >> 16) & 0xFF;
-    output += byte;
-    byte = (bits >> 8) & 0xFF;
-    output += byte;
-    byte = (bits) & 0xFF;
-    output += byte;
+
+  // detect syn characters
+  int8_t char_offset = -1;
+  for (uint32_t word : bit_vector) {
+    for (int8_t i = 0; i < 32; i++) {
+      uint8_t byte = (word >> (24 - i)) & 0xFF;
+      if (byte == 0x16) {
+        char_offset = i;
+        break;
+      }
+    }
   }
-  return output;
+
+  if (char_offset == -1) {
+    std::cout << "Could not find syn character" << std::endl;
+    return false;
+  }
+
+  std::cout << std::endl << "char_offset: " << (int)char_offset << std::endl;
+
+  size_t num_bits = bit_stream.getBitStreamLength();
+  while (char_offset > 0) {
+    bit_stream.popNextBit();
+    char_offset--;
+  }
+
+  while (num_bits > 0) {
+    uint8_t byte = 0;
+    int8_t bit_buffer = 0;
+    for (int8_t i = 0; i < 8; i++) {
+      bit_buffer = bit_stream.popNextBit();
+      if (bit_buffer == -1) {
+        std::cout << "Ran out of bits" << std::endl;
+        return true;
+      }
+      byte = byte << 1;
+      byte |= bit_buffer;
+    }
+    output += byte;
+    num_bits -= 8;
+  }
+
+  return true;
 }
 
 bool demodulators::afskDecodeAscii(wavgen::Reader &wavgen_reader,
                                    std::string &message) {
   std::vector<int8_t> base_band_signal;
   BitStream bit_stream;
+  bool success = false;
 
   afskSignalToBaseBand(wavgen_reader, base_band_signal);
   afskBaseBandToBitStream(base_band_signal, bit_stream);
-  message = afskBitStreamToAscii(bit_stream);
+  success = afskBitStreamToAscii(bit_stream, message);
   std::cout << std::endl << message << std::endl;
 
-  return false;
+  return success;
 }

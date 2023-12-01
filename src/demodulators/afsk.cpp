@@ -12,6 +12,7 @@
 
 #include "bit-stream.h"
 #include "demodulators.hpp"
+#include "mwav_constants.hpp"
 
 /**
  * @brief Takes the raw signal and converts it into the FSK baseband signal.
@@ -84,16 +85,52 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
   }
 }
 
+void afskBaseBandToBitStream(std::vector<int8_t> &base_band,
+                             BitStream &output_bit_stream) {
+  int8_t sample_count = 0;
+  for (int8_t sample : base_band) {
+    sample_count++;
+    if (sample_count >= static_cast<int8_t>(mwav::AFSK_SAMPLES_PER_SYMBOL)) {
+      int8_t bit = sample > 0 ? 0xff : 0;
+      output_bit_stream.addBits((unsigned char *)&bit, 1);
+      sample_count = 0;
+    }
+  }
+  output_bit_stream.pushBufferToBitStream();
+}
+
+std::string afskBitStreamToAscii(BitStream &bit_stream) {
+  std::string output;
+  const auto &bit_vector = bit_stream.getBitVector();
+  for (int i = 0; i < (int)bit_vector.size(); i++) {
+    uint32_t bits = bit_vector.at(i);
+    uint8_t byte = (bits >> 24) & 0xFF;
+    output += byte;
+    byte = (bits >> 16) & 0xFF;
+    output += byte;
+    byte = (bits >> 8) & 0xFF;
+    output += byte;
+    byte = (bits) & 0xFF;
+    output += byte;
+  }
+  return output;
+}
+
 bool demodulators::afskDecodeAscii(wavgen::Reader &wavgen_reader,
                                    std::string &message) {
   std::vector<int8_t> base_band_signal;
-  afskSignalToBaseBand(wavgen_reader, base_band_signal);
+  BitStream bit_stream;
 
-  std::ofstream out_file("out.txt");
-  for (double d : base_band_signal) {
-    std::clamp(d, 0.0, 1.0);
-    out_file << d << std::endl;
-  }
+  afskSignalToBaseBand(wavgen_reader, base_band_signal);
+  afskBaseBandToBitStream(base_band_signal, bit_stream);
+  message = afskBitStreamToAscii(bit_stream);
+
+  // bit_stream.dumpBitStreamAsHex();
+  // std::ofstream out_file("out.txt");
+  // for (double d : base_band_signal) {
+  //   std::clamp(d, 0.0, 1.0);
+  //   out_file << d << std::endl;
+  // }
 
   (void)message;
   return false;

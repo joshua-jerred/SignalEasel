@@ -68,7 +68,7 @@ if (MWAV_UNIT_TESTS)
     add_subdirectory(${MWAV_TESTS})
 endif()
 
-#add_executable(audio-in-test
+# add_executable(audio-in-test
 #    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp
 #)
 

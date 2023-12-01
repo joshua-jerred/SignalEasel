@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <cmath>
 #include <fstream>
+#include <iostream>
 
 #include "bit-stream.h"
 #include "demodulators.hpp"
@@ -74,8 +75,8 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
 
     double s1 = mark_i_integ * mark_i_integ + mark_q_integ * mark_q_integ;
     double s2 = space_i_integ * space_i_integ + space_q_integ * space_q_integ;
-    int result = s1 - s2;
-
+    double result = s1 - s2;
+    std::cout << result << " ";
     if (result > 0) {
       result = 1;
     } else {
@@ -125,13 +126,5 @@ bool demodulators::afskDecodeAscii(wavgen::Reader &wavgen_reader,
   afskBaseBandToBitStream(base_band_signal, bit_stream);
   message = afskBitStreamToAscii(bit_stream);
 
-  // bit_stream.dumpBitStreamAsHex();
-  // std::ofstream out_file("out.txt");
-  // for (double d : base_band_signal) {
-  //   std::clamp(d, 0.0, 1.0);
-  //   out_file << d << std::endl;
-  // }
-
-  (void)message;
   return false;
 }

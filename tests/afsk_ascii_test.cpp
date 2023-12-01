@@ -11,7 +11,7 @@ const mwav::data::Mode kMode = mwav::data::Mode::AFSK1200;
  */
 TEST(DataModulation, EncodeAndDecodeAsciiAFSK) {
   const std::string kOutFilePath = "test.wav";
-  std::string input = "Hello World!\x04";
+  std::string input = "UUUUUUUUUUUUHello World!\x04";
   std::string output;
 
   mwav::data::encodeString(kMode, input, kOutFilePath);

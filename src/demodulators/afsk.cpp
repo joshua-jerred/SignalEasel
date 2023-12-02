@@ -67,12 +67,7 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
         mark_q_integ += mark_q.at(index);
         space_i_integ += space_i.at(index);
         space_q_integ += space_q.at(index);
-      } // else {
-        //  mark_i_integ += 0;
-        //  mark_q_integ += 0;
-        //  space_i_integ += 0;
-        //  space_q_integ += 0;
-      // }
+      }
     }
 
     double s1 = mark_i_integ * mark_i_integ + mark_q_integ * mark_q_integ;

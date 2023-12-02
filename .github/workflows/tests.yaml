@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: recursive
-    - name: Configure CMake
+    - name: CMake Configure
       run: |
         mkdir build
         cd build
@@ -24,7 +24,7 @@ jobs:
     - name: Build the MWAV library
       run: |
         cd build
-        make MWAVlib
+        make MWavLib
 
   unit_tests:
     runs-on: ubuntu-latest
@@ -35,9 +35,7 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: recursive
-    - name: Install GTest
-      run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
-    - name: Configure CMake
+    - name: CMake Configure
       run: |
         mkdir build
         cd build

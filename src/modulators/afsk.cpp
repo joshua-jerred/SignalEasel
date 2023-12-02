@@ -173,7 +173,7 @@ bool AFSK::encodeAscii(const std::string &message_text) {
     message += "\x16"; // SYN
   }
   // Add STX, the message, and EOT
-  message += "\x02" + message_text + "\x04";
+  message += "\x02" + message_text + "\x04\x04";
 
   return encodeRawData((unsigned char *)message.c_str(), message.length());
 }

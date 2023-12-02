@@ -34,7 +34,7 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
   std::vector<int16_t> wave_data;
   wavgen_reader.getAllSamples(wave_data);
   const int number_of_samples = wave_data.size();
-  const double sampling_frequency = wavgen_reader.getSampleRate();
+  const double sampling_frequency = mwav::AUDIO_SAMPLE_RATE;
 
   std::vector<double> mark_i(number_of_samples);
   std::vector<double> mark_q(number_of_samples);
@@ -43,16 +43,17 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
   base_band_signal.resize(number_of_samples);
 
   for (int i = 0; i < number_of_samples; i++) {
-    double sample = wave_data.at(i) / 32768.0;
+    // normalized sample (between -1 and 1)
+    double sample = wave_data.at(i) / mwav::MAX_SAMPLE_VALUE;
 
     mark_i.at(i) =
-        sample * sin(2 * M_PI * i * (markFrequency / sampling_frequency));
+        sample * sin(mwav::TWO_PI * i * (markFrequency / sampling_frequency));
     mark_q.at(i) =
-        sample * cos(2 * M_PI * i * (markFrequency / sampling_frequency));
+        sample * cos(mwav::TWO_PI * i * (markFrequency / sampling_frequency));
     space_i.at(i) =
-        sample * sin(2 * M_PI * i * (spaceFrequency / sampling_frequency));
+        sample * sin(mwav::TWO_PI * i * (spaceFrequency / sampling_frequency));
     space_q.at(i) =
-        sample * cos(2 * M_PI * i * (spaceFrequency / sampling_frequency));
+        sample * cos(mwav::TWO_PI * i * (spaceFrequency / sampling_frequency));
 
     double mark_i_integ = 0;
     double mark_q_integ = 0;
@@ -66,12 +67,12 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
         mark_q_integ += mark_q.at(index);
         space_i_integ += space_i.at(index);
         space_q_integ += space_q.at(index);
-      } else {
-        mark_i_integ += 0;
-        mark_q_integ += 0;
-        space_i_integ += 0;
-        space_q_integ += 0;
-      }
+      } // else {
+        //  mark_i_integ += 0;
+        //  mark_q_integ += 0;
+        //  space_i_integ += 0;
+        //  space_q_integ += 0;
+      // }
     }
 
     double s1 = mark_i_integ * mark_i_integ + mark_q_integ * mark_q_integ;
@@ -155,13 +156,15 @@ void afskBaseBandToBitStream(std::vector<int8_t> &base_band,
           (kClockSkewAlpha * static_cast<double>(timing_error_num_samples)) +
           (1.0 - kClockSkewAlpha) * clock_skew_accumulator;
 
-      std::cout << "(" << (ahead ? "+" : "-") << (int)timing_error_num_samples
-                << ", " << clock_skew_mean << ", " << clock_skew_variance
-                << ", " << mean_samples_between_boundaries << ", "
-                << clock_skew_accumulator << ") ";
+      // std::cout << "(" << (ahead ? "+" : "-") <<
+      // (int)timing_error_num_samples
+      //           << ", " << clock_skew_mean << ", " << clock_skew_variance
+      //           << ", " << mean_samples_between_boundaries << ", "
+      //           << clock_skew_accumulator << ") ";
     }
     previous_sample = sample;
 
+    // adjust the sample clock in an attempt to synchronize
     if (clock_skew_accumulator > 7 && samples_since_last_clock_adjustment >
                                           kMinSamplesBetweenClockAdjustments) {
       samples_since_last_clock_adjustment = 0;
@@ -177,7 +180,7 @@ bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
   output.clear();
   const auto &bit_vector = bit_stream.getBitVector();
 
-  // detect syn characters and sync to them
+  // detect syn character
   int8_t char_offset = -1;
   for (uint32_t word : bit_vector) {
     for (int8_t i = 0; i < 32; i++) {
@@ -189,15 +192,12 @@ bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
     }
   }
 
-  if (char_offset == -1) {
-    std::cout << "Could not find a syn character" << std::endl;
+  if (char_offset == -1) { // no syn character found/couldn't synchronize
     return false;
   }
 
-  std::cout << std::endl << "char_offset: " << (int)char_offset << std::endl;
-
   size_t num_bits = bit_stream.getBitStreamLength();
-  while (char_offset > 0) {
+  while (char_offset > 0) { // burn off the bits before the first syn character
     bit_stream.popNextBit();
     char_offset--;
   }
@@ -216,11 +216,15 @@ bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
       byte |= bit_buffer;
     }
 
-    output += byte;
+    if (byte == 0x04) { // End of Transmission (EOT), no more data
+      return true;
+    } else if (byte != 0x16 && byte != 0x02) { // Ignore SYN and STX
+      output += byte;
+    }
     num_bits -= 8;
   }
 
-  return true;
+  return false; // no EOT found
 }
 
 bool demodulators::afskDecodeAscii(wavgen::Reader &wavgen_reader,

@@ -21,10 +21,11 @@
  * @details Big thanks to https://www.notblackmagic.com/bitsnpieces/afsk/
  * once again!
  *
- * @param wavgen_reader
- * @param bit_stream
- * @return true
- * @return false
+ * @todo This desperately needs to be cleaned up.
+ *
+ * @param wavgen_reader The .wav file object
+ * @param bit_stream (out) The bit stream to be filled
+ * @return true if successful, false otherwise
  */
 void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
                           std::vector<int8_t> &base_band_signal) {
@@ -76,16 +77,18 @@ void afskSignalToBaseBand(wavgen::Reader &wavgen_reader,
     double s1 = mark_i_integ * mark_i_integ + mark_q_integ * mark_q_integ;
     double s2 = space_i_integ * space_i_integ + space_q_integ * space_q_integ;
     double result = s1 - s2;
-    // std::cout << result << " ";
-    // if (result > 0) {
-    //   result = 1;
-    // } else {
-    //   result = -1;
-    // }
+
     base_band_signal.at(i) = result > 0 ? 0xff : 0;
   }
 }
 
+/**
+ * @brief This function takes the base band signal and converts it into a bit
+ * stream if the signal is valid.
+ *
+ * @param base_band The base band signal samples
+ * @param output_bit_stream (out) The bit stream to be filled with binary data
+ */
 void afskBaseBandToBitStream(std::vector<int8_t> &base_band,
                              BitStream &output_bit_stream) {
   /// @brief The sample clock counts up to 40 and then resets.

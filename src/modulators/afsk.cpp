@@ -11,9 +11,11 @@
 #include <string>
 #include <vector>
 
+#include "mwav_constants.hpp"
+
 class AFSK {
 public:
-  enum class MODE { AX25 = 0, MINIMODEM = 1 };
+  enum class MODE { AX25 = 0, ASCII = 1 };
   AFSK(wavgen::Generator &wavgen, AFSK::MODE mode)
       : wavgen_(wavgen), mode_(mode) {
   }
@@ -103,7 +105,7 @@ void AFSK::encodeBitStream() {
 
   int current_bit = bit_stream_.popNextBit();
   if (mode_ == MODE::AX25) {
-    int current = -1;     // 1 = mark, -1 = space
+    int current = -1; // 1 = mark, -1 = space
     while (bit_stream_.getBitStreamLength() >= 0) {
       if (!current_bit) { // 0
         current = -current;
@@ -114,11 +116,11 @@ void AFSK::encodeBitStream() {
         break;
       }
     }
-  } else if (mode_ == MODE::MINIMODEM) {
+  } else if (mode_ == MODE::ASCII) {
     while (bit_stream_.getBitStreamLength() >= 0) {
       if (!current_bit) { // 0
         nrzi_bipolar_bits_.push(1);
-      } else {            // 1
+      } else { // 1
         nrzi_bipolar_bits_.push(-1);
       }
 
@@ -163,13 +165,22 @@ void AFSK::encodeBitStream() {
   }
 }
 
-bool AFSK::encodeAscii(const std::string &message) {
+bool AFSK::encodeAscii(const std::string &message_text) {
+  constexpr uint8_t PREAMBLE_LENGTH = 4;
+  std::string message = "";
+
+  for (auto i = 0; i < PREAMBLE_LENGTH; i++) {
+    message += "\x16"; // SYN
+  }
+  // Add STX, the message, and EOT
+  message += "\x02" + message_text + "\x04";
+
   return encodeRawData((unsigned char *)message.c_str(), message.length());
 }
 
 bool modulators::afskEncodeAscii(wavgen::Generator &wavgen,
                                  const std::string &message) {
-  AFSK afsk(wavgen, AFSK::MODE::MINIMODEM);
+  AFSK afsk(wavgen, AFSK::MODE::ASCII);
   return afsk.encodeAscii(message);
 }
 

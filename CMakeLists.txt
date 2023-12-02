@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 # no type limits and no float equal are for the ImageMagick library
 
 set(MWAV_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set(MWAV_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(MWAV_INCLUDE ${MWAV_SRC}/include)
 set(MWAV_LIB ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 set(MWAV_EXAMPLES ${CMAKE_CURRENT_SOURCE_DIR}/examples)
 set(MWAV_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/tests)

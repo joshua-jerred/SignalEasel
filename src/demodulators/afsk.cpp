@@ -174,7 +174,7 @@ bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
   output.clear();
   const auto &bit_vector = bit_stream.getBitVector();
 
-  // detect syn characters
+  // detect syn characters and sync to them
   int8_t char_offset = -1;
   for (uint32_t word : bit_vector) {
     for (int8_t i = 0; i < 32; i++) {
@@ -187,7 +187,7 @@ bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
   }
 
   if (char_offset == -1) {
-    std::cout << "Could not find syn character" << std::endl;
+    std::cout << "Could not find a syn character" << std::endl;
     return false;
   }
 
@@ -202,15 +202,17 @@ bool afskBitStreamToAscii(BitStream &bit_stream, std::string &output) {
   while (num_bits > 0) {
     uint8_t byte = 0;
     int8_t bit_buffer = 0;
+
     for (int8_t i = 0; i < 8; i++) {
       bit_buffer = bit_stream.popNextBit();
       if (bit_buffer == -1) {
         std::cout << "Ran out of bits" << std::endl;
-        return true;
+        return false;
       }
       byte = byte << 1;
       byte |= bit_buffer;
     }
+
     output += byte;
     num_bits -= 8;
   }

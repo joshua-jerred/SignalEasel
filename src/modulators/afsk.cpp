@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-#include "mwav_constants.hpp"
+#include "afsk.hpp"
 
 class AFSK {
 public:

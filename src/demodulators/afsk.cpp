@@ -11,9 +11,10 @@
 #include <fstream>
 #include <iostream>
 
+#include "afsk.hpp"
 #include "bit-stream.h"
 #include "demodulators.hpp"
-#include "mwav_constants.hpp"
+#include "mwav.hpp"
 
 /**
  * @brief Takes the raw signal and converts it into the FSK baseband signal.

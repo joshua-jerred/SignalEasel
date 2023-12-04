@@ -4,6 +4,7 @@ project(MWAV VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating 
 # Configuration -------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
 option(MWAV_UNIT_TESTS "Enable unit tests" ON)
+set(AUDIO_MODE "WAV") # WAV or PULSEAUDIO
 # ---------------------------------
 
 set(CMAKE_CXX_STANDARD 17)
@@ -48,6 +49,13 @@ target_include_directories(MWavLib
     ${MWAV_SRC}/demodulators
     ${MWAV_SRC}/utilities
 )
+if (AUDIO_MODE STREQUAL "WAV")
+    target_compile_definitions(MWavLib PUBLIC MWAV_WAV_FILE)
+elseif (AUDIO_MODE STREQUAL "PULSEAUDIO")
+    target_compile_definitions(MWavLib PUBLIC MWAV_PULSEAUDIO)
+else()
+    message(FATAL_ERROR "Invalid audio mode: ${AUDIO_MODE}")
+endif()
 
 
 if(SSTV_ENABLED)

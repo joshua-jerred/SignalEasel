@@ -20,11 +20,35 @@ namespace mwav {
 
 class MWAVException : public std::exception {
 public:
-  MWAVException(const std::string &message) : message(message) {}
-  virtual const char *what() const throw() { return message.c_str(); }
+  enum class Id {
+    FILE_OPEN_ERROR,
+    NO_DATA_TO_WRITE,
+    INVALID_CALL_SIGN,
+    INVALID_CALL_SIGN_MODE
+  };
+
+  static std::string idToString(Id id) {
+    switch (id) {
+    case Id::FILE_OPEN_ERROR:
+      return "File open error";
+    case Id::NO_DATA_TO_WRITE:
+      return "No data to write";
+    case Id::INVALID_CALL_SIGN:
+      return "Invalid call sign";
+    case Id::INVALID_CALL_SIGN_MODE:
+      return "Invalid call sign mode";
+    default:
+      return "Unknown error";
+    }
+  };
+
+  MWAVException(const MWAVException::Id &exception_id)
+      : exception_string_(idToString(exception_id)) {}
+  virtual const char *what() const throw() { return exception_string_.c_str(); }
 
 private:
-  std::string message;
+  MWAVException::Id id_;
+  std::string exception_string_;
 };
 
 /**

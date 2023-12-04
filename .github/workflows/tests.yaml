@@ -7,39 +7,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: joshuajerred/giraffe:latest
-      options: --user root
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: recursive
-    - name: CMake Configure
-      run: |
-        mkdir build
-        cd build
-        cmake ..
-    - name: Build the MWAV library
-      run: |
-        cd build
-        make MWavLib
-
   unit_tests:
     runs-on: ubuntu-latest
-    container:
-      image: joshuajerred/giraffe:latest
-      options: --user root
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
-        submodules: recursive
-    - name: CMake Configure
+        submodules: true
+    - name: Install GTest
+      run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+    - name: Configure CMake
       run: |
         mkdir build
         cd build
         cmake -DMWAV_UNIT_TESTS=ON ..
+    - name: Build the MWAV library
+      run: |
+        cd build
+        make MWavLib
     - name: Build Tests
       run: |
         cd build

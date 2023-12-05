@@ -102,7 +102,7 @@ inline constexpr double TWO_PI_VAL = 2.0 * PI_VAL;
 /**
  * @brief The universal settings for MWAV
  */
-struct GlobalSettings {
+struct Settings {
   /**
    * @brief Used to determine if a morse call sign should be added to the
    * audio.
@@ -124,8 +124,7 @@ struct GlobalSettings {
    * @brief The mode for the call sign
    * @see CallSignMode
    */
-  GlobalSettings::CallSignMode call_sign_mode =
-      GlobalSettings::CallSignMode::NONE;
+  Settings::CallSignMode call_sign_mode = Settings::CallSignMode::NONE;
 
   /**
    * @brief The maximum amplitude of the audio. 0.0 - 1.0
@@ -141,23 +140,40 @@ struct GlobalSettings {
 
 /**
  * @brief Basic checks to see if a call sign is valid.
- *
  * @param call_sign The call sign to check
  * @return true if the call sign is valid, false otherwise
  */
 bool isCallSignValid(const std::string &call_sign);
 
 /**
+ * @brief The abstract base class for both modulators and demodulators
+ */
+class SignalEasel {
+public:
+  SignalEasel(Settings settings) : settings_(std::move(settings)) {}
+  virtual ~SignalEasel() = default;
+
+protected:
+  Settings settings_;
+};
+
+/**
  * @brief The abstract base class for all modulators that turn data into audio
  */
-class Modulator {
+class Modulator : public SignalEasel {
 public:
   /**
    * @brief Constructor for the base modulator class
    * @param settings The settings for the modulator
    */
-  Modulator(GlobalSettings settings = GlobalSettings());
+  Modulator(Settings settings = Settings());
   virtual ~Modulator() = default;
+
+  /**
+   * @brief Clears the audio buffer. Adds the call sign if it's in the before
+   * or before_and_after modes
+   */
+  void clearBuffer();
 
   /**
    * @brief Write the audio to a file
@@ -169,12 +185,15 @@ public:
 
 protected:
   /**
-   * @brief The settings for the modulator
+   * @brief Add a PCM sample to the audio buffer
+   * @param sample The PCM sample to add
    */
-  GlobalSettings settings_;
-
   void addAudioSample(int16_t sample) { audio_buffer_.push_back(sample); }
 
+  /**
+   * @brief Add silence to the audio buffer
+   * @param duration_in_samples
+   */
   void addSilence(uint32_t duration_in_samples) {
     for (uint32_t i = 0; i < duration_in_samples; i++) {
       addAudioSample(0);
@@ -190,6 +209,10 @@ protected:
   void addSineWave(uint16_t frequency, uint16_t num_samples);
 
 private:
+  /**
+   * @brief Add morse code to the output audio
+   * @param input_string the string to convert to morse code
+   */
   void addMorseCode(const std::string &input_string);
 
   /**
@@ -210,8 +233,7 @@ private:
  */
 class DataModulator : public Modulator {
 public:
-  DataModulator(const GlobalSettings &settings = GlobalSettings())
-      : Modulator(settings) {}
+  DataModulator(const Settings &settings = Settings()) : Modulator(settings) {}
   virtual ~DataModulator() = default;
 
   void addBytes(const std::vector<uint8_t> &data);
@@ -226,8 +248,11 @@ protected:
  */
 class Demodulator {
 public:
-  Demodulator() = default;
+  Demodulator(Settings settings) : settings_(std::move(settings)) {}
   virtual ~Demodulator() = default;
+
+protected:
+  Settings settings_;
 };
 
 } // namespace signal_easel

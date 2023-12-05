@@ -31,6 +31,7 @@ add_library(SignalEasel STATIC
     src/modulator.cpp
     src/morse_modulator.cpp
     src/afsk_modulator.cpp
+    src/afsk_demodulator.cpp
     # ${MWAV_SRC}/afsk.cpp
     # ${MWAV_SRC}/modulators/afsk.cpp
     # ${MWAV_SRC}/modulators/psk.cpp

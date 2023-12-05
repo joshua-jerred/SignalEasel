@@ -108,12 +108,12 @@ void Modulator::addMorseCode(const std::string &input_string) {
   }
 
   // Add morse callsign to wavgen
-  for (char c : morse_output) {
-    if (c == '.') {
+  for (char morse_symbol : morse_output) {
+    if (morse_symbol == '.') {
       addSineWave(MORSE_TONE_FREQUENCY, DOT_LENGTH);
-    } else if (c == '-') {
+    } else if (morse_symbol == '-') {
       addSineWave(MORSE_TONE_FREQUENCY, DASH_LENGTH);
-    } else if (c == ' ') {
+    } else if (morse_symbol == ' ') {
       addSilence(LETTER_SPACE_LENGTH);
       continue;
     }

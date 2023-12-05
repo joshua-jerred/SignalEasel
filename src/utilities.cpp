@@ -14,22 +14,23 @@
  * @license    GNU GPLv3
  */
 
+#include <algorithm>
+
 #include <SignalEasel/signal_easel.hpp>
 
 namespace signal_easel {
 bool isCallSignValid(const std::string &call_sign) {
-  constexpr size_t kMinCallSignLength = 3;
-  constexpr size_t kMaxCallSignLength = 6;
+  constexpr size_t k_min_call_sign_length = 3;
+  constexpr size_t k_max_call_sign_length = 6;
 
-  if (call_sign.length() < kMinCallSignLength ||
-      call_sign.length() > kMaxCallSignLength) {
+  if (call_sign.length() < k_min_call_sign_length ||
+      call_sign.length() > k_max_call_sign_length) {
     return false;
   }
 
-  for (char c : call_sign) {
-    if (!std::isalnum(c)) {
-      return false;
-    }
+  if (std::all_of(call_sign.begin(), call_sign.end(),
+                  [](char symbol) { return std::isdigit(symbol); })) {
+    return false;
   }
 
   return true;

@@ -8,7 +8,7 @@ for file in $(find src -name "*.cpp"); do
   FILES+=($file)
 done
 
-clang-tidy -config-file=.clang-tidy $(echo ${FILES[*]}) -p=build
+clang-tidy -config-file=.clang-tidy $(echo ${FILES[*]}) -p=build --header-filter=src
 
 # for file in $(find src -name "*.cpp"); do
 #   # clang-tidy -config-file=.clang-tidy $file -p=build

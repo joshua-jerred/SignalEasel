@@ -22,10 +22,24 @@
 
 namespace signal_easel {
 
-Modulator::Modulator(GlobalSettings settings) : settings_(std::move(settings)) {
-  if (settings_.call_sign_mode != GlobalSettings::CallSignMode::NONE &&
+Modulator::Modulator(Settings settings) : SignalEasel(std::move(settings)) {
+  clearBuffer();
+}
+
+void Modulator::clearBuffer() {
+  audio_buffer_.clear();
+  sine_wave_phase_ = 0;
+
+  if (settings_.call_sign_mode != Settings::CallSignMode::NONE &&
       !isCallSignValid(settings_.call_sign)) {
     throw Exception(Exception::Id::INVALID_CALL_SIGN);
+  }
+
+  if (settings_.call_sign_mode == Settings::CallSignMode::BEFORE ||
+      settings_.call_sign_mode == Settings::CallSignMode::BEFORE_AND_AFTER) {
+    addMorseCode(settings_.call_sign);
+    addSilence(static_cast<uint32_t>(settings_.call_sign_pause_seconds *
+                                     AUDIO_SAMPLE_RATE));
   }
 }
 
@@ -34,7 +48,7 @@ void Modulator::writeToFile(const std::string &filename) {
     throw Exception(Exception::Id::NO_DATA_TO_WRITE);
   }
 
-  if (settings_.call_sign_mode != GlobalSettings::CallSignMode::NONE &&
+  if (settings_.call_sign_mode != Settings::CallSignMode::NONE &&
       !isCallSignValid(settings_.call_sign)) {
     throw Exception(Exception::Id::INVALID_CALL_SIGN);
   }
@@ -42,24 +56,18 @@ void Modulator::writeToFile(const std::string &filename) {
   try {
     wavgen::Writer wav_file(filename);
 
-    if (settings_.call_sign_mode == GlobalSettings::CallSignMode::BEFORE ||
-        settings_.call_sign_mode ==
-            GlobalSettings::CallSignMode::BEFORE_AND_AFTER) {
-      addMorseCode(settings_.call_sign);
-      addSilence(settings_.call_sign_pause_seconds * AUDIO_SAMPLE_RATE);
-    }
-
     for (const auto &sample : audio_buffer_) {
       wav_file.addSample(sample);
     }
 
-    if (settings_.call_sign_mode == GlobalSettings::CallSignMode::AFTER ||
-        settings_.call_sign_mode ==
-            GlobalSettings::CallSignMode::BEFORE_AND_AFTER) {
-      addSilence(settings_.call_sign_pause_seconds * AUDIO_SAMPLE_RATE);
+    if (settings_.call_sign_mode == Settings::CallSignMode::AFTER ||
+        settings_.call_sign_mode == Settings::CallSignMode::BEFORE_AND_AFTER) {
+      addSilence(static_cast<uint32_t>(settings_.call_sign_pause_seconds *
+                                       AUDIO_SAMPLE_RATE));
       addMorseCode(settings_.call_sign);
     }
 
+    wav_file.done();
   } catch (const std::exception &e) {
     throw Exception(Exception::Id::FILE_OPEN_ERROR);
   }
@@ -70,12 +78,13 @@ void Modulator::addSineWave(uint16_t frequency, uint16_t num_samples) {
     return;
   }
 
-  const double delta = TWO_PI_VAL * frequency / AUDIO_SAMPLE_RATE;
+  const double k_delta = TWO_PI_VAL * frequency / AUDIO_SAMPLE_RATE;
 
   for (uint16_t i = 0; i < num_samples; i++) {
-    const int16_t sample = settings_.amplitude * std::sin(sine_wave_phase_);
+    int16_t sample = static_cast<int16_t>(
+        settings_.amplitude * std::sin(sine_wave_phase_) * MAX_SAMPLE_VALUE);
     addAudioSample(sample);
-    sine_wave_phase_ += delta;
+    sine_wave_phase_ += k_delta;
   }
 }
 

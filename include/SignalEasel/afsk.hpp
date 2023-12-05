@@ -23,7 +23,7 @@ inline constexpr uint32_t AFSK_FREQUENCY_DEVIATION =
     (AFSK_SPACE_FREQUENCY - AFSK_MARK_FREQUENCY) / 2;
 inline constexpr uint32_t AFSK_SAMPLES_PER_SYMBOL =
     AUDIO_SAMPLE_RATE / AFSK_BAUD_RATE;
-struct AfskSettings : public GlobalSettings {
+struct AfskSettings : public Settings {
   enum class BitEncoding { STANDARD, NRZI };
 
   AfskSettings::BitEncoding bit_encoding = BitEncoding::STANDARD;
@@ -36,7 +36,7 @@ public:
   ~AfskModulator() = default;
 
 private:
-  void encodeBytes(const std::vector<uint8_t> &data) override;
+  void encodeBytes(const std::vector<uint8_t> &input_bytes) override;
 
   /**
    * @brief Converts the data to NRZI for APRS mode.
@@ -51,7 +51,7 @@ private:
   bool nrzi_previous_tone_mark_ = false;
   int8_t current_bipolar_bit_ = 0;
   int8_t previous_bipolar_bit_ = 0;
-  int8_t integral_value_ = 0;
+  int32_t integral_value_ = 0;
 
   static constexpr uint32_t OVER_SAMPLE_FACTOR_ = 4;
   static constexpr uint32_t SAMPLE_FREQUENCY_ =
@@ -65,6 +65,12 @@ private:
       static_cast<double>(AFSK_FREQUENCY_DEVIATION) / SAMPLE_FREQUENCY_;
 };
 
+class AfskDemodulator : public Demodulator {
+public:
+  AfskDemodulator(AfskSettings settings = AfskSettings())
+      : Demodulator(std::move(settings)) {}
+  ~AfskDemodulator() = default;
+};
 } // namespace signal_easel
 
 #endif /* MWAV_AFSK_HPP_ */

@@ -33,12 +33,14 @@ CheckOptions:
     value: lower_case
   - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
-  - key: readability-identifier-naming.ClassConstantPrefix
-    value: k
+  # - key: readability-identifier-naming.ClassConstantPrefix
+    # value: k
   - key: readability-identifier-naming.ClassConstantSuffix
     value: _
   - key: readability-identifier-naming.ConstantCase
-    value: UPPER_CASE
+    value: lower_case
+  - key: readability-identifier-naming.ConstantPrefix
+    value: k_
   - key: readability-identifier-naming.PrivateMemberSuffix
     value: _
   - key: misc-assert-side-effect.CheckFunctionCalls

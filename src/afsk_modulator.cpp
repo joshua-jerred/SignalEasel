@@ -15,6 +15,7 @@
  */
 
 #include <cmath>
+#include <iostream>
 
 #include <SignalEasel/afsk.hpp>
 
@@ -22,8 +23,8 @@ namespace signal_easel {
 
 /**
  * @brief Converts a bit to it's bipolar value (0 = 1, 1 = -1)
- * @param bit
- * @return int8_t
+ * @param bit The bit to convert
+ * @return int8_t The bipolar value of the bit (-1 or 1)
  */
 inline int8_t convertToBipolar(bool bit) { return bit ? -1 : 1; }
 
@@ -47,9 +48,9 @@ inline bool isBitSet(uint8_t byte, uint8_t bit_position) {
  */
 inline int8_t getBpBitAtIndex(const std::vector<uint8_t> &bytes,
                               size_t bit_index) {
-  const size_t byte_index = bit_index / 8;
-  const size_t bit_offset = bit_index % 8;
-  return convertToBipolar(isBitSet(bytes.at(byte_index), bit_offset));
+  const size_t k_byte_index = bit_index / 8;
+  const size_t k_bit_offset = bit_index % 8;
+  return convertToBipolar(isBitSet(bytes.at(k_byte_index), k_bit_offset));
 }
 
 void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
@@ -63,7 +64,7 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
     convertToNRZI(bytes);
   }
 
-  const int kNumBitsToEncode = input_bytes.size() * 8;
+  const uint32_t k_num_bits_to_encode = input_bytes.size() * 8;
 
   /// @brief "index" is the used to determine when to go to the next bit. It is
   /// not actually used as an index.
@@ -78,7 +79,7 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
   current_bipolar_bit_ = getBpBitAtIndex(bytes, bit_index);
   bit_index++;
 
-  uint32_t iterations = kNumBitsToEncode * SAMPLES_PER_SYMBOL_;
+  uint32_t iterations = k_num_bits_to_encode * SAMPLES_PER_SYMBOL_;
   for (uint32_t i = 2; i < iterations; i++) {
     index = std::floor((float)i / (float)SAMPLES_PER_SYMBOL_);
     prev_index = std::floor((float)(i - 1) / (float)SAMPLES_PER_SYMBOL_);
@@ -96,12 +97,12 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
 
     // Only write the OVER_SAMPLE_FACTOR_'th sample
     if (i % OVER_SAMPLE_FACTOR_ == 0) {
-      constexpr double LHS_MULTIPLIER = TWO_PI_VAL * CENTER_OVER_SAMPLE_FREQ_;
-      constexpr double RHS_MULTIPLIER = TWO_PI_VAL * DELTA_OVER_SAMPLE_FREQ_;
-      double lhs = LHS_MULTIPLIER * static_cast<double>(i);
-      double rhs = RHS_MULTIPLIER * static_cast<double>(integral_value_);
-      int16_t sample =
-          std::cos(lhs + rhs) * settings_.amplitude * MAX_SAMPLE_VALUE;
+      constexpr double k_lhs_multiplier = TWO_PI_VAL * CENTER_OVER_SAMPLE_FREQ_;
+      constexpr double k_rhs_multiplier = TWO_PI_VAL * DELTA_OVER_SAMPLE_FREQ_;
+      double lhs = k_lhs_multiplier * static_cast<double>(i);
+      double rhs = k_rhs_multiplier * static_cast<double>(integral_value_);
+      int16_t sample = static_cast<int16_t>(
+          MAX_SAMPLE_VALUE * (std::cos(lhs + rhs) * settings_.amplitude));
       addAudioSample(sample);
     }
   }

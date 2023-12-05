@@ -7,12 +7,11 @@
 /**
  * @brief Encodes a string into an AFSK1200 signal/WAV file and then decodes it.
  */
-TEST(Afsk, EncodeAndDecodeAscii) {
+TEST(Afsk, EncodeBasicStringToWav) {
   const std::string kInputString = "Hello World!";
   const std::string kOutFilePath = "afsk_modulator_test.wav";
 
   signal_easel::AfskModulator modulator;
-  modulator.addString(kInputString);
   modulator.addString(kInputString);
   modulator.writeToFile("test.wav");
 

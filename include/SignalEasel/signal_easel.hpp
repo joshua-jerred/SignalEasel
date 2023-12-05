@@ -136,8 +136,7 @@ public:
    * @brief Constructor for the base modulator class
    * @param settings The settings for the modulator
    */
-  Modulator(const GlobalSettings &settings = GlobalSettings())
-      : settings_(settings) {}
+  Modulator(GlobalSettings settings = GlobalSettings());
   virtual ~Modulator() = default;
 
   /**
@@ -156,7 +155,26 @@ protected:
 
   void addAudioSample(int16_t sample) { audio_data_.push_back(sample); }
 
+  void addSilence(uint32_t duration_in_samples) {
+    for (uint32_t i = 0; i < duration_in_samples; i++) {
+      addAudioSample(0);
+    }
+  }
+
+  /**
+   * @brief Add a sine wave to the audio buffer
+   *
+   * @param frequency The frequency of the sine wave in Hz
+   * @param num_samples The number of samples to add
+   */
+  void addSineWave(uint16_t frequency, uint16_t num_samples);
+
 private:
+  /**
+   * @brief Used with addSineWave to keep a continuous phase between calls
+   */
+  double sine_wave_phase_ = 0.0;
+
   /**
    * @brief Buffer for the audio data, kept generic so it can be written to
    * either a WAV file or to PulseAudio
@@ -178,7 +196,7 @@ public:
   void addString(const std::string &data);
 
 protected:
-  virtual bool encodeBytes(const std::vector<uint8_t> &data) = 0;
+  virtual void encodeBytes(const std::vector<uint8_t> &data) = 0;
 };
 
 /**
@@ -189,6 +207,24 @@ public:
   Demodulator() = default;
   virtual ~Demodulator() = default;
 };
+
+static bool isCallSignValid(const std::string &call_sign) {
+  constexpr size_t kMinCallSignLength = 3;
+  constexpr size_t kMaxCallSignLength = 6;
+
+  if (call_sign.length() < kMinCallSignLength ||
+      call_sign.length() > kMaxCallSignLength) {
+    return false;
+  }
+
+  for (char c : call_sign) {
+    if (!std::isalnum(c)) {
+      return false;
+    }
+  }
+
+  return true;
+}
 
 } // namespace signal_easel
 

@@ -52,9 +52,9 @@ inline int8_t getBpBitAtIndex(const std::vector<uint8_t> &bytes,
   return convertToBipolar(isBitSet(bytes.at(byte_index), bit_offset));
 }
 
-bool AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
+void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
   if (input_bytes.empty()) {
-    return false;
+    throw Exception(Exception::Id::NO_DATA_TO_WRITE);
   }
 
   auto bytes = input_bytes;
@@ -105,8 +105,6 @@ bool AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
       addAudioSample(sample);
     }
   }
-
-  return true;
 }
 
 void AfskModulator::convertToNRZI(std::vector<uint8_t> &data) {

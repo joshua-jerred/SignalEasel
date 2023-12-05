@@ -17,6 +17,8 @@
 #include <array>
 #include <string>
 
+#include <SignalEasel/signal_easel.hpp>
+
 namespace signal_easel {
 
 inline constexpr uint16_t MORSE_TONE_FREQUENCY = 1000;
@@ -35,10 +37,10 @@ inline constexpr uint16_t MORSE_TONE_FREQUENCY = 1000;
 /**
  * @brief The length of a morse dot in seconds. 0.06 is the minimum for 20wpm
  */
-inline constexpr double DOT_LENGTH = 0.06;
-inline constexpr double DASH_LENGTH = DOT_LENGTH * 3;
-inline constexpr double LETTER_SPACE_LENGTH = DOT_LENGTH * 3;
-inline constexpr double TIME_BETWEEN_SYMBOLS = DOT_LENGTH;
+inline constexpr uint16_t DOT_LENGTH = 0.06 * AUDIO_SAMPLE_RATE;
+inline constexpr uint16_t DASH_LENGTH = DOT_LENGTH * 3;
+inline constexpr uint16_t LETTER_SPACE_LENGTH = DOT_LENGTH * 3;
+inline constexpr uint16_t TIME_BETWEEN_SYMBOLS = DOT_LENGTH;
 
 struct MorseChar { // 0 - 9, a - z
   int val;
@@ -84,40 +86,39 @@ static const std::array<std::string, 36> MORSE_CODE_MAP = {
     "--..",  // z
 };
 
-bool encodeMorse(WavGen &wavgen, std::string callsign) {
-  std::string morse_callsign = "";
+void Modulator::addMorseCode(const std::string &input_string) {
+  if (input_string.empty()) {
+    throw Exception(Exception::Id::EMPTY_INPUT_STRING);
+  }
+
+  std::string morse_output;
+
   // Convert callsign to lowercase and convert to morse
-  for (int i = 0; i < (int)callsign.size(); i++) {
-    callsign[i] = tolower(callsign[i]);
-    char c = callsign[i];
-    if (c >= '0' && c <= '9') {
-      morse_callsign += morse_chars[c - '0'].morse;
-    } else if (c >= 'a' && c <= 'z') {
-      morse_callsign += morse_chars[c - 'a' + 10].morse;
+  for (char input_char : input_string) {
+    if (input_char >= '0' && input_char <= '9') {
+      morse_output += MORSE_CODE_MAP.at(input_char - '0');
+    } else if (input_char >= 'a' && input_char <= 'z') {
+      morse_output += MORSE_CODE_MAP.at(input_char - 'a' + 10);
+    } else if (input_char >= 'A' && input_char <= 'Z') {
+      morse_output += MORSE_CODE_MAP.at(input_char - 'A' + 10);
     } else {
-      throw mwav::Exception("Invalid character in callsign");
+      throw Exception(Exception::Id::INVALID_MORSE_CHAR);
     }
-    morse_callsign += " ";
+    morse_output += " ";
   }
 
   // Add morse callsign to wavgen
-  for (int i = 0; i < (int)morse_callsign.size(); i++) {
-    char c = morse_callsign[i];
+  for (char c : morse_output) {
     if (c == '.') {
-      wavgen.addSineWave(AUDIO_FREQ, AUDIO_AMP, DOT_LENGTH);
+      addSineWave(MORSE_TONE_FREQUENCY, DOT_LENGTH);
     } else if (c == '-') {
-      wavgen.addSineWave(AUDIO_FREQ, AUDIO_AMP, DASH_LENGTH);
+      addSineWave(MORSE_TONE_FREQUENCY, DASH_LENGTH);
     } else if (c == ' ') {
-      wavgen.addSineWave(0, 0, LETTER_SPACE_LENGTH);
+      addSilence(LETTER_SPACE_LENGTH);
       continue;
     }
-    wavgen.addSineWave(0, 0, TIME_BETWEEN_SYMBOLS);
+    addSilence(TIME_BETWEEN_SYMBOLS);
   }
-
-  // DEBUG
-  // std::cout << "Callsign: " << callsign << std::endl;
-  // std::cout << "Morse: " << morse_callsign << std::endl;
-  return true;
 }
 
 } // namespace signal_easel

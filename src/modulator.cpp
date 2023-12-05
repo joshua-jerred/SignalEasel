@@ -25,12 +25,41 @@ namespace signal_easel {
 Modulator::Modulator(GlobalSettings settings) : settings_(std::move(settings)) {
   if (settings_.call_sign_mode != GlobalSettings::CallSignMode::NONE &&
       !isCallSignValid(settings_.call_sign)) {
+    throw Exception(Exception::Id::INVALID_CALL_SIGN);
   }
 }
 
 void Modulator::writeToFile(const std::string &filename) {
+  if (audio_buffer_.empty()) {
+    throw Exception(Exception::Id::NO_DATA_TO_WRITE);
+  }
+
+  if (settings_.call_sign_mode != GlobalSettings::CallSignMode::NONE &&
+      !isCallSignValid(settings_.call_sign)) {
+    throw Exception(Exception::Id::INVALID_CALL_SIGN);
+  }
+
   try {
     wavgen::Writer wav_file(filename);
+
+    if (settings_.call_sign_mode == GlobalSettings::CallSignMode::BEFORE ||
+        settings_.call_sign_mode ==
+            GlobalSettings::CallSignMode::BEFORE_AND_AFTER) {
+      addMorseCode(settings_.call_sign);
+      addSilence(settings_.call_sign_pause_seconds * AUDIO_SAMPLE_RATE);
+    }
+
+    for (const auto &sample : audio_buffer_) {
+      wav_file.addSample(sample);
+    }
+
+    if (settings_.call_sign_mode == GlobalSettings::CallSignMode::AFTER ||
+        settings_.call_sign_mode ==
+            GlobalSettings::CallSignMode::BEFORE_AND_AFTER) {
+      addSilence(settings_.call_sign_pause_seconds * AUDIO_SAMPLE_RATE);
+      addMorseCode(settings_.call_sign);
+    }
+
   } catch (const std::exception &e) {
     throw Exception(Exception::Id::FILE_OPEN_ERROR);
   }

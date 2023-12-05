@@ -27,7 +27,9 @@ endif()
 # SignalEasel
 # --------------------------------
 add_library(SignalEasel STATIC
+    src/utilities.cpp
     src/modulator.cpp
+    src/morse_modulator.cpp
     src/afsk_modulator.cpp
     # ${MWAV_SRC}/afsk.cpp
     # ${MWAV_SRC}/modulators/afsk.cpp

@@ -33,7 +33,9 @@ public:
     FILE_OPEN_ERROR,
     NO_DATA_TO_WRITE,
     INVALID_CALL_SIGN,
-    INVALID_CALL_SIGN_MODE
+    INVALID_CALL_SIGN_MODE,
+    INVALID_MORSE_CHAR,
+    EMPTY_INPUT_STRING
   };
 
   static std::string idToString(Id exception_id) {
@@ -46,6 +48,10 @@ public:
       return "Invalid call sign";
     case Id::INVALID_CALL_SIGN_MODE:
       return "Invalid call sign mode";
+    case Id::INVALID_MORSE_CHAR:
+      return "Invalid morse character";
+    case Id::EMPTY_INPUT_STRING:
+      return "Empty input string";
     default:
       return "Unknown error";
     }
@@ -125,7 +131,21 @@ struct GlobalSettings {
    * @brief The maximum amplitude of the audio. 0.0 - 1.0
    */
   double amplitude = 0.3;
+
+  /**
+   * @brief The amount of silence to add between the morse code call sign and
+   * any other audio. In seconds.
+   */
+  double call_sign_pause_seconds = 0.1;
 };
+
+/**
+ * @brief Basic checks to see if a call sign is valid.
+ *
+ * @param call_sign The call sign to check
+ * @return true if the call sign is valid, false otherwise
+ */
+bool isCallSignValid(const std::string &call_sign);
 
 /**
  * @brief The abstract base class for all modulators that turn data into audio
@@ -153,7 +173,7 @@ protected:
    */
   GlobalSettings settings_;
 
-  void addAudioSample(int16_t sample) { audio_data_.push_back(sample); }
+  void addAudioSample(int16_t sample) { audio_buffer_.push_back(sample); }
 
   void addSilence(uint32_t duration_in_samples) {
     for (uint32_t i = 0; i < duration_in_samples; i++) {
@@ -170,6 +190,8 @@ protected:
   void addSineWave(uint16_t frequency, uint16_t num_samples);
 
 private:
+  void addMorseCode(const std::string &input_string);
+
   /**
    * @brief Used with addSineWave to keep a continuous phase between calls
    */
@@ -179,7 +201,7 @@ private:
    * @brief Buffer for the audio data, kept generic so it can be written to
    * either a WAV file or to PulseAudio
    */
-  std::vector<int16_t> audio_data_ = {};
+  std::vector<int16_t> audio_buffer_ = {};
 };
 
 /**
@@ -207,24 +229,6 @@ public:
   Demodulator() = default;
   virtual ~Demodulator() = default;
 };
-
-static bool isCallSignValid(const std::string &call_sign) {
-  constexpr size_t kMinCallSignLength = 3;
-  constexpr size_t kMaxCallSignLength = 6;
-
-  if (call_sign.length() < kMinCallSignLength ||
-      call_sign.length() > kMaxCallSignLength) {
-    return false;
-  }
-
-  for (char c : call_sign) {
-    if (!std::isalnum(c)) {
-      return false;
-    }
-  }
-
-  return true;
-}
 
 } // namespace signal_easel
 

@@ -1,62 +1,46 @@
 cmake_minimum_required(VERSION 3.14)
-project(MWAV VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating audio")
+project(SignalEasel VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating audio")
 
 # Configuration -------------------
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
-option(MWAV_UNIT_TESTS "Enable unit tests" ON)
-set(AUDIO_MODE "WAV") # WAV or PULSEAUDIO
+option(UNIT_TESTS "Enable unit tests" ON)
 # ---------------------------------
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-	-fno-omit-frame-pointer \
-	-pedantic \
-	-Wall \
-	-Wextra \
-	-Weffc++ \
-	-Wunused-variable \
-	-Wno-type-limits \
-	-Wno-float-equal")
+-fno-omit-frame-pointer \
+-pedantic \
+-Wall \
+-Wextra \
+-Weffc++ \
+-Wunused-variable \
+-Wno-type-limits \
+-Wno-float-equal")
 # no type limits and no float equal are for the ImageMagick library
 
-set(MWAV_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set(MWAV_INCLUDE ${MWAV_SRC}/include)
-set(MWAV_LIB ${CMAKE_CURRENT_SOURCE_DIR}/lib)
-set(MWAV_EXAMPLES ${CMAKE_CURRENT_SOURCE_DIR}/examples)
-set(MWAV_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/tests)
-
-add_subdirectory(${MWAV_LIB}/WavGen)
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/WavGen)
 if (SSTV_ENABLED)
-    add_subdirectory(${MWAV_LIB}/SSTV-Image-Tools)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/lib/SSTV-Image-Tools)
 endif()
 
 # --------------------------------
-# MWavLib
+# SignalEasel
 # --------------------------------
-add_library(MWavLib
-    ${MWAV_SRC}/mwav_data_modes.cpp
-    ${MWAV_SRC}/modulators/afsk.cpp
-    ${MWAV_SRC}/modulators/psk.cpp
-    ${MWAV_SRC}/demodulators/afsk.cpp
-    ${MWAV_SRC}/demodulators/psk.cpp
-    ${MWAV_SRC}/utilities/bit-stream.cpp
+add_library(SignalEasel STATIC
+    src/modulator.cpp
+    src/afsk_modulator.cpp
+    # ${MWAV_SRC}/afsk.cpp
+    # ${MWAV_SRC}/modulators/afsk.cpp
+    # ${MWAV_SRC}/modulators/psk.cpp
+    # ${MWAV_SRC}/demodulators/afsk.cpp
+    # ${MWAV_SRC}/demodulators/psk.cpp
 )
-target_link_libraries(MWavLib WavGen)
-target_include_directories(MWavLib 
-    PUBLIC ${MWAV_INCLUDE}
-    PRIVATE ${MWAV_SRC}
-    ${MWAV_SRC}/modulators
-    ${MWAV_SRC}/demodulators
-    ${MWAV_SRC}/utilities
+target_link_libraries(SignalEasel WavGen)
+target_include_directories(SignalEasel 
+    PUBLIC include 
+    PRIVATE src
 )
-if (AUDIO_MODE STREQUAL "WAV")
-    target_compile_definitions(MWavLib PUBLIC MWAV_WAV_FILE)
-elseif (AUDIO_MODE STREQUAL "PULSEAUDIO")
-    target_compile_definitions(MWavLib PUBLIC MWAV_PULSEAUDIO)
-else()
-    message(FATAL_ERROR "Invalid audio mode: ${AUDIO_MODE}")
-endif()
-
+set_target_properties(SignalEasel PROPERTIES FOLDER include/signal_easel.hpp)
 
 if(SSTV_ENABLED)
     message(STATUS "SSTV Enabled")
@@ -72,8 +56,8 @@ endif()
 unset(SSTV_ENABLED CACHE)
 
 # --------------------------------
-if (MWAV_UNIT_TESTS)
-    add_subdirectory(${MWAV_TESTS})
+if (UNIT_TESTS)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 endif()
 
 # add_executable(audio-in-test

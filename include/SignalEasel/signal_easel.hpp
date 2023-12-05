@@ -1,24 +1,33 @@
 /**
- * @file mwav.hpp
- * @author Joshua Jerred (https://joshuajer.red)
- * @brief Common header for the MWAV library
- * @date 2023-12-03
- * @copyright Copyright (c) 2023
+ * =*========SignalEasel========*=
+ * A friendly library for signal modulation and demodulation.
+ * https://github.com/joshua-jerred/Giraffe
+ * https://joshuajer.red/signal-easel
+ * =*===========================*=
+ *
+ * @file   signal_easel.hpp
+ * @date   2023-12-04
+ * @brief  The main header file for the SignalEasel library
+ *
+ * =*=======================*=
+ * @copyright  2023 Joshua Jerred
+ * @license    GNU GPLv3
  */
 
-#ifndef MWAV_HPP_
-#define MWAV_HPP_
+#ifndef SIG_EASEL_HPP_
+#define SIG_EASEL_HPP_
 
 #include <cstdint>
 #include <exception>
 #include <string>
+#include <vector>
 
 /**
  * @brief The namespace used for the MWAV library
  */
-namespace mwav {
+namespace signal_easel {
 
-class MWAVException : public std::exception {
+class Exception : public std::exception {
 public:
   enum class Id {
     FILE_OPEN_ERROR,
@@ -27,8 +36,8 @@ public:
     INVALID_CALL_SIGN_MODE
   };
 
-  static std::string idToString(Id id) {
-    switch (id) {
+  static std::string idToString(Id exception_id) {
+    switch (exception_id) {
     case Id::FILE_OPEN_ERROR:
       return "File open error";
     case Id::NO_DATA_TO_WRITE:
@@ -42,12 +51,12 @@ public:
     }
   };
 
-  MWAVException(const MWAVException::Id &exception_id)
-      : exception_string_(idToString(exception_id)) {}
+  Exception(const Exception::Id &exception_id)
+      : id_(exception_id), exception_string_(idToString(exception_id)) {}
   virtual const char *what() const throw() { return exception_string_.c_str(); }
 
 private:
-  MWAVException::Id id_;
+  Exception::Id id_;
   std::string exception_string_;
 };
 
@@ -70,24 +79,29 @@ inline constexpr uint32_t SAMPLE_RESOLUTION = 16;
 inline constexpr uint32_t MAX_SAMPLE_VALUE = 32767;
 
 /**
+ * @brief The maximum size of the audio buffer (5 minutes)
+ */
+inline constexpr uint32_t MAX_AUDIO_BUFFER_SIZE = AUDIO_SAMPLE_RATE * 60 * 5;
+
+/**
  * @brief Constant for PI used throughout the project
  */
-inline constexpr double PI = 3.14159265358979323846;
+inline constexpr double PI_VAL = 3.14159265358979323846;
 
 /**
  * @brief Constant for 2*PI used throughout the project
  */
-inline constexpr double TWO_PI = 2.0 * PI;
+inline constexpr double TWO_PI_VAL = 2.0 * PI_VAL;
 
 /**
  * @brief The universal settings for MWAV
  */
-struct MwavSettings {
+struct GlobalSettings {
   /**
    * @brief Used to determine if a morse call sign should be added to the
    * audio.
-   * @details Add a morse call sign before, after, or both before and after the
-   * audio.
+   * @details Add a morse call sign before, after, or both before and after
+   * the audio.
    */
   enum class CallSignMode { NONE, BEFORE, AFTER, BEFORE_AND_AFTER };
 
@@ -98,17 +112,18 @@ struct MwavSettings {
    * @warning This may be a problem for international users. If so, please
    * create an issue on GitHub.
    */
-  std::string call_sign = "";
+  std::string call_sign;
 
   /**
    * @brief The mode for the call sign
    * @see CallSignMode
    */
-  MwavSettings::CallSignMode call_sign_mode = MwavSettings::CallSignMode::NONE;
+  GlobalSettings::CallSignMode call_sign_mode =
+      GlobalSettings::CallSignMode::NONE;
 };
 
 /**
- * @brief The base class for all modulators that turn data into audio
+ * @brief The abstract base class for all modulators that turn data into audio
  */
 class Modulator {
 public:
@@ -116,7 +131,7 @@ public:
    * @brief Constructor for the base modulator class
    * @param settings The settings for the modulator
    */
-  Modulator(const MwavSettings &settings = MwavSettings())
+  Modulator(const GlobalSettings &settings = GlobalSettings())
       : settings_(settings) {}
   virtual ~Modulator() = default;
 
@@ -132,8 +147,15 @@ protected:
   /**
    * @brief The settings for the modulator
    */
-  const MwavSettings settings_;
+  GlobalSettings settings_;
 
+  bool addAudioSample(int16_t sample) {
+
+    audio_data_.push_back(sample);
+    return true;
+  }
+
+private:
   /**
    * @brief Buffer for the audio data, kept generic so it can be written to
    * either a WAV file or to PulseAudio
@@ -142,14 +164,20 @@ protected:
 };
 
 /**
- * @brief The base class for all demodulators that turn audio into data
+ * @brief Another abstract base class for modulators that turn text/binary data
+ * into audio
  */
-class Demodulator {
-public:
-  Demodulator() = default;
-  virtual ~Demodulator() = default;
-};
+class DataModulator : public Modulator {
 
-} // namespace mwav
+  /**
+   * @brief The base class for all demodulators that turn audio into data
+   */
+  class Demodulator {
+  public:
+    Demodulator() = default;
+    virtual ~Demodulator() = default;
+  };
+
+} // namespace signal_easel
 
 #endif /* MWAV_HPP_ */

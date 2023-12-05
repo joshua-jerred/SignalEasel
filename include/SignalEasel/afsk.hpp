@@ -6,14 +6,14 @@
  * @copyright Copyright (c) 2023
  */
 
-#ifndef MWAV_AFSK_HPP_
-#define MWAV_AFSK_HPP_
+#ifndef SIGNAL_EASEL_AFSK_HPP_
+#define SIGNAL_EASEL_AFSK_HPP_
 
 #include <vector>
 
-#include "mwav.hpp"
+#include "signal_easel.hpp"
 
-namespace mwav {
+namespace signal_easel {
 
 inline constexpr uint32_t AFSK_BAUD_RATE = 1200;
 inline constexpr uint32_t AFSK_MARK_FREQUENCY = 1200;
@@ -21,7 +21,7 @@ inline constexpr uint32_t AFSK_SPACE_FREQUENCY = 2200;
 inline constexpr uint32_t AFSK_SAMPLES_PER_SYMBOL =
     AUDIO_SAMPLE_RATE / AFSK_BAUD_RATE;
 
-struct AfskSettings : public MwavSettings {
+struct AfskSettings : public GlobalSettings {
   enum class BitEncoding { STANDARD, NRZI };
 
   AfskSettings::BitEncoding bit_encoding = BitEncoding::STANDARD;
@@ -29,16 +29,32 @@ struct AfskSettings : public MwavSettings {
 
 class AfskModulator : public Modulator {
 public:
-  AfskModulator(AfskSettings settings = AfskSettings()) : settings_(settings) {}
+  AfskModulator(AfskSettings settings = AfskSettings())
+      : settings_(std::move(settings)) {}
   ~AfskModulator() = default;
 
-  bool addBinaryData(const std::vector<uint8_t> &data);
-  bool addStringData(const std::string &data);
+  /**
+   * @brief Adds bytes of data to the output buffer
+   *
+   * @param data
+   * @return true
+   * @return false
+   */
+  bool addBytes(const std::vector<uint8_t> &data);
+
+  /**
+   * @brief Adds a string of data to the output buffer
+   *
+   * @param data
+   * @return true
+   * @return false
+   */
+  bool addString(const std::string &data);
 
 private:
-  const AfskSettings settings_;
+  AfskSettings settings_;
 };
 
-} // namespace mwav
+} // namespace signal_easel
 
 #endif /* MWAV_AFSK_HPP_ */

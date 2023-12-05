@@ -15,6 +15,7 @@
  */
 
 #include <cmath>
+#include <iomanip>
 #include <iostream>
 
 #include <SignalEasel/afsk.hpp>
@@ -58,13 +59,27 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
     throw Exception(Exception::Id::NO_DATA_TO_WRITE);
   }
 
-  auto bytes = input_bytes;
+  std::vector<uint8_t> bytes;
+
+  if (settings_.include_ascii_padding) {
+    for (size_t i = 0; i < AFSK_ASCII_PREAMBLE_LENGTH; i++) {
+      bytes.push_back(0x16); // SYN
+    }
+    bytes.push_back(0x02); // STX
+  }
+
+  bytes.insert(bytes.end(), input_bytes.begin(), input_bytes.end());
+
+  if (settings_.include_ascii_padding) {
+    bytes.push_back(0x04); // EOT
+    bytes.push_back(0x04); // EOT
+  }
 
   if (settings_.bit_encoding == AfskSettings::BitEncoding::NRZI) {
     convertToNRZI(bytes);
   }
 
-  const uint32_t k_num_bits_to_encode = input_bytes.size() * 8;
+  const uint32_t k_num_bits_to_encode = bytes.size() * 8;
 
   /// @brief "index" is the used to determine when to go to the next bit. It is
   /// not actually used as an index.

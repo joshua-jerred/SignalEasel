@@ -12,7 +12,6 @@
 #include <vector>
 
 #include "signal_easel.hpp"
-
 namespace signal_easel {
 
 inline constexpr uint32_t AFSK_BAUD_RATE = 1200;
@@ -23,10 +22,18 @@ inline constexpr uint32_t AFSK_FREQUENCY_DEVIATION =
     (AFSK_SPACE_FREQUENCY - AFSK_MARK_FREQUENCY) / 2;
 inline constexpr uint32_t AFSK_SAMPLES_PER_SYMBOL =
     AUDIO_SAMPLE_RATE / AFSK_BAUD_RATE;
+
+inline constexpr uint16_t AFSK_ASCII_PREAMBLE_LENGTH = 2;
+
 struct AfskSettings : public Settings {
   enum class BitEncoding { STANDARD, NRZI };
 
   AfskSettings::BitEncoding bit_encoding = BitEncoding::STANDARD;
+
+  /**
+   * @brief If true, a string will be surrounded by SYN and EOT characters.
+   */
+  bool include_ascii_padding = true;
 };
 
 class AfskModulator : public DataModulator {
@@ -67,9 +74,40 @@ private:
 
 class AfskDemodulator : public Demodulator {
 public:
+  struct ProcessResults {};
+
   AfskDemodulator(AfskSettings settings = AfskSettings())
-      : Demodulator(std::move(settings)) {}
+      : Demodulator(settings), afsk_settings_(std::move(settings)) {}
   ~AfskDemodulator() = default;
+
+  ProcessResults processAudioBuffer();
+
+  enum class AsciiResult { SUCCESS, NO_SYN, NO_EOT };
+
+  AsciiResult lookForString(std::string &output);
+
+private:
+  /**
+   * @brief Takes the raw signal and converts it into the FSK baseband signal.
+   * @details Big thanks to https://www.notblackmagic.com/bitsnpieces/afsk/
+   * once again!
+   * @todo This needs to be cleaned up.
+   * @param (out) results The results of the processing.
+   */
+  void audioBufferToBaseBandSignal(ProcessResults &results);
+
+  /**
+   * @brief Takes the base band signal and converts it into a bit stream if the
+   * signal is valid.
+   * @param (out) results The results of the processing.
+   */
+  void baseBandToBitStream(ProcessResults &results);
+
+  std::vector<int8_t> base_band_signal_{};
+
+  BitStream output_bit_stream_{};
+
+  AfskSettings afsk_settings_;
 };
 } // namespace signal_easel
 

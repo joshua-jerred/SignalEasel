@@ -4,7 +4,9 @@
 #include <iostream>
 #include <vector>
 
-#include "bit-stream.h"
+#include <SignalEasel/signal_easel.hpp>
+
+namespace signal_easel {
 
 void BitStream::addBits(unsigned char *data, int num_bits) {
   int data_index = 0;
@@ -130,6 +132,6 @@ void BitStream::dumpBitStreamAsAscii() {
   }
 }
 
-int BitStream::getBitStreamLength() {
-  return bit_stream_length_;
-}
+int BitStream::getBitStreamLength() { return bit_stream_length_; }
+
+} // namespace signal_easel

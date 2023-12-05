@@ -155,6 +155,52 @@ public:
 
 protected:
   Settings settings_;
+
+  /**
+   * @brief Buffer for the audio data, kept generic so it can be written to
+   * either a WAV file or to PulseAudio
+   */
+  std::vector<int16_t> audio_buffer_ = {};
+};
+
+/**
+ * @details Bit stream is an array of 32 bit integers.
+ * The bits are stored in a 32 bit integer in the following way:
+ *
+ * Characters:
+ * a a b b c c
+ *
+ * varicode with 2x 0 bit padding added to the end of each character:
+ * '1011' '00' '1011' '00'  '1011111' '00' '1011111' '00' '101111' '00' '101111'
+ * '00'
+ *
+ * 32 bit array:
+ * [0](10110010110010111110010111110010) {a, a, b, b, half of c    }
+ * [1](11110010111100000000000000000000) {other half of c, 0 bits..}
+ *
+ * Although this may not be the best way to store the bit stream,
+ * it makes it easier to understand.
+ * @todo Add support for little endian and big endian.
+ */
+class BitStream {
+public:
+  void dumpBitStream();
+  void dumpBitStreamAsHex();
+  void dumpBitStreamAsAscii();
+  void addBits(unsigned char *data, int num_bits);
+  int popNextBit();
+  int peakNextBit();
+  void pushBufferToBitStream();
+  int getBitStreamLength(); // Number of bits in the bit stream
+
+  const std::vector<uint32_t> &getBitVector() const { return bit_stream_; }
+
+private:
+  std::vector<uint32_t> bit_stream_ = std::vector<uint32_t>();
+  int bit_stream_index_ = 0;
+  uint32_t bit_stream_buffer_ = 0;
+  int bit_stream_offset_ = 0; // Write left to right. [0 - 31]
+  int bit_stream_length_ = 0; // Number of bits in the bit stream
 };
 
 /**
@@ -219,12 +265,6 @@ private:
    * @brief Used with addSineWave to keep a continuous phase between calls
    */
   double sine_wave_phase_ = 0.0;
-
-  /**
-   * @brief Buffer for the audio data, kept generic so it can be written to
-   * either a WAV file or to PulseAudio
-   */
-  std::vector<int16_t> audio_buffer_ = {};
 };
 
 /**
@@ -246,13 +286,17 @@ protected:
 /**
  * @brief The base class for all demodulators that turn audio into data
  */
-class Demodulator {
+class Demodulator : public SignalEasel {
 public:
-  Demodulator(Settings settings) : settings_(std::move(settings)) {}
+  Demodulator(Settings settings) : SignalEasel(std::move(settings)) {}
   virtual ~Demodulator() = default;
 
+  void clearBuffer() { audio_buffer_.clear(); }
+
+  void loadAudioFromFile(const std::string &filename);
+
 protected:
-  Settings settings_;
+  const std::vector<int16_t> &getAudioBuffer() const { return audio_buffer_; }
 };
 
 } // namespace signal_easel

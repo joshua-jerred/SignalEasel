@@ -19,6 +19,7 @@
 #include <SignalEasel/signal_easel.hpp>
 
 namespace signal_easel {
+
 bool isCallSignValid(const std::string &call_sign) {
   constexpr size_t k_min_call_sign_length = 3;
   constexpr size_t k_max_call_sign_length = 6;
@@ -35,4 +36,5 @@ bool isCallSignValid(const std::string &call_sign) {
 
   return true;
 }
+
 } // namespace signal_easel

@@ -15,6 +15,7 @@
  */
 
 #include <cmath>
+#include <fstream>
 #include <iostream>
 
 #include <SignalEasel/afsk.hpp>
@@ -47,7 +48,13 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
 
   for (int i = 0; i < number_of_samples; i++) {
     // normalized sample (between -1 and 1)
-    double sample = audio_buffer.at(i) / MAX_SAMPLE_VALUE;
+    double sample = audio_buffer.at(i) / static_cast<double>(MAX_SAMPLE_VALUE);
+
+    if (i < 1000)
+      std::cout << audio_buffer.at(i) << std::endl;
+
+    // if (i < 200)
+    // std::cout << rms_filter(audio_buffer.at(i)) << std::endl;
 
     mark_i.at(i) =
         sample *
@@ -83,6 +90,12 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
 
     base_band_signal_.push_back(result > 0 ? 0xff : 0);
   }
+
+  // for (int i = 0; i < number_of_samples; i++) {
+  // std::cout << base_band_signal_.at(i) << " " << std::endl;
+  // }
+
+  // std::cout << "Result: " << result_sum / result_count << std::endl;
 }
 
 void AfskDemodulator::baseBandToBitStream(
@@ -99,10 +112,13 @@ void AfskDemodulator::baseBandToBitStream(
   int32_t clock_skew_sum_of_squares = 0;
   int32_t clock_skew_count = 0;
 
+  int32_t clock_skew_mean = 0;
+  int32_t clock_skew_variance = 0;
+
   int32_t samples_since_last_boundary = 0;
   int32_t samples_since_last_boundary_sum = 0;
   int32_t num_boundaries = 0;
-  // int32_t mean_samples_between_boundaries = 0;
+  int32_t mean_samples_between_boundaries = 0;
 
   constexpr double kClockSkewAlpha = 0.5;
   double clock_skew_accumulator = 0;
@@ -130,8 +146,8 @@ void AfskDemodulator::baseBandToBitStream(
       num_boundaries++;
       samples_since_last_boundary_sum += samples_since_last_boundary;
       samples_since_last_boundary = 0;
-      // mean_samples_between_boundaries =
-      //     samples_since_last_boundary_sum / num_boundaries;
+      mean_samples_between_boundaries =
+          samples_since_last_boundary_sum / num_boundaries;
 
       int8_t timing_error_num_samples = (sample_clock % 40) - 20;
       // bool ahead = timing_error_num_samples > 0;
@@ -142,10 +158,9 @@ void AfskDemodulator::baseBandToBitStream(
       clock_skew_sum_of_squares +=
           timing_error_num_samples * timing_error_num_samples; // for variance
 
-      // int32_t clock_skew_mean = clock_skew_sum / clock_skew_count;
-      // int32_t clock_skew_variance =
-      //     (clock_skew_sum_of_squares / clock_skew_count) -
-      //     (clock_skew_mean * clock_skew_mean);
+      clock_skew_mean = clock_skew_sum / clock_skew_count;
+      clock_skew_variance = (clock_skew_sum_of_squares / clock_skew_count) -
+                            (clock_skew_mean * clock_skew_mean);
 
       clock_skew_accumulator =
           (kClockSkewAlpha * static_cast<double>(timing_error_num_samples)) +
@@ -168,6 +183,11 @@ void AfskDemodulator::baseBandToBitStream(
       }
     }
   }
+  std::cout << std::endl
+            << "MSBB: " << mean_samples_between_boundaries << std::endl;
+  std::cout << "CSA: " << clock_skew_accumulator << std::endl;
+  std::cout << "CSM: " << clock_skew_mean << std::endl;
+  std::cout << "CSV: " << clock_skew_variance << std::endl;
   output_bit_stream_.pushBufferToBitStream();
 }
 

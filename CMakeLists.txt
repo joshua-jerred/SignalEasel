@@ -29,6 +29,7 @@ endif()
 add_library(SignalEasel STATIC
     src/utilities.cpp
     src/bit_stream.cpp
+    # src/filter.cpp
     src/modulator.cpp
     src/demodulator.cpp
     src/morse_modulator.cpp
@@ -64,6 +65,10 @@ unset(SSTV_ENABLED CACHE)
 if (UNIT_TESTS)
     add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 endif()
+
+add_executable(tester
+    src/bp_filter.cpp
+)
 
 # add_executable(audio-in-test
 #    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp

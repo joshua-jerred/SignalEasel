@@ -20,6 +20,8 @@
 
 #include <SignalEasel/afsk.hpp>
 
+// #define NOISE_SIMULATION
+
 namespace signal_easel {
 
 /**
@@ -118,6 +120,20 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
       double rhs = k_rhs_multiplier * static_cast<double>(integral_value_);
       int16_t sample = static_cast<int16_t>(
           MAX_SAMPLE_VALUE * (std::cos(lhs + rhs) * settings_.amplitude));
+
+#ifdef NOISE_SIMULATION
+
+      // Add noise
+      constexpr double k_noise_amplitude = 0.15;
+      constexpr double k_noise_frequency = 3000;
+      double noise =
+          k_noise_amplitude *
+          std::sin(TWO_PI_VAL * k_noise_frequency * static_cast<double>(i) /
+                   static_cast<double>(SAMPLE_FREQUENCY_));
+      sample += static_cast<int16_t>(MAX_SAMPLE_VALUE * noise);
+
+#endif // NOISE_SIMULATION
+
       addAudioSample(sample);
     }
   }

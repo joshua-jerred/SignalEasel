@@ -17,5 +17,20 @@
 #include <SignalEasel/signal_easel.hpp>
 
 namespace signal_easel {
-void Modulator::writeToFile(const std::string &filename) {}
+void Modulator::writeToFile(const std::string &filename) { (void)filename; }
+
+void DataModulator::addBytes(const std::vector<uint8_t> &data) {
+  if (data.empty()) {
+    return;
+  }
+  encodeBytes(data);
+}
+
+void DataModulator::addString(const std::string &data) {
+  if (data.empty()) {
+    return;
+  }
+  encodeBytes(std::vector<uint8_t>(data.begin(), data.end()));
+}
+
 } // namespace signal_easel

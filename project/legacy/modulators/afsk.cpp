@@ -17,10 +17,8 @@ class AFSK {
 public:
   enum class MODE { AX25 = 0, ASCII = 1 };
   AFSK(wavgen::Generator &wavgen, AFSK::MODE mode)
-      : wavgen_(wavgen), mode_(mode) {
-  }
-  ~AFSK() {
-  }
+      : wavgen_(wavgen), mode_(mode) {}
+  ~AFSK() {}
 
   bool encodeRawData(unsigned char *data,
                      int length); // Probably an AX.25 frame (with bit stuffing)
@@ -81,7 +79,7 @@ void AFSK::encodeBitStream() {
   // sample_freq_ = 44100 * 2
   // samples_per_bit_ = sample_freq_ / baud_rate_ = 147
 
-  const int sample_freq_ = wavgen_.getSampleRate() * 4;   // 176400
+  const int sample_freq_ = wavgen_.getSampleRate() * 4;
   const int samples_per_bit_ = sample_freq_ / baud_rate_; // 147
   const int bits_to_encode_ = bit_stream_.getBitStreamLength();
 

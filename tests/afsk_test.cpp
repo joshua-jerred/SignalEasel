@@ -13,6 +13,7 @@ TEST(Afsk, EncodeAndDecodeAscii) {
 
   signal_easel::AfskModulator modulator;
   modulator.addString(kInputString);
+  modulator.addString(kInputString);
   modulator.writeToFile("test.wav");
 
   // std::string output;

@@ -112,7 +112,7 @@ struct GlobalSettings {
    * @warning This may be a problem for international users. If so, please
    * create an issue on GitHub.
    */
-  std::string call_sign;
+  std::string call_sign{};
 
   /**
    * @brief The mode for the call sign
@@ -120,6 +120,11 @@ struct GlobalSettings {
    */
   GlobalSettings::CallSignMode call_sign_mode =
       GlobalSettings::CallSignMode::NONE;
+
+  /**
+   * @brief The maximum amplitude of the audio. 0.0 - 1.0
+   */
+  double amplitude = 0.3;
 };
 
 /**
@@ -149,11 +154,7 @@ protected:
    */
   GlobalSettings settings_;
 
-  bool addAudioSample(int16_t sample) {
-
-    audio_data_.push_back(sample);
-    return true;
-  }
+  void addAudioSample(int16_t sample) { audio_data_.push_back(sample); }
 
 private:
   /**
@@ -168,15 +169,26 @@ private:
  * into audio
  */
 class DataModulator : public Modulator {
+public:
+  DataModulator(const GlobalSettings &settings = GlobalSettings())
+      : Modulator(settings) {}
+  virtual ~DataModulator() = default;
 
-  /**
-   * @brief The base class for all demodulators that turn audio into data
-   */
-  class Demodulator {
-  public:
-    Demodulator() = default;
-    virtual ~Demodulator() = default;
-  };
+  void addBytes(const std::vector<uint8_t> &data);
+  void addString(const std::string &data);
+
+protected:
+  virtual bool encodeBytes(const std::vector<uint8_t> &data) = 0;
+};
+
+/**
+ * @brief The base class for all demodulators that turn audio into data
+ */
+class Demodulator {
+public:
+  Demodulator() = default;
+  virtual ~Demodulator() = default;
+};
 
 } // namespace signal_easel
 

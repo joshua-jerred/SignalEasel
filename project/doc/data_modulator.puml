@@ -1,0 +1,30 @@
+@startuml
+
+start
+
+if (Morse call sign mode is not none?) then (yes)
+  :Validate Call Sign;
+endif
+
+if (Morse call sign mode is 'before' or 'both') then (yes)
+  :Add call sign to audio buffer;
+endif
+
+partition "User Adds Data" {
+  :Generic call to 'add string' or 'add bytes';
+  if (Space in buffer?) then (yes)
+    :Call to child class 'encode bytes';
+    :Audio samples added to buffer;
+  else (no)
+    :throw Exception;
+    stop
+  endif
+}
+
+partition "WriteWav" {
+  
+}
+
+stop
+
+@enduml

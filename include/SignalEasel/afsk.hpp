@@ -103,7 +103,7 @@ private:
    */
   void baseBandToBitStream(ProcessResults &results);
 
-  std::vector<int8_t> base_band_signal_{};
+  std::vector<uint8_t> base_band_signal_{};
 
   BitStream output_bit_stream_{};
 

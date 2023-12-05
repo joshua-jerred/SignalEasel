@@ -8,7 +8,7 @@
 
 namespace signal_easel {
 
-void BitStream::addBits(unsigned char *data, int num_bits) {
+void BitStream::addBits(const unsigned char *data, int num_bits) {
   int data_index = 0;
   int bit_index = 0; // Index of the bit in the byte, left to right [0 - 7]
   int buffer_space;
@@ -31,7 +31,7 @@ void BitStream::addBits(unsigned char *data, int num_bits) {
       num_bits -= 8;
       data_index++;
     } else { // Write a bit at a time
-      bit_stream_buffer_ |= (data[data_index] & (1 << (7 - bit_index)))
+      bit_stream_buffer_ |= (data[data_index] & (1 << (7 - bit_index))) != 0
                                 ? 1 << (32 - bit_stream_offset_ - 1)
                                 : 0;
       bit_stream_offset_++;
@@ -48,7 +48,6 @@ void BitStream::addBits(unsigned char *data, int num_bits) {
 /**
  * @brief After adding all of the data to the bit stream, this method will
  * write the data left in the buffer
- *
  */
 void BitStream::pushBufferToBitStream() {
   bit_stream_.push_back(bit_stream_buffer_);
@@ -62,7 +61,7 @@ void BitStream::pushBufferToBitStream() {
  *
  * @return int [1, 0, -1] -1 = no more bits in bit stream
  */
-int BitStream::popNextBit() {
+int8_t BitStream::popNextBit() {
   if (bit_stream_index_ >=
       (int)bit_stream_.size()) { // No more bits in bit stream
     return -1;
@@ -77,7 +76,7 @@ int BitStream::popNextBit() {
     bit_stream_index_++;
   }
   bit_stream_length_--;
-  return bit ? 1 : 0;
+  return bit != 0U ? 1 : 0;
 }
 
 /**
@@ -91,7 +90,7 @@ int BitStream::peakNextBit() {
   }
   uint32_t bit =
       bit_stream_[bit_stream_index_] & (1 << (31 - bit_stream_offset_));
-  return bit ? 1 : 0;
+  return bit != 0U ? 1 : 0;
 }
 
 void BitStream::dumpBitStream() {
@@ -132,6 +131,6 @@ void BitStream::dumpBitStreamAsAscii() {
   }
 }
 
-int BitStream::getBitStreamLength() { return bit_stream_length_; }
+int BitStream::getBitStreamLength() const { return bit_stream_length_; }
 
 } // namespace signal_easel

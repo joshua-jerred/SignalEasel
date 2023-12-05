@@ -25,56 +25,57 @@
 
 namespace signal_easel {
 
-std::vector<double> trinomialMultiply(int filter_order,
-                                      const std::vector<double> &b,
-                                      const std::vector<double> &c) {
-  int i, j;
-  std::vector<double> return_vector(4 * filter_order);
+std::vector<double> trinomialMultiply(unsigned int filter_order,
+                                      const std::vector<double> &b_coeffs,
+                                      const std::vector<double> &c_coeffs) {
+  std::vector<double> return_vector(static_cast<size_t>(4) * filter_order);
 
-  return_vector[2] = c.at(0);
-  return_vector[3] = c.at(1);
-  return_vector[0] = b.at(0);
-  return_vector[1] = b.at(1);
+  return_vector[2] = c_coeffs.at(0);
+  return_vector[3] = c_coeffs.at(1);
+  return_vector[0] = b_coeffs.at(0);
+  return_vector[1] = b_coeffs.at(1);
 
-  for (i = 1; i < filter_order; ++i) {
+  for (size_t i = 1; i < filter_order; ++i) {
     return_vector[2 * (2 * i + 1)] +=
-        c[2 * i] * return_vector[2 * (2 * i - 1)] -
-        c[2 * i + 1] * return_vector[2 * (2 * i - 1) + 1];
+        c_coeffs[2 * i] * return_vector[2 * (2 * i - 1)] -
+        c_coeffs[2 * i + 1] * return_vector[2 * (2 * i - 1) + 1];
     return_vector[2 * (2 * i + 1) + 1] +=
-        c[2 * i] * return_vector[2 * (2 * i - 1) + 1] +
-        c[2 * i + 1] * return_vector[2 * (2 * i - 1)];
+        c_coeffs[2 * i] * return_vector[2 * (2 * i - 1) + 1] +
+        c_coeffs[2 * i + 1] * return_vector[2 * (2 * i - 1)];
 
-    for (j = 2 * i; j > 1; --j) {
-      return_vector[2 * j] += b[2 * i] * return_vector[2 * (j - 1)] -
-                              b[2 * i + 1] * return_vector[2 * (j - 1) + 1] +
-                              c[2 * i] * return_vector[2 * (j - 2)] -
-                              c[2 * i + 1] * return_vector[2 * (j - 2) + 1];
-      return_vector[2 * j + 1] += b[2 * i] * return_vector[2 * (j - 1) + 1] +
-                                  b[2 * i + 1] * return_vector[2 * (j - 1)] +
-                                  c[2 * i] * return_vector[2 * (j - 2) + 1] +
-                                  c[2 * i + 1] * return_vector[2 * (j - 2)];
+    for (size_t j = 2 * i; j > 1; --j) {
+      return_vector[2 * j] +=
+          b_coeffs[2 * i] * return_vector[2 * (j - 1)] -
+          b_coeffs[2 * i + 1] * return_vector[2 * (j - 1) + 1] +
+          c_coeffs[2 * i] * return_vector[2 * (j - 2)] -
+          c_coeffs[2 * i + 1] * return_vector[2 * (j - 2) + 1];
+      return_vector[2 * j + 1] +=
+          b_coeffs[2 * i] * return_vector[2 * (j - 1) + 1] +
+          b_coeffs[2 * i + 1] * return_vector[2 * (j - 1)] +
+          c_coeffs[2 * i] * return_vector[2 * (j - 2) + 1] +
+          c_coeffs[2 * i + 1] * return_vector[2 * (j - 2)];
     }
 
-    return_vector[2] += b[2 * i] * return_vector[0] -
-                        b[2 * i + 1] * return_vector[1] + c[2 * i];
-    return_vector[3] += b[2 * i] * return_vector[1] +
-                        b[2 * i + 1] * return_vector[0] + c[2 * i + 1];
-    return_vector[0] += b[2 * i];
-    return_vector[1] += b[2 * i + 1];
+    return_vector[2] += b_coeffs[2 * i] * return_vector[0] -
+                        b_coeffs[2 * i + 1] * return_vector[1] +
+                        c_coeffs[2 * i];
+    return_vector[3] += b_coeffs[2 * i] * return_vector[1] +
+                        b_coeffs[2 * i + 1] * return_vector[0] +
+                        c_coeffs[2 * i + 1];
+    return_vector[0] += b_coeffs[2 * i];
+    return_vector[1] += b_coeffs[2 * i + 1];
   }
 
   return return_vector;
 }
 
-std::vector<double> ComputeLP(int filter_order) {
+std::vector<double> computeLP(unsigned int filter_order) {
   std::vector<double> num_coeffs(filter_order + 1);
-  int m;
-  int i;
 
   num_coeffs[0] = 1;
   num_coeffs[1] = filter_order;
-  m = filter_order / 2;
-  for (i = 2; i <= m; ++i) {
+  auto half_order = filter_order / 2;
+  for (auto i = 2; i <= half_order; ++i) {
     num_coeffs[i] = (double)(filter_order - i + 1) * num_coeffs[i - 1] / i;
     num_coeffs[filter_order - i] = num_coeffs[i];
   }
@@ -84,141 +85,142 @@ std::vector<double> ComputeLP(int filter_order) {
   return num_coeffs;
 }
 
-std::vector<double> ComputeHP(int FilterOrder) {
-  std::vector<double> NumCoeffs;
-  int i;
+std::vector<double> computeHP(unsigned int filter_order) {
+  std::vector<double> num_coeffs;
 
-  NumCoeffs = ComputeLP(FilterOrder);
+  num_coeffs = computeLP(filter_order);
 
-  for (i = 0; i <= FilterOrder; ++i)
-    if (i % 2)
-      NumCoeffs[i] = -NumCoeffs[i];
+  for (auto i = 0; i <= filter_order; ++i)
+    if (i % 2 != 0)
+      num_coeffs[i] = -num_coeffs[i];
 
-  return NumCoeffs;
+  return num_coeffs;
 }
 
-std::vector<double> ComputeDenCoeffs(int FilterOrder, double Lcutoff,
-                                     double Ucutoff) {
-  int k;        // loop variables
-  double theta; // PI * (Ucutoff - Lcutoff) / 2.0
-  double cp;    // cosine of phi
-  double st;    // sine of theta
-  double ct;    // cosine of theta
-  double s2t;   // sine of 2*theta
-  double c2t;   // cosine 0f 2*theta
-  std::vector<double> RCoeffs(2 * FilterOrder); // z^-2 coefficients
-  std::vector<double> TCoeffs(2 * FilterOrder); // z^-1 coefficients
-  std::vector<double> DenomCoeffs;              // dk coefficients
-  double PoleAngle;                             // pole angle
-  double SinPoleAngle;                          // sine of pole angle
-  double CosPoleAngle;                          // cosine of pole angle
-  double a;                                     // workspace variables
+std::vector<double> computeDenCoeffs(unsigned int filter_order,
+                                     double low_cutoff, double upper_cutoff) {
+  double theta;     // PI * (Ucutoff - Lcutoff) / 2.0
+  double cos_phi;   // cosine of phi
+  double sin_theta; // sine of theta
+  double cos_theta; // cosine of theta
+  double s2t;       // sine of 2*theta
+  double c2t;       // cosine 0f 2*theta
+  std::vector<double> r_coeffs(static_cast<size_t>(2) *
+                               filter_order); // z^-2 coefficients
+  std::vector<double> t_coeffs(static_cast<size_t>(2) *
+                               filter_order); // z^-1 coefficients
+  std::vector<double> denom_coeffs;           // dk coefficients
+  double pole_angle;                          // pole angle
+  double sin_pole_angle;                      // sine of pole angle
+  double cos_pole_angle;                      // cosine of pole angle
 
-  cp = cos(PI * (Ucutoff + Lcutoff) / 2.0);
-  theta = PI * (Ucutoff - Lcutoff) / 2.0;
-  st = sin(theta);
-  ct = cos(theta);
-  s2t = 2.0 * st * ct;       // sine of 2*theta
-  c2t = 2.0 * ct * ct - 1.0; // cosine of 2*theta
+  cos_phi = cos(PI * (upper_cutoff + low_cutoff) / 2.0);
+  theta = PI * (upper_cutoff - low_cutoff) / 2.0;
+  sin_theta = sin(theta);
+  cos_theta = cos(theta);
+  s2t = 2.0 * sin_theta * cos_theta;       // sine of 2*theta
+  c2t = 2.0 * cos_theta * cos_theta - 1.0; // cosine of 2*theta
 
-  for (k = 0; k < FilterOrder; ++k) {
-    PoleAngle = PI * (double)(2 * k + 1) / (double)(2 * FilterOrder);
-    SinPoleAngle = sin(PoleAngle);
-    CosPoleAngle = cos(PoleAngle);
-    a = 1.0 + s2t * SinPoleAngle;
-    RCoeffs[2 * k] = c2t / a;
-    RCoeffs[2 * k + 1] = s2t * CosPoleAngle / a;
-    TCoeffs[2 * k] = -2.0 * cp * (ct + st * SinPoleAngle) / a;
-    TCoeffs[2 * k + 1] = -2.0 * cp * st * CosPoleAngle / a;
+  for (size_t k = 0; k < filter_order; ++k) {
+    pole_angle = PI * (double)(2 * k + 1) / (double)(2 * filter_order);
+    sin_pole_angle = sin(pole_angle);
+    cos_pole_angle = cos(pole_angle);
+    double divisor = 1.0 + s2t * sin_pole_angle;
+    r_coeffs[2 * k] = c2t / divisor;
+    r_coeffs[2 * k + 1] = s2t * cos_pole_angle / divisor;
+    t_coeffs[2 * k] =
+        -2.0 * cos_phi * (cos_theta + sin_theta * sin_pole_angle) / divisor;
+    t_coeffs[2 * k + 1] = -2.0 * cos_phi * sin_theta * cos_pole_angle / divisor;
   }
 
-  DenomCoeffs = trinomialMultiply(FilterOrder, TCoeffs, RCoeffs);
+  denom_coeffs = trinomialMultiply(filter_order, t_coeffs, r_coeffs);
 
-  DenomCoeffs[1] = DenomCoeffs[0];
-  DenomCoeffs[0] = 1.0;
-  for (k = 3; k <= 2 * FilterOrder; ++k)
-    DenomCoeffs[k] = DenomCoeffs[2 * k - 2];
+  denom_coeffs[1] = denom_coeffs[0];
+  denom_coeffs[0] = 1.0;
+  for (auto k = 3; k <= 2 * filter_order; ++k)
+    denom_coeffs[k] = denom_coeffs[2 * k - 2];
 
-  for (int i = DenomCoeffs.size() - 1; i > FilterOrder * 2 + 1; i--)
-    DenomCoeffs.pop_back();
+  for (size_t i = denom_coeffs.size() - 1; i > filter_order * 2 + 1; i--)
+    denom_coeffs.pop_back();
 
-  return DenomCoeffs;
+  return denom_coeffs;
 }
 
-std::vector<double> ComputeNumCoeffs(int FilterOrder, double Lcutoff,
-                                     double Ucutoff, std::vector<double> DenC) {
-  std::vector<double> TCoeffs;
-  std::vector<double> NumCoeffs(2 * FilterOrder + 1);
-  std::vector<std::complex<double>> NormalizedKernel(2 * FilterOrder + 1);
+std::vector<double> computeNumCoeffs(unsigned int filter_order,
+                                     double lower_cutoff, double upper_cutoff,
+                                     std::vector<double> den_c) {
+  std::vector<double> t_coeffs;
+  std::vector<double> num_coeffs(2 * filter_order + 1);
+  std::vector<std::complex<double>> normalized_kernel(2 * filter_order + 1);
 
-  std::vector<double> Numbers;
-  for (double n = 0; n < FilterOrder * 2 + 1; n++)
-    Numbers.push_back(n);
-  int i;
+  std::vector<double> numbers;
+  for (double i = 0; i < filter_order * 2 + 1; i++)
+    numbers.push_back(i);
 
-  TCoeffs = ComputeHP(FilterOrder);
+  t_coeffs = computeHP(filter_order);
 
-  for (i = 0; i < FilterOrder; ++i) {
-    NumCoeffs[2 * i] = TCoeffs[i];
-    NumCoeffs[2 * i + 1] = 0.0;
+  for (size_t i = 0; i < filter_order; ++i) {
+    num_coeffs[2 * i] = t_coeffs[i];
+    num_coeffs[2 * i + 1] = 0.0;
   }
-  NumCoeffs[2 * FilterOrder] = TCoeffs[FilterOrder];
+  num_coeffs[static_cast<size_t>(2) * filter_order] = t_coeffs[filter_order];
 
-  double cp[2];
-  double Wn;
-  cp[0] = 2 * 2.0 * tan(PI * Lcutoff / 2.0);
-  cp[1] = 2 * 2.0 * tan(PI * Ucutoff / 2.0);
+  double cos_p[2];
+  double wn_intermediate;
+  cos_p[0] = 2 * 2.0 * tan(PI * lower_cutoff / 2.0);
+  cos_p[1] = 2 * 2.0 * tan(PI * upper_cutoff / 2.0);
 
   // Bw = cp[1] - cp[0];
   // center frequency
-  Wn = sqrt(cp[0] * cp[1]);
-  Wn = 2 * atan2(Wn, 4);
+  wn_intermediate = sqrt(cos_p[0] * cos_p[1]);
+  wn_intermediate = 2 * atan2(wn_intermediate, 4);
   // double kern;
-  const std::complex<double> result = std::complex<double>(-1, 0);
+  const std::complex<double> k_result = std::complex<double>(-1, 0);
 
-  for (int k = 0; k < FilterOrder * 2 + 1; k++) {
-    NormalizedKernel[k] = std::exp(-sqrt(result) * Wn * Numbers[k]);
+  for (int k = 0; k < filter_order * 2 + 1; k++) {
+    normalized_kernel[k] =
+        std::exp(-sqrt(k_result) * wn_intermediate * numbers[k]);
   }
-  double b = 0;
+  double intermediate = 0;
   double den = 0;
-  for (int d = 0; d < FilterOrder * 2 + 1; d++) {
-    b += real(NormalizedKernel[d] * NumCoeffs[d]);
-    den += real(NormalizedKernel[d] * DenC[d]);
+  for (int i = 0; i < filter_order * 2 + 1; i++) {
+    intermediate += real(normalized_kernel[i] * num_coeffs[i]);
+    den += real(normalized_kernel[i] * den_c[i]);
   }
-  for (int c = 0; c < FilterOrder * 2 + 1; c++) {
-    NumCoeffs[c] = (NumCoeffs[c] * den) / b;
+  for (int j = 0; j < filter_order * 2 + 1; j++) {
+    num_coeffs[j] = (num_coeffs[j] * den) / intermediate;
   }
 
-  for (int i = NumCoeffs.size() - 1; i > FilterOrder * 2 + 1; i--)
-    NumCoeffs.pop_back();
+  for (size_t i = num_coeffs.size() - 1; i > filter_order * 2 + 1; i--)
+    num_coeffs.pop_back();
 
-  return NumCoeffs;
+  return num_coeffs;
 }
 
 std::vector<double> filter(const std::vector<double> &input_vec,
                            std::vector<double> coeff_b,
                            std::vector<double> coeff_a) {
-  int len_x = input_vec.size();
-  int len_b = coeff_b.size();
-  int len_a = coeff_a.size();
+  size_t len_x = input_vec.size();
+  size_t len_b = coeff_b.size();
+  size_t len_a = coeff_a.size();
 
-  std::vector<double> zi(len_b);
+  std::vector<double> vec_zi(len_b);
 
   std::vector<double> filter_x(len_x);
 
   if (len_a == 1) {
-    for (int m = 0; m < len_x; m++) {
-      filter_x[m] = coeff_b[0] * input_vec[m] + zi[0];
-      for (int i = 1; i < len_b; i++) {
-        zi[i - 1] = coeff_b[i] * input_vec[m] + zi[i];
+    for (size_t j = 0; j < len_x; j++) {
+      filter_x[j] = coeff_b[0] * input_vec[j] + vec_zi[0];
+      for (size_t i = 1; i < len_b; i++) {
+        vec_zi[i - 1] = coeff_b[i] * input_vec[j] + vec_zi[i];
       }
     }
   } else {
-    for (int m = 0; m < len_x; m++) {
-      filter_x[m] = coeff_b[0] * input_vec[m] + zi[0];
-      for (int i = 1; i < len_b; i++) {
-        zi[i - 1] =
-            coeff_b[i] * input_vec[m] + zi[i] - coeff_a[i] * filter_x[m];
+    for (size_t j = 0; j < len_x; j++) {
+      filter_x[j] = coeff_b[0] * input_vec[j] + vec_zi[0];
+      for (size_t i = 1; i < len_b; i++) {
+        vec_zi[i - 1] =
+            coeff_b[i] * input_vec[j] + vec_zi[i] - coeff_a[i] * filter_x[j];
       }
     }
   }
@@ -228,14 +230,16 @@ std::vector<double> filter(const std::vector<double> &input_vec,
 
 std::vector<double> bandPassFilter(std::vector<double> &input,
                                    double sample_rate, double lower_cutoff,
-                                   double upper_cutoff, int order) {
-  double frequency_bands[2] = {lower_cutoff / sample_rate * 2,
-                               upper_cutoff / sample_rate * 2};
+                                   double upper_cutoff, unsigned int order) {
+  double lower_frequency_band = lower_cutoff / sample_rate * 2;
+  double upper_frequency_band = upper_cutoff / sample_rate * 2;
 
-  auto a = ComputeDenCoeffs(order, frequency_bands[0], frequency_bands[1]);
-  auto b = ComputeNumCoeffs(order, frequency_bands[0], frequency_bands[1], a);
+  auto a_coeffs =
+      computeDenCoeffs(order, lower_frequency_band, upper_frequency_band);
+  auto b_coeffs = computeNumCoeffs(order, lower_frequency_band,
+                                   upper_frequency_band, a_coeffs);
 
-  return filter(input, b, a);
+  return filter(input, b_coeffs, a_coeffs);
 }
 
 } // namespace signal_easel
@@ -243,7 +247,8 @@ std::vector<double> bandPassFilter(std::vector<double> &input,
 int main() {
   std::ifstream ifile;
   ifile.open("input_data.txt");
-  std::vector<double> input, output;
+
+  std::vector<double> input;
 
   double sample_rate = 48000;
   int order = 4;
@@ -251,13 +256,13 @@ int main() {
   double upper_cutoff = 2000;
 
   while (ifile.good()) {
-    double x;
-    ifile >> x;
-    input.push_back(x);
+    double in_num;
+    ifile >> in_num;
+    input.push_back(in_num);
   }
 
-  output = signal_easel::bandPassFilter(input, sample_rate, lower_cutoff,
-                                        upper_cutoff, order);
+  auto output = signal_easel::bandPassFilter(input, sample_rate, lower_cutoff,
+                                             upper_cutoff, order);
 
   std::ofstream ofile;
   ofile.open("output_data.csv");

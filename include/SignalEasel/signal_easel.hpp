@@ -75,6 +75,12 @@ private:
 inline constexpr uint32_t AUDIO_SAMPLE_RATE = 48000;
 
 /**
+ * @brief Just a double version of AUDIO_SAMPLE_RATE. I'm tired of casting.
+ */
+inline constexpr double AUDIO_SAMPLE_RATE_D =
+    static_cast<double>(AUDIO_SAMPLE_RATE);
+
+/**
  * @brief The number of bits per sample (16-bit PCM)
  */
 inline constexpr uint32_t SAMPLE_RESOLUTION = 16;
@@ -187,11 +193,11 @@ public:
   void dumpBitStream();
   void dumpBitStreamAsHex();
   void dumpBitStreamAsAscii();
-  void addBits(unsigned char *data, int num_bits);
-  int popNextBit();
+  void addBits(const unsigned char *data, int num_bits);
+  int8_t popNextBit();
   int peakNextBit();
   void pushBufferToBitStream();
-  int getBitStreamLength(); // Number of bits in the bit stream
+  int getBitStreamLength() const; // Number of bits in the bit stream
 
   const std::vector<uint32_t> &getBitVector() const { return bit_stream_; }
 
@@ -276,10 +282,24 @@ public:
   DataModulator(const Settings &settings = Settings()) : Modulator(settings) {}
   virtual ~DataModulator() = default;
 
+  /**
+   * @brief Add data to the audio buffer
+   * @param data The data to add
+   */
   void addBytes(const std::vector<uint8_t> &data);
+
+  /**
+   * @brief Add string data to the audio buffer
+   * @param data The string to add
+   */
   void addString(const std::string &data);
 
 protected:
+  /**
+   * @brief This is overridden by the child classes to encode the data that
+   * is passed in by addBytes and addString
+   * @param data The data to encode and add to the audio buffer
+   */
   virtual void encodeBytes(const std::vector<uint8_t> &data) = 0;
 };
 
@@ -291,9 +311,16 @@ public:
   Demodulator(Settings settings) : SignalEasel(std::move(settings)) {}
   virtual ~Demodulator() = default;
 
+  /**
+   * @brief Clears the audio buffer
+   */
   void clearBuffer() { audio_buffer_.clear(); }
 
-  void loadAudioFromFile(const std::string &filename);
+  /**
+   * @brief Open a WAV file and load it's contents into the audio buffer.
+   * @param file_name The name/path of the file to open
+   */
+  void loadAudioFromFile(const std::string &file_name);
 
 protected:
   const std::vector<int16_t> &getAudioBuffer() const { return audio_buffer_; }

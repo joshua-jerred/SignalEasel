@@ -21,9 +21,10 @@
 #include <vector>
 
 namespace signal_easel {
-std::vector<int16_t> bandPassFilter(std::vector<int16_t> &input,
-                                    size_t sample_rate, size_t lower_cutoff,
-                                    size_t upper_cutoff);
+std::vector<double> bandPassFilter(const std::vector<double> &input,
+                                   double sample_rate, double lower_cutoff,
+                                   double upper_cutoff,
+                                   size_t filter_order = 4);
 } // namespace signal_easel
 
 #endif /* SIGNAL_EASEL_FILTER_HPP_ */

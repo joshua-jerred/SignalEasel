@@ -14,11 +14,14 @@
  * @license    GNU GPLv3
  */
 
+#include <algorithm>
 #include <cmath>
 #include <fstream>
 #include <iostream>
 
 #include <SignalEasel/afsk.hpp>
+
+#include "band_pass_filter.hpp"
 
 namespace signal_easel {
 
@@ -33,10 +36,54 @@ AfskDemodulator::ProcessResults AfskDemodulator::processAudioBuffer() {
 
 void AfskDemodulator::audioBufferToBaseBandSignal(
     AfskDemodulator::ProcessResults &results) {
-  (void)results;
+  const auto &samples_buffer = getAudioBuffer();
+  std::vector<double> unfiltered(samples_buffer.begin(), samples_buffer.end());
 
-  const auto &audio_buffer = getAudioBuffer();
-  const size_t k_number_of_samples = audio_buffer.size();
+  auto filtered_audio =
+      bandPassFilter(unfiltered, AUDIO_SAMPLE_RATE_D, AFSK_BP_MARK_LOWER_CUTOFF,
+                     AFSK_BP_SPACE_UPPER_CUTOFF, AFSK_BP_FILTER_ORDER);
+
+  // calculate RMS for SNR
+  auto lower_audio =
+      bandPassFilter(unfiltered, AUDIO_SAMPLE_RATE_D, AFSK_BP_MARK_LOWER_CUTOFF,
+                     AFSK_BP_MARK_UPPER_CUTOFF, AFSK_BP_FILTER_ORDER);
+  auto upper_audio = bandPassFilter(
+      unfiltered, AUDIO_SAMPLE_RATE_D, AFSK_BP_SPACE_LOWER_CUTOFF,
+      AFSK_BP_SPACE_UPPER_CUTOFF, AFSK_BP_FILTER_ORDER);
+  if (lower_audio.size() != upper_audio.size()) {
+    throw Exception(Exception::Id::NON_MATCHING_FILTER_VECTORS);
+  }
+
+  double rms = 0;
+  for (size_t i = 0; i < lower_audio.size(); i++) {
+    double combined =
+        (lower_audio.at(i) + upper_audio.at(i)) / AFSK_BP_INCLUDED_BANDWIDTH;
+    rms += combined * combined;
+  }
+  rms = std::sqrt(rms / lower_audio.size());
+
+  // calculate the RMS for a wider signal
+  constexpr double k_wide_band_lower_cutoff = 500;
+  constexpr double k_wide_band_upper_cutoff = 2700;
+  constexpr double k_wide_band_included_bandwidth =
+      k_wide_band_upper_cutoff - k_wide_band_lower_cutoff;
+  constexpr double k_wide_band_rms_additional_weight = 0.5;
+  auto wide_audio =
+      bandPassFilter(unfiltered, AUDIO_SAMPLE_RATE_D, k_wide_band_lower_cutoff,
+                     k_wide_band_upper_cutoff, AFSK_BP_FILTER_ORDER);
+  double wide_rms = 0;
+  for (double &sample : wide_audio) {
+    double adjusted = (sample / k_wide_band_included_bandwidth) +
+                      k_wide_band_rms_additional_weight;
+    wide_rms += adjusted * adjusted;
+  }
+  wide_rms = std::sqrt(wide_rms / wide_audio.size());
+
+  // calculate SNR
+  results.rms = rms;
+  results.snr = 20 * std::log10(rms / wide_rms);
+
+  const size_t k_number_of_samples = filtered_audio.size();
 
   std::vector<double> mark_i(k_number_of_samples);
   std::vector<double> mark_q(k_number_of_samples);
@@ -45,7 +92,8 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
 
   for (int i = 0; i < static_cast<int>(k_number_of_samples); i++) {
     // normalized sample (between -1 and 1)
-    double sample = audio_buffer.at(i) / static_cast<double>(MAX_SAMPLE_VALUE);
+    double sample =
+        filtered_audio.at(i) / static_cast<double>(MAX_SAMPLE_VALUE);
 
     mark_i.at(i) =
         sample *
@@ -100,13 +148,13 @@ void AfskDemodulator::baseBandToBitStream(
   int32_t clock_skew_sum_of_squares = 0;
   int32_t clock_skew_count = 0;
 
-  int32_t clock_skew_mean = 0;
-  int32_t clock_skew_variance = 0;
+  // int32_t clock_skew_mean = 0;
+  // int32_t clock_skew_variance = 0;
 
   int32_t samples_since_last_boundary = 0;
   int32_t samples_since_last_boundary_sum = 0;
   int32_t num_boundaries = 0;
-  int32_t mean_samples_between_boundaries = 0;
+  // int32_t mean_samples_between_boundaries = 0;
 
   constexpr double k_clock_skew_alpha = 0.5;
   double clock_skew_accumulator = 0;
@@ -134,8 +182,8 @@ void AfskDemodulator::baseBandToBitStream(
       num_boundaries++;
       samples_since_last_boundary_sum += samples_since_last_boundary;
       samples_since_last_boundary = 0;
-      mean_samples_between_boundaries =
-          samples_since_last_boundary_sum / num_boundaries;
+      // mean_samples_between_boundaries =
+      // samples_since_last_boundary_sum / num_boundaries;
 
       int timing_error_num_samples = sample_clock % 40 - 20;
       // bool ahead = timing_error_num_samples > 0;
@@ -146,9 +194,9 @@ void AfskDemodulator::baseBandToBitStream(
       clock_skew_sum_of_squares +=
           timing_error_num_samples * timing_error_num_samples; // for variance
 
-      clock_skew_mean = clock_skew_sum / clock_skew_count;
-      clock_skew_variance = (clock_skew_sum_of_squares / clock_skew_count) -
-                            (clock_skew_mean * clock_skew_mean);
+      // clock_skew_mean = clock_skew_sum / clock_skew_count;
+      // clock_skew_variance = (clock_skew_sum_of_squares / clock_skew_count) -
+      // (clock_skew_mean * clock_skew_mean);
 
       clock_skew_accumulator =
           (k_clock_skew_alpha * static_cast<double>(timing_error_num_samples)) +
@@ -172,11 +220,11 @@ void AfskDemodulator::baseBandToBitStream(
       }
     }
   }
-  std::cout << std::endl
-            << "MSBB: " << mean_samples_between_boundaries << std::endl;
-  std::cout << "CSA: " << clock_skew_accumulator << std::endl;
-  std::cout << "CSM: " << clock_skew_mean << std::endl;
-  std::cout << "CSV: " << clock_skew_variance << std::endl;
+  // std::cout << std::endl
+  // << "MSBB: " << mean_samples_between_boundaries << std::endl;
+  // std::cout << "CSA: " << clock_skew_accumulator << std::endl;
+  // std::cout << "CSM: " << clock_skew_mean << std::endl;
+  // std::cout << "CSV: " << clock_skew_variance << std::endl;
   output_bit_stream_.pushBufferToBitStream();
 }
 
@@ -215,7 +263,7 @@ AfskDemodulator::lookForString(std::string &output) {
     for (int8_t i = 0; i < 8; i++) {
       bit_buffer = output_bit_stream_.popNextBit();
       if (bit_buffer == -1) {
-        std::cout << "Ran out of bits" << std::endl;
+        // std::cout << "Ran out of bits" << std::endl;
         return AfskDemodulator::AsciiResult::NO_EOT;
       }
       byte = byte << 1;

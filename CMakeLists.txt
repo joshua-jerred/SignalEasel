@@ -29,16 +29,13 @@ endif()
 add_library(SignalEasel STATIC
     src/utilities.cpp
     src/bit_stream.cpp
-    # src/filter.cpp
+    src/band_pass_filter.cpp
     src/modulator.cpp
     src/demodulator.cpp
     src/morse_modulator.cpp
     src/afsk_modulator.cpp
     src/afsk_demodulator.cpp
-    # ${MWAV_SRC}/afsk.cpp
-    # ${MWAV_SRC}/modulators/afsk.cpp
     # ${MWAV_SRC}/modulators/psk.cpp
-    # ${MWAV_SRC}/demodulators/afsk.cpp
     # ${MWAV_SRC}/demodulators/psk.cpp
 )
 target_link_libraries(SignalEasel WavGen)
@@ -65,10 +62,6 @@ unset(SSTV_ENABLED CACHE)
 if (UNIT_TESTS)
     add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
 endif()
-
-add_executable(tester
-    src/bp_filter.cpp
-)
 
 # add_executable(audio-in-test
 #    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp

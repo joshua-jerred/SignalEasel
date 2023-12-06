@@ -25,6 +25,17 @@ inline constexpr uint32_t AFSK_SAMPLES_PER_SYMBOL =
 
 inline constexpr uint16_t AFSK_ASCII_PREAMBLE_LENGTH = 2;
 
+inline constexpr uint16_t AFSK_BP_FILTER_ORDER = 4;
+
+inline constexpr double AFSK_BP_MARK_LOWER_CUTOFF = 1000;
+inline constexpr double AFSK_BP_MARK_UPPER_CUTOFF = 1400;
+inline constexpr double AFSK_BP_SPACE_LOWER_CUTOFF = 2000;
+inline constexpr double AFSK_BP_SPACE_UPPER_CUTOFF = 2400;
+
+inline constexpr double AFSK_BP_INCLUDED_BANDWIDTH =
+    AFSK_BP_MARK_UPPER_CUTOFF - AFSK_BP_MARK_LOWER_CUTOFF +
+    AFSK_BP_SPACE_UPPER_CUTOFF - AFSK_BP_SPACE_LOWER_CUTOFF;
+
 struct AfskSettings : public Settings {
   enum class BitEncoding { STANDARD, NRZI };
 
@@ -74,7 +85,10 @@ private:
 
 class AfskDemodulator : public Demodulator {
 public:
-  struct ProcessResults {};
+  struct ProcessResults {
+    double rms = 0.0;
+    double snr = 0.0;
+  };
 
   AfskDemodulator(AfskSettings settings = AfskSettings())
       : Demodulator(settings), afsk_settings_(std::move(settings)) {}

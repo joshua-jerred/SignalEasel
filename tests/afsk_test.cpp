@@ -37,7 +37,8 @@ TEST(Afsk, DecodeWithSignalSkew) {
 
   signal_easel::AfskDemodulator demodulator;
   demodulator.loadAudioFromFile(kInputFile);
-  demodulator.processAudioBuffer();
+  auto res = demodulator.processAudioBuffer();
+  EXPECT_GT(res.snr, 0.0);
 
   EXPECT_EQ(demodulator.lookForString(output),
             signal_easel::AfskDemodulator::AsciiResult::SUCCESS);
@@ -50,11 +51,11 @@ TEST(Afsk, WhiteNoise) {
   std::string output;
   //   mwav::data::decodeString(kMode, kInputFile, output);
 
-  // signal_easel::AfskDemodulator demodulator;
-  // demodulator.loadAudioFromFile(kInputFile);
-  // demodulator.processAudioBuffer();
+  signal_easel::AfskDemodulator demodulator;
+  demodulator.loadAudioFromFile(kInputFile);
+  auto res = demodulator.processAudioBuffer();
 
-  // EXPECT_EQ(demodulator.lookForString(output),
-  // signal_easel::AfskDemodulator::AsciiResult::NO_SYN);
-  // EXPECT_STREQ("", output.c_str());
+  EXPECT_LE(res.snr, 0.0);
+  EXPECT_NE(demodulator.lookForString(output),
+            signal_easel::AfskDemodulator::AsciiResult::SUCCESS);
 }

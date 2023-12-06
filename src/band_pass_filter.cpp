@@ -21,6 +21,10 @@
 #include <math.h>
 #include <vector>
 
+#include "band_pass_filter.hpp"
+
+#include <SignalEasel/signal_easel.hpp>
+
 #define PI 3.14159
 
 namespace signal_easel {
@@ -75,7 +79,7 @@ std::vector<double> computeLP(unsigned int filter_order) {
   num_coeffs[0] = 1;
   num_coeffs[1] = filter_order;
   auto half_order = filter_order / 2;
-  for (auto i = 2; i <= half_order; ++i) {
+  for (size_t i = 2; i <= half_order; ++i) {
     num_coeffs[i] = (double)(filter_order - i + 1) * num_coeffs[i - 1] / i;
     num_coeffs[filter_order - i] = num_coeffs[i];
   }
@@ -90,7 +94,7 @@ std::vector<double> computeHP(unsigned int filter_order) {
 
   num_coeffs = computeLP(filter_order);
 
-  for (auto i = 0; i <= filter_order; ++i)
+  for (size_t i = 0; i <= filter_order; ++i)
     if (i % 2 != 0)
       num_coeffs[i] = -num_coeffs[i];
 
@@ -137,7 +141,7 @@ std::vector<double> computeDenCoeffs(unsigned int filter_order,
 
   denom_coeffs[1] = denom_coeffs[0];
   denom_coeffs[0] = 1.0;
-  for (auto k = 3; k <= 2 * filter_order; ++k)
+  for (size_t k = 3; k <= 2 * filter_order; ++k)
     denom_coeffs[k] = denom_coeffs[2 * k - 2];
 
   for (size_t i = denom_coeffs.size() - 1; i > filter_order * 2 + 1; i--)
@@ -177,17 +181,17 @@ std::vector<double> computeNumCoeffs(unsigned int filter_order,
   // double kern;
   const std::complex<double> k_result = std::complex<double>(-1, 0);
 
-  for (int k = 0; k < filter_order * 2 + 1; k++) {
+  for (size_t k = 0; k < filter_order * 2 + 1; k++) {
     normalized_kernel[k] =
         std::exp(-sqrt(k_result) * wn_intermediate * numbers[k]);
   }
   double intermediate = 0;
   double den = 0;
-  for (int i = 0; i < filter_order * 2 + 1; i++) {
+  for (size_t i = 0; i < filter_order * 2 + 1; i++) {
     intermediate += real(normalized_kernel[i] * num_coeffs[i]);
     den += real(normalized_kernel[i] * den_c[i]);
   }
-  for (int j = 0; j < filter_order * 2 + 1; j++) {
+  for (size_t j = 0; j < filter_order * 2 + 1; j++) {
     num_coeffs[j] = (num_coeffs[j] * den) / intermediate;
   }
 
@@ -228,9 +232,9 @@ std::vector<double> filter(const std::vector<double> &input_vec,
   return filter_x;
 }
 
-std::vector<double> bandPassFilter(std::vector<double> &input,
+std::vector<double> bandPassFilter(const std::vector<double> &input,
                                    double sample_rate, double lower_cutoff,
-                                   double upper_cutoff, unsigned int order) {
+                                   double upper_cutoff, size_t order) {
   double lower_frequency_band = lower_cutoff / sample_rate * 2;
   double upper_frequency_band = upper_cutoff / sample_rate * 2;
 
@@ -243,34 +247,3 @@ std::vector<double> bandPassFilter(std::vector<double> &input,
 }
 
 } // namespace signal_easel
-
-int main() {
-  std::ifstream ifile;
-  ifile.open("input_data.txt");
-
-  std::vector<double> input;
-
-  double sample_rate = 48000;
-  int order = 4;
-  double lower_cutoff = 1000;
-  double upper_cutoff = 2000;
-
-  while (ifile.good()) {
-    double in_num;
-    ifile >> in_num;
-    input.push_back(in_num);
-  }
-
-  auto output = signal_easel::bandPassFilter(input, sample_rate, lower_cutoff,
-                                             upper_cutoff, order);
-
-  std::ofstream ofile;
-  ofile.open("output_data.csv");
-
-  for (double out_val : output) {
-    ofile << out_val << std::endl;
-  }
-  ofile.close();
-
-  return 0;
-}

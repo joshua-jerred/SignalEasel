@@ -35,7 +35,8 @@ public:
     INVALID_CALL_SIGN,
     INVALID_CALL_SIGN_MODE,
     INVALID_MORSE_CHAR,
-    EMPTY_INPUT_STRING
+    EMPTY_INPUT_STRING,
+    NON_MATCHING_FILTER_VECTORS
   };
 
   static std::string idToString(Id exception_id) {
@@ -52,6 +53,8 @@ public:
       return "Invalid morse character";
     case Id::EMPTY_INPUT_STRING:
       return "Empty input string";
+    case Id::NON_MATCHING_FILTER_VECTORS:
+      return "Non matching filter vectors";
     default:
       return "Unknown error";
     }

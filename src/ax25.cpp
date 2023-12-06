@@ -1,12 +1,28 @@
-#include "ax25.h"
+/**
+ * =*========SignalEasel========*=
+ * A friendly library for signal modulation and demodulation.
+ * https://github.com/joshua-jerred/Giraffe
+ * https://joshuajer.red/signal-easel
+ * =*===========================*=
+ *
+ * @file   ax25.cpp
+ * @date   2023-12-05
+ * @brief  AX.25 implementation
+ *
+ * =*=======================*=
+ * @copyright  2023 Joshua Jerred
+ * @license    GNU GPLv3
+ */
 
 #include <bitset>
 #include <iomanip>
 #include <iostream>
 
-#include "modulators.h"
+#include "ax25.hpp"
 
-uint8_t AX25::reverse_bits(uint8_t byte) {
+namespace signal_easel {
+
+uint8_t reverse_bits(uint8_t byte) {
   static uint8_t nibble_flip[16] = {
       0x0, 0x8, 0x4, 0xC, 0x2, 0xA, 0x6, 0xE,
       0x1, 0x9, 0x5, 0xD, 0x3, 0xB, 0x7, 0xF,
@@ -14,23 +30,20 @@ uint8_t AX25::reverse_bits(uint8_t byte) {
   return (nibble_flip[byte & 0xF] << 4) | nibble_flip[byte >> 4];
 }
 
-AX25::Address::Address(std::string address, uint8_t ssid_num,
-                       bool last_address) {
+Ax25Frame::Address::Address(std::string address, uint8_t ssid_num,
+                            bool last_address) {
   if (address.length() < 2 || address.length() > 6) {
-    throw AX25::AX25Exception("Invalid address length: " +
-                              std::to_string(address.length()));
+    throw Exception(Exception::Id::AX25_INVALID_ADDRESS_LENGTH);
   }
 
-  if (ssid_num > 15) {  // 4 bit value
-    throw AX25::AX25Exception("Invalid SSID number: " +
-                              std::to_string(ssid_num));
+  if (ssid_num > 15) { // 4 bit value
+    throw Exception(Exception::Id::AX25_INVALID_SSID);
   }
 
   for (unsigned int i = 0; i < address.length(); i++) {
-    if ((address[i] < 0x41 || address[i] > 0x5A) &&
-        (address[i] < 0x30 || address[i] > 0x39)) {
-      throw AX25::AX25Exception("Invalid character in address: " +
-                                std::to_string(address[i]));
+    if ((address.at(i) < 0x41 || address.at(i) > 0x5A) &&
+        (address.at(i) < 0x30 || address.at(i) > 0x39)) {
+      throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS);
     }
 
     // In the address field, shift each character left by one bit
@@ -49,55 +62,48 @@ AX25::Address::Address(std::string address, uint8_t ssid_num,
   this->ssid = 0xe0 | (ssid_num << 1) | (last_address ? 0x01 : 0x00);
 }
 
-AX25::Frame::Frame() {}
-
-void AX25::Frame::AddAddress(Address address) {
+void Ax25Frame::AddAddress(Address address) {
   if (last_address_set_) {
-    throw AX25::AX25Exception("Last address already set");
+    throw Exception(Exception::Id::AX25_FRAME_LAST_ADDRESS_ALREADY_SET);
   }
-
   if (addresses_.size() >= 7) {
-    throw AX25::AX25Exception("Too many addresses");
+    throw Exception(Exception::Id::AX25_FRAME_TOO_MANY_ADDRESSES);
   }
-
   addresses_.push_back(address);
-
   if (address.ssid & 0x01) {
     last_address_set_ = true;
   }
 }
 
-void AX25::Frame::AddInformation(std::vector<uint8_t> information) {
+void Ax25Frame::AddInformation(std::vector<uint8_t> information) {
   this->information_ = information;
 }
 
 // https://gist.github.com/andresv/4611897
 uint16_t ax25crc16(unsigned char *data_p, uint16_t length) {
-    uint16_t crc = 0xFFFF;
-    uint32_t data;
-    uint16_t crc16_table[] = {
-            0x0000, 0x1081, 0x2102, 0x3183,
-            0x4204, 0x5285, 0x6306, 0x7387,
-            0x8408, 0x9489, 0xa50a, 0xb58b,
-            0xc60c, 0xd68d, 0xe70e, 0xf78f
-    };
+  uint16_t crc = 0xFFFF;
+  uint32_t data;
+  uint16_t crc16_table[] = {0x0000, 0x1081, 0x2102, 0x3183, 0x4204, 0x5285,
+                            0x6306, 0x7387, 0x8408, 0x9489, 0xa50a, 0xb58b,
+                            0xc60c, 0xd68d, 0xe70e, 0xf78f};
 
-    while(length--){
-        crc = ( crc >> 4 ) ^ crc16_table[(crc & 0xf) ^ (*data_p & 0xf)];
-        crc = ( crc >> 4 ) ^ crc16_table[(crc & 0xf) ^ (*data_p++ >> 4)];
-    }
+  while (length--) {
+    crc = (crc >> 4) ^ crc16_table[(crc & 0xf) ^ (*data_p & 0xf)];
+    crc = (crc >> 4) ^ crc16_table[(crc & 0xf) ^ (*data_p++ >> 4)];
+  }
 
-    data = crc;
-    crc = (crc << 8) | (data >> 8 & 0xff); // do byte swap here that is needed by AX25 standard
-    return (~crc);
+  data = crc;
+  crc = (crc << 8) |
+        (data >> 8 & 0xff); // do byte swap here that is needed by AX25 standard
+  return (~crc);
 }
 
-void AX25::Frame::BuildFrame() {
+std::vector<uint8_t> Ax25Frame::BuildFrame() {
   if (addresses_.size() < 2) {
-    throw AX25::AX25Exception("Need at least 2 addresses");
+    throw Exception(Exception::Id::AX25_FRAME_NEED_AT_LEAST_TWO_ADDRESSES);
   }
   if (frame_built_) {
-    throw AX25::AX25Exception("Frame already built");
+    throw Exception(Exception::Id::AX25_FRAME_ALREADY_BUILT);
   }
 
   for (int i = 0; i < kPreambleLength_; i++) {
@@ -119,8 +125,9 @@ void AX25::Frame::BuildFrame() {
   }
 
   uint16_t fcs = ax25crc16(full_frame_, full_frame_length_);
-  uint8_t fcs_hi_ = fcs & 0xff;
-  uint8_t fcs_lo_ = fcs >> 8;
+  std::cout << "FCS: " << std::hex << fcs << std::endl;
+  fcs_hi_ = fcs & 0xff;
+  fcs_lo_ = fcs >> 8;
   AddByteToStream(fcs_lo_, true, false); // FCS
   AddByteToStream(fcs_hi_, true, false);
 
@@ -128,12 +135,29 @@ void AX25::Frame::BuildFrame() {
     AddByteToStream(flag_, false, false, true);
   }
 
+  uint8_t flag_byte[1] = {0x7E};
+  bit_stream_.addBits(flag_byte, 8);
+
+  while (32 - (bit_stream_.getBitStreamLength() % 32) > 8) {
+    bit_stream_.addBits(flag_byte, 8);
+  }
+
   bit_stream_.pushBufferToBitStream();
   frame_built_ = true;
+
+  std::vector<uint32_t> bit_vector = bit_stream_.getBitVector();
+  std::vector<uint8_t> byte_vector;
+  for (uint32_t word : bit_vector) {
+    for (int i = 3; i >= 0; i--) {
+      byte_vector.push_back((word >> (i * 8)) & 0xFF);
+    }
+  }
+
+  return byte_vector;
 }
 
-void AX25::Frame::AddByteToStream(uint8_t byte, bool reverse,
-                                  bool include_in_fcs, bool flag) {
+void Ax25Frame::AddByteToStream(uint8_t byte, bool reverse, bool include_in_fcs,
+                                bool flag) {
   if (include_in_fcs) {
     AddByteForFcs(byte);
   }
@@ -144,7 +168,7 @@ void AX25::Frame::AddByteToStream(uint8_t byte, bool reverse,
     rev_byte = reverse_bits(byte);
   } else {
     rev_byte = byte;
-    //rev_byte = byte;
+    // rev_byte = byte;
   }
 
   if (flag) {
@@ -172,7 +196,7 @@ void AX25::Frame::AddByteToStream(uint8_t byte, bool reverse,
   }
 }
 
-void AX25::Frame::AddByteForFcs(uint8_t byte) {
+void Ax25Frame::AddByteForFcs(uint8_t byte) {
   full_frame_[full_frame_length_++] = byte;
 }
 
@@ -181,19 +205,19 @@ void print_hex(uint8_t byte) {
             << static_cast<int>(byte);
 }
 
-void AX25::Frame::Print(bool as_hex) {
+void Ax25Frame::Print(bool as_hex) {
   if (!frame_built_) {
-    throw AX25::AX25Exception("Frame not built");
+    throw Exception(Exception::Id::AX25_FRAME_NOT_BUILT);
   }
   if (addresses_.size() < 2) {
-    throw AX25::AX25Exception("Need at least 2 addresses");
+    throw Exception(Exception::Id::AX25_FRAME_NEED_AT_LEAST_TWO_ADDRESSES);
   }
   std::cout << addresses_[1] << "> " << addresses_[0];
   if (addresses_.size() > 2) {
     for (unsigned int i = 2; i < addresses_.size(); i++) {
       std::cout << "," << addresses_[i];
       if (addresses_[i].ssid & 0x01) {
-        std::cout << ":";  // Last address
+        std::cout << ":"; // Last address
       }
     }
   }
@@ -228,11 +252,11 @@ void AX25::Frame::Print(bool as_hex) {
   std::cout << std::endl;
 }
 
-void AX25::Frame::PrintBitStream(bool as_hex) {
+void Ax25Frame::PrintBitStream(bool as_hex) {
   if (!frame_built_) {
-    throw AX25::AX25Exception("Frame not built");
+    throw Exception(Exception::Id::AX25_FRAME_NOT_BUILT);
   }
-  
+
   if (as_hex) {
     bit_stream_.dumpBitStreamAsHex();
   } else {
@@ -240,14 +264,14 @@ void AX25::Frame::PrintBitStream(bool as_hex) {
   }
 }
 
-BitStream& AX25::Frame::GetBitStream() {
+BitStream &Ax25Frame::GetBitStream() {
   if (!frame_built_) {
-    throw AX25::AX25Exception("Frame not built");
+    throw Exception(Exception::Id::AX25_FRAME_NOT_BUILT);
   }
   return bit_stream_;
 }
 
-std::ostream& operator<<(std::ostream& os, const AX25::Address& frame) {
+std::ostream &operator<<(std::ostream &os, const Ax25Frame::Address &frame) {
   for (int i = 0; i < 6; i++) {
     if (frame.address[i] == 0x40) {
       std::cout << "";
@@ -259,3 +283,5 @@ std::ostream& operator<<(std::ostream& os, const AX25::Address& frame) {
   std::cout << "-" << ssid;
   return os;
 }
+
+} // namespace signal_easel

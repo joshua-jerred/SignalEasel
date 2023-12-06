@@ -30,11 +30,13 @@ add_library(SignalEasel STATIC
     src/utilities.cpp
     src/bit_stream.cpp
     src/band_pass_filter.cpp
+    src/ax25.cpp
     src/modulator.cpp
     src/demodulator.cpp
     src/morse_modulator.cpp
     src/afsk_modulator.cpp
     src/afsk_demodulator.cpp
+    src/aprs.cpp
     # ${MWAV_SRC}/modulators/psk.cpp
     # ${MWAV_SRC}/demodulators/psk.cpp
 )

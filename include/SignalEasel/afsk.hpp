@@ -53,9 +53,10 @@ public:
       : settings_(std::move(settings)) {}
   ~AfskModulator() = default;
 
-private:
+protected:
   void encodeBytes(const std::vector<uint8_t> &input_bytes) override;
 
+private:
   /**
    * @brief Converts the data to NRZI for APRS mode.
    * @details NRZI encoding (Non Return to Zero Inverted), 0 is encoded as a

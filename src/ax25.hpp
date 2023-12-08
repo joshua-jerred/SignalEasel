@@ -59,6 +59,14 @@ public:
   void PrintBitStream(bool as_hex = false);
   BitStream &GetBitStream();
 
+  /**
+   * @brief Attempt to parse an incoming bit stream into an AX.25 frame
+   * @param bit_stream The bit stream to parse (NRZI encoded)
+   * @return true if the frame was successfully parsed
+   * @return false if the frame was not successfully parsed
+   */
+  bool parseBitStream(BitStream &bit_stream);
+
 private:
   void AddByteToStream(uint8_t byte, bool reverse = true,
                        bool include_in_fcs = true, bool flag = false);

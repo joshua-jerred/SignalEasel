@@ -284,4 +284,8 @@ std::ostream &operator<<(std::ostream &os, const Ax25Frame::Address &frame) {
   return os;
 }
 
+bool Ax25Frame::parseBitStream(BitStream &bit_stream) {
+  std::cout << "Parsing bit stream" << std::endl;
+}
+
 } // namespace signal_easel

@@ -101,6 +101,9 @@ public:
 
   AsciiResult lookForString(std::string &output);
 
+protected:
+  BitStream output_bit_stream_{};
+
 private:
   /**
    * @brief Takes the raw signal and converts it into the FSK baseband signal.
@@ -119,8 +122,6 @@ private:
   void baseBandToBitStream(ProcessResults &results);
 
   std::vector<uint8_t> base_band_signal_{};
-
-  BitStream output_bit_stream_{};
 
   AfskSettings afsk_settings_;
 };

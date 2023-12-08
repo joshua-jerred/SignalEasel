@@ -75,6 +75,14 @@ private:
   AprsSettings settings_;
 };
 
+class AprsDemodulator : public AfskDemodulator {
+public:
+  AprsDemodulator(AfskSettings settings = AfskSettings())
+      : AfskDemodulator(settings) {}
+
+  bool lookForAx25Packet();
+};
+
 } // namespace signal_easel
 
 // struct Message {

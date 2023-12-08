@@ -224,4 +224,9 @@ void AprsModulator::encodePositionPacket(AprsPositionPacket packet) {
   encodeBytes(output_bytes);
 }
 
+bool AprsDemodulator::lookForAx25Packet() {
+  Ax25Frame frame;
+  frame.parseBitStream(output_bit_stream_);
+}
+
 } // namespace signal_easel

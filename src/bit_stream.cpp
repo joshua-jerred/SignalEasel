@@ -93,6 +93,30 @@ int BitStream::peakNextBit() {
   return bit != 0U ? 1 : 0;
 }
 
+int BitStream::peakNextByte() {
+  if (bit_stream_index_ >= (int)bit_stream_.size() ||
+      (bit_stream_offset_ >= 24 &&
+       bit_stream_index_ == (int)bit_stream_.size() - 1)) {
+    return -1;
+  }
+
+  int temp_index = bit_stream_index_;
+  int temp_offset = bit_stream_offset_;
+
+  uint32_t byte = 0;
+  for (int i = 0; i < 8; i++) {
+    byte |= (bit_stream_.at(temp_index) & (1 << (31 - temp_offset))) != 0
+                ? 1 << (7 - i)
+                : 0;
+    temp_offset++;
+    if (temp_offset == 32) {
+      temp_offset = 0;
+      temp_index++;
+    }
+  }
+  return byte;
+}
+
 void BitStream::dumpBitStream() {
   std::cout << "BitStream:" << std::endl;
   for (int i = 0; i < (int)bit_stream_.size(); i++) {

@@ -73,6 +73,36 @@ public:
       return "Non matching filter vectors";
     case Id::AX25_INVALID_ADDRESS_LENGTH:
       return "Invalid AX25 address length";
+    case Id::AX25_INVALID_SSID:
+      return "Invalid AX25 SSID";
+    case Id::AX25_INVALID_CHARACTER_IN_ADDRESS:
+      return "Invalid character in AX25 address";
+    case Id::AX25_FRAME_LAST_ADDRESS_ALREADY_SET:
+      return "AX25 frame last address already set";
+    case Id::AX25_FRAME_TOO_MANY_ADDRESSES:
+      return "AX25 frame too many addresses";
+    case Id::AX25_FRAME_NEED_AT_LEAST_TWO_ADDRESSES:
+      return "AX25 frame needs at least two addresses";
+    case Id::AX25_FRAME_ALREADY_BUILT:
+      return "AX25 frame already built";
+    case Id::AX25_FRAME_NOT_BUILT:
+      return "AX25 frame not built";
+    case Id::BASE_91_ENCODE_VALUE_NOT_CORRECT_SIZE:
+      return "Base 91 encode value not correct size";
+    case Id::APRS_INVALID_SOURCE_ADDRESS_LENGTH:
+      return "Invalid APRS source address length";
+    case Id::APRS_INVALID_SOURCE_SSID:
+      return "Invalid APRS source SSID";
+    case Id::APRS_INVALID_DESTINATION_ADDRESS_LENGTH:
+      return "Invalid APRS destination address length";
+    case Id::APRS_INVALID_DESTINATION_SSID:
+      return "Invalid APRS destination SSID";
+    case Id::APRS_INVALID_SYMBOL:
+      return "Invalid APRS symbol";
+    case Id::APRS_LOCATION_INVALID_TIME_CODE_LENGTH:
+      return "Invalid APRS location time code length";
+    case Id::APRS_INVALID_LOCATION_DATA:
+      return "Invalid APRS location data";
     default:
       return "Unknown error";
     }
@@ -217,8 +247,12 @@ public:
   void addBits(const unsigned char *data, int num_bits);
   int8_t popNextBit();
   int peakNextBit();
+  int peakNextByte();
   void pushBufferToBitStream();
   int getBitStreamLength() const; // Number of bits in the bit stream
+
+  void addOneBit() { addBits((const unsigned char *)"\xff", 1); }
+  void addZeroBit() { addBits((const unsigned char *)"\x00", 1); }
 
   const std::vector<uint32_t> &getBitVector() const { return bit_stream_; }
 

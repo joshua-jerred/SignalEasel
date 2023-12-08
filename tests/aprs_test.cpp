@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 
 #include <SignalEasel/aprs.hpp>
+#include <fstream>
 
 TEST(Aprs, LocationPacket) {
   const std::string kOutFilePath = "aprs_basic_test.wav";
@@ -22,10 +23,19 @@ TEST(Aprs, LocationPacket) {
   // modulator.addString(kInputString);
   // modulator.writeToFile(kOutFilePath);
 
-  signal_easel::AfskDemodulator demodulator;
-  demodulator.loadAudioFromFile(kOutFilePath);
-  demodulator.processAudioBuffer();
-  demodulator.
+  // signal_easel::AfskDemodulator demodulator;
+  // demodulator.loadAudioFromFile(kOutFilePath);
+  // demodulator.processAudioBuffer();
 }
 
-TEST(Aprs, AprsMessageDecode) { signal_easel::AprsDemodulator demodulator; }
+TEST(Aprs, AprsMessageDecode) {
+  const std::string kInputFile = "aprs_message.wav";
+
+  // std::ifstream file(kInputFile, std::ios::binary);
+  // EXPECT_TRUE(file.is_open());
+
+  signal_easel::AprsDemodulator demodulator;
+  demodulator.loadAudioFromFile(kInputFile);
+  demodulator.processAudioBuffer();
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+}

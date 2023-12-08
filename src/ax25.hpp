@@ -42,7 +42,6 @@ public:
    * @brief The frame type of the AX-25 frame
    * @details There are three main frame types: Information, Supervisory, and
    * Unnumbered.
-   *
    * Currently only Unnumbered Information frames are supported.
    */
   enum class Type { // Currently only UI is supported
@@ -51,6 +50,11 @@ public:
 
   Ax25Frame() = default;
 
+  /**
+   * @brief Add an address to the AX.25 frame. The first address added will be
+   * the source address.
+   * @param address The address to add
+   */
   void AddAddress(Address address);
   void AddInformation(std::vector<uint8_t> information);
   std::vector<uint8_t> BuildFrame();

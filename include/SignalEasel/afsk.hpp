@@ -87,7 +87,14 @@ private:
 class AfskDemodulator : public Demodulator {
 public:
   struct ProcessResults {
+    /**
+     * @brief RMS of the input signal (received audio power).
+     */
     double rms = 0.0;
+
+    /**
+     * @brief Estimated Signal to Noise Ratio (SNR) of the input signal.
+     */
     double snr = 0.0;
   };
 

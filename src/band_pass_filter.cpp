@@ -152,7 +152,7 @@ std::vector<double> computeDenCoeffs(unsigned int filter_order,
 
 std::vector<double> computeNumCoeffs(unsigned int filter_order,
                                      double lower_cutoff, double upper_cutoff,
-                                     std::vector<double> den_c) {
+                                     const std::vector<double> &den_c) {
   std::vector<double> t_coeffs;
   std::vector<double> num_coeffs(2 * filter_order + 1);
   std::vector<std::complex<double>> normalized_kernel(2 * filter_order + 1);
@@ -202,8 +202,8 @@ std::vector<double> computeNumCoeffs(unsigned int filter_order,
 }
 
 std::vector<double> filter(const std::vector<double> &input_vec,
-                           std::vector<double> coeff_b,
-                           std::vector<double> coeff_a) {
+                           const std::vector<double> &coeff_b,
+                           const std::vector<double> &coeff_a) {
   size_t len_x = input_vec.size();
   size_t len_b = coeff_b.size();
   size_t len_a = coeff_a.size();

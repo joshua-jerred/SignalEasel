@@ -127,13 +127,18 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
 #ifdef NOISE_SIMULATION
 
       // Add noise
-      constexpr double k_noise_amplitude = 0.15;
-      constexpr double k_noise_frequency = 3000;
-      double noise =
+      constexpr double k_noise_amplitude = 0.70;
+      constexpr double k_noise_frequency_1 = 500;
+      constexpr double k_noise_frequency_2 = 3200;
+      double noise1 =
           k_noise_amplitude *
-          std::sin(TWO_PI_VAL * k_noise_frequency * static_cast<double>(i) /
+          std::sin(TWO_PI_VAL * k_noise_frequency_1 * static_cast<double>(i) /
                    static_cast<double>(SAMPLE_FREQUENCY_));
-      sample += static_cast<int16_t>(MAX_SAMPLE_VALUE * noise);
+      double noise2 =
+          k_noise_amplitude *
+          std::sin(TWO_PI_VAL * k_noise_frequency_2 * static_cast<double>(i) /
+                   static_cast<double>(SAMPLE_FREQUENCY_));
+      sample += static_cast<int16_t>(MAX_SAMPLE_VALUE * noise1 * noise2);
 
 #endif // NOISE_SIMULATION
 

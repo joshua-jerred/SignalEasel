@@ -19,20 +19,14 @@ TEST(Aprs, LocationPacket) {
   modulator.encodePositionPacket(position_packet);
   modulator.writeToFile(kOutFilePath);
 
-  // signal_easel::AfskModulator modulator;
-  // modulator.addString(kInputString);
-  // modulator.writeToFile(kOutFilePath);
-
-  // signal_easel::AfskDemodulator demodulator;
-  // demodulator.loadAudioFromFile(kOutFilePath);
-  // demodulator.processAudioBuffer();
+  signal_easel::AprsDemodulator demodulator;
+  demodulator.loadAudioFromFile(kOutFilePath);
+  demodulator.processAudioBuffer();
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
 }
 
 TEST(Aprs, AprsMessageDecode) {
   const std::string kInputFile = "aprs_message.wav";
-
-  // std::ifstream file(kInputFile, std::ios::binary);
-  // EXPECT_TRUE(file.is_open());
 
   signal_easel::AprsDemodulator demodulator;
   demodulator.loadAudioFromFile(kInputFile);

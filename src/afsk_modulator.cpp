@@ -78,7 +78,10 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
   }
 
   if (settings_.bit_encoding == AfskSettings::BitEncoding::NRZI) {
-    convertToNRZI(bytes);
+    // convertToNRZI(bytes);
+    for (uint8_t byte : bytes) {
+      std::cout << std::hex << static_cast<int>(byte) << " ";
+    }
   }
 
   const uint32_t k_num_bits_to_encode = bytes.size() * 8;

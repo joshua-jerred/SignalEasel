@@ -129,7 +129,7 @@ std::vector<uint8_t> buildFrame(const AprsPacket &required_fields,
 
   auto vec = frame.BuildFrame();
 
-  frame.Print();
+  // frame.Print();
 
   return vec;
 }
@@ -217,9 +217,9 @@ void AprsModulator::encodePositionPacket(AprsPositionPacket packet) {
   addLocationData(packet, settings_.base_packet, info);
   std::vector<uint8_t> output_bytes = buildFrame(settings_.base_packet, info);
 
-  for (uint8_t byte : output_bytes) {
-    std::cout << std::hex << static_cast<int>(byte) << " ";
-  }
+  // for (uint8_t byte : output_bytes) {
+  //   std::cout << std::hex << static_cast<int>(byte) << " ";
+  // }
 
   encodeBytes(output_bytes);
 }

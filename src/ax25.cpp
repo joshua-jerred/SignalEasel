@@ -418,6 +418,8 @@ bool Ax25Frame::parseBitStream(BitStream &bit_stream) {
 
   BitStream nrzi_bit_stream = decodeNrzi(bit_stream);
 
+  nrzi_bit_stream.dumpBitStream();
+
   if (findStartFlags(nrzi_bit_stream) < k_min_start_flags) {
     std::cout << "Not enough start flags" << std::endl;
     return false;
@@ -478,8 +480,8 @@ bool Ax25Frame::parseBitStream(BitStream &bit_stream) {
   }
 
   // parse the FCS
-  // uint8_t fcs_lo = reverse_bits(destuffed_bytes.at(iterator++));
-  // uint8_t fcs_hi = reverse_bits(destuffed_bytes.at(iterator++));
+  fcs_lo_ = reverse_bits(destuffed_bytes.at(iterator++));
+  fcs_hi_ = reverse_bits(destuffed_bytes.at(iterator++));
 
   if (iterator != destuffed_bytes.size()) {
     std::cout << "Didn't parse all bytes" << std::endl;

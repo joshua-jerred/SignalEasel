@@ -16,6 +16,8 @@
 
 #include "pulse_audio.hpp"
 
+#include <algorithm>
+#include <cmath>
 #include <iostream>
 
 #ifdef PULSE_AUDIO_ENABLED
@@ -54,8 +56,14 @@ void PulseAudioReader::process() {
     throw Exception(Exception::Id::PULSE_READ_ERROR);
   }
 
+  rms_ = 1;
   for (int16_t sample : audio_buffer_) {
-    std::cout << sample << std::endl;
+    rms_ += static_cast<int64_t>(sample) * static_cast<int64_t>(sample);
+  }
+  rms_ = std::sqrt(rms_ / audio_buffer_.size());
+  volume_ = (static_cast<double>(rms_) / 32768.0) / 0.72;
+  if (volume_ < 0.01) {
+    volume_ = 0;
   }
 }
 

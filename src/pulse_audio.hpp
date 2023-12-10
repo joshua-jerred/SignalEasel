@@ -37,7 +37,7 @@ inline constexpr pa_sample_spec PULSE_AUDIO_SAMPLE_SPEC = {
 static const char *PULSE_AUDIO_APP_NAME = "SignalEasel";
 
 inline constexpr size_t BUFFER_SIZE_IN_SECONDS = 1;
-inline constexpr size_t PULSE_AUDIO_BUFFER_SIZE = 500;
+inline constexpr size_t PULSE_AUDIO_BUFFER_SIZE = 400;
 // AUDIO_SAMPLE_RATE * NUM_PULSE_CHANNELS * BUFFER_SIZE_IN_SECONDS;
 
 #endif
@@ -54,9 +54,13 @@ public:
   PulseAudioReader &operator=(PulseAudioReader &&) = delete;
 
   void process();
+  uint32_t getRms() const { return rms_; }
+  double getVolume() const { return volume_; }
 
 private:
 #ifdef PULSE_AUDIO_ENABLED
+  uint64_t rms_ = 0;
+  double volume_ = 0;
   pa_sample_spec ss_ = {PULSE_AUDIO_SAMPLE_FORMAT, AUDIO_SAMPLE_RATE,
                         NUM_PULSE_CHANNELS};
 

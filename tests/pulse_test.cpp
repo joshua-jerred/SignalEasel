@@ -19,6 +19,22 @@
 #define PULSE_AUDIO_ENABLED
 #include "../src/pulse_audio.hpp"
 
+#include <cmath>
+#include <iostream>
+
+void printVolumeBar(double volume) {
+  std::cout << "\r";
+  for (int i = 0; i < 50; i++) {
+    if (i < volume * 50) {
+      std::cout << "#";
+    } else {
+      std::cout << " ";
+    }
+  }
+  std::cout << " " << volume;
+  std::cout.flush();
+}
+
 int main() {
   signal_easel::AfskModulator modulator;
   modulator.addString("Hello World!");
@@ -26,8 +42,10 @@ int main() {
 
   signal_easel::PulseAudioReader reader;
 
-  while (true)
+  while (true) {
     reader.process();
+    printVolumeBar(reader.getVolume());
+  }
 
   return 0;
 }

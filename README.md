@@ -1,7 +1,7 @@
 # Signal Easel
 A C++ library for modulating and demodulating various digital modes. It is designed to be easy to use/integrate into other projects.
 
-For detailed documentation, please see [https://signal_easel.joshuajer.red](https://signal_easel.joshuajer.red).
+For detailed documentation, please see [https://signaleasel.joshuajer.red](https://signaleasel.joshuajer.red).
 
 ## Supported modes
 - AFSK1200

@@ -23,7 +23,7 @@
 namespace signal_easel {
 
 void aprs::Receiver::decode() {
-  auto demodulation_res = demodulator_.processAudioBuffer();
+  demodulation_res_ = demodulator_.processAudioBuffer();
 
   // std::cout << "Decoding [";
   // std::cout << std::setprecision(2) << std::fixed

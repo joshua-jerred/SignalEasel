@@ -59,6 +59,12 @@ struct MessagePacket {
   std::vector<uint8_t> encode() const;
 };
 
+struct MessageAck {
+  std::string addressee = "";  // 3-9 characters
+  std::string message_id = ""; // 1-5 characters
+  std::vector<uint8_t> encode() const;
+};
+
 struct Settings : public afsk::Settings {
   Settings() : base_packet{} {
     bit_encoding = BitEncoding::NRZI;
@@ -80,6 +86,7 @@ public:
 
   void encodePositionPacket(aprs::PositionPacket packet);
   void encodeMessagePacket(aprs::MessagePacket message);
+  void encodeMessageAck(aprs::MessageAck ack);
 
 private:
   aprs::Settings settings_;
@@ -139,15 +146,12 @@ private:
   std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};
   std::vector<ax25::Frame> other_aprs_packets_{};
 
+  afsk::Demodulator::ProcessResults demodulation_res_{};
+
   Demodulator aprs_demodulator_{};
 };
 
 } // namespace signal_easel::aprs
-
-// struct MessageAck {
-//   std::string addressee = "";  // 3-9 characters
-//   std::string message_id = ""; // 1-5 characters
-// };
 
 // struct MessageNack {
 //   std::string addressee = "";  // 3-9 characters

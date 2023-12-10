@@ -245,6 +245,26 @@ std::vector<uint8_t> aprs::MessagePacket::encode() const {
   return info;
 }
 
+std::vector<uint8_t> aprs::MessageAck::encode() const {
+  std::vector<uint8_t> info;
+
+  info.push_back(':');
+  for (char c : addressee) {
+    info.push_back(c);
+  }
+  for (size_t i = addressee.length(); i < 9; i++) {
+    info.push_back(' ');
+  }
+  info.push_back(':');
+  info.push_back('a');
+  info.push_back('c');
+  info.push_back('k');
+  for (char c : message_id) {
+    info.push_back(c);
+  }
+  return info;
+}
+
 void aprs::Modulator::encodePositionPacket(aprs::PositionPacket packet) {
   std::vector<uint8_t> info;
   addLocationData(packet, settings_.base_packet, info);
@@ -255,6 +275,12 @@ void aprs::Modulator::encodePositionPacket(aprs::PositionPacket packet) {
 
 void aprs::Modulator::encodeMessagePacket(aprs::MessagePacket message) {
   std::vector<uint8_t> info = message.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
+  encodeBytes(output_bytes);
+}
+
+void aprs::Modulator::encodeMessageAck(aprs::MessageAck ack) {
+  std::vector<uint8_t> info = ack.encode();
   std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
   encodeBytes(output_bytes);
 }

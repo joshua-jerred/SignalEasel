@@ -117,13 +117,13 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1aprs_1_1Modulato
 <div class="dynheader">
 Inheritance diagram for signal_easel::aprs::Modulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Modulator__inherit__graph.svg" width="234" height="963"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Modulator__inherit__graph.svg" width="234" height="978"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::aprs::Modulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Modulator__coll__graph.svg" width="1418" height="1199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Modulator__coll__graph.svg" width="1418" height="1214"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -140,6 +140,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a39e52e97a95a761b73ba928f8a29e916"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">clearBuffer</a> ()</td></tr>
 <tr class="memdesc:a39e52e97a95a761b73ba928f8a29e916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the audio buffer. Adds the call sign if it's in the before or before_and_after modes.  <a href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">More...</a><br /></td></tr>
 <tr class="separator:a39e52e97a95a761b73ba928f8a29e916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfa8809d1c11321b9ff2c7efe7f58499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#adfa8809d1c11321b9ff2c7efe7f58499">encodeMessageAck</a> (<a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html">aprs::MessageAck</a> ack)</td></tr>
+<tr class="separator:adfa8809d1c11321b9ff2c7efe7f58499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a147321b48c2e282c62863f114702e54f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#a147321b48c2e282c62863f114702e54f">encodeMessagePacket</a> (<a class="el" href="structsignal__easel_1_1aprs_1_1MessagePacket.html">aprs::MessagePacket</a> message)</td></tr>
 <tr class="separator:a147321b48c2e282c62863f114702e54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a943e392227656943d7db842e1889d805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#a943e392227656943d7db842e1889d805">encodePositionPacket</a> (<a class="el" href="namespacesignal__easel_1_1aprs.html#structsignal__easel_1_1aprs_1_1PositionPacket">aprs::PositionPacket</a> packet)</td></tr>
@@ -360,6 +362,32 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Modulator_a147321b48c2e282c62863f114702e54f_icgraph.svg" width="323" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="adfa8809d1c11321b9ff2c7efe7f58499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa8809d1c11321b9ff2c7efe7f58499">&#9670;&nbsp;</a></span>encodeMessageAck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void signal_easel::aprs::Modulator::encodeMessageAck </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html">aprs::MessageAck</a>&#160;</td>
+          <td class="paramname"><em>ack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a26778cade10dfac29dd3a5102ea3030f">signal_easel::aprs::MessageAck::encode()</a>, and <a class="el" href="namespacesignal__easel.html#aad3ffdd47a4a03ed438e8c1ca9eef231">signal_easel::encodePacket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Modulator_adfa8809d1c11321b9ff2c7efe7f58499_cgraph.svg" width="1930" height="562"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

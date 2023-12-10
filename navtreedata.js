@@ -66,7 +66,7 @@ var NAVTREEINDEX =
 [
 "afsk_8hpp.html",
 "classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults",
-"namespacesignal__easel.html#a3befdd8242efcc43e4e99a8e20a7be6c"
+"namespacesignal__easel.html#a303e9732cc231caca130db5cb8bcd53f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

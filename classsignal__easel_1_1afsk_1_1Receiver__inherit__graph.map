@@ -1,5 +1,5 @@
 <map id="signal_easel::afsk::Receiver" name="signal_easel::afsk::Receiver">
 <area shape="rect" id="node1" title="For receiving AFSK signals via a pulse audio stream." alt="" coords="23,204,162,384"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Receiver.html" title=" " alt="" coords="5,432,180,597"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Receiver.html" title=" " alt="" coords="5,432,180,612"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1Receiver.html" title=" " alt="" coords="7,5,178,156"/>
 </map>

@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="classsignal__easel_1_1ax25_1_1Frame.html" target="_top" xlink:title=" ">
+<g id="a_node1"><a xlink:href="classsignal__easel_1_1ax25_1_1Address.html" target="_top" xlink:title="AX.25 Address class. For encoding and decoding AX.25 addresses.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 107,-30.5 107,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
-<text text-anchor="middle" x="53.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Frame</text>
+<text text-anchor="middle" x="53.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Address</text>
 </a>
 </g>
 </g>

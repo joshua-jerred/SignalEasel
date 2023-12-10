@@ -10,6 +10,7 @@ var classsignal__easel_1_1aprs_1_1Receiver =
     [ "getVolume", "classsignal__easel_1_1aprs_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa", null ],
     [ "aprs_messages_", "classsignal__easel_1_1aprs_1_1Receiver.html#a1fc45e4bbc41e3ff2e2e778086b82386", null ],
     [ "other_aprs_packets_", "classsignal__easel_1_1aprs_1_1Receiver.html#a88091d4ddc64d7398b4a4af00228e16a", null ],
+    [ "demodulation_res_", "classsignal__easel_1_1aprs_1_1Receiver.html#a2c47904b2fec7df803dd5b372c4c3aa0", null ],
     [ "aprs_demodulator_", "classsignal__easel_1_1aprs_1_1Receiver.html#a6a87028bea97c332a227b94af1f249b4", null ],
     [ "demodulator_", "classsignal__easel_1_1aprs_1_1Receiver.html#ac9c90ecbb5bfca347601f138bdd7a80e", null ],
     [ "afsk_settings_", "classsignal__easel_1_1aprs_1_1Receiver.html#aa04f90577b1d8b3f3294e21879f7ddf7", null ],

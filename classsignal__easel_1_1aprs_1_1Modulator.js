@@ -5,6 +5,7 @@ var classsignal__easel_1_1aprs_1_1Modulator =
     [ "setBasePacket", "classsignal__easel_1_1aprs_1_1Modulator.html#afdb8ec0482bad42325e9686b809b0582", null ],
     [ "encodePositionPacket", "classsignal__easel_1_1aprs_1_1Modulator.html#a943e392227656943d7db842e1889d805", null ],
     [ "encodeMessagePacket", "classsignal__easel_1_1aprs_1_1Modulator.html#a147321b48c2e282c62863f114702e54f", null ],
+    [ "encodeMessageAck", "classsignal__easel_1_1aprs_1_1Modulator.html#adfa8809d1c11321b9ff2c7efe7f58499", null ],
     [ "encodeBytes", "classsignal__easel_1_1aprs_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb", null ],
     [ "convertToNRZI", "classsignal__easel_1_1aprs_1_1Modulator.html#a3ee8e2f9bee2005216f8ee1916a1a976", null ],
     [ "addBytes", "classsignal__easel_1_1aprs_1_1Modulator.html#ace460b54c3c528fa5784b55c265371a9", null ],

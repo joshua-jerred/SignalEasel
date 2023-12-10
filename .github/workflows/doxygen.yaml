@@ -1,0 +1,25 @@
+name: Doxygen Publish
+
+on:
+   push:
+    branches: [ main ]
+
+jobs:
+  doxygen_publish:
+    name: Doxygen/Structurizr
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen graphviz -y && mkdir build && mkdir build/dox
+      # - name: Generate Structurizr PlantUML SVGs
+        # run: bash project/generate_uml.sh
+      - name: Build Doxygen
+        run: doxygen project/doxygen/Doxyfile
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+      # - name: Deploy to GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/dox/html
+          cname: signal_easel.joshuajer.red

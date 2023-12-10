@@ -1,4 +1,4 @@
-name: MWAV Tests (C++ CI)
+name: Signal Easel Unit Tests (C++ CI)
 
 on:
   push:
@@ -15,20 +15,22 @@ jobs:
         submodules: true
     - name: Install GTest
       run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+    - name: Install Pulse Audio Dev Packages
+      run: sudo apt-get install libpulse-dev
     - name: Configure CMake
       run: |
         mkdir build
         cd build
         cmake -DMWAV_UNIT_TESTS=ON ..
-    - name: Build the MWAV library
+    - name: Build the SignalEasel library
       run: |
         cd build
-        make MWavLib
+        make SignalEasel -j 4
     - name: Build Tests
       run: |
         cd build
-        make mwav_unit_tests
+        make signal_easel_unit_tests
     - name: Run Tests
       run: |
         cd build/tests
-        ./mwav_unit_tests
+        ./signal_easel_unit_tests

@@ -141,6 +141,8 @@ public:
     return true;
   }
 
+  double getSNR() { return demodulation_res_.snr; }
+
 private:
   void decode() override;
   std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};

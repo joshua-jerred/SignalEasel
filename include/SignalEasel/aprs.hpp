@@ -115,9 +115,19 @@ public:
   Receiver(aprs::Settings settings = aprs::Settings())
       : afsk::Receiver(settings) {}
 
-  void decode() override;
+  bool getAprsFrame(ax25::Frame &frame) {
+    if (aprs_frames_.empty()) {
+      return false;
+    }
+    frame = aprs_frames_.back();
+    aprs_frames_.pop_back();
+    return true;
+  }
 
 private:
+  void decode() override;
+  std::vector<ax25::Frame> aprs_frames_{};
+
   Demodulator aprs_demodulator_{};
 };
 

@@ -29,6 +29,10 @@ public:
 
   virtual void process() = 0;
 
+  uint64_t getLatency() const { return pulse_audio_reader_.getLatency(); }
+
+  double getVolume() const { return pulse_audio_reader_.getVolume(); }
+
 protected:
   PulseAudioReader pulse_audio_reader_{};
   Settings settings_;

@@ -54,7 +54,8 @@ public:
     PULSE_DRAIN_ERROR,
     PULSE_CLOSE_ERROR,
     PULSE_READ_ERROR,
-    PULSE_AUDIO_DISABLED
+    PULSE_AUDIO_DISABLED,
+    APRS_RECEIVER_BUFFER_FULL
   };
 
   static std::string idToString(Id exception_id) {

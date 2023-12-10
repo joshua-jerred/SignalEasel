@@ -39,7 +39,12 @@ void aprs::Receiver::decode() {
   }
 
   if (res) {
-    std::cout << aprs_demodulator_.frame_ << std::endl;
+    aprs_frames_.push_back(aprs_demodulator_.frame_);
+  }
+
+  constexpr size_t MAX_FRAMES = 10;
+  if (aprs_frames_.size() > MAX_FRAMES) {
+    throw Exception(Exception::Id::APRS_RECEIVER_BUFFER_FULL);
   }
 }
 

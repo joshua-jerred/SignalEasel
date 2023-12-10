@@ -114,17 +114,16 @@ protected:
 private:
   /**
    * @brief Takes the raw signal and converts it into the FSK baseband signal.
-   * @details Big thanks to https://www.notblackmagic.com/bitsnpieces/afsk/
-   * once again!
+   * @details
    * @todo This needs to be cleaned up.
-   * @param (out) results The results of the processing.
+   * @param results (out) results The results of the processing.
    */
   void audioBufferToBaseBandSignal(ProcessResults &results);
 
   /**
    * @brief Takes the base band signal and converts it into a bit stream if the
    * signal is valid.
-   * @param (out) results The results of the processing.
+   * @param results (out) results The results of the processing.
    */
   void baseBandToBitStream(ProcessResults &results);
 

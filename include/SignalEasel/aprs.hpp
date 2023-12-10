@@ -50,6 +50,14 @@ struct AprsPositionPacket {
   std::string comment = ""; /** @todo max length of comment */
 };
 
+struct AprsMessagePacket {
+  std::string addressee = "";  // 3-9 characters
+  std::string message = "";    // Max length of 67 characters
+  std::string message_id = ""; // Optional, 1-5 characters
+
+  std::vector<uint8_t> encode() const;
+};
+
 struct AprsSettings : public AfskSettings {
   AprsSettings() : base_packet{} {
     bit_encoding = BitEncoding::NRZI;
@@ -70,6 +78,7 @@ public:
   void setBasePacket(AprsPacket packet) { settings_.base_packet = packet; }
 
   void encodePositionPacket(AprsPositionPacket packet);
+  void encodeMessagePacket(AprsMessagePacket message);
 
 private:
   AprsSettings settings_;
@@ -84,12 +93,6 @@ public:
 };
 
 } // namespace signal_easel
-
-// struct Message {
-//   std::string addressee = "";  // 3-9 characters
-//   std::string message = "";    // Max length of 67 characters
-//   std::string message_id = ""; // Optional, 1-5 characters
-// };
 
 // struct MessageAck {
 //   std::string addressee = "";  // 3-9 characters

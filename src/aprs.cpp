@@ -14,6 +14,7 @@
  * @license    GNU GPLv3
  */
 
+#include <bitset>
 #include <cmath>
 #include <stdexcept>
 #include <vector>
@@ -109,25 +110,25 @@ bool checkLocationData(const AprsPositionPacket &location) {
   return true;
 }
 
-void AddRequiredFields(const AprsPacket &required_fields, Ax25Frame &frame) {
+void AddRequiredFields(const AprsPacket &required_fields, ax25::Frame &frame) {
 
   CheckPacketData(required_fields);
 
-  Ax25Frame::Address destination_address(required_fields.destination_address,
-                                         required_fields.destination_ssid);
-  Ax25Frame::Address source_address(required_fields.source_address,
-                                    required_fields.source_ssid, true);
-  frame.AddAddress(destination_address);
-  frame.AddAddress(source_address);
+  ax25::Address destination_address(required_fields.destination_address,
+                                    required_fields.destination_ssid);
+  ax25::Address source_address(required_fields.source_address,
+                               required_fields.source_ssid, true);
+  frame.setDestinationAddress(destination_address);
+  frame.setSourceAddress(source_address);
 }
 
-std::vector<uint8_t> buildFrame(const AprsPacket &required_fields,
-                                std::vector<uint8_t> &info) {
-  Ax25Frame frame;
+std::vector<uint8_t> encodePacket(const AprsPacket &required_fields,
+                                  std::vector<uint8_t> &info) {
+  ax25::Frame frame;
   AddRequiredFields(required_fields, frame);
-  frame.AddInformation(info);
+  frame.setInformation(info);
 
-  auto vec = frame.BuildFrame();
+  auto vec = frame.encodeFrame();
 
   // frame.Print();
 
@@ -212,23 +213,58 @@ bool addLocationData(const AprsPositionPacket &packet,
   return true;
 }
 
+std::vector<uint8_t> AprsMessagePacket::encode() const {
+  std::vector<uint8_t> info;
+
+  // Addressee
+  // if (addressee.length() > 9) {
+  // throw Exception(Exception::Id::APRS_INVALID_MESSAGE_ADDRESSEE_LENGTH);
+  // }
+  info.push_back(':');
+  for (char c : addressee) {
+    info.push_back(c);
+  }
+  for (size_t i = addressee.length(); i < 9; i++) {
+    info.push_back(' ');
+  }
+  info.push_back(':');
+
+  // Message
+  for (char c : message) {
+    info.push_back(c);
+  }
+
+  // Message ID
+  info.push_back('{');
+  if (!message_id.empty()) {
+    for (char c : message_id) {
+      info.push_back(c);
+    }
+  }
+
+  return info;
+}
+
 void AprsModulator::encodePositionPacket(AprsPositionPacket packet) {
   std::vector<uint8_t> info;
   addLocationData(packet, settings_.base_packet, info);
-  std::vector<uint8_t> output_bytes = buildFrame(settings_.base_packet, info);
-
-  // for (uint8_t byte : output_bytes) {
-  //   std::cout << std::hex << static_cast<int>(byte) << " ";
-  // }
+  std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
 
   encodeBytes(output_bytes);
 }
 
+void AprsModulator::encodeMessagePacket(AprsMessagePacket message) {
+  std::vector<uint8_t> info = message.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
+  encodeBytes(output_bytes);
+}
+
 bool AprsDemodulator::lookForAx25Packet() {
-  Ax25Frame frame;
+  ax25::Frame frame;
   if (!frame.parseBitStream(output_bit_stream_)) {
     return false;
   }
+  std::cout << "Found frame: " << frame << std::endl;
   return true;
 }
 

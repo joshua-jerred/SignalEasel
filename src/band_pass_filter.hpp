@@ -5,7 +5,7 @@
  * https://joshuajer.red/signal-easel
  * =*===========================*=
  *
- * @file   bp_filter.hpp
+ * @file   band_pass_filter.hpp
  * @date   2023-12-05
  * @brief  Bandpass filter implementation
  *

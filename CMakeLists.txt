@@ -30,7 +30,10 @@ add_library(SignalEasel STATIC
     src/utilities.cpp
     src/bit_stream.cpp
     src/band_pass_filter.cpp
-    src/ax25.cpp
+    src/ax25/ax25_address.cpp
+    src/ax25/ax25_frame.cpp
+    src/ax25/ax25_decode.cpp
+    src/ax25/ax25_fcs.cpp
     src/modulator.cpp
     src/demodulator.cpp
     src/morse_modulator.cpp

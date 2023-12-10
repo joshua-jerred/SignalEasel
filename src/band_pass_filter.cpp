@@ -5,7 +5,7 @@
  * https://joshuajer.red/signal-easel
  * =*===========================*=
  *
- * @file   bp_filter.cpp
+ * @file   band_pass_filter.cpp
  * @date   2023-12-05
  * @brief  See
  * https://github.com/nxsEdson/Butterworth-Filter/blob/master/butterworth.cpp

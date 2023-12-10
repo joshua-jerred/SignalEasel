@@ -1,0 +1,16 @@
+@startuml
+
+:AprsModulator::encodePositionPacket();
+:AprsModulator::generateInformationField();
+
+if (Morse call sign mode is not none?) then (yes)
+  :Validate Call Sign;
+endif
+
+if (Morse call sign mode is 'before' or 'both') then (yes)
+  :Add call sign to audio buffer;
+endif
+
+stop
+
+@enduml

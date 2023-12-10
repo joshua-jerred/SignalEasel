@@ -43,7 +43,8 @@ void aprs::Receiver::decode() {
     aprs::MessagePacket message_packet;
     bool success = aprs_demodulator_.parseMessagePacket(message_packet);
     if (success == true) {
-      aprs_messages_.push_back(message_packet);
+      aprs_messages_.push_back(std::pair<ax25::Frame, aprs::MessagePacket>(
+          aprs_demodulator_.frame_, message_packet));
     }
   } else if (res == true) {
     other_aprs_packets_.push_back(aprs_demodulator_.frame_);

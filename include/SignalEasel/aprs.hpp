@@ -115,11 +115,12 @@ public:
   Receiver(aprs::Settings settings = aprs::Settings())
       : afsk::Receiver(settings) {}
 
-  bool getAprsMessage(aprs::MessagePacket &message_packet) {
+  bool getAprsMessage(aprs::MessagePacket &message_packet, ax25::Frame &frame) {
     if (aprs_messages_.empty()) {
       return false;
     }
-    message_packet = aprs_messages_.back();
+    frame = aprs_messages_.back().first;
+    message_packet = aprs_messages_.back().second;
     aprs_messages_.pop_back();
     return true;
   }
@@ -135,7 +136,7 @@ public:
 
 private:
   void decode() override;
-  std::vector<aprs::MessagePacket> aprs_messages_{};
+  std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};
   std::vector<ax25::Frame> other_aprs_packets_{};
 
   Demodulator aprs_demodulator_{};

@@ -38,12 +38,21 @@ void aprs::Receiver::decode() {
     res = false;
   }
 
-  if (res) {
-    aprs_frames_.push_back(aprs_demodulator_.frame_);
+  if (res == true &&
+      aprs_demodulator_.getType() == aprs::Packet::Type::MESSAGE) {
+    aprs::MessagePacket message_packet;
+    bool success = aprs_demodulator_.parseMessagePacket(message_packet);
+    if (success == true) {
+      aprs_messages_.push_back(message_packet);
+    }
+  } else if (res == true) {
+    other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+  } else {
+    std::cout << "No packet found" << std::endl;
   }
 
   constexpr size_t MAX_FRAMES = 10;
-  if (aprs_frames_.size() > MAX_FRAMES) {
+  if (aprs_messages_.size() > MAX_FRAMES) {
     throw Exception(Exception::Id::APRS_RECEIVER_BUFFER_FULL);
   }
 }

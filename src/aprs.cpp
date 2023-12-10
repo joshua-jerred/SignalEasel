@@ -284,7 +284,7 @@ bool aprs::Demodulator::lookForAx25Packet() {
     break;
   default:
     type_ = aprs::Packet::Type::UNKNOWN;
-    break;
+    return false;
   }
 
   return true;

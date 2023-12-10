@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['filter_484',['filter',['../namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a',1,'signal_easel']]],
-  ['findstartflags_485',['findStartFlags',['../namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3',1,'signal_easel::ax25']]],
-  ['frame_486',['Frame',['../classsignal__easel_1_1ax25_1_1Frame.html#a62e55729eff1c6daa30b619fa4ea2596',1,'signal_easel::ax25::Frame']]]
+  ['filter_486',['filter',['../namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a',1,'signal_easel']]],
+  ['findstartflags_487',['findStartFlags',['../namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3',1,'signal_easel::ax25']]],
+  ['frame_488',['Frame',['../classsignal__easel_1_1ax25_1_1Frame.html#a62e55729eff1c6daa30b619fa4ea2596',1,'signal_easel::ax25::Frame']]]
 ];

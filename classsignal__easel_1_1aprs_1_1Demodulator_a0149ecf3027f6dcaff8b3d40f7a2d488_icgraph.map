@@ -1,4 +1,5 @@
 <map id="signal_easel::aprs::Demodulator::getType" name="signal_easel::aprs::Demodulator::getType">
-<area shape="rect" id="node1" title=" " alt="" coords="108,5,283,47"/>
-<area shape="rect" id="node2" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="196,35,371,76"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" id="node3" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="49,71,104,98"/>
 </map>

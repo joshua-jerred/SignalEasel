@@ -102,10 +102,10 @@ public:
 
   /**
    * @brief Decode an AX.25 address from it's byte array representation
-   * @param address The address to decode
+   * @param address_array The address to decode
    * @exception signal_easel::Exception Thrown if the address/SSID is invalid
    */
-  void decodeAddress(AddressArray address);
+  void decodeAddress(AddressArray address_array);
 
   /**
    * @brief Get the address as a byte array

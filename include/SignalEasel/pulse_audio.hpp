@@ -5,7 +5,7 @@
  * https://joshuajer.red/signal-easel
  * =*===========================*=
  *
- * @file   pulse_reader.hpp
+ * @file   pulse_audio.hpp
  * @date   2023-12-10
  * @brief  Reads audio from pulse audio
  *

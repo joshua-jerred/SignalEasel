@@ -30,7 +30,8 @@ var classsignal__easel_1_1Exception =
       [ "PULSE_DRAIN_ERROR", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ab3d4de72b7c3aa342bc46c72db38473c", null ],
       [ "PULSE_CLOSE_ERROR", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a6101d22d910f57f19ff01e08f3ba17bd", null ],
       [ "PULSE_READ_ERROR", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ad350461629458ec9207c969ba06a7903", null ],
-      [ "PULSE_AUDIO_DISABLED", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ab0ddf6bc170c7292e3dd1fadca643eb3", null ]
+      [ "PULSE_AUDIO_DISABLED", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ab0ddf6bc170c7292e3dd1fadca643eb3", null ],
+      [ "APRS_RECEIVER_BUFFER_FULL", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a8ca549324ae1b0f75fda22d1f56c5eed", null ]
     ] ],
     [ "Exception", "classsignal__easel_1_1Exception.html#aa5921a1f7152140be0b16539300b343b", null ],
     [ "idToString", "classsignal__easel_1_1Exception.html#a45f91afa482d22f72ef2a5489f2e4c55", null ],

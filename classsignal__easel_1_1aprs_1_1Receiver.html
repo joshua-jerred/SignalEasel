@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1aprs_1_1Receiver
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classsignal__easel_1_1aprs_1_1Receiver-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -115,13 +116,13 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1aprs_1_1Receiver
 <div class="dynheader">
 Inheritance diagram for signal_easel::aprs::Receiver:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__inherit__graph.svg" width="182" height="515"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__inherit__graph.svg" width="182" height="574"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::aprs::Receiver:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__coll__graph.svg" width="2428" height="1771"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__coll__graph.svg" width="2427" height="1786"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -129,8 +130,12 @@ Collaboration diagram for signal_easel::aprs::Receiver:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab84a0574ceb705491fd483fb169962b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#ab84a0574ceb705491fd483fb169962b4">Receiver</a> (<a class="el" href="structsignal__easel_1_1aprs_1_1Settings.html">aprs::Settings</a> settings=<a class="el" href="structsignal__easel_1_1aprs_1_1Settings.html">aprs::Settings</a>())</td></tr>
 <tr class="separator:ab84a0574ceb705491fd483fb169962b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbf7869aceaf2ea7ab0be8b9af16e818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">decode</a> () override</td></tr>
-<tr class="separator:afbf7869aceaf2ea7ab0be8b9af16e818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf04f26bdf766c36c3ca73a302fc55d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#aaf04f26bdf766c36c3ca73a302fc55d8">getAprsFrame</a> (<a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> &amp;frame)</td></tr>
+<tr class="separator:aaf04f26bdf766c36c3ca73a302fc55d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad544feeeb5431a5f978d1d7bb59628a1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#ad544feeeb5431a5f978d1d7bb59628a1">getLatency</a> () const</td></tr>
+<tr class="separator:ad544feeeb5431a5f978d1d7bb59628a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bda553f48b26f8ad7f4f2eff525a9fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa">getVolume</a> () const</td></tr>
+<tr class="separator:a5bda553f48b26f8ad7f4f2eff525a9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7acf1bc3ee9be6d83923a8f9f6c75a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c">process</a> () override</td></tr>
 <tr class="separator:a7acf1bc3ee9be6d83923a8f9f6c75a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -152,10 +157,17 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a1cb1447382eadb0b512a10214dd55c70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsignal__easel_1_1aprs_1_1Settings.html">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#a1cb1447382eadb0b512a10214dd55c70">settings_</a></td></tr>
 <tr class="separator:a1cb1447382eadb0b512a10214dd55c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:afbf7869aceaf2ea7ab0be8b9af16e818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">decode</a> () override</td></tr>
+<tr class="separator:afbf7869aceaf2ea7ab0be8b9af16e818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6a87028bea97c332a227b94af1f249b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html">Demodulator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a6a87028bea97c332a227b94af1f249b4">aprs_demodulator_</a> {}</td></tr>
 <tr class="separator:a6a87028bea97c332a227b94af1f249b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d93c9683622852291f6f1bc9f3306f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#af8d93c9683622852291f6f1bc9f3306f">aprs_frames_</a> {}</td></tr>
+<tr class="separator:af8d93c9683622852291f6f1bc9f3306f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab84a0574ceb705491fd483fb169962b4"></a>
@@ -185,6 +197,34 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaf04f26bdf766c36c3ca73a302fc55d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf04f26bdf766c36c3ca73a302fc55d8">&#9670;&nbsp;</a></span>getAprsFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool signal_easel::aprs::Receiver::getAprsFrame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> &amp;&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#af8d93c9683622852291f6f1bc9f3306f">aprs_frames_</a>.</p>
+
+</div>
+</div>
 <a id="afbf7869aceaf2ea7ab0be8b9af16e818"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afbf7869aceaf2ea7ab0be8b9af16e818">&#9670;&nbsp;</a></span>decode()</h2>
 
@@ -203,14 +243,14 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#ac73db08c49c3f3c0b9dc0b8bb2fee6b8">signal_easel::afsk::Receiver</a>.</p>
 
-<p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a6a87028bea97c332a227b94af1f249b4">aprs_demodulator_</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#ac9c90ecbb5bfca347601f138bdd7a80e">signal_easel::afsk::Receiver::demodulator_</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">signal_easel::aprs::Demodulator::frame_</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">signal_easel::aprs::Demodulator::lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a737069a72a958d9cc0a6c777f191a626">signal_easel::afsk::Demodulator::output_bit_stream_</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57">signal_easel::afsk::Demodulator::processAudioBuffer()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f">signal_easel::afsk::Demodulator::ProcessResults::snr</a>, and <a class="el" href="classsignal__easel_1_1Exception.html#a0bb35db1350eef242918c3f69d36805f">signal_easel::Exception::what()</a>.</p>
+<p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a6a87028bea97c332a227b94af1f249b4">aprs_demodulator_</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#af8d93c9683622852291f6f1bc9f3306f">aprs_frames_</a>, <a class="el" href="classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a8ca549324ae1b0f75fda22d1f56c5eed">signal_easel::Exception::APRS_RECEIVER_BUFFER_FULL</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#ac9c90ecbb5bfca347601f138bdd7a80e">signal_easel::afsk::Receiver::demodulator_</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">signal_easel::aprs::Demodulator::frame_</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">signal_easel::aprs::Demodulator::lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a737069a72a958d9cc0a6c777f191a626">signal_easel::afsk::Demodulator::output_bit_stream_</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57">signal_easel::afsk::Demodulator::processAudioBuffer()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f">signal_easel::afsk::Demodulator::ProcessResults::snr</a>, and <a class="el" href="classsignal__easel_1_1Exception.html#a0bb35db1350eef242918c3f69d36805f">signal_easel::Exception::what()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -299,7 +339,97 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ad544feeeb5431a5f978d1d7bb59628a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad544feeeb5431a5f978d1d7bb59628a1">&#9670;&nbsp;</a></span>getLatency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t signal_easel::Receiver::getLatency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae13d17e25a6c22178dc02d0a503df329">signal_easel::PulseAudioReader::getLatency()</a>, and <a class="el" href="classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1Receiver_ad544feeeb5431a5f978d1d7bb59628a1_cgraph.svg" width="410" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a5bda553f48b26f8ad7f4f2eff525a9fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bda553f48b26f8ad7f4f2eff525a9fa">&#9670;&nbsp;</a></span>getVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double signal_easel::Receiver::getVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424">signal_easel::PulseAudioReader::getVolume()</a>, and <a class="el" href="classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1Receiver_a5bda553f48b26f8ad7f4f2eff525a9fa_cgraph.svg" width="410" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af8d93c9683622852291f6f1bc9f3306f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d93c9683622852291f6f1bc9f3306f">&#9670;&nbsp;</a></span>aprs_frames_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a>&gt; signal_easel::aprs::Receiver::aprs_frames_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">decode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#aaf04f26bdf766c36c3ca73a302fc55d8">getAprsFrame()</a>.</p>
+
+</div>
+</div>
 <a id="a6a87028bea97c332a227b94af1f249b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a87028bea97c332a227b94af1f249b4">&#9670;&nbsp;</a></span>aprs_demodulator_</h2>
 
@@ -412,7 +542,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c">signal_easel::afsk::Receiver::process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Receiver.html#ad544feeeb5431a5f978d1d7bb59628a1">signal_easel::Receiver::getLatency()</a>, <a class="el" href="classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa">signal_easel::Receiver::getVolume()</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c">signal_easel::afsk::Receiver::process()</a>.</p>
 
 </div>
 </div>

@@ -172,6 +172,7 @@ var NAVTREEINDEX0 =
 "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a8459aeead889c7439b623f00adfbaac1":[6,0,0,6,0,16],
 "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a855e2f455158d76d1b72398c49ede498":[6,0,0,6,0,13],
 "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a8c0223027c9c88534a1fb2f1f47e9545":[6,0,0,6,0,11],
+"classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a8ca549324ae1b0f75fda22d1f56c5eed":[6,0,0,6,0,30],
 "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a8d6501d0686c50c52f7f7f0b6121878e":[6,0,0,6,0,21],
 "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a900e0dd48989ef3a184b8147452d2f73":[6,0,0,6,0,22],
 "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a99f8e04c9af2165c30207f805b0abf32":[6,0,0,6,0,15],
@@ -218,10 +219,12 @@ var NAVTREEINDEX0 =
 "classsignal__easel_1_1PulseAudioReader.html#afc08764202cc8119d6531093f4544408":[6,0,0,9,0],
 "classsignal__easel_1_1Receiver.html":[6,0,0,10],
 "classsignal__easel_1_1Receiver.html#a02cdf84e2e8181e5f08c6edc0ad3806c":[6,0,0,10,1],
-"classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914":[6,0,0,10,3],
-"classsignal__easel_1_1Receiver.html#a1cb1447382eadb0b512a10214dd55c70":[6,0,0,10,4],
+"classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914":[6,0,0,10,5],
+"classsignal__easel_1_1Receiver.html#a1cb1447382eadb0b512a10214dd55c70":[6,0,0,10,6],
 "classsignal__easel_1_1Receiver.html#a597c8618b2277f60cbb5714bb7aba165":[6,0,0,10,0],
+"classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa":[6,0,0,10,4],
 "classsignal__easel_1_1Receiver.html#a812d34d06e34303f7753ada14643260c":[6,0,0,10,2],
+"classsignal__easel_1_1Receiver.html#ad544feeeb5431a5f978d1d7bb59628a1":[6,0,0,10,3],
 "classsignal__easel_1_1afsk_1_1Demodulator.html":[6,0,0,0,0],
 "classsignal__easel_1_1afsk_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57":[6,0,0,0,0,4],
 "classsignal__easel_1_1afsk_1_1Demodulator.html#a304c31d2b38ba3df25b5f61bc6452e0c":[6,0,0,0,0,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "classsignal__easel_1_1afsk_1_1Demodulator.html#ac6980ec23d7dc8dda9ac05a1a7abbfa5":[6,0,0,0,0,11],
 "classsignal__easel_1_1afsk_1_1Demodulator.html#adb580f5fb043a3043a7252642a74e0e6":[6,0,0,0,0,3],
 "classsignal__easel_1_1afsk_1_1Demodulator.html#aef7bf1f641de1283d710f23003dc6c58":[6,0,0,0,0,5],
-"classsignal__easel_1_1afsk_1_1Demodulator.html#afa479089583504851b2a4a767e397458":[6,0,0,0,0,7],
-"classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults":[6,0,0,0,0,0],
-"classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults":[7,0,0,1],
-"classsignal__easel_1_1afsk_1_1Modulator.html":[6,0,0,0,1]
+"classsignal__easel_1_1afsk_1_1Demodulator.html#afa479089583504851b2a4a767e397458":[6,0,0,0,0,7]
 };

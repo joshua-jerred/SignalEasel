@@ -1,5 +1,5 @@
 <map id="signal_easel::Receiver" name="signal_easel::Receiver">
-<area shape="rect" id="node1" title=" " alt="" coords="319,491,487,597"/>
+<area shape="rect" id="node1" title=" " alt="" coords="319,491,487,627"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1PulseAudioReader.html" title=" " alt="" coords="570,189,753,428"/>
 <area shape="rect" id="node3" title=" " alt="" coords="292,13,359,90"/>
 <area shape="rect" id="node9" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="137,270,301,347"/>

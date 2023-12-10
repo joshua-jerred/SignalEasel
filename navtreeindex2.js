@@ -1,5 +1,14 @@
 var NAVTREEINDEX2 =
 {
+"namespacesignal__easel.html#a52622d8b5a12dedeb59e5442e887a8e5":[5,0,0,22],
+"namespacesignal__easel.html#a5e95a4f0db83133b1b3cb81365100837":[5,0,0,18],
+"namespacesignal__easel.html#a6049a00d790189b698bd2dfb04885a31":[5,0,0,23],
+"namespacesignal__easel.html#a61e5160a96fbff531fdbecf3737f80b9":[5,0,0,26],
+"namespacesignal__easel.html#a62db979f7f4a67d6a7d263788813e1b9":[5,0,0,28],
+"namespacesignal__easel.html#a6c8e323382427b449101c264b5d9532c":[7,0,33,0,0],
+"namespacesignal__easel.html#a7016c069fb9b7e8a412d48b970980fe1":[5,0,0,12],
+"namespacesignal__easel.html#a73f89ccf944084cd9fd80f8403f8e431":[5,0,0,37],
+"namespacesignal__easel.html#a7c542406e1ec08ba9304d668ed90d27f":[5,0,0,43],
 "namespacesignal__easel.html#a815178bfbe2aee7cc2e3c74237233e6c":[5,0,0,15],
 "namespacesignal__easel.html#a883b670d441c1c42837c5e5ddfa4b306":[5,0,0,44],
 "namespacesignal__easel.html#aa6a5d6174179b4ac5539704de8697a4f":[5,0,0,35],

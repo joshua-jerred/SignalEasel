@@ -15,3 +15,6 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/afsk_timing_skew.wav ${CMAKE_CURRENT_
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/white_noise.wav ${CMAKE_CURRENT_BINARY_DIR}/white_noise.wav COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/aprs_message.wav ${CMAKE_CURRENT_BINARY_DIR}/aprs_message.wav COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/aprs_real.wav ${CMAKE_CURRENT_BINARY_DIR}/aprs_real.wav COPYONLY)
+
+add_executable(pulse_test ${CMAKE_CURRENT_SOURCE_DIR}/pulse_test.cpp)
+target_link_libraries(pulse_test SignalEasel)

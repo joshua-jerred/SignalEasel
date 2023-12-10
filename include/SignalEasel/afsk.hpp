@@ -11,7 +11,7 @@
 
 #include <vector>
 
-#include "signal_easel.hpp"
+#include <SignalEasel/signal_easel.hpp>
 namespace signal_easel {
 
 inline constexpr uint32_t AFSK_BAUD_RATE = 1200;

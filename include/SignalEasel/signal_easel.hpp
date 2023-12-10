@@ -53,7 +53,13 @@ public:
     APRS_INVALID_SYMBOL,
     APRS_LOCATION_INVALID_TIME_CODE_LENGTH,
     APRS_INVALID_LOCATION_DATA,
-    APRS_INVALID_MESSAGE_ADDRESSEE_LENGTH
+    APRS_INVALID_MESSAGE_ADDRESSEE_LENGTH,
+    PULSE_OPEN_ERROR,
+    PULSE_WRITE_ERROR,
+    PULSE_DRAIN_ERROR,
+    PULSE_CLOSE_ERROR,
+    PULSE_READ_ERROR,
+    PULSE_AUDIO_DISABLED
   };
 
   static std::string idToString(Id exception_id) {
@@ -104,6 +110,18 @@ public:
       return "Invalid APRS location time code length";
     case Id::APRS_INVALID_LOCATION_DATA:
       return "Invalid APRS location data";
+    case Id::APRS_INVALID_MESSAGE_ADDRESSEE_LENGTH:
+      return "Invalid APRS message addressee length";
+    case Id::PULSE_OPEN_ERROR:
+      return "PulseAudio open error";
+    case Id::PULSE_WRITE_ERROR:
+      return "PulseAudio write error";
+    case Id::PULSE_DRAIN_ERROR:
+      return "PulseAudio drain error";
+    case Id::PULSE_CLOSE_ERROR:
+      return "PulseAudio close error";
+    case Id::PULSE_READ_ERROR:
+      return "PulseAudio read error";
     default:
       return "Unknown error";
     }
@@ -290,6 +308,11 @@ public:
    * or if there is no data to write
    */
   void writeToFile(const std::string &filename);
+
+  /**
+   * @brief Write the audio to the default PulseAudio output device
+   */
+  void writeToPulseAudio();
 
 protected:
   /**

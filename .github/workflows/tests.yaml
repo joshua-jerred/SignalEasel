@@ -25,7 +25,7 @@ jobs:
     - name: Build the SignalEasel library
       run: |
         cd build
-        make SignalEasel
+        make SignalEasel -j 4
     - name: Build Tests
       run: |
         cd build

@@ -116,13 +116,13 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1aprs_1_1Receiver
 <div class="dynheader">
 Inheritance diagram for signal_easel::aprs::Receiver:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__inherit__graph.svg" width="186" height="618"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__inherit__graph.svg" width="186" height="632"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::aprs::Receiver:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__coll__graph.svg" width="2268" height="1800"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Receiver__coll__graph.svg" width="2268" height="1815"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -136,6 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad544feeeb5431a5f978d1d7bb59628a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a35bd21e23ec859c7dc352fd7d87f1a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a2a35bd21e23ec859c7dc352fd7d87f1a">getOtherAprsPacket</a> (<a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> &amp;frame)</td></tr>
 <tr class="separator:a2a35bd21e23ec859c7dc352fd7d87f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc9e357b3f334279cee26465f71433c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a2dc9e357b3f334279cee26465f71433c">getSNR</a> ()</td></tr>
+<tr class="separator:a2dc9e357b3f334279cee26465f71433c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bda553f48b26f8ad7f4f2eff525a9fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa">getVolume</a> () const</td></tr>
 <tr class="separator:a5bda553f48b26f8ad7f4f2eff525a9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7acf1bc3ee9be6d83923a8f9f6c75a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c">process</a> () override</td></tr>
@@ -266,6 +268,33 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a88091d4ddc64d7398b4a4af00228e16a">other_aprs_packets_</a>.</p>
+
+</div>
+</div>
+<a id="a2dc9e357b3f334279cee26465f71433c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc9e357b3f334279cee26465f71433c">&#9670;&nbsp;</a></span>getSNR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double signal_easel::aprs::Receiver::getSNR </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a2c47904b2fec7df803dd5b372c4c3aa0">demodulation_res_</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f">signal_easel::afsk::Demodulator::ProcessResults::snr</a>.</p>
 
 </div>
 </div>
@@ -518,7 +547,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">decode()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">decode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a2dc9e357b3f334279cee26465f71433c">getSNR()</a>.</p>
 
 </div>
 </div>

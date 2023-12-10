@@ -13,9 +13,10 @@ var searchData=
   ['getotheraprspacket_183',['getOtherAprsPacket',['../classsignal__easel_1_1aprs_1_1Receiver.html#a2a35bd21e23ec859c7dc352fd7d87f1a',1,'signal_easel::aprs::Receiver']]],
   ['getrepeateraddresses_184',['getRepeaterAddresses',['../classsignal__easel_1_1ax25_1_1Frame.html#a472c726c4e23c1626c9b5b0f2cae2bd5',1,'signal_easel::ax25::Frame']]],
   ['getrms_185',['getRms',['../classsignal__easel_1_1PulseAudioReader.html#ae84e99e3e84696d8c8cc2a7d2fb40739',1,'signal_easel::PulseAudioReader']]],
-  ['getsourceaddress_186',['getSourceAddress',['../classsignal__easel_1_1ax25_1_1Frame.html#af84ab589067667886d9e54abe213109c',1,'signal_easel::ax25::Frame']]],
-  ['getssid_187',['getSsid',['../classsignal__easel_1_1ax25_1_1Address.html#a061525217d24db72372963db9fbb60a5',1,'signal_easel::ax25::Address']]],
-  ['getstringinput_188',['getStringInput',['../commandline-demo_8cpp.html#a6aa24cf309431c495847584966bb86bd',1,'commandline-demo.cpp']]],
-  ['gettype_189',['getType',['../classsignal__easel_1_1aprs_1_1Demodulator.html#a0149ecf3027f6dcaff8b3d40f7a2d488',1,'signal_easel::aprs::Demodulator']]],
-  ['getvolume_190',['getVolume',['../classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424',1,'signal_easel::PulseAudioReader::getVolume()'],['../classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa',1,'signal_easel::Receiver::getVolume()']]]
+  ['getsnr_186',['getSNR',['../classsignal__easel_1_1aprs_1_1Receiver.html#a2dc9e357b3f334279cee26465f71433c',1,'signal_easel::aprs::Receiver']]],
+  ['getsourceaddress_187',['getSourceAddress',['../classsignal__easel_1_1ax25_1_1Frame.html#af84ab589067667886d9e54abe213109c',1,'signal_easel::ax25::Frame']]],
+  ['getssid_188',['getSsid',['../classsignal__easel_1_1ax25_1_1Address.html#a061525217d24db72372963db9fbb60a5',1,'signal_easel::ax25::Address']]],
+  ['getstringinput_189',['getStringInput',['../commandline-demo_8cpp.html#a6aa24cf309431c495847584966bb86bd',1,'commandline-demo.cpp']]],
+  ['gettype_190',['getType',['../classsignal__easel_1_1aprs_1_1Demodulator.html#a0149ecf3027f6dcaff8b3d40f7a2d488',1,'signal_easel::aprs::Demodulator']]],
+  ['getvolume_191',['getVolume',['../classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424',1,'signal_easel::PulseAudioReader::getVolume()'],['../classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa',1,'signal_easel::Receiver::getVolume()']]]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a":[5,0,0,27],
 "namespacesignal__easel.html#a303e9732cc231caca130db5cb8bcd53f":[5,0,0,16],
 "namespacesignal__easel.html#a3a04790982916af0c972bdf1948ad081":[5,0,0,47],
 "namespacesignal__easel.html#a3befdd8242efcc43e4e99a8e20a7be6c":[5,0,0,29],

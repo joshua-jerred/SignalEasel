@@ -3,6 +3,7 @@ var classsignal__easel_1_1aprs_1_1Receiver =
     [ "Receiver", "classsignal__easel_1_1aprs_1_1Receiver.html#ab84a0574ceb705491fd483fb169962b4", null ],
     [ "getAprsMessage", "classsignal__easel_1_1aprs_1_1Receiver.html#adb587096f73f9539acc746f8f9be1c29", null ],
     [ "getOtherAprsPacket", "classsignal__easel_1_1aprs_1_1Receiver.html#a2a35bd21e23ec859c7dc352fd7d87f1a", null ],
+    [ "getSNR", "classsignal__easel_1_1aprs_1_1Receiver.html#a2dc9e357b3f334279cee26465f71433c", null ],
     [ "decode", "classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818", null ],
     [ "process", "classsignal__easel_1_1aprs_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c", null ],
     [ "detectSignal", "classsignal__easel_1_1aprs_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3", null ],

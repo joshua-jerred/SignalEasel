@@ -34,8 +34,8 @@ void aprs::Receiver::decode() {
   try {
     res = aprs_demodulator_.lookForAx25Packet();
   } catch (Exception &e) {
-    std::cout << "Exception: " << e.what() << std::endl;
-    res = false;
+    // std::cout << "Exception: " << e.what() << std::endl;
+    return;
   }
 
   if (res == true &&

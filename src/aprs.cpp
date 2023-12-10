@@ -303,11 +303,13 @@ bool aprs::Demodulator::lookForAx25Packet() {
   uint8_t first_byte = info.at(0);
   switch (first_byte) {
   case '@':
+  case '/':
     type_ = aprs::Packet::Type::POSITION;
     break;
   case ':':
     type_ = aprs::Packet::Type::MESSAGE;
     break;
+
   default:
     type_ = aprs::Packet::Type::UNKNOWN;
     return false;

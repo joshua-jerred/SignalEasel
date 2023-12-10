@@ -1,4 +1,4 @@
-name: MWAV Tests (C++ CI)
+name: Signal Easel Unit Tests (C++ CI)
 
 on:
   push:
@@ -20,15 +20,15 @@ jobs:
         mkdir build
         cd build
         cmake -DMWAV_UNIT_TESTS=ON ..
-    - name: Build the MWAV library
+    - name: Build the SignalEasel library
       run: |
         cd build
-        make MWavLib
+        make SignalEasel
     - name: Build Tests
       run: |
         cd build
-        make mwav_unit_tests
+        make signal_easel_unit_tests
     - name: Run Tests
       run: |
         cd build/tests
-        ./mwav_unit_tests
+        ./signal_easel_unit_tests

@@ -15,6 +15,7 @@
  */
 
 #include <SignalEasel/afsk.hpp>
+#include <SignalEasel/aprs.hpp>
 
 #define PULSE_AUDIO_ENABLED
 #include <SignalEasel/pulse_audio.hpp>
@@ -44,7 +45,7 @@ int main() {
   modulator.addString("Hello World!");
   modulator.writeToPulseAudio();
 
-  signal_easel::AfskReceiver receiver;
+  signal_easel::AprsReceiver receiver;
 
   while (true) {
     receiver.process();

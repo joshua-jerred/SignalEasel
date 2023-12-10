@@ -72,9 +72,9 @@ void AfskReceiver::decode() {
   if (str_res == AfskDemodulator::AsciiResult::SUCCESS) {
     std::cout << out_str << std::endl;
   } else if (str_res == AfskDemodulator::AsciiResult::NO_SYN) {
-    std::cout << "No SYN" << std::endl;
+    // std::cout << "No SYN" << std::endl;
   } else if (str_res == AfskDemodulator::AsciiResult::NO_EOT) {
-    std::cout << "No EOT" << std::endl;
+    // std::cout << "No EOT" << std::endl;
   } else {
     std::cout << "Unknown" << std::endl;
   }

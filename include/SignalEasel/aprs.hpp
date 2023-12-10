@@ -87,6 +87,8 @@ private:
 
 class AprsDemodulator : public AfskDemodulator {
 public:
+  friend class AprsReceiver;
+
   AprsDemodulator(AfskSettings settings = AfskSettings())
       : AfskDemodulator(settings) {}
 
@@ -106,6 +108,17 @@ public:
 private:
   ax25::Frame frame_{};
   AprsPacket::Type type_ = AprsPacket::Type::UNKNOWN;
+};
+
+class AprsReceiver : public AfskReceiver {
+public:
+  AprsReceiver(AprsSettings settings = AprsSettings())
+      : AfskReceiver(settings) {}
+
+  void decode() override;
+
+private:
+  AprsDemodulator aprs_demodulator_{};
 };
 
 } // namespace signal_easel

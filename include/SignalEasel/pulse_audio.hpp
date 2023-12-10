@@ -35,7 +35,7 @@ inline constexpr pa_sample_spec PULSE_AUDIO_SAMPLE_SPEC = {
 const std::string PULSE_AUDIO_APP_NAME = "SignalEasel";
 
 inline constexpr size_t BUFFER_SIZE_IN_SECONDS = 1;
-inline constexpr size_t PULSE_AUDIO_BUFFER_SIZE = 100;
+inline constexpr size_t PULSE_AUDIO_BUFFER_SIZE = 200;
 // AUDIO_SAMPLE_RATE * NUM_PULSE_CHANNELS * BUFFER_SIZE_IN_SECONDS;
 
 typedef std::array<int16_t, PULSE_AUDIO_BUFFER_SIZE> PulseAudioBuffer;

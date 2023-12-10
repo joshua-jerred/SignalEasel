@@ -45,8 +45,12 @@ add_library(SignalEasel STATIC
     src/ax25/ax25_decode.cpp
     src/ax25/ax25_fcs.cpp
 
-    src/morse_modulator.cpp
+    # APRS
     src/aprs.cpp
+    src/aprs/aprs_receiver.cpp
+
+
+    src/morse_modulator.cpp
     src/pulse_audio_writer.cpp
     src/pulse_audio_reader.cpp
     # ${MWAV_SRC}/modulators/psk.cpp

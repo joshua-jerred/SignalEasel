@@ -29,7 +29,7 @@ inline constexpr uint32_t AFSK_FREQUENCY_DEVIATION =
 inline constexpr uint32_t AFSK_SAMPLES_PER_SYMBOL =
     AUDIO_SAMPLE_RATE / AFSK_BAUD_RATE;
 
-inline constexpr uint16_t AFSK_ASCII_PREAMBLE_LENGTH = 2;
+inline constexpr uint16_t AFSK_ASCII_PREAMBLE_LENGTH = 30;
 
 inline constexpr uint16_t AFSK_BP_FILTER_ORDER = 4;
 
@@ -102,6 +102,7 @@ private:
 class AfskDemodulator : public Demodulator {
 public:
   friend class AfskReceiver;
+  friend class AprsReceiver;
 
   struct ProcessResults {
     /**
@@ -163,7 +164,7 @@ public:
 
 protected:
   bool detectSignal(const PulseAudioBuffer &audio_buffer);
-  void decode();
+  virtual void decode();
 
   AfskDemodulator demodulator_;
 

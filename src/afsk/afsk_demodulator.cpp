@@ -37,6 +37,7 @@ AfskDemodulator::ProcessResults AfskDemodulator::processAudioBuffer() {
 
 void AfskDemodulator::audioBufferToBaseBandSignal(
     AfskDemodulator::ProcessResults &results) {
+  base_band_signal_.clear();
   const auto &samples_buffer = getAudioBuffer();
   std::vector<double> unfiltered(samples_buffer.begin(), samples_buffer.end());
 
@@ -141,6 +142,7 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
 
 void AfskDemodulator::baseBandToBitStream(
     AfskDemodulator::ProcessResults &results) {
+  output_bit_stream_ = BitStream();
   /// @brief The sample clock counts up to 40 and then resets.
   /// @details Symbols are 40 samples long. This clock is used to determine when
   /// to add a bit to the bit stream.
@@ -160,7 +162,9 @@ void AfskDemodulator::baseBandToBitStream(
   int32_t num_boundaries = 0;
   int32_t mean_samples_between_boundaries = 0;
 
-  bool ahead = false;
+  uint32_t num_clock_syncs = 0;
+
+  // bool ahead = false;
 
   constexpr double k_clock_skew_alpha = 0.5;
   double clock_skew_accumulator = 0;
@@ -192,7 +196,7 @@ void AfskDemodulator::baseBandToBitStream(
           samples_since_last_boundary_sum / num_boundaries;
 
       int timing_error_num_samples = sample_clock % 40 - 20;
-      ahead = timing_error_num_samples > 0;
+      // ahead = timing_error_num_samples > 0;
       timing_error_num_samples = std::abs(timing_error_num_samples);
 
       clock_skew_count++;
@@ -223,6 +227,7 @@ void AfskDemodulator::baseBandToBitStream(
       samples_since_last_clock_adjustment = 0;
       if (clock_skew_accumulator > 15) {
         sample_clock += 15;
+        num_clock_syncs++;
       } else {
         // if (ahead) {
         // sample_clock += 5;
@@ -232,11 +237,12 @@ void AfskDemodulator::baseBandToBitStream(
       }
     }
   }
-  std::cout << std::endl
-            << "MSBB: " << mean_samples_between_boundaries << std::endl;
-  std::cout << "CSA: " << clock_skew_accumulator << std::endl;
-  std::cout << "CSM: " << clock_skew_mean << std::endl;
-  std::cout << "CSV: " << clock_skew_variance << std::endl;
+  // std::cout << std::endl
+  // << "MSBB: " << mean_samples_between_boundaries << std::endl;
+  // std::cout << "CSA: " << clock_skew_accumulator << std::endl;
+  // std::cout << "CSM: " << clock_skew_mean << std::endl;
+  // std::cout << "CSV: " << clock_skew_variance << std::endl;
+  // std::cout << "NCS: " << num_clock_syncs << std::endl;
   output_bit_stream_.pushBufferToBitStream();
 }
 

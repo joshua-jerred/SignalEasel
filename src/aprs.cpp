@@ -40,7 +40,7 @@ std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes) {
   return encoded;
 }
 
-bool CheckPacketData(const AprsPacket &packet) {
+bool CheckPacketData(const aprs::Packet &packet) {
   if (packet.source_address.length() > 6 ||
       packet.source_address.length() < 3) {
     throw Exception(Exception::Id::APRS_INVALID_SOURCE_ADDRESS_LENGTH);
@@ -66,7 +66,7 @@ bool CheckPacketData(const AprsPacket &packet) {
   return true;
 }
 
-bool checkLocationData(const AprsPositionPacket &location) {
+bool checkLocationData(const aprs::PositionPacket &location) {
   // time code
   if (location.time_code.length() != 6) {
     throw Exception(Exception::Id::APRS_LOCATION_INVALID_TIME_CODE_LENGTH);
@@ -109,7 +109,8 @@ bool checkLocationData(const AprsPositionPacket &location) {
   return true;
 }
 
-void AddRequiredFields(const AprsPacket &required_fields, ax25::Frame &frame) {
+void AddRequiredFields(const aprs::Packet &required_fields,
+                       ax25::Frame &frame) {
 
   CheckPacketData(required_fields);
 
@@ -121,7 +122,7 @@ void AddRequiredFields(const AprsPacket &required_fields, ax25::Frame &frame) {
   frame.setSourceAddress(source_address);
 }
 
-std::vector<uint8_t> encodePacket(const AprsPacket &required_fields,
+std::vector<uint8_t> encodePacket(const aprs::Packet &required_fields,
                                   std::vector<uint8_t> &info) {
   ax25::Frame frame;
   AddRequiredFields(required_fields, frame);
@@ -134,8 +135,8 @@ std::vector<uint8_t> encodePacket(const AprsPacket &required_fields,
   return vec;
 }
 
-bool addLocationData(const AprsPositionPacket &packet,
-                     const AprsPacket &required_fields,
+bool addLocationData(const aprs::PositionPacket &packet,
+                     const aprs::Packet &required_fields,
                      std::vector<uint8_t> &info) {
   bool valid = checkLocationData(packet);
   if (!valid) {
@@ -152,7 +153,7 @@ bool addLocationData(const AprsPositionPacket &packet,
   info.push_back('z'); // UTC
 
   // Symbol Table ID
-  if (required_fields.symbol_table == AprsPacket::SymbolTable::PRIMARY) {
+  if (required_fields.symbol_table == aprs::Packet::SymbolTable::PRIMARY) {
     info.push_back('/');
   } else {
     info.push_back('\\');
@@ -212,7 +213,7 @@ bool addLocationData(const AprsPositionPacket &packet,
   return true;
 }
 
-std::vector<uint8_t> AprsMessagePacket::encode() const {
+std::vector<uint8_t> aprs::MessagePacket::encode() const {
   std::vector<uint8_t> info;
 
   // Addressee
@@ -244,7 +245,7 @@ std::vector<uint8_t> AprsMessagePacket::encode() const {
   return info;
 }
 
-void AprsModulator::encodePositionPacket(AprsPositionPacket packet) {
+void aprs::Modulator::encodePositionPacket(aprs::PositionPacket packet) {
   std::vector<uint8_t> info;
   addLocationData(packet, settings_.base_packet, info);
   std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
@@ -252,22 +253,22 @@ void AprsModulator::encodePositionPacket(AprsPositionPacket packet) {
   encodeBytes(output_bytes);
 }
 
-void AprsModulator::encodeMessagePacket(AprsMessagePacket message) {
+void aprs::Modulator::encodeMessagePacket(aprs::MessagePacket message) {
   std::vector<uint8_t> info = message.encode();
   std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
   encodeBytes(output_bytes);
 }
 
-bool AprsDemodulator::lookForAx25Packet() {
+bool aprs::Demodulator::lookForAx25Packet() {
   ax25::Frame frame;
   if (!frame.parseBitStream(output_bit_stream_)) {
-    type_ = AprsPacket::Type::UNKNOWN;
+    type_ = aprs::Packet::Type::UNKNOWN;
     return false;
   }
 
   auto info = frame.getInformation();
   if (info.size() < 1) {
-    type_ = AprsPacket::Type::UNKNOWN;
+    type_ = aprs::Packet::Type::UNKNOWN;
     return false;
   }
 
@@ -276,21 +277,22 @@ bool AprsDemodulator::lookForAx25Packet() {
   uint8_t first_byte = info.at(0);
   switch (first_byte) {
   case '@':
-    type_ = AprsPacket::Type::POSITION;
+    type_ = aprs::Packet::Type::POSITION;
     break;
   case ':':
-    type_ = AprsPacket::Type::MESSAGE;
+    type_ = aprs::Packet::Type::MESSAGE;
     break;
   default:
-    type_ = AprsPacket::Type::UNKNOWN;
+    type_ = aprs::Packet::Type::UNKNOWN;
     break;
   }
 
   return true;
 }
 
-bool AprsDemodulator::parseMessagePacket(AprsMessagePacket &message_packet) {
-  if (type_ != AprsPacket::Type::MESSAGE) {
+bool aprs::Demodulator::parseMessagePacket(
+    aprs::MessagePacket &message_packet) {
+  if (type_ != aprs::Packet::Type::MESSAGE) {
     return false;
   }
 
@@ -322,7 +324,7 @@ bool AprsDemodulator::parseMessagePacket(AprsMessagePacket &message_packet) {
   return true;
 }
 
-void AprsDemodulator::printFrame() {
+void aprs::Demodulator::printFrame() {
   std::cout << "Frame: " << frame_ << std::endl;
 }
 

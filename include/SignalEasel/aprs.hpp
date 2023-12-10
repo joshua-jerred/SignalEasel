@@ -23,9 +23,9 @@
 #include <SignalEasel/afsk.hpp>
 #include <SignalEasel/ax25.hpp>
 
-namespace signal_easel {
+namespace signal_easel::aprs {
 
-struct AprsPacket {
+struct Packet {
   enum class SymbolTable { PRIMARY, SECONDARY };
   enum class Type { UNKNOWN, POSITION, MESSAGE };
 
@@ -39,7 +39,7 @@ struct AprsPacket {
   char symbol = '/'; // Symbol character default is dot (//)
 };
 
-struct AprsPositionPacket {
+struct PositionPacket {
   std::string time_code = ""; // hhmmss
   float latitude = 0.0;       // Decimal degrees
   float longitude = 0.0;      // Decimal degrees
@@ -51,7 +51,7 @@ struct AprsPositionPacket {
   std::string comment = ""; /** @todo max length of comment */
 };
 
-struct AprsMessagePacket {
+struct MessagePacket {
   std::string addressee = "";  // 3-9 characters
   std::string message = "";    // Max length of 67 characters
   std::string message_id = ""; // Optional, 1-5 characters
@@ -59,41 +59,41 @@ struct AprsMessagePacket {
   std::vector<uint8_t> encode() const;
 };
 
-struct AprsSettings : public AfskSettings {
-  AprsSettings() : base_packet{} {
+struct Settings : public afsk::Settings {
+  Settings() : base_packet{} {
     bit_encoding = BitEncoding::NRZI;
     include_ascii_padding = false;
   }
-  AprsPacket base_packet;
+  Packet base_packet;
 };
 
-class AprsModulator : public AfskModulator {
+class Modulator : public afsk::Modulator {
 public:
-  AprsModulator(AprsSettings settings = AprsSettings())
-      : AfskModulator(settings), settings_(settings) {}
+  Modulator(aprs::Settings settings = aprs::Settings())
+      : afsk::Modulator(settings), settings_(settings) {}
 
   void setCallSign(std::string call_sign) {
     settings_.base_packet.source_address = call_sign;
   }
 
-  void setBasePacket(AprsPacket packet) { settings_.base_packet = packet; }
+  void setBasePacket(aprs::Packet packet) { settings_.base_packet = packet; }
 
-  void encodePositionPacket(AprsPositionPacket packet);
-  void encodeMessagePacket(AprsMessagePacket message);
+  void encodePositionPacket(aprs::PositionPacket packet);
+  void encodeMessagePacket(aprs::MessagePacket message);
 
 private:
-  AprsSettings settings_;
+  aprs::Settings settings_;
 };
 
-class AprsDemodulator : public AfskDemodulator {
+class Demodulator : public signal_easel::afsk::Demodulator {
 public:
-  friend class AprsReceiver;
+  friend class Receiver;
 
-  AprsDemodulator(AfskSettings settings = AfskSettings())
-      : AfskDemodulator(settings) {}
+  Demodulator(afsk::Settings settings = afsk::Settings())
+      : afsk::Demodulator(settings) {}
 
   bool lookForAx25Packet();
-  AprsPacket::Type getType() { return type_; }
+  aprs::Packet::Type getType() { return type_; }
 
   /**
    * @brief If the packet was a message packet, this function will try to parse
@@ -101,27 +101,27 @@ public:
    * @param message (out) The message packet
    * @return true if the packet was a valid message packet
    */
-  bool parseMessagePacket(AprsMessagePacket &message);
+  bool parseMessagePacket(aprs::MessagePacket &message);
 
   void printFrame();
 
 private:
   ax25::Frame frame_{};
-  AprsPacket::Type type_ = AprsPacket::Type::UNKNOWN;
+  aprs::Packet::Type type_ = aprs::Packet::Type::UNKNOWN;
 };
 
-class AprsReceiver : public AfskReceiver {
+class Receiver : public signal_easel::afsk::Receiver {
 public:
-  AprsReceiver(AprsSettings settings = AprsSettings())
-      : AfskReceiver(settings) {}
+  Receiver(aprs::Settings settings = aprs::Settings())
+      : afsk::Receiver(settings) {}
 
   void decode() override;
 
 private:
-  AprsDemodulator aprs_demodulator_{};
+  Demodulator aprs_demodulator_{};
 };
 
-} // namespace signal_easel
+} // namespace signal_easel::aprs
 
 // struct MessageAck {
 //   std::string addressee = "";  // 3-9 characters

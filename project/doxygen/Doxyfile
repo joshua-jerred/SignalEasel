@@ -5,7 +5,7 @@ DOXYFILE_ENCODING      = UTF-8
 # Project
 
 PROJECT_NAME           = "Signal Easel"
-PROJECT_NUMBER         = 0.1
+PROJECT_NUMBER         = 1.1
 PROJECT_BRIEF          = "A simple library for signal generation and processing."
 # PROJECT_LOGO           = "docs/assets/logo.svg"
 # TODO: Logo
@@ -16,6 +16,8 @@ PROJECT_BRIEF          = "A simple library for signal generation and processing.
 
 INPUT  = src
 INPUT += include
+INPUT += ./
+EXCLUDE_PATTERNS = */lib/*
 IMAGE_PATH             = ./project/doc
 RECURSIVE              = YES
 INPUT_ENCODING         = UTF-8
@@ -27,7 +29,7 @@ FILE_PATTERNS          = *.cpp \
 
 ALIASES += "license=@par License: "
 
-# USE_MDFILE_AS_MAINPAGE = docs/introduction.md
+USE_MDFILE_AS_MAINPAGE = README.md
 # CITE_BIB_FILES = docs/references.bib
 
 # ---------------------------------------------------------------------------- #

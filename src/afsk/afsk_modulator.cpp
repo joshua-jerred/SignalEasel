@@ -57,7 +57,7 @@ inline int8_t getBpBitAtIndex(const std::vector<uint8_t> &bytes,
   return convertToBipolar(isBitSet(bytes.at(k_byte_index), k_bit_offset));
 }
 
-void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
+void afsk::Modulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
   if (input_bytes.empty()) {
     throw Exception(Exception::Id::NO_DATA_TO_WRITE);
   }
@@ -78,7 +78,7 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
     bytes.push_back(0x04); // EOT
   }
 
-  // if (settings_.bit_encoding == AfskSettings::BitEncoding::NRZI) {
+  // if (settings_.bit_encoding == afsk::Settings::BitEncoding::NRZI) {
   //   // convertToNRZI(bytes);
   //   for (uint8_t byte : bytes) {
   //     std::cout << std::hex << static_cast<int>(byte) << " ";
@@ -148,7 +148,7 @@ void AfskModulator::encodeBytes(const std::vector<uint8_t> &input_bytes) {
   }
 }
 
-void AfskModulator::convertToNRZI(std::vector<uint8_t> &data) {
+void afsk::Modulator::convertToNRZI(std::vector<uint8_t> &data) {
   for (size_t i = 0; i < data.size(); i++) {
     for (size_t j = 0; j < 8; j++) {
       bool bit = isBitSet(data.at(i), j);

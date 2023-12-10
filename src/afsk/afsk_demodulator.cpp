@@ -26,8 +26,8 @@
 
 namespace signal_easel {
 
-AfskDemodulator::ProcessResults AfskDemodulator::processAudioBuffer() {
-  AfskDemodulator::ProcessResults results;
+afsk::Demodulator::ProcessResults afsk::Demodulator::processAudioBuffer() {
+  afsk::Demodulator::ProcessResults results;
 
   audioBufferToBaseBandSignal(results);
   baseBandToBitStream(results);
@@ -35,8 +35,8 @@ AfskDemodulator::ProcessResults AfskDemodulator::processAudioBuffer() {
   return results;
 }
 
-void AfskDemodulator::audioBufferToBaseBandSignal(
-    AfskDemodulator::ProcessResults &results) {
+void afsk::Demodulator::audioBufferToBaseBandSignal(
+    afsk::Demodulator::ProcessResults &results) {
   base_band_signal_.clear();
   const auto &samples_buffer = getAudioBuffer();
   std::vector<double> unfiltered(samples_buffer.begin(), samples_buffer.end());
@@ -140,8 +140,8 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
   }
 }
 
-void AfskDemodulator::baseBandToBitStream(
-    AfskDemodulator::ProcessResults &results) {
+void afsk::Demodulator::baseBandToBitStream(
+    afsk::Demodulator::ProcessResults &results) {
   output_bit_stream_ = BitStream();
   /// @brief The sample clock counts up to 40 and then resets.
   /// @details Symbols are 40 samples long. This clock is used to determine when
@@ -246,8 +246,8 @@ void AfskDemodulator::baseBandToBitStream(
   output_bit_stream_.pushBufferToBitStream();
 }
 
-AfskDemodulator::AsciiResult
-AfskDemodulator::lookForString(std::string &output) {
+afsk::Demodulator::AsciiResult
+afsk::Demodulator::lookForString(std::string &output) {
   output.clear();
 
   const auto &bit_vector = output_bit_stream_.getBitVector();
@@ -267,7 +267,7 @@ AfskDemodulator::lookForString(std::string &output) {
   }
 
   if (char_offset == -1) { // no syn character found/couldn't synchronize
-    return AfskDemodulator::AsciiResult::NO_SYN;
+    return afsk::Demodulator::AsciiResult::NO_SYN;
   }
 
   size_t num_bits = output_bit_stream_.getBitStreamLength();
@@ -284,14 +284,14 @@ AfskDemodulator::lookForString(std::string &output) {
       bit_buffer = output_bit_stream_.popNextBit();
       if (bit_buffer == -1) {
         // std::cout << "Ran out of bits" << std::endl;
-        return AfskDemodulator::AsciiResult::NO_EOT;
+        return afsk::Demodulator::AsciiResult::NO_EOT;
       }
       byte = byte << 1;
       byte |= bit_buffer;
     }
 
     if (byte == 0x04) { // End of Transmission (EOT), no more data
-      return AfskDemodulator::AsciiResult::SUCCESS;
+      return afsk::Demodulator::AsciiResult::SUCCESS;
     }
 
     // Ignore SYN and STX
@@ -301,7 +301,7 @@ AfskDemodulator::lookForString(std::string &output) {
     num_bits -= 8;
   }
 
-  return AfskDemodulator::AsciiResult::NO_EOT; // no EOT found
+  return afsk::Demodulator::AsciiResult::NO_EOT; // no EOT found
 }
 
 } // namespace signal_easel

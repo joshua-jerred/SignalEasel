@@ -11,17 +11,17 @@ TEST(Afsk, EncodeDecodeBasicStringToWav) {
   const std::string kInputString = "Hello World! How are you today?";
   const std::string kOutFilePath = "afsk_test_EncodeDecodeBasicStringToWav.wav";
 
-  signal_easel::AfskModulator modulator;
+  signal_easel::afsk::Modulator modulator;
   modulator.addString(kInputString);
   modulator.writeToFile(kOutFilePath);
 
-  signal_easel::AfskDemodulator demodulator;
+  signal_easel::afsk::Demodulator demodulator;
   demodulator.loadAudioFromFile(kOutFilePath);
   demodulator.processAudioBuffer();
 
   std::string output;
   EXPECT_EQ(demodulator.lookForString(output),
-            signal_easel::AfskDemodulator::AsciiResult::SUCCESS);
+            signal_easel::afsk::Demodulator::AsciiResult::SUCCESS);
   EXPECT_STREQ(kInputString.c_str(), output.c_str());
 }
 
@@ -35,13 +35,13 @@ TEST(Afsk, DecodeWithSignalSkew) {
   std::string output;
   // mwav::data::decodeString(kMode, kInputFile, output);
 
-  signal_easel::AfskDemodulator demodulator;
+  signal_easel::afsk::Demodulator demodulator;
   demodulator.loadAudioFromFile(kInputFile);
   auto res = demodulator.processAudioBuffer();
   EXPECT_GT(res.snr, 0.0);
 
   EXPECT_EQ(demodulator.lookForString(output),
-            signal_easel::AfskDemodulator::AsciiResult::SUCCESS);
+            signal_easel::afsk::Demodulator::AsciiResult::SUCCESS);
   EXPECT_STREQ("Hello World!", output.c_str());
   // std::cout << output << std::endl;
 }
@@ -51,11 +51,11 @@ TEST(Afsk, WhiteNoise) {
   std::string output;
   //   mwav::data::decodeString(kMode, kInputFile, output);
 
-  signal_easel::AfskDemodulator demodulator;
+  signal_easel::afsk::Demodulator demodulator;
   demodulator.loadAudioFromFile(kInputFile);
   auto res = demodulator.processAudioBuffer();
 
   EXPECT_LE(res.snr, 0.0);
   EXPECT_NE(demodulator.lookForString(output),
-            signal_easel::AfskDemodulator::AsciiResult::SUCCESS);
+            signal_easel::afsk::Demodulator::AsciiResult::SUCCESS);
 }

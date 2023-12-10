@@ -41,11 +41,11 @@ void printVolumeBar(double volume, uint16_t latency) {
 }
 
 int main() {
-  signal_easel::AfskModulator modulator;
+  signal_easel::afsk::Modulator modulator;
   modulator.addString("Hello World!");
   modulator.writeToPulseAudio();
 
-  signal_easel::AprsReceiver receiver;
+  signal_easel::aprs::Receiver receiver;
 
   while (true) {
     receiver.process();

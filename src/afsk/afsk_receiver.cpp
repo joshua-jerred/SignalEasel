@@ -21,17 +21,17 @@
 
 namespace signal_easel {
 
-void AfskReceiver::process() {
+void afsk::Receiver::process() {
   pulse_audio_reader_.process();
   detectSignal(pulse_audio_reader_.getAudioBuffer());
 }
 
-bool AfskReceiver::detectSignal(const PulseAudioBuffer &audio_buffer) {
+bool afsk::Receiver::detectSignal(const PulseAudioBuffer &audio_buffer) {
   demodulator_.audio_buffer_.clear();
   demodulator_.audio_buffer_ =
       std::vector<int16_t>(audio_buffer.begin(), audio_buffer.end());
 
-  AfskDemodulator::ProcessResults results{};
+  afsk::Demodulator::ProcessResults results{};
   demodulator_.audioBufferToBaseBandSignal(results);
 
   bool signal_detected = false;
@@ -59,7 +59,7 @@ bool AfskReceiver::detectSignal(const PulseAudioBuffer &audio_buffer) {
   return true;
 }
 
-void AfskReceiver::decode() {
+void afsk::Receiver::decode() {
   auto demodulation_res = demodulator_.processAudioBuffer();
 
   std::cout << "Decoding [";
@@ -69,11 +69,11 @@ void AfskReceiver::decode() {
   std::string out_str;
   auto str_res = demodulator_.lookForString(out_str);
 
-  if (str_res == AfskDemodulator::AsciiResult::SUCCESS) {
+  if (str_res == afsk::Demodulator::AsciiResult::SUCCESS) {
     std::cout << out_str << std::endl;
-  } else if (str_res == AfskDemodulator::AsciiResult::NO_SYN) {
+  } else if (str_res == afsk::Demodulator::AsciiResult::NO_SYN) {
     // std::cout << "No SYN" << std::endl;
-  } else if (str_res == AfskDemodulator::AsciiResult::NO_EOT) {
+  } else if (str_res == afsk::Demodulator::AsciiResult::NO_EOT) {
     // std::cout << "No EOT" << std::endl;
   } else {
     std::cout << "Unknown" << std::endl;

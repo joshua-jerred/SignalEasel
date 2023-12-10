@@ -6,14 +6,14 @@
 TEST(Aprs, EncodeAndDecodeMessagePacket) {
   const std::string kOutFilePath = "aprs_message_test.wav";
 
-  signal_easel::AprsPacket packet;
+  signal_easel::aprs::Packet packet;
   packet.source_address = "TSTCLL";
   packet.source_ssid = 11;
 
-  signal_easel::AprsModulator modulator;
+  signal_easel::aprs::Modulator modulator;
   modulator.setBasePacket(packet);
 
-  signal_easel::AprsMessagePacket message_packet;
+  signal_easel::aprs::MessagePacket message_packet;
   message_packet.addressee = "TSTCLL-11";
   message_packet.message = "Hello World!";
   message_packet.message_id = "1";
@@ -21,13 +21,13 @@ TEST(Aprs, EncodeAndDecodeMessagePacket) {
   modulator.encodeMessagePacket(message_packet);
   modulator.writeToFile(kOutFilePath);
 
-  signal_easel::AprsDemodulator demodulator;
+  signal_easel::aprs::Demodulator demodulator;
   demodulator.loadAudioFromFile(kOutFilePath);
   demodulator.processAudioBuffer();
   EXPECT_TRUE(demodulator.lookForAx25Packet());
-  EXPECT_EQ(demodulator.getType(), signal_easel::AprsPacket::Type::MESSAGE);
+  EXPECT_EQ(demodulator.getType(), signal_easel::aprs::Packet::Type::MESSAGE);
 
-  signal_easel::AprsMessagePacket decoded_message_packet;
+  signal_easel::aprs::MessagePacket decoded_message_packet;
   EXPECT_TRUE(demodulator.parseMessagePacket(decoded_message_packet));
 
   EXPECT_EQ(decoded_message_packet.addressee, message_packet.addressee);
@@ -69,7 +69,7 @@ TEST(Aprs, EncodeAndDecodeLocationPacket) {
 TEST(Aprs, DecodeReal) {
   const std::string kInputFile = "aprs_real.wav";
 
-  signal_easel::AprsDemodulator demodulator;
+  signal_easel::aprs::Demodulator demodulator;
   demodulator.loadAudioFromFile(kInputFile);
   demodulator.processAudioBuffer();
   EXPECT_TRUE(demodulator.lookForAx25Packet());

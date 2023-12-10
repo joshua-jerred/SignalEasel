@@ -1,0 +1,10 @@
+<map id="signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal" name="signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal">
+<area shape="rect" id="node1" title="Takes the raw signal and converts it into the FSK baseband signal." alt="" coords="5,63,204,119"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel.html#a62db979f7f4a67d6a7d263788813e1b9" title="A band&#45;pass filter implementation." alt="" coords="252,78,457,105"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel.html#ab828fd4a325ae3f35f6c4c707ffb6886" title=" " alt="" coords="507,5,702,47"/>
+<area shape="rect" id="node5" href="$namespacesignal__easel.html#a61e5160a96fbff531fdbecf3737f80b9" title=" " alt="" coords="505,71,704,112"/>
+<area shape="rect" id="node8" href="$namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a" title=" " alt="" coords="534,137,675,163"/>
+<area shape="rect" id="node4" href="$namespacesignal__easel.html#a52622d8b5a12dedeb59e5442e887a8e5" title=" " alt="" coords="752,13,975,39"/>
+<area shape="rect" id="node6" href="$namespacesignal__easel.html#aec86a114666943d1400f780edb69eab0" title=" " alt="" coords="770,78,957,105"/>
+<area shape="rect" id="node7" href="$namespacesignal__easel.html#a6049a00d790189b698bd2dfb04885a31" title=" " alt="" coords="1023,78,1205,105"/>
+</map>

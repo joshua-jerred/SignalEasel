@@ -1,0 +1,8 @@
+<map id="signal_easel::Demodulator" name="signal_easel::Demodulator">
+<area shape="rect" id="node1" title="The base class for all demodulators that turn audio into data." alt="" coords="43,315,239,451"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,175,144,252"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="169,175,333,252"/>
+<area shape="rect" id="node4" title=" " alt="" coords="72,5,139,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="195,5,306,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="369,5,428,83"/>
+</map>

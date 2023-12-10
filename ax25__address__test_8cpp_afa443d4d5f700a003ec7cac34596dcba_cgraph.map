@@ -1,0 +1,8 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,78,60,105"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Address.html#a507a91b161cc7dae91517c0e83670323" title=" " alt="" coords="108,5,309,47"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Address.html#a061525217d24db72372963db9fbb60a5" title=" " alt="" coords="137,71,280,112"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Address.html#aae81920cfd0dc7d89cb107f9d825488c" title="If the address is valid (can be encoded correctly or was decoded)" alt="" coords="137,136,280,177"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1ax25_1_1Address.html#a56c55b48bfc809a33aa0e22a5aeb95ca" title=" " alt="" coords="357,91,548,147"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1ax25_1_1Address.html#ad66c149737cc4aa52ae9e8860176acf3" title=" " alt="" coords="373,172,533,213"/>
+</map>

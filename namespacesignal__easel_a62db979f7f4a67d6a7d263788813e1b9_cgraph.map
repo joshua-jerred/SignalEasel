@@ -1,0 +1,9 @@
+<map id="signal_easel::bandPassFilter" name="signal_easel::bandPassFilter">
+<area shape="rect" id="node1" title="A band&#45;pass filter implementation." alt="" coords="5,78,211,105"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel.html#ab828fd4a325ae3f35f6c4c707ffb6886" title=" " alt="" coords="261,5,455,47"/>
+<area shape="rect" id="node4" href="$namespacesignal__easel.html#a61e5160a96fbff531fdbecf3737f80b9" title=" " alt="" coords="259,71,457,112"/>
+<area shape="rect" id="node7" href="$namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a" title=" " alt="" coords="287,137,429,163"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel.html#a52622d8b5a12dedeb59e5442e887a8e5" title=" " alt="" coords="505,13,728,39"/>
+<area shape="rect" id="node5" href="$namespacesignal__easel.html#aec86a114666943d1400f780edb69eab0" title=" " alt="" coords="523,78,710,105"/>
+<area shape="rect" id="node6" href="$namespacesignal__easel.html#a6049a00d790189b698bd2dfb04885a31" title=" " alt="" coords="776,78,959,105"/>
+</map>

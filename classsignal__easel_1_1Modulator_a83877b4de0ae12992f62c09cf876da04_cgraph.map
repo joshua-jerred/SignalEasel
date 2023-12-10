@@ -1,0 +1,4 @@
+<map id="signal_easel::Modulator::addSilence" name="signal_easel::Modulator::addSilence">
+<area shape="rect" id="node1" title="Add silence to the audio buffer." alt="" coords="5,5,183,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8" title="Add a PCM sample to the audio buffer." alt="" coords="231,5,408,47"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="signal_easel::isBitSet" name="signal_easel::isBitSet">
+<area shape="rect" id="node1" title="For reading a byte MSB first." alt="" coords="488,46,649,73"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Modulator.html#a3ee8e2f9bee2005216f8ee1916a1a976" title="Converts the data to NRZI for APRS mode." alt="" coords="241,5,440,47"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel.html#a815178bfbe2aee7cc2e3c74237233e6c" title="Gets the bipolar value of a bit at a given index from a vector of bytes." alt="" coords="250,71,431,112"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb" title="This is overridden by the child classes to encode the data that is passed in by addBytes and addStrin..." alt="" coords="5,71,193,112"/>
+</map>

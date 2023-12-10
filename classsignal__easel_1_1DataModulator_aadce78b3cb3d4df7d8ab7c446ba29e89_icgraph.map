@@ -1,0 +1,5 @@
+<map id="signal_easel::DataModulator::addString" name="signal_easel::DataModulator::addString">
+<area shape="rect" id="node1" title="Add string data to the audio buffer." alt="" coords="108,23,316,65"/>
+<area shape="rect" id="node2" href="$pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node3" href="$afsk__test_8cpp.html#a894b615862c352aa932a7ff5fb85c6dd" title="Encodes a string into an AFSK1200 signal/WAV file and then decodes it." alt="" coords="5,56,60,83"/>
+</map>

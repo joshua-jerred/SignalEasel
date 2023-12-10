@@ -1,0 +1,7 @@
+<map id="signal_easel::Modulator::addMorseCode" name="signal_easel::Modulator::addMorseCode">
+<area shape="rect" id="node1" title="Add morse code to the output audio." alt="" coords="456,39,633,80"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916" title="Clears the audio buffer. Adds the call sign if it&#39;s in the before or before_and_after modes." alt="" coords="231,5,408,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10" title="Write the audio to a file." alt="" coords="231,71,408,112"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1Modulator.html#aacf988cd7965d448b2da697911c76faf" title="Constructor for the base modulator class." alt="" coords="5,5,183,47"/>
+<area shape="rect" id="node5" href="$afsk__test_8cpp.html#a894b615862c352aa932a7ff5fb85c6dd" title="Encodes a string into an AFSK1200 signal/WAV file and then decodes it." alt="" coords="67,78,121,105"/>
+</map>

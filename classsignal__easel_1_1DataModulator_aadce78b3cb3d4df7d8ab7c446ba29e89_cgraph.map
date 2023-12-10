@@ -1,0 +1,4 @@
+<map id="signal_easel::DataModulator::addString" name="signal_easel::DataModulator::addString">
+<area shape="rect" id="node1" title="Add string data to the audio buffer." alt="" coords="5,5,213,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1DataModulator.html#add44309f9d9a2bcc1afd4a8eefc8839f" title="This is overridden by the child classes to encode the data that is passed in by addBytes and addStrin..." alt="" coords="261,5,469,47"/>
+</map>

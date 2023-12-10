@@ -1,0 +1,4 @@
+<map id="signal_easel::getBpBitAtIndex" name="signal_easel::getBpBitAtIndex">
+<area shape="rect" id="node1" title="Gets the bipolar value of a bit at a given index from a vector of bytes." alt="" coords="241,5,423,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb" title="This is overridden by the child classes to encode the data that is passed in by addBytes and addStrin..." alt="" coords="5,5,193,47"/>
+</map>

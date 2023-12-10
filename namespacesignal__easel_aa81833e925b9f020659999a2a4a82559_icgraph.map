@@ -1,0 +1,5 @@
+<map id="signal_easel::convertToBipolar" name="signal_easel::convertToBipolar">
+<area shape="rect" id="node1" title="Converts a bit to it&#39;s bipolar value (0 = 1, 1 = &#45;1)" alt="" coords="471,13,691,39"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel.html#a815178bfbe2aee7cc2e3c74237233e6c" title="Gets the bipolar value of a bit at a given index from a vector of bytes." alt="" coords="241,5,423,47"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb" title="This is overridden by the child classes to encode the data that is passed in by addBytes and addStrin..." alt="" coords="5,5,193,47"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="signal_easel::Modulator::clearBuffer" name="signal_easel::Modulator::clearBuffer">
+<area shape="rect" id="node1" title="Clears the audio buffer. Adds the call sign if it&#39;s in the before or before_and_after modes." alt="" coords="231,5,408,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Modulator.html#aacf988cd7965d448b2da697911c76faf" title="Constructor for the base modulator class." alt="" coords="5,5,183,47"/>
+</map>

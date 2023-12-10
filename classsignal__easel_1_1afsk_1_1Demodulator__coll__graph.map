@@ -1,0 +1,17 @@
+<map id="signal_easel::afsk::Demodulator" name="signal_easel::afsk::Demodulator">
+<area shape="rect" id="node1" title="Demodulates an AFSK signal into data." alt="" coords="485,660,720,825"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Demodulator.html" title="The base class for all demodulators that turn audio into data." alt="" coords="153,410,349,546"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,175,144,252"/>
+<area shape="rect" id="node4" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="169,175,333,252"/>
+<area shape="rect" id="node8" href="$structsignal__easel_1_1afsk_1_1Settings.html" title="Settings for AFSK modulation/demodulation." alt="" coords="416,432,555,524"/>
+<area shape="rect" id="node5" title=" " alt="" coords="72,5,139,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="195,5,306,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="369,5,428,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="357,175,456,252"/>
+<area shape="rect" id="node10" title=" " alt="" coords="505,175,556,252"/>
+<area shape="rect" id="node11" href="$classsignal__easel_1_1BitStream.html" title=" " alt="" coords="622,359,818,597"/>
+<area shape="rect" id="node12" title=" " alt="" coords="812,175,887,252"/>
+<area shape="rect" id="node13" title=" " alt="" coords="989,175,1027,252"/>
+<area shape="rect" id="node14" title=" " alt="" coords="641,175,788,252"/>
+<area shape="rect" id="node15" title=" " alt="" coords="843,439,981,517"/>
+</map>

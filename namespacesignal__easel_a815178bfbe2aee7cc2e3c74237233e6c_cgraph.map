@@ -1,0 +1,5 @@
+<map id="signal_easel::getBpBitAtIndex" name="signal_easel::getBpBitAtIndex">
+<area shape="rect" id="node1" title="Gets the bipolar value of a bit at a given index from a vector of bytes." alt="" coords="5,23,187,65"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel.html#aa81833e925b9f020659999a2a4a82559" title="Converts a bit to it&#39;s bipolar value (0 = 1, 1 = &#45;1)" alt="" coords="235,5,455,32"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel.html#a248ddb36f02c1436acd66c0409189637" title="For reading a byte MSB first." alt="" coords="264,56,425,83"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="morse_modulator.cpp" name="morse_modulator.cpp">
+<area shape="rect" id="node1" title="Simple morse code modulator." alt="" coords="151,5,313,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,61,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="339,229,397,256"/>
+<area shape="rect" id="node4" href="$constants_8hpp.html" title="Common constants used throughout the library." alt="" coords="136,80,328,107"/>
+<area shape="rect" id="node6" href="$exception_8hpp.html" title="SignalEasel exceptions." alt="" coords="353,80,546,107"/>
+<area shape="rect" id="node8" href="$modulator_8hpp.html" title="Modulator base class." alt="" coords="571,80,765,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="199,155,265,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="406,155,493,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="517,155,579,181"/>
+<area shape="rect" id="node10" href="$settings_8hpp.html" title="Settings structures for SignalEasel." alt="" coords="604,155,785,181"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="signal_easel::afsk::Demodulator::ProcessResults" name="signal_easel::afsk::Demodulator::ProcessResults">
+<area shape="rect" id="node1" title="Stats related to the processing of the audio buffer." alt="" coords="5,160,227,252"/>
+<area shape="rect" id="node2" title=" " alt="" coords="83,5,149,83"/>
+</map>

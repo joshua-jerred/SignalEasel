@@ -1,0 +1,13 @@
+<map id="signal_easel::ax25::Frame::buildFrame" name="signal_easel::ax25::Frame::buildFrame">
+<area shape="rect" id="node1" title="Builds all internal portions of the frame. Doesn&#39;t include the flags." alt="" coords="5,117,157,158"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#a6d799107f96d783e620cd508488ab8eb" title="Calculate the Frame Check Sequence (FCS) on a vector of bytes." alt="" coords="234,18,377,59"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Address.html#a0c31737081a9184b56dc32150b23cb0a" title="Get the address as a byte array." alt="" coords="211,83,400,125"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9" title=" " alt="" coords="224,149,387,190"/>
+<area shape="rect" id="node11" href="$classsignal__easel_1_1ax25_1_1Address.html#a1a5bc573535cfc1f8723c121e3451e7c" title="Set the as the last address in the AX.25 frame (Sets a bit in the ssid byte)" alt="" coords="205,214,405,255"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Address.html#a7fa6b0ef4241413893f201660991e4ea" title="Checks if the address is valid, if not throws an exception with a specific error code." alt="" coords="453,83,627,125"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1ax25_1_1Address.html#af34b361f739b7995e7816b7a04465828" title=" " alt="" coords="675,5,895,61"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1ax25_1_1Address.html#a8b44c6e311d3462bd86eda03c1d384f0" title=" " alt="" coords="685,86,885,127"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1ax25_1_1Address.html#ad66c149737cc4aa52ae9e8860176acf3" title=" " alt="" coords="943,115,1103,157"/>
+<area shape="rect" id="node9" href="$classsignal__easel_1_1ax25_1_1Address.html#aae81920cfd0dc7d89cb107f9d825488c" title="If the address is valid (can be encoded correctly or was decoded)" alt="" coords="469,149,611,190"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1ax25_1_1Address.html#a56c55b48bfc809a33aa0e22a5aeb95ca" title=" " alt="" coords="689,203,880,259"/>
+</map>

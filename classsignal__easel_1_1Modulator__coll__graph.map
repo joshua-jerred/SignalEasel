@@ -1,0 +1,8 @@
+<map id="signal_easel::Modulator" name="signal_easel::Modulator">
+<area shape="rect" id="node1" title="The abstract base class for all modulators that turn data into audio." alt="" coords="157,315,334,509"/>
+<area shape="rect" id="node2" title=" " alt="" coords="20,5,87,83"/>
+<area shape="rect" id="node4" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="164,175,328,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="352,175,491,252"/>
+<area shape="rect" id="node5" title=" " alt="" coords="177,5,288,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="351,5,410,83"/>
+</map>

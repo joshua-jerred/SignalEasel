@@ -1,0 +1,12 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,88,60,115"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Address.html#a7fa6b0ef4241413893f201660991e4ea" title="Checks if the address is valid, if not throws an exception with a specific error code." alt="" coords="383,47,556,89"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9" title=" " alt="" coords="140,178,303,219"/>
+<area shape="rect" id="node9" href="$classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d" title="setters/getters for the frame." alt="" coords="108,47,335,89"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e" title=" " alt="" coords="124,113,319,154"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Address.html#af34b361f739b7995e7816b7a04465828" title=" " alt="" coords="604,5,824,61"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Address.html#a8b44c6e311d3462bd86eda03c1d384f0" title=" " alt="" coords="614,86,814,127"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1ax25_1_1Address.html#ad66c149737cc4aa52ae9e8860176acf3" title=" " alt="" coords="872,115,1032,157"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1ax25_1_1Address.html#aae81920cfd0dc7d89cb107f9d825488c" title="If the address is valid (can be encoded correctly or was decoded)" alt="" coords="398,178,541,219"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1ax25_1_1Address.html#a56c55b48bfc809a33aa0e22a5aeb95ca" title=" " alt="" coords="619,203,809,259"/>
+</map>

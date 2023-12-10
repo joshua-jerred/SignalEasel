@@ -1,0 +1,5 @@
+<map id="signal_easel::aprs::Settings" name="signal_easel::aprs::Settings">
+<area shape="rect" id="node1" title=" " alt="" coords="36,329,175,421"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1afsk_1_1Settings.html" title="Settings for AFSK modulation/demodulation." alt="" coords="15,175,195,281"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="5,5,205,127"/>
+</map>

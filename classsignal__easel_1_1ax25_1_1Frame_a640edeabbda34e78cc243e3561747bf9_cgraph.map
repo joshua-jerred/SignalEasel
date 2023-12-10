@@ -1,0 +1,6 @@
+<map id="signal_easel::ax25::Frame::isFrameValid" name="signal_easel::ax25::Frame::isFrameValid">
+<area shape="rect" id="node1" title=" " alt="" coords="5,50,168,91"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Address.html#aae81920cfd0dc7d89cb107f9d825488c" title="If the address is valid (can be encoded correctly or was decoded)" alt="" coords="216,50,359,91"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Address.html#a56c55b48bfc809a33aa0e22a5aeb95ca" title=" " alt="" coords="407,5,597,61"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Address.html#ad66c149737cc4aa52ae9e8860176acf3" title=" " alt="" coords="422,86,582,127"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="signal_easel::Modulator::addMorseCode" name="signal_easel::Modulator::addMorseCode">
+<area shape="rect" id="node1" title="Add morse code to the output audio." alt="" coords="5,39,183,80"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Modulator.html#a83877b4de0ae12992f62c09cf876da04" title="Add silence to the audio buffer." alt="" coords="231,5,408,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04" title="Add a sine wave to the audio buffer." alt="" coords="231,71,408,112"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8" title="Add a PCM sample to the audio buffer." alt="" coords="456,39,633,80"/>
+</map>

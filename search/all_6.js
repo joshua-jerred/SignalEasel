@@ -1,7 +1,7 @@
 var searchData=
 [
   ['getaddressstring_171',['getAddressString',['../classsignal__easel_1_1ax25_1_1Address.html#a507a91b161cc7dae91517c0e83670323',1,'signal_easel::ax25::Address']]],
-  ['getaprsmessage_172',['getAprsMessage',['../classsignal__easel_1_1aprs_1_1Receiver.html#abc27628d1926f722bdf6f09b002f9b16',1,'signal_easel::aprs::Receiver']]],
+  ['getaprsmessage_172',['getAprsMessage',['../classsignal__easel_1_1aprs_1_1Receiver.html#adb587096f73f9539acc746f8f9be1c29',1,'signal_easel::aprs::Receiver']]],
   ['getaudiobuffer_173',['getAudioBuffer',['../classsignal__easel_1_1Demodulator.html#a60d9217eedde350a79dfa0af4ee31738',1,'signal_easel::Demodulator::getAudioBuffer()'],['../classsignal__easel_1_1PulseAudioReader.html#adbb78105ceda235ba2314acb2f8dec14',1,'signal_easel::PulseAudioReader::getAudioBuffer()']]],
   ['getbitstreamlength_174',['getBitStreamLength',['../classsignal__easel_1_1BitStream.html#aa97152ef51f73088e103a7951134aa85',1,'signal_easel::BitStream']]],
   ['getbitvector_175',['getBitVector',['../classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69',1,'signal_easel::BitStream']]],

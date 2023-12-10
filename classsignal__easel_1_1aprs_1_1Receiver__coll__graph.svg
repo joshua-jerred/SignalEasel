@@ -12,16 +12,16 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="850,-0.5 850,-101.5 981,-101.5 981,-0.5 850,-0.5"/>
-<text text-anchor="start" x="858" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
-<text text-anchor="middle" x="915.5" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Receiver</text>
-<polyline fill="none" stroke="black" points="850,-71.5 981,-71.5 "/>
-<text text-anchor="middle" x="915.5" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="850,-52.5 981,-52.5 "/>
-<text text-anchor="start" x="858" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Receiver()</text>
-<text text-anchor="start" x="858" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAprsMessage()</text>
-<text text-anchor="start" x="858" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getOtherAprsPacket()</text>
-<text text-anchor="start" x="858" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; decode()</text>
+<polygon fill="#bfbfbf" stroke="black" points="855,-0.5 855,-101.5 986,-101.5 986,-0.5 855,-0.5"/>
+<text text-anchor="start" x="863" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
+<text text-anchor="middle" x="920.5" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Receiver</text>
+<polyline fill="none" stroke="black" points="855,-71.5 986,-71.5 "/>
+<text text-anchor="middle" x="920.5" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="855,-52.5 986,-52.5 "/>
+<text text-anchor="start" x="863" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Receiver()</text>
+<text text-anchor="start" x="863" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAprsMessage()</text>
+<text text-anchor="start" x="863" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getOtherAprsPacket()</text>
+<text text-anchor="start" x="863" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; decode()</text>
 </a>
 </g>
 </g>
@@ -46,8 +46,8 @@
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M855.44,-140.92C864.3,-127.81 873.5,-114.19 881.96,-101.66"/>
-<polygon fill="none" stroke="midnightblue" points="852.38,-139.2 849.69,-149.44 858.18,-143.12 852.38,-139.2"/>
+<path fill="none" stroke="midnightblue" d="M857.53,-140.92C866.81,-127.81 876.46,-114.19 885.33,-101.66"/>
+<polygon fill="none" stroke="midnightblue" points="854.41,-139.26 851.49,-149.44 860.13,-143.31 854.41,-139.26"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -69,8 +69,8 @@
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M1256.63,-739.98C1229.35,-629.42 1154.65,-393.32 994.5,-280 950.12,-248.6 922.62,-285.3 873.5,-262 870.52,-260.59 867.59,-258.98 864.72,-257.23"/>
-<polygon fill="none" stroke="midnightblue" points="1253.29,-741.06 1259.04,-749.96 1260.09,-739.41 1253.29,-741.06"/>
+<path fill="none" stroke="midnightblue" d="M1256.61,-740C1229.32,-629.46 1154.58,-393.42 994.5,-280 950.5,-248.82 923.3,-284.95 874.5,-262 871.23,-260.46 868.01,-258.7 864.86,-256.76"/>
+<polygon fill="none" stroke="midnightblue" points="1253.27,-741.08 1259.03,-749.97 1260.08,-739.43 1253.27,-741.08"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -368,10 +368,10 @@
 <polygon fill="none" stroke="#404040" points="891.28,-1142.47 891.13,-1135.26 897.73,-1132.35 897.88,-1139.56 891.28,-1142.47"/>
 <text text-anchor="middle" x="752" y="-1230.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +call_sign</text>
 </g>
-<!-- Node28 -->
-<g id="node28" class="node">
-<title>Node28</title>
-<g id="a_node28"><a xlink:href="classsignal__easel_1_1ax25_1_1Address.html" target="_top" xlink:title="AX.25 Address class. For encoding and decoding AX.25 addresses.">
+<!-- Node29 -->
+<g id="node29" class="node">
+<title>Node29</title>
+<g id="a_node29"><a xlink:href="classsignal__easel_1_1ax25_1_1Address.html" target="_top" xlink:title="AX.25 Address class. For encoding and decoding AX.25 addresses.">
 <polygon fill="none" stroke="black" points="334,-700.5 334,-900.5 495,-900.5 495,-700.5 334,-700.5"/>
 <text text-anchor="start" x="342" y="-888.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="414.5" y="-877.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Address</text>
@@ -394,9 +394,9 @@
 </a>
 </g>
 </g>
-<!-- Node13&#45;&gt;Node28 -->
-<g id="edge37" class="edge">
-<title>Node13&#45;&gt;Node28</title>
+<!-- Node13&#45;&gt;Node29 -->
+<g id="edge38" class="edge">
+<title>Node13&#45;&gt;Node29</title>
 <path fill="none" stroke="#404040" d="M521.41,-1295.58C489.54,-1278.52 431.52,-1242.32 404.5,-1193 345.79,-1085.82 364.82,-1040.06 381.5,-919 381.78,-916.94 382.09,-914.87 382.43,-912.79"/>
 <polygon fill="none" stroke="#404040" points="382.46,-912.59 379.59,-905.98 384.59,-900.78 387.46,-907.4 382.46,-912.59"/>
 <text text-anchor="middle" x="446.5" y="-1101" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;address_string_</text>
@@ -406,7 +406,7 @@
 <title>Node14&#45;&gt;Node2</title>
 <path fill="none" stroke="#404040" d="M704.19,-766.27C715.25,-745.98 730.91,-720.15 748.5,-700 756.81,-690.48 763.52,-692.53 770.5,-682 853.07,-557.48 840.17,-372.51 825.32,-274"/>
 <polygon fill="none" stroke="#404040" points="825.27,-273.7 820.39,-268.39 823.41,-261.84 828.29,-267.15 825.27,-273.7"/>
-<text text-anchor="middle" x="876.5" y="-467.5" font-family="Helvetica,sans-Serif" font-size="10.00"> #afsk_settings_</text>
+<text text-anchor="middle" x="877.5" y="-467.5" font-family="Helvetica,sans-Serif" font-size="10.00"> #afsk_settings_</text>
 </g>
 <!-- Node17 -->
 <g id="node17" class="node">
@@ -474,9 +474,9 @@
 <polygon fill="none" stroke="#404040" points="669.7,-845.66 668.7,-838.52 674.9,-834.84 675.91,-841.98 669.7,-845.66"/>
 <text text-anchor="middle" x="616" y="-955" font-family="Helvetica,sans-Serif" font-size="10.00"> +include_ascii_padding</text>
 </g>
-<!-- Node16&#45;&gt;Node28 -->
-<g id="edge35" class="edge">
-<title>Node16&#45;&gt;Node28</title>
+<!-- Node16&#45;&gt;Node29 -->
+<g id="edge36" class="edge">
+<title>Node16&#45;&gt;Node29</title>
 <path fill="none" stroke="#404040" d="M503.59,-1074.95C493.13,-1055.41 476.68,-1029.92 455.5,-1014 435.28,-998.8 416.29,-1016.52 401.5,-996 384.28,-972.11 380.27,-941.99 382.48,-912.64"/>
 <polygon fill="none" stroke="#404040" points="382.49,-912.5 379.13,-906.12 383.72,-900.57 387.09,-906.95 382.49,-912.5"/>
 <text text-anchor="start" x="401.5" y="-988" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;command_or_response</text>
@@ -494,10 +494,10 @@
 <polygon fill="none" stroke="#404040" points="750.79,-244.61 753,-237.75 760.19,-237.16 757.97,-244.02 750.79,-244.61"/>
 <text text-anchor="middle" x="759" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00"> #demodulator_</text>
 </g>
-<!-- Node24 -->
-<g id="node24" class="node">
-<title>Node24</title>
-<g id="a_node24"><a xlink:href="classsignal__easel_1_1aprs_1_1Demodulator.html" target="_top" xlink:title=" ">
+<!-- Node25 -->
+<g id="node25" class="node">
+<title>Node25</title>
+<g id="a_node25"><a xlink:href="classsignal__easel_1_1aprs_1_1Demodulator.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="412,-149.5 412,-261.5 549,-261.5 549,-149.5 412,-149.5"/>
 <text text-anchor="start" x="420" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="480.5" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Demodulator</text>
@@ -512,9 +512,9 @@
 </a>
 </g>
 </g>
-<!-- Node17&#45;&gt;Node24 -->
-<g id="edge30" class="edge">
-<title>Node17&#45;&gt;Node24</title>
+<!-- Node17&#45;&gt;Node25 -->
+<g id="edge31" class="edge">
+<title>Node17&#45;&gt;Node25</title>
 <path fill="none" stroke="midnightblue" d="M634.24,-400.53C600.01,-357.32 556.37,-302.25 524.34,-261.83"/>
 <polygon fill="none" stroke="midnightblue" points="631.57,-402.78 640.52,-408.45 637.05,-398.44 631.57,-402.78"/>
 </g>
@@ -540,9 +540,9 @@
 <!-- Node19&#45;&gt;Node2 -->
 <g id="edge28" class="edge">
 <title>Node19&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M792.53,-1074.67C802.78,-1054.44 819.53,-1028.22 842.5,-1014 888.36,-985.61 927.31,-1036.86 962.5,-996 984.08,-970.94 1078.61,-641.32 921.5,-309 919.9,-305.61 897.62,-284.47 873.61,-262.26"/>
-<polygon fill="none" stroke="#404040" points="873.54,-262.2 866.42,-261.07 864.73,-254.06 871.85,-255.19 873.54,-262.2"/>
-<text text-anchor="middle" x="1053" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00"> #receive_buffer_</text>
+<path fill="none" stroke="#404040" d="M792.22,-1074.67C802.25,-1054.44 818.7,-1028.22 841.5,-1014 887.64,-985.24 927,-1037.18 962.5,-996 984.11,-970.94 1080.15,-641.2 922.5,-309 920.87,-305.57 898.05,-284.13 873.61,-261.74"/>
+<polygon fill="none" stroke="#404040" points="873.43,-261.57 866.3,-260.48 864.57,-253.48 871.7,-254.57 873.43,-261.57"/>
+<text text-anchor="middle" x="1054" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00"> #receive_buffer_</text>
 </g>
 <!-- Node19&#45;&gt;Node18 -->
 <g id="edge20" class="edge">
@@ -621,10 +621,10 @@
 <polygon fill="none" stroke="#404040" points="638.15,-541.95 638.04,-534.74 644.65,-531.86 644.76,-539.07 638.15,-541.95"/>
 <text text-anchor="middle" x="634.5" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;base_band_signal_</text>
 </g>
-<!-- Node26 -->
-<g id="node26" class="node">
-<title>Node26</title>
-<g id="a_node26"><a xlink:href="classsignal__easel_1_1ax25_1_1Frame.html" target="_top" xlink:title=" ">
+<!-- Node27 -->
+<g id="node27" class="node">
+<title>Node27</title>
+<g id="a_node27"><a xlink:href="classsignal__easel_1_1ax25_1_1Frame.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="208,-309.5 208,-630.5 367,-630.5 367,-309.5 208,-309.5"/>
 <text text-anchor="start" x="216" y="-618.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="287.5" y="-607.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Frame</text>
@@ -658,25 +658,48 @@
 </a>
 </g>
 </g>
-<!-- Node23&#45;&gt;Node26 -->
-<g id="edge40" class="edge">
-<title>Node23&#45;&gt;Node26</title>
+<!-- Node23&#45;&gt;Node27 -->
+<g id="edge41" class="edge">
+<title>Node23&#45;&gt;Node27</title>
 <path fill="none" stroke="#404040" d="M550.31,-771.93C538.53,-751.4 521.27,-723.05 503.5,-700 464.72,-649.69 416.62,-597.86 375.67,-556.26"/>
 <polygon fill="none" stroke="#404040" points="375.49,-556.07 368.42,-554.62 367.05,-547.54 374.11,-548.99 375.49,-556.07"/>
 <text text-anchor="middle" x="523.5" y="-668.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;build_buffer_</text>
 <text text-anchor="middle" x="523.5" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;information_</text>
 </g>
+<!-- Node24 -->
+<g id="node24" class="node">
+<title>Node24</title>
+<g id="a_node24"><a xlink:title=" ">
+<polygon fill="none" stroke="#bfbfbf" points="883,-160.5 883,-250.5 1030,-250.5 1030,-160.5 883,-160.5"/>
+<text text-anchor="start" x="891" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; std::pair&lt;</text>
+<text text-anchor="start" x="891" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00"> signal_easel::ax25</text>
+<text text-anchor="start" x="891" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Frame, signal_easel</text>
+<text text-anchor="middle" x="956.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">::aprs::MessagePacket &gt; &gt;</text>
+<polyline fill="none" stroke="#bfbfbf" points="883,-198.5 1030,-198.5 "/>
+<text text-anchor="middle" x="956.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="#bfbfbf" points="883,-179.5 1030,-179.5 "/>
+<text text-anchor="middle" x="956.5" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+</a>
+</g>
+</g>
 <!-- Node24&#45;&gt;Node1 -->
 <g id="edge29" class="edge">
 <title>Node24&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M549.43,-180.34C628.06,-152.77 756.31,-107.81 838.25,-79.08"/>
-<polygon fill="none" stroke="#404040" points="838.42,-79.02 842.76,-73.26 849.74,-75.05 845.4,-80.81 838.42,-79.02"/>
-<text text-anchor="middle" x="762" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;aprs_demodulator_</text>
+<path fill="none" stroke="#404040" d="M946.09,-160.39C942.63,-145.74 938.71,-129.15 935,-113.44"/>
+<polygon fill="none" stroke="#404040" points="934.97,-113.31 929.7,-108.39 932.22,-101.64 937.49,-106.56 934.97,-113.31"/>
+<text text-anchor="middle" x="982.5" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;aprs_messages_</text>
 </g>
-<!-- Node25 -->
-<g id="node25" class="node">
-<title>Node25</title>
-<g id="a_node25"><a xlink:title=" ">
+<!-- Node25&#45;&gt;Node1 -->
+<g id="edge30" class="edge">
+<title>Node25&#45;&gt;Node1</title>
+<path fill="none" stroke="#404040" d="M549.25,-180.67C629.01,-153.03 760.16,-107.57 843.34,-78.74"/>
+<polygon fill="none" stroke="#404040" points="843.41,-78.72 847.77,-72.98 854.75,-74.79 850.39,-80.53 843.41,-78.72"/>
+<text text-anchor="middle" x="765" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;aprs_demodulator_</text>
+</g>
+<!-- Node26 -->
+<g id="node26" class="node">
+<title>Node26</title>
+<g id="a_node26"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="0,-772 0,-829 39,-829 39,-772 0,-772"/>
 <text text-anchor="middle" x="19.5" y="-817" font-family="Helvetica,sans-Serif" font-size="10.00">Type</text>
 <polyline fill="none" stroke="#bfbfbf" points="0,-810 39,-810 "/>
@@ -686,31 +709,31 @@
 </a>
 </g>
 </g>
-<!-- Node25&#45;&gt;Node24 -->
-<g id="edge31" class="edge">
-<title>Node25&#45;&gt;Node24</title>
+<!-- Node26&#45;&gt;Node25 -->
+<g id="edge32" class="edge">
+<title>Node26&#45;&gt;Node25</title>
 <path fill="none" stroke="#404040" d="M19.04,-771.89C19.22,-689.21 31.38,-441.17 164.5,-309 227.47,-246.48 328.88,-222.09 399.79,-212.57"/>
 <polygon fill="none" stroke="#404040" points="399.87,-212.56 405.32,-207.85 411.78,-211.07 406.32,-215.78 399.87,-212.56"/>
 <text text-anchor="middle" x="181.5" y="-467.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;type_</text>
 </g>
-<!-- Node25&#45;&gt;Node26 -->
-<g id="edge38" class="edge">
-<title>Node25&#45;&gt;Node26</title>
+<!-- Node26&#45;&gt;Node27 -->
+<g id="edge39" class="edge">
+<title>Node26&#45;&gt;Node27</title>
 <path fill="none" stroke="#404040" d="M24.41,-771.83C31.33,-739.42 46.59,-685.53 76.5,-649 111.56,-606.17 157.93,-565.76 198.27,-534.3"/>
 <polygon fill="none" stroke="#404040" points="198.35,-534.24 200.66,-527.41 207.85,-526.91 205.54,-533.74 198.35,-534.24"/>
 <text text-anchor="middle" x="93.5" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;type_</text>
 </g>
-<!-- Node26&#45;&gt;Node24 -->
-<g id="edge32" class="edge">
-<title>Node26&#45;&gt;Node24</title>
+<!-- Node27&#45;&gt;Node25 -->
+<g id="edge33" class="edge">
+<title>Node27&#45;&gt;Node25</title>
 <path fill="none" stroke="#404040" d="M367.11,-360.72C389.4,-330.4 412.93,-298.4 432.74,-271.46"/>
 <polygon fill="none" stroke="#404040" points="432.75,-271.44 433.09,-264.24 439.86,-261.77 439.53,-268.97 432.75,-271.44"/>
 <text text-anchor="middle" x="444.5" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;frame_</text>
 </g>
-<!-- Node27 -->
-<g id="node27" class="node">
-<title>Node27</title>
-<g id="a_node27"><a xlink:title=" ">
+<!-- Node28 -->
+<g id="node28" class="node">
+<title>Node28</title>
+<g id="a_node28"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="57.5,-772 57.5,-829 113.5,-829 113.5,-772 57.5,-772"/>
 <text text-anchor="middle" x="85.5" y="-817" font-family="Helvetica,sans-Serif" font-size="10.00">uint16_t</text>
 <polyline fill="none" stroke="#bfbfbf" points="57.5,-810 113.5,-810 "/>
@@ -720,26 +743,26 @@
 </a>
 </g>
 </g>
-<!-- Node27&#45;&gt;Node26 -->
-<g id="edge33" class="edge">
-<title>Node27&#45;&gt;Node26</title>
+<!-- Node28&#45;&gt;Node27 -->
+<g id="edge34" class="edge">
+<title>Node28&#45;&gt;Node27</title>
 <path fill="none" stroke="#404040" d="M89.54,-771.99C94.97,-740.68 106.6,-688.74 128.5,-649 147.27,-614.94 173.64,-581.94 199.53,-553.79"/>
 <polygon fill="none" stroke="#404040" points="199.71,-553.59 200.88,-546.47 207.9,-544.82 206.73,-551.94 199.71,-553.59"/>
 <text text-anchor="middle" x="142" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;fcs_</text>
 </g>
-<!-- Node28&#45;&gt;Node26 -->
-<g id="edge34" class="edge">
-<title>Node28&#45;&gt;Node26</title>
+<!-- Node29&#45;&gt;Node27 -->
+<g id="edge35" class="edge">
+<title>Node29&#45;&gt;Node27</title>
 <path fill="none" stroke="#404040" d="M347.24,-700.45C344.08,-694.31 341.14,-688.14 338.5,-682 333.04,-669.28 328.1,-655.88 323.63,-642.23"/>
 <polygon fill="none" stroke="#404040" points="323.61,-642.17 317.99,-637.66 320,-630.73 325.62,-635.25 323.61,-642.17"/>
 <text text-anchor="start" x="338.5" y="-674" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;destination_address</text>
 <text text-anchor="middle" x="391.5" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>
 <text text-anchor="middle" x="391.5" y="-652" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;source_address_</text>
 </g>
-<!-- Node29 -->
-<g id="node29" class="node">
-<title>Node29</title>
-<g id="a_node29"><a xlink:title=" ">
+<!-- Node30 -->
+<g id="node30" class="node">
+<title>Node30</title>
+<g id="a_node30"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="272.5,-1075 272.5,-1132 322.5,-1132 322.5,-1075 272.5,-1075"/>
 <text text-anchor="middle" x="297.5" y="-1120" font-family="Helvetica,sans-Serif" font-size="10.00">uint8_t</text>
 <polyline fill="none" stroke="#bfbfbf" points="272.5,-1113 322.5,-1113 "/>
@@ -749,24 +772,24 @@
 </a>
 </g>
 </g>
-<!-- Node29&#45;&gt;Node26 -->
-<g id="edge39" class="edge">
-<title>Node29&#45;&gt;Node26</title>
+<!-- Node30&#45;&gt;Node27 -->
+<g id="edge40" class="edge">
+<title>Node30&#45;&gt;Node27</title>
 <path fill="none" stroke="#404040" d="M297.06,-1074.96C295.89,-1001.11 292.62,-794.05 290.22,-642.91"/>
 <polygon fill="none" stroke="#404040" points="290.22,-642.76 286.13,-636.82 290.03,-630.76 294.12,-636.7 290.22,-642.76"/>
 <text text-anchor="middle" x="308.5" y="-798" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;pid_</text>
 </g>
-<!-- Node29&#45;&gt;Node28 -->
-<g id="edge36" class="edge">
-<title>Node29&#45;&gt;Node28</title>
+<!-- Node30&#45;&gt;Node29 -->
+<g id="edge37" class="edge">
+<title>Node30&#45;&gt;Node29</title>
 <path fill="none" stroke="#404040" d="M296.62,-1074.88C296.42,-1037.91 299.55,-970.94 321.5,-919 323.47,-914.35 325.67,-909.73 328.06,-905.16"/>
 <polygon fill="none" stroke="#404040" points="328.1,-905.08 327.54,-897.89 333.96,-894.6 334.52,-901.79 328.1,-905.08"/>
 <text text-anchor="middle" x="337.5" y="-955" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;ssid_</text>
 </g>
-<!-- Node30 -->
-<g id="node30" class="node">
-<title>Node30</title>
-<g id="a_node30"><a xlink:title=" ">
+<!-- Node31 -->
+<g id="node31" class="node">
+<title>Node31</title>
+<g id="a_node31"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="132,-766.5 132,-834.5 251,-834.5 251,-766.5 132,-766.5"/>
 <text text-anchor="start" x="140" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; signal_easel</text>
 <text text-anchor="middle" x="191.5" y="-811.5" font-family="Helvetica,sans-Serif" font-size="10.00">::ax25::Address &gt;</text>
@@ -777,54 +800,33 @@
 </a>
 </g>
 </g>
-<!-- Node30&#45;&gt;Node26 -->
-<g id="edge41" class="edge">
-<title>Node30&#45;&gt;Node26</title>
+<!-- Node31&#45;&gt;Node27 -->
+<g id="edge42" class="edge">
+<title>Node31&#45;&gt;Node27</title>
 <path fill="none" stroke="#404040" d="M176.6,-766.35C164.81,-735.47 152.21,-688.41 164.5,-649 172.64,-622.92 186.08,-597.29 201.15,-573.96"/>
 <polygon fill="none" stroke="#404040" points="201.29,-573.75 201.29,-566.54 207.94,-563.76 207.95,-570.97 201.29,-573.75"/>
 <text text-anchor="middle" x="219" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;repeater_addresses_</text>
-</g>
-<!-- Node31 -->
-<g id="node31" class="node">
-<title>Node31</title>
-<g id="a_node31"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="882.5,-171.5 882.5,-239.5 1018.5,-239.5 1018.5,-171.5 882.5,-171.5"/>
-<text text-anchor="start" x="890.5" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; signal_easel</text>
-<text text-anchor="middle" x="950.5" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">::aprs::MessagePacket &gt;</text>
-<polyline fill="none" stroke="#bfbfbf" points="882.5,-209.5 1018.5,-209.5 "/>
-<text text-anchor="middle" x="950.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="882.5,-190.5 1018.5,-190.5 "/>
-<text text-anchor="middle" x="950.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-</a>
-</g>
-</g>
-<!-- Node31&#45;&gt;Node1 -->
-<g id="edge42" class="edge">
-<title>Node31&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M942.91,-171.41C939.01,-154.43 934.13,-133.19 929.58,-113.35"/>
-<polygon fill="none" stroke="#404040" points="929.56,-113.24 924.31,-108.29 926.87,-101.55 932.11,-106.5 929.56,-113.24"/>
-<text text-anchor="middle" x="976.5" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;aprs_messages_</text>
 </g>
 <!-- Node32 -->
 <g id="node32" class="node">
 <title>Node32</title>
 <g id="a_node32"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="1037,-171.5 1037,-239.5 1156,-239.5 1156,-171.5 1037,-171.5"/>
-<text text-anchor="start" x="1045" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; signal_easel</text>
-<text text-anchor="middle" x="1096.5" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">::ax25::Frame &gt;</text>
-<polyline fill="none" stroke="#bfbfbf" points="1037,-209.5 1156,-209.5 "/>
-<text text-anchor="middle" x="1096.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="1037,-190.5 1156,-190.5 "/>
-<text text-anchor="middle" x="1096.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="none" stroke="#bfbfbf" points="1048,-171.5 1048,-239.5 1167,-239.5 1167,-171.5 1048,-171.5"/>
+<text text-anchor="start" x="1056" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; signal_easel</text>
+<text text-anchor="middle" x="1107.5" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">::ax25::Frame &gt;</text>
+<polyline fill="none" stroke="#bfbfbf" points="1048,-209.5 1167,-209.5 "/>
+<text text-anchor="middle" x="1107.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="#bfbfbf" points="1048,-190.5 1167,-190.5 "/>
+<text text-anchor="middle" x="1107.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
 <!-- Node32&#45;&gt;Node1 -->
 <g id="edge43" class="edge">
 <title>Node32&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1072.29,-171.49C1059.21,-154.94 1042.16,-135.23 1024.5,-120 1014.31,-111.21 1002.87,-102.79 991.33,-95.05"/>
-<polygon fill="none" stroke="#404040" points="991.24,-95 984.03,-95.06 981.2,-88.43 988.41,-88.37 991.24,-95"/>
-<text text-anchor="middle" x="1089" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;other_aprs_packets_</text>
+<path fill="none" stroke="#404040" d="M1080.91,-171.17C1066.89,-154.73 1048.83,-135.21 1030.5,-120 1020.01,-111.29 1008.31,-102.89 996.56,-95.14"/>
+<polygon fill="none" stroke="#404040" points="996.34,-95 989.13,-95.12 986.25,-88.51 993.46,-88.39 996.34,-95"/>
+<text text-anchor="middle" x="1095" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;other_aprs_packets_</text>
 </g>
 </g>
 </svg>

@@ -49,7 +49,7 @@ void aprs::Receiver::decode() {
   } else if (res == true) {
     other_aprs_packets_.push_back(aprs_demodulator_.frame_);
   } else {
-    std::cout << "No packet found" << std::endl;
+    // std::cout << "No packet found" << std::endl;
   }
 
   constexpr size_t MAX_FRAMES = 10;

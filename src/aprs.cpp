@@ -21,8 +21,6 @@
 
 #include <SignalEasel/aprs.hpp>
 
-#include "ax25.hpp"
-
 namespace signal_easel {
 
 std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes) {
@@ -262,10 +260,69 @@ void AprsModulator::encodeMessagePacket(AprsMessagePacket message) {
 bool AprsDemodulator::lookForAx25Packet() {
   ax25::Frame frame;
   if (!frame.parseBitStream(output_bit_stream_)) {
+    type_ = AprsPacket::Type::UNKNOWN;
     return false;
   }
-  std::cout << "Found frame: " << frame << std::endl;
+
+  auto info = frame.getInformation();
+  if (info.size() < 1) {
+    type_ = AprsPacket::Type::UNKNOWN;
+    return false;
+  }
+
+  frame_ = frame;
+
+  uint8_t first_byte = info.at(0);
+  switch (first_byte) {
+  case '@':
+    type_ = AprsPacket::Type::POSITION;
+    break;
+  case ':':
+    type_ = AprsPacket::Type::MESSAGE;
+    break;
+  default:
+    type_ = AprsPacket::Type::UNKNOWN;
+    break;
+  }
+
   return true;
+}
+
+bool AprsDemodulator::parseMessagePacket(AprsMessagePacket &message_packet) {
+  if (type_ != AprsPacket::Type::MESSAGE) {
+    return false;
+  }
+
+  auto info = frame_.getInformation();
+
+  constexpr size_t k_min_message_length = 10;
+
+  if (info.size() < k_min_message_length) {
+    return false;
+  }
+
+  // ":<addressee (9)>:<message>{<id>"
+  if (info.at(0) != ':' || info.at(10) != ':') {
+    return false;
+  }
+
+  message_packet.addressee = std::string(info.begin() + 1, info.begin() + 10);
+
+  std::string content(info.begin() + 11, info.end());
+  size_t message_end = content.find('{');
+  if (message_end == std::string::npos) {
+    return false;
+  }
+  message_packet.message = content.substr(0, message_end);
+  if (message_end + 1 < content.length()) {
+    message_packet.message_id = content.substr(message_end + 1);
+  }
+
+  return true;
+}
+
+void AprsDemodulator::printFrame() {
+  std::cout << "Frame: " << frame_ << std::endl;
 }
 
 } // namespace signal_easel

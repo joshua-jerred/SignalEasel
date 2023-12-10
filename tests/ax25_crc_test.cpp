@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "ax25.hpp"
+#include <SignalEasel/ax25.hpp>
 
 using namespace signal_easel;
 

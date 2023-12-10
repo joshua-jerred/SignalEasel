@@ -25,6 +25,14 @@ TEST(Aprs, EncodeAndDecodeMessagePacket) {
   demodulator.loadAudioFromFile(kOutFilePath);
   demodulator.processAudioBuffer();
   EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(), signal_easel::AprsPacket::Type::MESSAGE);
+
+  signal_easel::AprsMessagePacket decoded_message_packet;
+  EXPECT_TRUE(demodulator.parseMessagePacket(decoded_message_packet));
+
+  EXPECT_EQ(decoded_message_packet.addressee, message_packet.addressee);
+  EXPECT_EQ(decoded_message_packet.message, message_packet.message);
+  EXPECT_EQ(decoded_message_packet.message_id, message_packet.message_id);
 }
 
 TEST(Aprs, EncodeAndDecodeLocationPacket) {
@@ -49,11 +57,21 @@ TEST(Aprs, EncodeAndDecodeLocationPacket) {
   // EXPECT_TRUE(demodulator.lookForAx25Packet());
 }
 
-TEST(Aprs, DecodeMessagePacket) {
-  const std::string kInputFile = "aprs_message.wav";
+// TEST(Aprs, DecodeMessagePacket) {
+//   const std::string kInputFile = "aprs_message.wav";
+
+//   signal_easel::AprsDemodulator demodulator;
+//   demodulator.loadAudioFromFile(kInputFile);
+//   demodulator.processAudioBuffer();
+//   EXPECT_TRUE(demodulator.lookForAx25Packet());
+// }
+
+TEST(Aprs, DecodeReal) {
+  const std::string kInputFile = "aprs_real.wav";
 
   signal_easel::AprsDemodulator demodulator;
   demodulator.loadAudioFromFile(kInputFile);
   demodulator.processAudioBuffer();
   EXPECT_TRUE(demodulator.lookForAx25Packet());
+  demodulator.printFrame();
 }

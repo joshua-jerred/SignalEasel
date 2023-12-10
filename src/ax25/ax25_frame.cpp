@@ -16,7 +16,7 @@
 
 #include <type_traits>
 
-#include "ax25.hpp"
+#include <SignalEasel/ax25.hpp>
 
 namespace signal_easel::ax25 {
 

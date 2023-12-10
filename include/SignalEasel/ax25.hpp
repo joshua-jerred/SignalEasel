@@ -159,10 +159,25 @@ public:
 
   Frame() = default;
 
+  /**
+   * @brief setters/getters for the frame.
+   * @exception signal_easel::Exception Thrown with specific error code upon
+   * invalid input.
+   * @{
+   */
   void setDestinationAddress(Address address);
+  Address getDestinationAddress() const { return destination_address_; }
   void setSourceAddress(Address address);
+  Address getSourceAddress() const { return source_address_; }
   void addRepeaterAddress(Address address);
+  std::vector<Address> getRepeaterAddresses() const {
+    return repeater_addresses_;
+  }
   void setInformation(std::vector<uint8_t> information);
+  std::vector<uint8_t> getInformation() const { return information_; }
+  /**
+   * @}
+   */
 
   bool isFrameValid();
 

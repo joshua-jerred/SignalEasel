@@ -14,7 +14,7 @@
  * @license    GNU GPLv3
  */
 
-#include "ax25.hpp"
+#include <SignalEasel/ax25.hpp>
 
 namespace signal_easel::ax25 {
 
@@ -67,7 +67,9 @@ void Address::decodeAddress(Address::AddressArray address_array) {
     uint8_t address_char = address_array.at(i) >> 1;
 
     if (!std::isalnum(address_char) && address_char != ' ') {
-      throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS);
+      throw std::runtime_error("Invalid character in address " +
+                               std::to_string(address_char));
+      // throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS);
     }
 
     // exit if we hit a space
@@ -119,7 +121,7 @@ void Address::assertAddressStringIsValid() {
   }
 
   for (uint8_t c : address_string_) {
-    if (!std::isalnum(c)) {
+    if (!std::isalnum(c) && c != ' ') {
       throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS);
     }
   }

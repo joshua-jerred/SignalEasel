@@ -18,7 +18,7 @@
 #include <iomanip>
 #include <iostream>
 
-#include "ax25.hpp"
+#include <SignalEasel/ax25.hpp>
 
 namespace signal_easel::ax25 {
 
@@ -135,9 +135,9 @@ std::vector<uint8_t> deStuffBytes(BitStream &bit_stream) {
           bit_stream.popNextBit();
           num_bits--;
           consecutive_ones = 0;
-          std::cout << "Found stuffed bit" << std::endl;
+          // std::cout << "Found stuffed bit" << std::endl;
         } else {
-          std::cout << "Found end flag" << std::endl;
+          // std::cout << "Found end flag" << std::endl;
           return destuffed_bytes;
         }
       }
@@ -168,18 +168,17 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
   constexpr int k_min_bytes = 20;
 
   BitStream nrzi_bit_stream = decodeNrzi(bit_stream);
-
   // nrzi_bit_stream.dumpBitStream();
-
-  if (findStartFlags(nrzi_bit_stream) < k_min_start_flags) {
-    std::cout << "Not enough start flags" << std::endl;
+  auto start_flags = findStartFlags(nrzi_bit_stream);
+  if (start_flags < k_min_start_flags) {
+    // std::cout << "Not enough start flags: " << start_flags << std::endl;
     return false;
   }
 
   std::vector<uint8_t> destuffed_bytes = deStuffBytes(nrzi_bit_stream);
 
   if (destuffed_bytes.size() < k_min_bytes) {
-    std::cout << "Not enough bytes" << std::endl;
+    // std::cout << "Not enough bytes" << std::endl;
     return false;
   }
 
@@ -188,7 +187,11 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
   // parse the destination address
   std::string dest_address_string = "";
   for (; iterator < 6; iterator++) {
-    dest_address_string += (char)(destuffed_bytes.at(iterator) >> 1);
+    char new_char = (char)(destuffed_bytes.at(iterator) >> 1);
+    if (new_char == ' ') {
+      continue;
+    }
+    dest_address_string += new_char;
   }
   uint8_t dest_ssid = (destuffed_bytes.at(iterator++) >> 1) & 0x0F;
   Address dest_address(dest_address_string, dest_ssid, false);
@@ -202,7 +205,11 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
     source_address_string = "";
     size_t start = iterator;
     for (; iterator < start + 6; iterator++) {
-      source_address_string += (char)(destuffed_bytes.at(iterator) >> 1);
+      char new_char = (char)(destuffed_bytes.at(iterator) >> 1);
+      if (new_char == ' ') {
+        continue;
+      }
+      source_address_string += new_char;
     }
     uint8_t ssid_byte = destuffed_bytes.at(iterator++);
     last_address = ssid_byte & 0x01;

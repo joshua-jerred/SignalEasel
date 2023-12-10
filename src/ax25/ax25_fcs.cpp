@@ -14,7 +14,7 @@
  * @license    GNU GPLv3
  */
 
-#include "ax25.hpp"
+#include <SignalEasel/ax25.hpp>
 
 namespace signal_easel::ax25 {
 uint16_t calculateFcs(const std::vector<uint8_t> &input_data) {

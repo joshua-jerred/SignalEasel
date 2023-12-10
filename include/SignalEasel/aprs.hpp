@@ -21,12 +21,14 @@
 #include <string>
 
 #include <SignalEasel/afsk.hpp>
+#include <SignalEasel/ax25.hpp>
 #include <SignalEasel/signal_easel.hpp>
 
 namespace signal_easel {
 
 struct AprsPacket {
   enum class SymbolTable { PRIMARY, SECONDARY };
+  enum class Type { UNKNOWN, POSITION, MESSAGE };
 
   std::string source_address = ""; // 3 - 6 characters, your callsign
   uint8_t source_ssid = 0;         // 0 - 15
@@ -90,6 +92,21 @@ public:
       : AfskDemodulator(settings) {}
 
   bool lookForAx25Packet();
+  AprsPacket::Type getType() { return type_; }
+
+  /**
+   * @brief If the packet was a message packet, this function will try to parse
+   * the packet into a message packet.
+   * @param message (out) The message packet
+   * @return true if the packet was a valid message packet
+   */
+  bool parseMessagePacket(AprsMessagePacket &message);
+
+  void printFrame();
+
+private:
+  ax25::Frame frame_{};
+  AprsPacket::Type type_ = AprsPacket::Type::UNKNOWN;
 };
 
 } // namespace signal_easel

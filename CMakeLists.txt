@@ -19,9 +19,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -Wno-float-equal")
 # no type limits and no float equal are for the ImageMagick library
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib/WavGen)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/WavGen)
 if (SSTV_ENABLED)
-    add_subdirectory(${CMAKE_SOURCE_DIR}/lib/SSTV-Image-Tools)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools)
 endif()
 
 # --------------------------------
@@ -33,6 +33,7 @@ add_library(SignalEasel STATIC
     src/band_pass_filter.cpp
     src/modulator.cpp
     src/demodulator.cpp
+    src/morse_modulator.cpp
 
     # AFSK
     src/afsk/afsk_modulator.cpp
@@ -49,12 +50,13 @@ add_library(SignalEasel STATIC
     src/aprs.cpp
     src/aprs/aprs_receiver.cpp
 
-
-    src/morse_modulator.cpp
-    src/pulse_audio_writer.cpp
-    src/pulse_audio_reader.cpp
+    # PSK
     # ${MWAV_SRC}/modulators/psk.cpp
     # ${MWAV_SRC}/demodulators/psk.cpp
+
+    # PulseAudio
+    src/pulse_audio_writer.cpp
+    src/pulse_audio_reader.cpp
 )
 target_link_libraries(SignalEasel WavGen)
 target_include_directories(SignalEasel 
@@ -93,14 +95,5 @@ endif()
 
 # --------------------------------
 if (UNIT_TESTS)
-    add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 endif()
-
-# add_executable(audio-in-test
-#    ${CMAKE_CURRENT_SOURCE_DIR}/src/demodulators/audio-in.cpp
-#)
-
-#add_executable(aprs-test
-#    ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/aprs.cpp
-#)
-

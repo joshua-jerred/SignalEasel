@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 
-#include <SignalEasel/signal_easel.hpp>
+#include <SignalEasel/bit_stream.hpp>
 
 // #include "wavgen.h"
 

@@ -16,7 +16,7 @@
 
 #include <algorithm>
 
-#include <SignalEasel/signal_easel.hpp>
+#include "utilities.hpp"
 
 namespace signal_easel {
 

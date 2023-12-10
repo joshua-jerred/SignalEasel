@@ -15,6 +15,7 @@
  */
 
 #include <SignalEasel/ax25.hpp>
+#include <SignalEasel/exception.hpp>
 
 namespace signal_easel::ax25 {
 

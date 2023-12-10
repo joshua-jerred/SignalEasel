@@ -17,7 +17,9 @@
 #include <array>
 #include <string>
 
-#include <SignalEasel/signal_easel.hpp>
+#include <SignalEasel/constants.hpp>
+#include <SignalEasel/exception.hpp>
+#include <SignalEasel/modulator.hpp>
 
 namespace signal_easel {
 

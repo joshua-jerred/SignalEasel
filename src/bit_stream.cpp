@@ -4,8 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include <SignalEasel/signal_easel.hpp>
-
+#include <SignalEasel/bit_stream.hpp>
 namespace signal_easel {
 
 void BitStream::addBits(const unsigned char *data, int num_bits) {

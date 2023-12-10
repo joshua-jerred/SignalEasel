@@ -20,6 +20,7 @@
 #include <iostream>
 
 #include <SignalEasel/afsk.hpp>
+#include <SignalEasel/exception.hpp>
 
 #include "band_pass_filter.hpp"
 
@@ -83,6 +84,10 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
   results.rms = rms;
   results.snr = 20 * std::log10(rms / wide_rms);
 
+  if (results.snr < AFSK_MINIMUM_SNR) {
+    results.snr = AFSK_MINIMUM_SNR;
+  }
+
   const size_t k_number_of_samples = filtered_audio.size();
 
   std::vector<double> mark_i(k_number_of_samples);
@@ -136,7 +141,6 @@ void AfskDemodulator::audioBufferToBaseBandSignal(
 
 void AfskDemodulator::baseBandToBitStream(
     AfskDemodulator::ProcessResults &results) {
-  (void)results;
   /// @brief The sample clock counts up to 40 and then resets.
   /// @details Symbols are 40 samples long. This clock is used to determine when
   /// to add a bit to the bit stream.
@@ -148,13 +152,15 @@ void AfskDemodulator::baseBandToBitStream(
   int32_t clock_skew_sum_of_squares = 0;
   int32_t clock_skew_count = 0;
 
-  // int32_t clock_skew_mean = 0;
-  // int32_t clock_skew_variance = 0;
+  int32_t clock_skew_mean = 0;
+  int32_t clock_skew_variance = 0;
 
   int32_t samples_since_last_boundary = 0;
   int32_t samples_since_last_boundary_sum = 0;
   int32_t num_boundaries = 0;
-  // int32_t mean_samples_between_boundaries = 0;
+  int32_t mean_samples_between_boundaries = 0;
+
+  bool ahead = false;
 
   constexpr double k_clock_skew_alpha = 0.5;
   double clock_skew_accumulator = 0;
@@ -182,11 +188,11 @@ void AfskDemodulator::baseBandToBitStream(
       num_boundaries++;
       samples_since_last_boundary_sum += samples_since_last_boundary;
       samples_since_last_boundary = 0;
-      // mean_samples_between_boundaries =
-      // samples_since_last_boundary_sum / num_boundaries;
+      mean_samples_between_boundaries =
+          samples_since_last_boundary_sum / num_boundaries;
 
       int timing_error_num_samples = sample_clock % 40 - 20;
-      // bool ahead = timing_error_num_samples > 0;
+      ahead = timing_error_num_samples > 0;
       timing_error_num_samples = std::abs(timing_error_num_samples);
 
       clock_skew_count++;
@@ -194,9 +200,9 @@ void AfskDemodulator::baseBandToBitStream(
       clock_skew_sum_of_squares +=
           timing_error_num_samples * timing_error_num_samples; // for variance
 
-      // clock_skew_mean = clock_skew_sum / clock_skew_count;
-      // clock_skew_variance = (clock_skew_sum_of_squares / clock_skew_count) -
-      // (clock_skew_mean * clock_skew_mean);
+      clock_skew_mean = clock_skew_sum / clock_skew_count;
+      clock_skew_variance = (clock_skew_sum_of_squares / clock_skew_count) -
+                            (clock_skew_mean * clock_skew_mean);
 
       clock_skew_accumulator =
           (k_clock_skew_alpha * static_cast<double>(timing_error_num_samples)) +
@@ -217,14 +223,20 @@ void AfskDemodulator::baseBandToBitStream(
       samples_since_last_clock_adjustment = 0;
       if (clock_skew_accumulator > 15) {
         sample_clock += 15;
+      } else {
+        // if (ahead) {
+        // sample_clock += 5;
+        // } else {
+        // sample_clock -= 5;
+        // }
       }
     }
   }
-  // std::cout << std::endl
-  // << "MSBB: " << mean_samples_between_boundaries << std::endl;
-  // std::cout << "CSA: " << clock_skew_accumulator << std::endl;
-  // std::cout << "CSM: " << clock_skew_mean << std::endl;
-  // std::cout << "CSV: " << clock_skew_variance << std::endl;
+  std::cout << std::endl
+            << "MSBB: " << mean_samples_between_boundaries << std::endl;
+  std::cout << "CSA: " << clock_skew_accumulator << std::endl;
+  std::cout << "CSM: " << clock_skew_mean << std::endl;
+  std::cout << "CSV: " << clock_skew_variance << std::endl;
   output_bit_stream_.pushBufferToBitStream();
 }
 
@@ -234,12 +246,14 @@ AfskDemodulator::lookForString(std::string &output) {
 
   const auto &bit_vector = output_bit_stream_.getBitVector();
 
+  constexpr uint8_t k_syn_character = 0x16;
+
   // detect syn character
   int8_t char_offset = -1;
   for (uint32_t word : bit_vector) {
     for (int8_t i = 0; i < 32; i++) {
       uint8_t byte = (word >> (24 - i)) & 0xFF;
-      if (byte == 0x16) {
+      if (byte == k_syn_character) {
         char_offset = i;
         break;
       }
@@ -276,7 +290,7 @@ AfskDemodulator::lookForString(std::string &output) {
 
     // Ignore SYN and STX
     if (byte != 0x16 && byte != 0x02) {
-      output += static_cast<char>(byte);
+      output += static_cast<unsigned char>(byte);
     }
     num_bits -= 8;
   }

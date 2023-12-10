@@ -14,7 +14,9 @@
  * @license    GNU GPLv3
  */
 
-#include "pulse_audio.hpp"
+#include <SignalEasel/exception.hpp>
+#include <SignalEasel/modulator.hpp>
+#include <SignalEasel/pulse_audio.hpp>
 
 namespace signal_easel {
 
@@ -28,13 +30,13 @@ void Modulator::writeToPulseAudio() {
   // ss.rate = AUDIO_SAMPLE_RATE;
 
   pa_simple *s =
-      pa_simple_new(nullptr,                  // Use the default server.
-                    PULSE_AUDIO_APP_NAME,     // Our application's name.
-                    PA_STREAM_PLAYBACK,       // Stream direction (output).
-                    nullptr,                  // Use the default device.
-                    "StreamWriter",           // Description of our stream.
-                    &PULSE_AUDIO_SAMPLE_SPEC, // The output sample format
-                    nullptr,                  // Use default channel map
+      pa_simple_new(nullptr,                      // Use the default server.
+                    PULSE_AUDIO_APP_NAME.c_str(), // Our application's name.
+                    PA_STREAM_PLAYBACK,           // Stream direction (output).
+                    nullptr,                      // Use the default device.
+                    "StreamWriter",               // Description of our stream.
+                    &PULSE_AUDIO_SAMPLE_SPEC,     // The output sample format
+                    nullptr,                      // Use default channel map
                     nullptr, // Use default buffering attributes.
                     nullptr  // Ignore error code.
       );

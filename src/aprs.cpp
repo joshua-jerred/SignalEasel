@@ -20,6 +20,7 @@
 #include <vector>
 
 #include <SignalEasel/aprs.hpp>
+#include <SignalEasel/exception.hpp>
 
 namespace signal_easel {
 

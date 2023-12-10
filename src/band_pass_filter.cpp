@@ -23,8 +23,6 @@
 
 #include "band_pass_filter.hpp"
 
-#include <SignalEasel/signal_easel.hpp>
-
 #define PI 3.14159
 
 namespace signal_easel {

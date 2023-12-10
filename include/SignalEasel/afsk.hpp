@@ -11,7 +11,13 @@
 
 #include <vector>
 
-#include <SignalEasel/signal_easel.hpp>
+#include <SignalEasel/constants.hpp>
+
+#include <SignalEasel/bit_stream.hpp>
+#include <SignalEasel/demodulator.hpp>
+#include <SignalEasel/modulator.hpp>
+#include <SignalEasel/receiver.hpp>
+
 namespace signal_easel {
 
 inline constexpr uint32_t AFSK_BAUD_RATE = 1200;
@@ -35,6 +41,15 @@ inline constexpr double AFSK_BP_SPACE_UPPER_CUTOFF = 2400;
 inline constexpr double AFSK_BP_INCLUDED_BANDWIDTH =
     AFSK_BP_MARK_UPPER_CUTOFF - AFSK_BP_MARK_LOWER_CUTOFF +
     AFSK_BP_SPACE_UPPER_CUTOFF - AFSK_BP_SPACE_LOWER_CUTOFF;
+
+inline constexpr double AFSK_MINIMUM_SNR = -50.0;
+inline constexpr double AFSK_SNR_THRESHOLD = -10.0;
+
+// seconds * samples per second
+inline constexpr size_t AFSK_RECEIVER_SAMPLE_BUFFER_SIZE =
+    5 * AUDIO_SAMPLE_RATE;
+// Minimum number of samples that need to be received before demodulation
+inline constexpr size_t AFSK_RECEIVED_MIN_SAMPLES = 2000;
 
 struct AfskSettings : public Settings {
   enum class BitEncoding { STANDARD, NRZI };
@@ -86,6 +101,8 @@ private:
 
 class AfskDemodulator : public Demodulator {
 public:
+  friend class AfskReceiver;
+
   struct ProcessResults {
     /**
      * @brief RMS of the input signal (received audio power).
@@ -107,6 +124,10 @@ public:
   enum class AsciiResult { SUCCESS, NO_SYN, NO_EOT };
 
   AsciiResult lookForString(std::string &output);
+
+#ifdef PULSE_AUDIO_ENABLED
+  // bool detectSignal() override;
+#endif
 
 protected:
   BitStream output_bit_stream_{};
@@ -131,6 +152,26 @@ private:
 
   AfskSettings afsk_settings_;
 };
+
+class AfskReceiver : public Receiver {
+public:
+  AfskReceiver(AfskSettings settings = AfskSettings())
+      : Receiver(settings), demodulator_(settings), afsk_settings_(settings) {}
+  ~AfskReceiver() = default;
+
+  void process() override;
+
+protected:
+  bool detectSignal(const PulseAudioBuffer &audio_buffer);
+  void decode();
+
+  AfskDemodulator demodulator_;
+
+  AfskSettings afsk_settings_;
+
+  std::vector<int16_t> receive_buffer_{};
+};
+
 } // namespace signal_easel
 
 #endif /* MWAV_AFSK_HPP_ */

@@ -17,7 +17,8 @@
 #include <iostream>
 #include <wav_gen.hpp>
 
-#include <SignalEasel/signal_easel.hpp>
+#include <SignalEasel/demodulator.hpp>
+#include <SignalEasel/exception.hpp>
 
 namespace signal_easel {
 

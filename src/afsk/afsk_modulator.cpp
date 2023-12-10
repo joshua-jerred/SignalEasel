@@ -19,6 +19,7 @@
 #include <iostream>
 
 #include <SignalEasel/afsk.hpp>
+#include <SignalEasel/exception.hpp>
 
 // #define NOISE_SIMULATION
 

@@ -18,11 +18,15 @@
 
 #include <wav_gen.hpp>
 
-#include <SignalEasel/signal_easel.hpp>
+#include <SignalEasel/constants.hpp>
+#include <SignalEasel/exception.hpp>
+#include <SignalEasel/modulator.hpp>
+
+#include "utilities.hpp"
 
 namespace signal_easel {
 
-Modulator::Modulator(Settings settings) : SignalEasel(std::move(settings)) {
+Modulator::Modulator(Settings settings) : settings_(std::move(settings)) {
   clearBuffer();
 }
 

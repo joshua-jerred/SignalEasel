@@ -14,15 +14,17 @@
  * @license    GNU GPLv3
  */
 
-#include <SignalEasel/aprs.hpp>
+#include <SignalEasel/afsk.hpp>
 
 #define PULSE_AUDIO_ENABLED
-#include "../src/pulse_audio.hpp"
+#include <SignalEasel/pulse_audio.hpp>
 
 #include <cmath>
+#include <iomanip>
 #include <iostream>
+#include <unistd.h>
 
-void printVolumeBar(double volume) {
+void printVolumeBar(double volume, uint16_t latency) {
   std::cout << "\r";
   for (int i = 0; i < 50; i++) {
     if (i < volume * 50) {
@@ -31,7 +33,9 @@ void printVolumeBar(double volume) {
       std::cout << " ";
     }
   }
-  std::cout << " " << volume;
+  std::cout << " " << std::setprecision(2) << std::fixed << volume << " | "
+            << latency << "ms"
+            << "         ";
   std::cout.flush();
 }
 
@@ -40,11 +44,12 @@ int main() {
   modulator.addString("Hello World!");
   modulator.writeToPulseAudio();
 
-  signal_easel::PulseAudioReader reader;
+  signal_easel::AfskReceiver receiver;
 
   while (true) {
-    reader.process();
-    printVolumeBar(reader.getVolume());
+    receiver.process();
+    // reader.process();
+    // printVolumeBar(reader.getVolume(), reader.getLatency());
   }
 
   return 0;

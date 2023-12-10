@@ -31,15 +31,21 @@ add_library(SignalEasel STATIC
     src/utilities.cpp
     src/bit_stream.cpp
     src/band_pass_filter.cpp
+    src/modulator.cpp
+    src/demodulator.cpp
+
+    # AFSK
+    src/afsk/afsk_modulator.cpp
+    src/afsk/afsk_demodulator.cpp
+    src/afsk/afsk_receiver.cpp
+
+    # AX.25
     src/ax25/ax25_address.cpp
     src/ax25/ax25_frame.cpp
     src/ax25/ax25_decode.cpp
     src/ax25/ax25_fcs.cpp
-    src/modulator.cpp
-    src/demodulator.cpp
+
     src/morse_modulator.cpp
-    src/afsk_modulator.cpp
-    src/afsk_demodulator.cpp
     src/aprs.cpp
     src/pulse_audio_writer.cpp
     src/pulse_audio_reader.cpp

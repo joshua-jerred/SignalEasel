@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 
 #include <SignalEasel/ax25.hpp>
+#include <SignalEasel/exception.hpp>
 
 using namespace signal_easel;
 

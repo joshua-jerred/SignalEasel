@@ -22,7 +22,6 @@
 
 #include <SignalEasel/afsk.hpp>
 #include <SignalEasel/ax25.hpp>
-#include <SignalEasel/signal_easel.hpp>
 
 namespace signal_easel {
 

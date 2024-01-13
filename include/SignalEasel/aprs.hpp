@@ -110,6 +110,15 @@ public:
    */
   bool parseMessagePacket(aprs::MessagePacket &message);
 
+  /**
+   * @brief If the packet was a position packet, this function will try to parse
+   * the packet into it's positional data.
+   * @param position (out) The position packet
+   * @return true if the packet was fully parsed
+   * @return false if the packet was not a valid position packet
+   */
+  bool parsePositionPacket(aprs::PositionPacket &position);
+
   void printFrame();
 
 private:
@@ -146,6 +155,7 @@ public:
 private:
   void decode() override;
   std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};
+  std::vector<std::pair<ax25::Frame, aprs::PositionPacket>> aprs_positions_{};
   std::vector<ax25::Frame> other_aprs_packets_{};
 
   afsk::Demodulator::ProcessResults demodulation_res_{};

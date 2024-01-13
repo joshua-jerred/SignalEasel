@@ -352,6 +352,17 @@ bool aprs::Demodulator::parseMessagePacket(
   return true;
 }
 
+bool aprs::Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
+  if (type_ != aprs::Packet::Type::POSITION) {
+    return false;
+  }
+  auto info = frame_.getInformation();
+  std::cout << "Info: ";
+  for (auto c : info) {
+    std::cout << c;
+  }
+}
+
 void aprs::Demodulator::printFrame() {
   std::cout << "Frame: " << frame_ << std::endl;
 }

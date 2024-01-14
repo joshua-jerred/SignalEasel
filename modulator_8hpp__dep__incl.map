@@ -1,16 +1,19 @@
 <map id="modulator.hpp" name="modulator.hpp">
-<area shape="rect" id="node1" title="Modulator base class." alt="" coords="262,5,378,32"/>
-<area shape="rect" id="node2" href="$modulator_8cpp.html" title="The abstract modulator class implementation." alt="" coords="5,80,120,107"/>
-<area shape="rect" id="node3" href="$morse__modulator_8cpp.html" title="Simple morse code modulator." alt="" coords="144,80,307,107"/>
-<area shape="rect" id="node4" href="$pulse__audio__writer_8cpp.html" title=" " alt="" coords="331,80,501,107"/>
-<area shape="rect" id="node5" href="$afsk_8hpp.html" title="AFSK related modulation/demodulation." alt="" coords="526,80,605,107"/>
-<area shape="rect" id="node6" href="$afsk__demodulator_8cpp.html" title="The AFSK demodulator class implementation." alt="" coords="66,155,233,181"/>
-<area shape="rect" id="node7" href="$afsk__modulator_8cpp.html" title="The AFSK modulator class implementation." alt="" coords="257,155,407,181"/>
-<area shape="rect" id="node8" href="$afsk__receiver_8cpp.html" title="Implementation of the AFSK receiver class." alt="" coords="432,155,568,181"/>
-<area shape="rect" id="node9" href="$aprs_8hpp.html" title="APRS implementation." alt="" coords="593,155,671,181"/>
-<area shape="rect" id="node13" href="$pulse__test_8cpp.html" title="PulseAudio output test. Does not use gtest." alt="" coords="711,229,827,256"/>
-<area shape="rect" id="node14" href="$afsk__test_8cpp.html" title=" " alt="" coords="747,155,856,181"/>
-<area shape="rect" id="node10" href="$aprs__receiver_8cpp.html" title="Implementation of the APRS receiver class." alt="" coords="316,229,452,256"/>
-<area shape="rect" id="node11" href="$aprs_8cpp.html" title="APRS implementation." alt="" coords="476,229,553,256"/>
-<area shape="rect" id="node12" href="$aprs__test_8cpp.html" title=" " alt="" coords="577,229,687,256"/>
+<area shape="rect" id="node1" title="Modulator base class." alt="" coords="301,5,417,32"/>
+<area shape="rect" id="node2" href="$modulator_8cpp.html" title="The abstract modulator class implementation." alt="" coords="45,80,159,107"/>
+<area shape="rect" id="node3" href="$morse__modulator_8cpp.html" title="Simple morse code modulator." alt="" coords="183,80,346,107"/>
+<area shape="rect" id="node4" href="$pulse__audio__writer_8cpp.html" title=" " alt="" coords="370,80,541,107"/>
+<area shape="rect" id="node5" href="$afsk_8hpp.html" title="AFSK related modulation/demodulation." alt="" coords="565,80,644,107"/>
+<area shape="rect" id="node6" href="$afsk__demodulator_8cpp.html" title="The AFSK demodulator class implementation." alt="" coords="105,155,272,181"/>
+<area shape="rect" id="node7" href="$afsk__modulator_8cpp.html" title="The AFSK modulator class implementation." alt="" coords="296,155,447,181"/>
+<area shape="rect" id="node8" href="$afsk__receiver_8cpp.html" title="Implementation of the AFSK receiver class." alt="" coords="471,155,607,181"/>
+<area shape="rect" id="node9" href="$aprs_8hpp.html" title="APRS implementation." alt="" coords="632,155,711,181"/>
+<area shape="rect" id="node16" href="$pulse__test_8cpp.html" title="PulseAudio output test. Does not use gtest." alt="" coords="933,229,1049,256"/>
+<area shape="rect" id="node17" href="$afsk__test_8cpp.html" title=" " alt="" coords="786,155,895,181"/>
+<area shape="rect" id="node10" href="$aprs__demodulator_8cpp.html" title="Implementation of the APRS demodulator class." alt="" coords="5,229,172,256"/>
+<area shape="rect" id="node11" href="$aprs__encoders_8cpp.html" title="Encoding functions for APRS packets." alt="" coords="196,229,339,256"/>
+<area shape="rect" id="node12" href="$aprs__modulator_8cpp.html" title="Implementation of the APRS modulator class." alt="" coords="363,229,513,256"/>
+<area shape="rect" id="node13" href="$aprs__receiver_8cpp.html" title="Implementation of the APRS receiver class." alt="" coords="538,229,674,256"/>
+<area shape="rect" id="node14" href="$aprs_8cpp.html" title="APRS implementation." alt="" coords="698,229,775,256"/>
+<area shape="rect" id="node15" href="$aprs__test_8cpp.html" title=" " alt="" coords="799,229,909,256"/>
 </map>

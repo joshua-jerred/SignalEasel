@@ -1,7 +1,7 @@
 <map id="signal_easel::ax25::Frame::buildFrame" name="signal_easel::ax25::Frame::buildFrame">
-<area shape="rect" id="node1" title="Builds all internal portions of the frame. Doesn&#39;t include the flags." alt="" coords="852,79,1004,120"/>
-<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="637,79,804,120"/>
-<area shape="rect" id="node3" href="$namespacesignal__easel.html#aad3ffdd47a4a03ed438e8c1ca9eef231" title=" " alt="" coords="389,86,589,113"/>
+<area shape="rect" id="node1" title="Builds all internal portions of the frame. Doesn&#39;t include the flags." alt="" coords="791,79,943,120"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="576,79,743,120"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="389,79,528,120"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html#adfa8809d1c11321b9ff2c7efe7f58499" title=" " alt="" coords="108,5,341,47"/>
 <area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a147321b48c2e282c62863f114702e54f" title=" " alt="" coords="120,71,329,127"/>
 <area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a943e392227656943d7db842e1889d805" title=" " alt="" coords="123,151,326,207"/>

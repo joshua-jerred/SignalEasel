@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['position_766',['POSITION',['../structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1',1,'signal_easel::aprs::Packet']]],
-  ['primary_767',['PRIMARY',['../structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc',1,'signal_easel::aprs::Packet']]],
-  ['pulse_5faudio_5fdisabled_768',['PULSE_AUDIO_DISABLED',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ab0ddf6bc170c7292e3dd1fadca643eb3',1,'signal_easel::Exception']]],
-  ['pulse_5fclose_5ferror_769',['PULSE_CLOSE_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a6101d22d910f57f19ff01e08f3ba17bd',1,'signal_easel::Exception']]],
-  ['pulse_5fdrain_5ferror_770',['PULSE_DRAIN_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ab3d4de72b7c3aa342bc46c72db38473c',1,'signal_easel::Exception']]],
-  ['pulse_5fopen_5ferror_771',['PULSE_OPEN_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a421e225ab39f3b133a0c1673b1eafbec',1,'signal_easel::Exception']]],
-  ['pulse_5fread_5ferror_772',['PULSE_READ_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ad350461629458ec9207c969ba06a7903',1,'signal_easel::Exception']]],
-  ['pulse_5fwrite_5ferror_773',['PULSE_WRITE_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a5a0fefb563d97d2d049a99db0d743f57',1,'signal_easel::Exception']]]
+  ['no_5fdata_5fto_5fwrite_839',['NO_DATA_TO_WRITE',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644af5df93097f57e689c6aaf0eac3a9b519',1,'signal_easel::Exception']]],
+  ['no_5feot_840',['NO_EOT',['../classsignal__easel_1_1afsk_1_1Demodulator.html#a9a0f2bdbb47f42793d863f8f83c85a7ea0dcf9341e66c7821ed39ed5e833a3042',1,'signal_easel::afsk::Demodulator']]],
+  ['no_5fsyn_841',['NO_SYN',['../classsignal__easel_1_1afsk_1_1Demodulator.html#a9a0f2bdbb47f42793d863f8f83c85a7ea49a05a24b1a45a6d237c2243a2b50027',1,'signal_easel::afsk::Demodulator']]],
+  ['non_5fmatching_5ffilter_5fvectors_842',['NON_MATCHING_FILTER_VECTORS',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a391fa42c9a9a890177afd67a0233fefe',1,'signal_easel::Exception']]],
+  ['none_843',['NONE',['../structsignal__easel_1_1Settings.html#af6812132249078cc9794611e430665f3ab50339a10e1de285ac99d4c3990b8693',1,'signal_easel::Settings']]],
+  ['nrzi_844',['NRZI',['../structsignal__easel_1_1afsk_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bbaf914fecd9d18211d33c0d2edcaf63dd7',1,'signal_easel::afsk::Settings']]]
 ];

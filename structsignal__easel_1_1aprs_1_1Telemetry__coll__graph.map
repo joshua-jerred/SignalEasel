@@ -1,0 +1,8 @@
+<map id="signal_easel::aprs::Telemetry" name="signal_easel::aprs::Telemetry">
+<area shape="rect" id="node1" title=" " alt="" coords="130,461,269,553"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Telemetry.html#structsignal__easel_1_1aprs_1_1Telemetry_1_1Digital" title=" " alt="" coords="5,204,151,296"/>
+<area shape="rect" id="node3" title=" " alt="" coords="170,5,229,83"/>
+<area shape="rect" id="node5" href="$structsignal__easel_1_1aprs_1_1Telemetry.html#structsignal__easel_1_1aprs_1_1Telemetry_1_1Analog" title=" " alt="" coords="366,204,513,296"/>
+<area shape="rect" id="node4" title=" " alt="" coords="17,5,67,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="406,5,473,83"/>
+</map>

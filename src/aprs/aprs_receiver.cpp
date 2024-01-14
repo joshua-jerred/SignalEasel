@@ -20,9 +20,40 @@
 #include <iomanip>
 #include <iostream>
 
-namespace signal_easel {
+namespace signal_easel::aprs {
 
-void aprs::Receiver::decode() {
+bool Receiver::getAprsMessage(aprs::MessagePacket &message_packet,
+                              ax25::Frame &frame) {
+  if (aprs_messages_.empty()) {
+    return false;
+  }
+  frame = aprs_messages_.back().first;
+  message_packet = aprs_messages_.back().second;
+  aprs_messages_.pop_back();
+  return true;
+}
+
+bool Receiver::getAprsPosition(aprs::PositionPacket &position_packet,
+                               ax25::Frame &frame) {
+  if (aprs_positions_.empty()) {
+    return false;
+  }
+  frame = aprs_positions_.back().first;
+  position_packet = aprs_positions_.back().second;
+  aprs_positions_.pop_back();
+  return true;
+}
+
+bool Receiver::getOtherAprsPacket(ax25::Frame &frame) {
+  if (other_aprs_packets_.empty()) {
+    return false;
+  }
+  frame = other_aprs_packets_.back();
+  other_aprs_packets_.pop_back();
+  return true;
+}
+
+void Receiver::decode() {
   demodulation_res_ = demodulator_.processAudioBuffer();
 
   // std::cout << "Decoding [";
@@ -78,4 +109,4 @@ void aprs::Receiver::decode() {
   stats_.current_other_packets_in_queue = other_aprs_packets_.size();
 }
 
-} // namespace signal_easel
+} // namespace signal_easel::aprs

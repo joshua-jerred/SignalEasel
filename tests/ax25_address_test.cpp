@@ -19,8 +19,8 @@ TEST(Ax25_Address, arrayConstructor_decodeAddress) {
   const std::string input_address = "KD9TST";
   uint8_t input_ssid = 0x02;
   ax25::Address::AddressArray input_address_array = {
-      'K' << 1, 'D' << 1, '9' << 1,        'T' << 1,
-      'S' << 1, 'T' << 1, input_ssid << 1U};
+      'K' << 1, 'D' << 1, '9' << 1,       'T' << 1,
+      'S' << 1, 'T' << 1, input_ssid << 1};
 
   ax25::Address address(input_address_array);
 

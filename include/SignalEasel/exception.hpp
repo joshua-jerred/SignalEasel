@@ -55,7 +55,9 @@ public:
     PULSE_CLOSE_ERROR,
     PULSE_READ_ERROR,
     PULSE_AUDIO_DISABLED,
-    APRS_RECEIVER_BUFFER_FULL
+    APRS_RECEIVER_BUFFER_FULL,
+    APRS_MESSAGE_NOT_IMPLEMENTED,
+    APRS_INVALID_COMMENT_LENGTH
   };
 
   static std::string idToString(Id exception_id) {
@@ -118,6 +120,14 @@ public:
       return "PulseAudio close error";
     case Id::PULSE_READ_ERROR:
       return "PulseAudio read error";
+    case Id::PULSE_AUDIO_DISABLED:
+      return "PulseAudio disabled";
+    case Id::APRS_RECEIVER_BUFFER_FULL:
+      return "APRS receiver buffer full";
+    case Id::APRS_MESSAGE_NOT_IMPLEMENTED:
+      return "APRS message not implemented";
+    case Id::APRS_INVALID_COMMENT_LENGTH:
+      return "Invalid APRS comment length";
     default:
       return "Unknown error";
     }

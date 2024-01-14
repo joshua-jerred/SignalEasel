@@ -23,7 +23,10 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/WavGen)
 if (SSTV_ENABLED)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools)
 endif()
+
+if (NOT DEFINED DONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/Boost_erSeat)
+endif()
 
 # --------------------------------
 # SignalEasel

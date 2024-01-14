@@ -1,6 +1,7 @@
 var aprs_8cpp =
 [
     [ "base91Encode", "aprs_8cpp.html#a303e9732cc231caca130db5cb8bcd53f", null ],
+    [ "base91Decode", "aprs_8cpp.html#a4230f14eb0bb1b1329bd5e65a573b5ac", null ],
     [ "CheckPacketData", "aprs_8cpp.html#ac803523134c5f20bcc98143397f8ff5d", null ],
     [ "checkLocationData", "aprs_8cpp.html#a5e95a4f0db83133b1b3cb81365100837", null ],
     [ "AddRequiredFields", "aprs_8cpp.html#ada24f00bb5d1a1bb97976967185c7526", null ],

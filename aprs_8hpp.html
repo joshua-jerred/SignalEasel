@@ -141,10 +141,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html">signal_easel::aprs::Packet</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structsignal__easel_1_1aprs_1_1PositionPacket"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1aprs.html#structsignal__easel_1_1aprs_1_1PositionPacket">signal_easel::aprs::PositionPacket</a></td></tr>
-<tr class="separator:structsignal__easel_1_1aprs_1_1PositionPacket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html">signal_easel::aprs::PositionPacket</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html">signal_easel::aprs::Receiver</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structsignal__easel_1_1aprs_1_1Receiver_1_1Stats"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#structsignal__easel_1_1aprs_1_1Receiver_1_1Stats">signal_easel::aprs::Receiver::Stats</a></td></tr>
+<tr class="separator:structsignal__easel_1_1aprs_1_1Receiver_1_1Stats"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Settings.html">signal_easel::aprs::Settings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -162,65 +164,71 @@ Namespaces</h2></td></tr>
 <p>=*=======================*= </p><dl class="section copyright"><dt>Copyright</dt><dd>2023 Joshua Jerred </dd></dl>
 <dl class="section user"><dt>License: GNU GPLv3</dt><dd></dd></dl>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structsignal__easel_1_1aprs_1_1PositionPacket" id="structsignal__easel_1_1aprs_1_1PositionPacket"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structsignal__easel_1_1aprs_1_1PositionPacket">&#9670;&nbsp;</a></span>signal_easel::aprs::PositionPacket</h2>
+<a name="structsignal__easel_1_1aprs_1_1Receiver_1_1Stats" id="structsignal__easel_1_1aprs_1_1Receiver_1_1Stats"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structsignal__easel_1_1aprs_1_1Receiver_1_1Stats">&#9670;&nbsp;</a></span>signal_easel::aprs::Receiver::Stats</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct signal_easel::aprs::PositionPacket</td>
+          <td class="memname">struct signal_easel::aprs::Receiver::Stats</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><div class="dynheader">
-Collaboration diagram for signal_easel::aprs::PositionPacket:</div>
+Collaboration diagram for signal_easel::aprs::Receiver::Stats:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket__coll__graph.svg" width="303" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1Receiver_1_1Stats__coll__graph.svg" width="266" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a4a5e1cb3790c19eea6fd4d0e21488136"></a>string</td>
+<a id="aa7ee31d1533a0a34f909c1e7e9ea2950"></a>uint32_t</td>
 <td class="fieldname">
-time_code</td>
+total_message_packets</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ad18a52de88ffadc17d5c881c833f992c"></a>float</td>
+<a id="a0fb8dc15c67afe1df96b2a7c885a994b"></a>uint32_t</td>
 <td class="fieldname">
-latitude</td>
+num_message_packets_failed</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a26acfd266b0ca4bbef36ef6d79a6a14d"></a>float</td>
+<a id="a8f64dfbbc8c0ccdc0dc35ff5ec8d92f1"></a>uint32_t</td>
 <td class="fieldname">
-longitude</td>
+total_position_packets</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a7c00cc8d3bdf29e8f82b50891bc56882"></a>int</td>
+<a id="abe92366c7fbd46eb99b4900f3ea42c77"></a>uint32_t</td>
 <td class="fieldname">
-altitude</td>
+num_position_packets_failed</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a3808e1fbfc37a41d009d5d19a2fc58e2"></a>float</td>
+<a id="a49b7635ad0840df77f8e1ca5ac9fcf20"></a>uint32_t</td>
 <td class="fieldname">
-speed</td>
+total_other_packets</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a59a8ed3b50e5be03d0a6fbac39448e80"></a>int</td>
+<a id="a4c523f6fc9c49063f78f740af9f4307d"></a>uint32_t</td>
 <td class="fieldname">
-course</td>
+current_message_packets_in_queue</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="af253a90967bc821c06d764f2523407d4"></a>string</td>
+<a id="a8951f94a494faf71f69ab1c14324bde3"></a>uint32_t</td>
 <td class="fieldname">
-comment</td>
+current_position_packets_in_queue</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="acab5e248ec448296de4a36e9fa7f2189"></a>uint32_t</td>
+<td class="fieldname">
+current_other_packets_in_queue</td>
 <td class="fielddoc">
 </td></tr>
 </table>

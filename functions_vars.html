@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 , <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aa04f90577b1d8b3f3294e21879f7ddf7">signal_easel::afsk::Receiver</a>
 </li>
 <li>altitude
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#a7c00cc8d3bdf29e8f82b50891bc56882">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a7c00cc8d3bdf29e8f82b50891bc56882">signal_easel::aprs::PositionPacket</a>
 </li>
 <li>amplitude
 : <a class="el" href="structsignal__easel_1_1Settings.html#a6d1adbf63c2626b4bc9374eff0e63d13">signal_easel::Settings</a>
@@ -125,6 +125,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </li>
 <li>aprs_messages_
 : <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a1fc45e4bbc41e3ff2e2e778086b82386">signal_easel::aprs::Receiver</a>
+</li>
+<li>aprs_positions_
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a8da0af6dff99139ea11a8f732c2c40cd">signal_easel::aprs::Receiver</a>
 </li>
 <li>audio_buffer_
 : <a class="el" href="classsignal__easel_1_1Demodulator.html#aa5c625d6f4d9deeb1e812de2c4f62e94">signal_easel::Demodulator</a>
@@ -182,13 +185,22 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="classsignal__easel_1_1ax25_1_1Address.html#a9d93c7c427fe1c9722df1287e2f8888d">signal_easel::ax25::Address</a>
 </li>
 <li>comment
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#af253a90967bc821c06d764f2523407d4">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af253a90967bc821c06d764f2523407d4">signal_easel::aprs::PositionPacket</a>
 </li>
 <li>course
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#a59a8ed3b50e5be03d0a6fbac39448e80">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a59a8ed3b50e5be03d0a6fbac39448e80">signal_easel::aprs::PositionPacket</a>
 </li>
 <li>current_bipolar_bit_
 : <a class="el" href="classsignal__easel_1_1afsk_1_1Modulator.html#a7321812daa62b97627e39b9f2e9293ca">signal_easel::afsk::Modulator</a>
+</li>
+<li>current_message_packets_in_queue
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a4c523f6fc9c49063f78f740af9f4307d">signal_easel::aprs::Receiver::Stats</a>
+</li>
+<li>current_other_packets_in_queue
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#acab5e248ec448296de4a36e9fa7f2189">signal_easel::aprs::Receiver::Stats</a>
+</li>
+<li>current_position_packets_in_queue
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a8951f94a494faf71f69ab1c14324bde3">signal_easel::aprs::Receiver::Stats</a>
 </li>
 </ul>
 
@@ -256,10 +268,10 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a10740ae002efd9140d30bfae0082281b">signal_easel::PulseAudioReader</a>
 </li>
 <li>latitude
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#ad18a52de88ffadc17d5c881c833f992c">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c">signal_easel::aprs::PositionPacket</a>
 </li>
 <li>longitude
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#a26acfd266b0ca4bbef36ef6d79a6a14d">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d">signal_easel::aprs::PositionPacket</a>
 </li>
 </ul>
 
@@ -281,6 +293,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>nrzi_previous_tone_mark_
 : <a class="el" href="classsignal__easel_1_1afsk_1_1Modulator.html#ae1e0f2b4cf5068c99bcd3657807ef46e">signal_easel::afsk::Modulator</a>
+</li>
+<li>num_message_packets_failed
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a0fb8dc15c67afe1df96b2a7c885a994b">signal_easel::aprs::Receiver::Stats</a>
+</li>
+<li>num_position_packets_failed
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#abe92366c7fbd46eb99b4900f3ea42c77">signal_easel::aprs::Receiver::Stats</a>
 </li>
 </ul>
 
@@ -366,13 +384,16 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#ae03095d1c79737bbf5963626c1730f63">signal_easel::aprs::Packet</a>
 </li>
 <li>speed
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#a3808e1fbfc37a41d009d5d19a2fc58e2">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a3808e1fbfc37a41d009d5d19a2fc58e2">signal_easel::aprs::PositionPacket</a>
 </li>
 <li>ss_
 : <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1699d606fafc92ee50e868f64cfdaa34">signal_easel::PulseAudioReader</a>
 </li>
 <li>ssid_
 : <a class="el" href="classsignal__easel_1_1ax25_1_1Address.html#a4e9deaa10630ebe83b3ba8289ab3054f">signal_easel::ax25::Address</a>
+</li>
+<li>stats_
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a587ebc0739d9779d3e8cfb94d4808c88">signal_easel::aprs::Receiver</a>
 </li>
 <li>symbol
 : <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a896553cf78ab348a52f3a646eb264805">signal_easel::aprs::Packet</a>
@@ -385,7 +406,16 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>time_code
-: <a class="el" href="namespacesignal__easel_1_1aprs.html#a4a5e1cb3790c19eea6fd4d0e21488136">signal_easel::aprs::PositionPacket</a>
+: <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136">signal_easel::aprs::PositionPacket</a>
+</li>
+<li>total_message_packets
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#aa7ee31d1533a0a34f909c1e7e9ea2950">signal_easel::aprs::Receiver::Stats</a>
+</li>
+<li>total_other_packets
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a49b7635ad0840df77f8e1ca5ac9fcf20">signal_easel::aprs::Receiver::Stats</a>
+</li>
+<li>total_position_packets
+: <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#a8f64dfbbc8c0ccdc0dc35ff5ec8d92f1">signal_easel::aprs::Receiver::Stats</a>
 </li>
 <li>type_
 : <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">signal_easel::aprs::Demodulator</a>

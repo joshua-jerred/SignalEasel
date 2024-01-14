@@ -118,13 +118,13 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1aprs_1_1Demodula
 <div class="dynheader">
 Inheritance diagram for signal_easel::aprs::Demodulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__inherit__graph.svg" width="246" height="618"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__inherit__graph.svg" width="246" height="632"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::aprs::Demodulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__coll__graph.svg" width="1810" height="1411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__coll__graph.svg" width="1810" height="1426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -155,6 +155,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8ea92084a8f961d7a11200652516177d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">parseMessagePacket</a> (<a class="el" href="structsignal__easel_1_1aprs_1_1MessagePacket.html">aprs::MessagePacket</a> &amp;message)</td></tr>
 <tr class="memdesc:a8ea92084a8f961d7a11200652516177d"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the packet was a message packet, this function will try to parse the packet into a message packet.  <a href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">More...</a><br /></td></tr>
 <tr class="separator:a8ea92084a8f961d7a11200652516177d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a285cd33e16fa28925fe2acd3fe5029fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">parsePositionPacket</a> (<a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html">aprs::PositionPacket</a> &amp;position)</td></tr>
+<tr class="memdesc:a285cd33e16fa28925fe2acd3fe5029fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the packet was a position packet, this function will try to parse the packet into it's positional data.  <a href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">More...</a><br /></td></tr>
+<tr class="separator:a285cd33e16fa28925fe2acd3fe5029fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a093fdacf32fe29bf475a21196b477cd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a093fdacf32fe29bf475a21196b477cd9">printFrame</a> ()</td></tr>
 <tr class="separator:a093fdacf32fe29bf475a21196b477cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d00e5b759f208be2751c4f2302a9c57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults">ProcessResults</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57">processAudioBuffer</a> ()</td></tr>
@@ -360,6 +363,52 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a285cd33e16fa28925fe2acd3fe5029fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285cd33e16fa28925fe2acd3fe5029fb">&#9670;&nbsp;</a></span>parsePositionPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool signal_easel::aprs::Demodulator::parsePositionPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html">aprs::PositionPacket</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the packet was a position packet, this function will try to parse the packet into it's positional data. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>This function will not be friendly to many types of position packets. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>(out) The position packet </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the packet was fully parsed </dd>
+<dd>
+false if the packet was not a valid position packet </dd></dl>
+
+<p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a7c00cc8d3bdf29e8f82b50891bc56882">signal_easel::aprs::PositionPacket::altitude</a>, <a class="el" href="namespacesignal__easel.html#a4230f14eb0bb1b1329bd5e65a573b5ac">signal_easel::base91Decode()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af253a90967bc821c06d764f2523407d4">signal_easel::aprs::PositionPacket::comment</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a59a8ed3b50e5be03d0a6fbac39448e80">signal_easel::aprs::PositionPacket::course</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c">signal_easel::aprs::PositionPacket::latitude</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d">signal_easel::aprs::PositionPacket::longitude</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1">signal_easel::aprs::Packet::POSITION</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc">signal_easel::aprs::Packet::PRIMARY</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a371b09d93ca01e09a42fbd5a2a423f8e">signal_easel::aprs::Packet::SECONDARY</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a3808e1fbfc37a41d009d5d19a2fc58e2">signal_easel::aprs::PositionPacket::speed</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a896553cf78ab348a52f3a646eb264805">signal_easel::aprs::Packet::symbol</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a0428a9a37731cbdd63d24107fe68952a">signal_easel::aprs::Packet::symbol_table</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136">signal_easel::aprs::PositionPacket::time_code</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a285cd33e16fa28925fe2acd3fe5029fb_cgraph.svg" width="476" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a285cd33e16fa28925fe2acd3fe5029fb_icgraph.svg" width="412" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a093fdacf32fe29bf475a21196b477cd9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a093fdacf32fe29bf475a21196b477cd9">&#9670;&nbsp;</a></span>printFrame()</h2>
 
@@ -487,7 +536,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Takes the raw signal and converts it into the FSK baseband signal. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>This needs to be cleaned up. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>This needs to be cleaned up. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">results</td><td>(out) results The results of the processing. </td></tr>

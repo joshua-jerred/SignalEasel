@@ -1,6 +1,10 @@
 <map id="signal_easel::aprs::PositionPacket" name="signal_easel::aprs::PositionPacket">
-<area shape="rect" id="node1" title=" " alt="" coords="65,175,204,267"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,56,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="115,5,154,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="201,5,260,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="593,344,731,436"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Packet.html" title=" " alt="" coords="218,160,357,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,111,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="167,5,218,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="254,5,321,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="493,5,551,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="710,167,761,245"/>
+<area shape="rect" id="node8" title=" " alt="" coords="803,167,841,245"/>
 </map>

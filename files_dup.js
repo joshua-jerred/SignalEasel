@@ -14,16 +14,18 @@ var files_dup =
       [ "MessagePacket", "structsignal__easel_1_1aprs_1_1MessagePacket.html", "structsignal__easel_1_1aprs_1_1MessagePacket" ],
       [ "Modulator", "classsignal__easel_1_1aprs_1_1Modulator.html", "classsignal__easel_1_1aprs_1_1Modulator" ],
       [ "Packet", "structsignal__easel_1_1aprs_1_1Packet.html", "structsignal__easel_1_1aprs_1_1Packet" ],
-      [ "PositionPacket", "namespacesignal__easel_1_1aprs.html#structsignal__easel_1_1aprs_1_1PositionPacket", [
-        [ "time_code", "namespacesignal__easel_1_1aprs.html#a4a5e1cb3790c19eea6fd4d0e21488136", null ],
-        [ "latitude", "namespacesignal__easel_1_1aprs.html#ad18a52de88ffadc17d5c881c833f992c", null ],
-        [ "longitude", "namespacesignal__easel_1_1aprs.html#a26acfd266b0ca4bbef36ef6d79a6a14d", null ],
-        [ "altitude", "namespacesignal__easel_1_1aprs.html#a7c00cc8d3bdf29e8f82b50891bc56882", null ],
-        [ "speed", "namespacesignal__easel_1_1aprs.html#a3808e1fbfc37a41d009d5d19a2fc58e2", null ],
-        [ "course", "namespacesignal__easel_1_1aprs.html#a59a8ed3b50e5be03d0a6fbac39448e80", null ],
-        [ "comment", "namespacesignal__easel_1_1aprs.html#af253a90967bc821c06d764f2523407d4", null ]
-      ] ],
+      [ "PositionPacket", "structsignal__easel_1_1aprs_1_1PositionPacket.html", "structsignal__easel_1_1aprs_1_1PositionPacket" ],
       [ "Receiver", "classsignal__easel_1_1aprs_1_1Receiver.html", "classsignal__easel_1_1aprs_1_1Receiver" ],
+      [ "Stats", "classsignal__easel_1_1aprs_1_1Receiver.html#structsignal__easel_1_1aprs_1_1Receiver_1_1Stats", [
+        [ "total_message_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#aa7ee31d1533a0a34f909c1e7e9ea2950", null ],
+        [ "num_message_packets_failed", "classsignal__easel_1_1aprs_1_1Receiver.html#a0fb8dc15c67afe1df96b2a7c885a994b", null ],
+        [ "total_position_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#a8f64dfbbc8c0ccdc0dc35ff5ec8d92f1", null ],
+        [ "num_position_packets_failed", "classsignal__easel_1_1aprs_1_1Receiver.html#abe92366c7fbd46eb99b4900f3ea42c77", null ],
+        [ "total_other_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#a49b7635ad0840df77f8e1ca5ac9fcf20", null ],
+        [ "current_message_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a4c523f6fc9c49063f78f740af9f4307d", null ],
+        [ "current_position_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a8951f94a494faf71f69ab1c14324bde3", null ],
+        [ "current_other_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#acab5e248ec448296de4a36e9fa7f2189", null ]
+      ] ],
       [ "Settings", "structsignal__easel_1_1aprs_1_1Settings.html", "structsignal__easel_1_1aprs_1_1Settings" ]
     ] ],
     [ "aprs_modulation.puml", "aprs__modulation_8puml.html", null ],

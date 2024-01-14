@@ -46,6 +46,9 @@ void aprs::Receiver::decode() {
     if (success == true) {
       aprs_messages_.push_back(std::pair<ax25::Frame, aprs::MessagePacket>(
           aprs_demodulator_.frame_, message_packet));
+      stats_.total_message_packets++;
+    } else {
+      stats_.num_message_packets_failed++;
     }
   } else if (res == true && type == aprs::Packet::Type::POSITION) {
     aprs::PositionPacket position_packet;
@@ -53,9 +56,13 @@ void aprs::Receiver::decode() {
     if (success == true) {
       aprs_positions_.push_back(std::pair<ax25::Frame, aprs::PositionPacket>(
           aprs_demodulator_.frame_, position_packet));
+      stats_.total_position_packets++;
+    } else {
+      stats_.num_position_packets_failed++;
     }
   } else if (res == true) {
     other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+    stats_.total_other_packets++;
   } else {
     // std::cout << "No packet found" << std::endl;
   }
@@ -64,6 +71,10 @@ void aprs::Receiver::decode() {
   if (aprs_messages_.size() > MAX_FRAMES) {
     throw Exception(Exception::Id::APRS_RECEIVER_BUFFER_FULL);
   }
+
+  stats_.current_message_packets_in_queue = aprs_messages_.size();
+  stats_.current_position_packets_in_queue = aprs_positions_.size();
+  stats_.current_other_packets_in_queue = other_aprs_packets_.size();
 }
 
 } // namespace signal_easel

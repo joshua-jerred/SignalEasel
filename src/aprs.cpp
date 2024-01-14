@@ -40,6 +40,14 @@ std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes) {
   return encoded;
 }
 
+int base91Decode(std::vector<uint8_t> encoded) {
+  int value = 0;
+  for (size_t i = 0; i < encoded.size(); i++) {
+    value += (encoded.at(i) - 33) * (int)(std::pow(91, encoded.size() - i - 1));
+  }
+  return value;
+}
+
 bool CheckPacketData(const aprs::Packet &packet) {
   if (packet.source_address.length() > 6 ||
       packet.source_address.length() < 3) {
@@ -150,7 +158,7 @@ bool addLocationData(const aprs::PositionPacket &packet,
   for (char c : packet.time_code) {
     info.push_back(c);
   }
-  info.push_back('z'); // UTC
+  info.push_back('z'); // UTC DDHHMM
 
   // Symbol Table ID
   if (required_fields.symbol_table == aprs::Packet::SymbolTable::PRIMARY) {
@@ -186,7 +194,7 @@ bool addLocationData(const aprs::PositionPacket &packet,
   if (packet.speed > 0) {
     s = (int)std::round(std::log(packet.speed + 1) / speed_divisor);
   }
-  info.push_back(s + 33); // s
+  info.push_back(s + 33); // speed
 
   // Compression
   info.push_back((0b00111010 + 33));
@@ -210,6 +218,9 @@ bool addLocationData(const aprs::PositionPacket &packet,
   for (char c : packet.comment) {
     info.push_back(c);
   }
+
+  /// @todo Bearing and Number/Range/Quality
+
   return true;
 }
 
@@ -356,11 +367,70 @@ bool aprs::Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
   if (type_ != aprs::Packet::Type::POSITION) {
     return false;
   }
-  auto info = frame_.getInformation();
-  std::cout << "Info: ";
-  for (auto c : info) {
-    std::cout << c;
+  auto info_vec = frame_.getInformation();
+  std::string info(info_vec.begin(), info_vec.end());
+
+  if (info.length() < 27) {
+    return false;
   }
+
+  // leading '@' or '/'
+  if (info.at(0) != '@' && info.at(0) != '/') {
+    return false;
+  }
+
+  // time code
+  position.time_code = info.substr(1, 7); // ddhhmmz
+
+  // Symbol Table ID
+  if (info.at(8) == '/') {
+    position.symbol_table = aprs::Packet::SymbolTable::PRIMARY;
+  } else if (info.at(8) == '\\') {
+    position.symbol_table = aprs::Packet::SymbolTable::SECONDARY;
+  } else {
+    return false;
+  }
+
+  // Latitude
+  std::string lat_str = info.substr(9, 4);
+  int lat = base91Decode(std::vector<uint8_t>(lat_str.begin(), lat_str.end()));
+  position.latitude = 90 - ((float)lat / 380926);
+
+  // Longitude
+  std::string lon_str = info.substr(13, 4);
+  int lon = base91Decode(std::vector<uint8_t>(lon_str.begin(), lon_str.end()));
+  position.longitude = ((float)lon / 190463) - 180;
+
+  // Symbol
+  position.symbol = info.at(17);
+
+  // Course
+  position.course = (info.at(18) - 33) * 4;
+
+  // Speed
+  const double speed_divisor = 0.076961;
+  position.speed = std::exp((info.at(19) - 33) * speed_divisor) - 1;
+
+  // Compression Type
+  if (info.at(20) < 33) {
+    return false;
+  }
+
+  // Altitude
+  std::string alt_prefix = info.substr(21, 2);
+  if (alt_prefix != "/A") {
+    return false;
+  }
+
+  std::string alt_str = info.substr(24, 6);
+  position.altitude = std::stoi(alt_str);
+
+  // Comment
+  if (info.length() > 30) {
+    position.comment = info.substr(29);
+  }
+
+  return true;
 }
 
 void aprs::Demodulator::printFrame() {

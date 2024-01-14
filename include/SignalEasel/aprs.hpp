@@ -39,8 +39,8 @@ struct Packet {
   char symbol = '/'; // Symbol character default is dot (//)
 };
 
-struct PositionPacket {
-  std::string time_code = ""; // hhmmss
+struct PositionPacket : public Packet {
+  std::string time_code = ""; // ddhhmm in *UTC* specifically.
   float latitude = 0.0;       // Decimal degrees
   float longitude = 0.0;      // Decimal degrees
   int altitude = 0;           // Feet 0 - 99999
@@ -113,6 +113,7 @@ public:
   /**
    * @brief If the packet was a position packet, this function will try to parse
    * the packet into it's positional data.
+   * @todo This function will not be friendly to many types of position packets.
    * @param position (out) The position packet
    * @return true if the packet was fully parsed
    * @return false if the packet was not a valid position packet
@@ -128,6 +129,17 @@ private:
 
 class Receiver : public signal_easel::afsk::Receiver {
 public:
+  struct Stats {
+    uint32_t total_message_packets = 0;
+    uint32_t num_message_packets_failed = 0;
+    uint32_t total_position_packets = 0;
+    uint32_t num_position_packets_failed = 0;
+    uint32_t total_other_packets = 0;
+    uint32_t current_message_packets_in_queue = 0;
+    uint32_t current_position_packets_in_queue = 0;
+    uint32_t current_other_packets_in_queue = 0;
+  };
+
   Receiver(aprs::Settings settings = aprs::Settings())
       : afsk::Receiver(settings) {}
 
@@ -138,6 +150,17 @@ public:
     frame = aprs_messages_.back().first;
     message_packet = aprs_messages_.back().second;
     aprs_messages_.pop_back();
+    return true;
+  }
+
+  bool getAprsPosition(aprs::PositionPacket &position_packet,
+                       ax25::Frame &frame) {
+    if (aprs_positions_.empty()) {
+      return false;
+    }
+    frame = aprs_positions_.back().first;
+    position_packet = aprs_positions_.back().second;
+    aprs_positions_.pop_back();
     return true;
   }
 
@@ -152,11 +175,15 @@ public:
 
   double getSNR() { return demodulation_res_.snr; }
 
+  Stats getStats() { return stats_; }
+
 private:
   void decode() override;
   std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};
   std::vector<std::pair<ax25::Frame, aprs::PositionPacket>> aprs_positions_{};
   std::vector<ax25::Frame> other_aprs_packets_{};
+
+  Stats stats_{};
 
   afsk::Demodulator::ProcessResults demodulation_res_{};
 

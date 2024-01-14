@@ -75,3 +75,5 @@ TEST(Aprs, DecodeReal) {
   EXPECT_TRUE(demodulator.lookForAx25Packet());
   demodulator.printFrame();
 }
+
+TEST(Aprs, Telemetry) {}

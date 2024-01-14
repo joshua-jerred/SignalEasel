@@ -55,8 +55,8 @@ struct PositionPacket : public Packet {
   ax25::Frame frame{};
 
   /**
-   * @brief This timestamp is set after the packet is decoded. It's used to keep
-   * track of the age of the packet.
+   * @brief This timestamp is set after the packet is decoded. It's used to
+   * keep track of the age of the packet.
    */
   bst::Time decoded_timestamp{};
 };
@@ -113,17 +113,18 @@ public:
   aprs::Packet::Type getType() { return type_; }
 
   /**
-   * @brief If the packet was a message packet, this function will try to parse
-   * the packet into a message packet.
+   * @brief If the packet was a message packet, this function will try to
+   * parse the packet into a message packet.
    * @param message (out) The message packet
    * @return true if the packet was a valid message packet
    */
   bool parseMessagePacket(aprs::MessagePacket &message);
 
   /**
-   * @brief If the packet was a position packet, this function will try to parse
-   * the packet into it's positional data.
-   * @todo This function will not be friendly to many types of position packets.
+   * @brief If the packet was a position packet, this function will try to
+   * parse the packet into it's positional data.
+   * @todo This function will not be friendly to many types of position
+   * packets.
    * @param position (out) The position packet
    * @return true if the packet was fully parsed
    * @return false if the packet was not a valid position packet
@@ -153,35 +154,12 @@ public:
   Receiver(aprs::Settings settings = aprs::Settings())
       : afsk::Receiver(settings) {}
 
-  bool getAprsMessage(aprs::MessagePacket &message_packet, ax25::Frame &frame) {
-    if (aprs_messages_.empty()) {
-      return false;
-    }
-    frame = aprs_messages_.back().first;
-    message_packet = aprs_messages_.back().second;
-    aprs_messages_.pop_back();
-    return true;
-  }
+  bool getAprsMessage(aprs::MessagePacket &message_packet, ax25::Frame &frame);
 
   bool getAprsPosition(aprs::PositionPacket &position_packet,
-                       ax25::Frame &frame) {
-    if (aprs_positions_.empty()) {
-      return false;
-    }
-    frame = aprs_positions_.back().first;
-    position_packet = aprs_positions_.back().second;
-    aprs_positions_.pop_back();
-    return true;
-  }
+                       ax25::Frame &frame);
 
-  bool getOtherAprsPacket(ax25::Frame &frame) {
-    if (other_aprs_packets_.empty()) {
-      return false;
-    }
-    frame = other_aprs_packets_.back();
-    other_aprs_packets_.pop_back();
-    return true;
-  }
+  bool getOtherAprsPacket(ax25::Frame &frame);
 
   double getSNR() { return demodulation_res_.snr; }
 
@@ -199,6 +177,70 @@ private:
 
   Demodulator aprs_demodulator_{};
 };
+
+enum class TelemetryPacketType {
+  DATA_REPORT,
+  PARAM_NAME,
+  PARAM_UNIT,
+  PARAM_COEF,
+  BIT_SENSE_PROJ_NAME
+};
+
+struct Telemetry {
+  // The sequence number and comment are use in the DATA_REPORT packet
+  std::string sequence_number = "001"; // 3 digits
+  std::string comment = "";            // Max length of 220 characters
+
+  // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
+  std::string project_title = ""; // 0-23 characters
+
+  std::string telem_destination_address = "   "; // between 3 and 9 chars
+
+  struct Analog {
+    std::string value = "";
+
+    std::string name = ""; // 1 - max_name_length characters
+    std::string unit = ""; // 1 - max_name_length characters
+    // a*x^2 + b*x + c
+    std::string coef_a = "0"; // 1-9 characters, -, ., 0-9
+    std::string coef_b = "1"; // 1-9 characters, -, ., 0-9
+    std::string coef_c = "0"; // 1-9 characters, -, ., 0-9
+    const unsigned int upper_limit = 0;
+    Analog(int upper_limit) : upper_limit(upper_limit) {}
+  };
+
+  struct Digital {
+    bool value = false;
+
+    std::string name = ""; // 1 - max_name_length characters
+    std::string unit = ""; // 1 - max_name_length characters
+    const unsigned int upper_limit = 0;
+    Digital(int upper_limit) : upper_limit(upper_limit) {}
+  };
+
+  Analog A1 = Analog(7);
+  Analog A2 = Analog(7);
+  Analog A3 = Analog(6);
+  Analog A4 = Analog(6);
+  Analog A5 = Analog(5);
+
+  Digital D1 = Digital(7);
+  Digital D2 = Digital(7);
+  Digital D3 = Digital(6);
+  Digital D4 = Digital(6);
+  Digital D5 = Digital(5);
+  Digital D6 = Digital(5);
+  Digital D7 = Digital(5);
+  Digital D8 = Digital(5);
+};
+
+std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
+int base91Decode(std::vector<uint8_t> encoded);
+std::vector<uint8_t> encodePacket(const aprs::Packet &required_fields,
+                                  std::vector<uint8_t> &info);
+bool addLocationData(const aprs::PositionPacket &packet,
+                     const aprs::Packet &required_fields,
+                     std::vector<uint8_t> &info);
 
 } // namespace signal_easel::aprs
 
@@ -219,62 +261,6 @@ private:
 
 // struct Invalid {
 //   std::vector<uint8_t> data = {}; // 1-254 bytes
-// };
-
-// enum class TelemetryPacketType {
-//   DATA_REPORT,
-//   PARAM_NAME,
-//   PARAM_UNIT,
-//   PARAM_COEF,
-//   BIT_SENSE_PROJ_NAME
-// };
-
-// struct Telemetry {
-//   // The sequence number and comment are use in the DATA_REPORT packet
-//   std::string sequence_number = "001"; // 3 digits
-//   std::string comment = "";            // Max length of 220 characters
-
-//   // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
-//   std::string project_title = ""; // 0-23 characters
-
-//   std::string telem_destination_address = "   "; // between 3 and 9 chars
-
-//   struct Analog {
-//     std::string value = "";
-
-//     std::string name = ""; // 1 - max_name_length characters
-//     std::string unit = ""; // 1 - max_name_length characters
-//     // a*x^2 + b*x + c
-//     std::string coef_a = "0"; // 1-9 characters, -, ., 0-9
-//     std::string coef_b = "1"; // 1-9 characters, -, ., 0-9
-//     std::string coef_c = "0"; // 1-9 characters, -, ., 0-9
-//     const unsigned int upper_limit = 0;
-//     Analog(int upper_limit) : upper_limit(upper_limit) {}
-//   };
-
-//   struct Digital {
-//     bool value = false;
-
-//     std::string name = ""; // 1 - max_name_length characters
-//     std::string unit = ""; // 1 - max_name_length characters
-//     const unsigned int upper_limit = 0;
-//     Digital(int upper_limit) : upper_limit(upper_limit) {}
-//   };
-
-//   Analog A1 = Analog(7);
-//   Analog A2 = Analog(7);
-//   Analog A3 = Analog(6);
-//   Analog A4 = Analog(6);
-//   Analog A5 = Analog(5);
-
-//   Digital D1 = Digital(7);
-//   Digital D2 = Digital(7);
-//   Digital D3 = Digital(6);
-//   Digital D4 = Digital(6);
-//   Digital D5 = Digital(5);
-//   Digital D6 = Digital(5);
-//   Digital D7 = Digital(5);
-//   Digital D8 = Digital(5);
 // };
 
 #endif /* APRS_HPP_ */

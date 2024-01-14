@@ -50,7 +50,7 @@ struct PositionPacket : public Packet {
   int course = 0;             // Degrees 0 - 359
 
   // A comment to add to the end of the packet
-  std::string comment = ""; /** @todo max length of comment */
+  std::string comment = ""; // max length of 40 characters
 
   ax25::Frame frame{};
 
@@ -194,44 +194,55 @@ struct Telemetry {
   // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
   std::string project_title = ""; // 0-23 characters
 
-  std::string telem_destination_address = "   "; // between 3 and 9 chars
+  std::string destination_address = "   "; // between 3 and 9 chars
 
   struct Analog {
-    std::string value = "";
+    uint8_t value = 0;
 
+    // the length differs for each value.
     std::string name = ""; // 1 - max_name_length characters
     std::string unit = ""; // 1 - max_name_length characters
     // a*x^2 + b*x + c
     std::string coef_a = "0"; // 1-9 characters, -, ., 0-9
     std::string coef_b = "1"; // 1-9 characters, -, ., 0-9
     std::string coef_c = "0"; // 1-9 characters, -, ., 0-9
-    const unsigned int upper_limit = 0;
-    Analog(int upper_limit) : upper_limit(upper_limit) {}
   };
 
   struct Digital {
     bool value = false;
+    bool sense = false; // for BIT_SENSE_PROJ_NAME packet
 
     std::string name = ""; // 1 - max_name_length characters
     std::string unit = ""; // 1 - max_name_length characters
-    const unsigned int upper_limit = 0;
-    Digital(int upper_limit) : upper_limit(upper_limit) {}
   };
 
-  Analog A1 = Analog(7);
-  Analog A2 = Analog(7);
-  Analog A3 = Analog(6);
-  Analog A4 = Analog(6);
-  Analog A5 = Analog(5);
+  Analog a1{};
+  Analog a2{};
+  Analog a3{};
+  Analog a4{};
+  Analog a5{};
 
-  Digital D1 = Digital(7);
-  Digital D2 = Digital(7);
-  Digital D3 = Digital(6);
-  Digital D4 = Digital(6);
-  Digital D5 = Digital(5);
-  Digital D6 = Digital(5);
-  Digital D7 = Digital(5);
-  Digital D8 = Digital(5);
+  Digital d1{};
+  Digital d2{};
+  Digital d3{};
+  Digital d4{};
+  Digital d5{};
+  Digital d6{};
+  Digital d7{};
+  Digital d8{};
+
+  std::vector<uint8_t>
+  encode(TelemetryPacketType type = TelemetryPacketType::DATA_REPORT) const;
+};
+
+/**
+ * @brief This packet type will have two `{` characters at the start.
+ */
+struct Experimental {
+  unsigned char packet_type_char = 'a'; // One character packet type
+  std::vector<uint8_t> data = {};       // 1-252 bytes
+
+  std::vector<uint8_t> encode() const;
 };
 
 std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
@@ -253,10 +264,6 @@ bool addLocationData(const aprs::PositionPacket &packet,
 //   unsigned char UserId = 0;            // One character User ID
 //   unsigned char UserDefPacketType = 0; // One character User Defined Packet
 //   Type std::vector<uint8_t> data = {};      // 1-252
-// };
-
-// struct Experimental {
-//   std::vector<uint8_t> data = {}; // 1-253 bytes
 // };
 
 // struct Invalid {

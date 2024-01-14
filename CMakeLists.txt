@@ -55,6 +55,7 @@ add_library(SignalEasel STATIC
     src/aprs/aprs_demodulator.cpp
     src/aprs/aprs_modulator.cpp
     src/aprs/aprs_receiver.cpp
+    src/aprs/aprs_encoders.cpp
 
     # PSK
     # ${MWAV_SRC}/modulators/psk.cpp

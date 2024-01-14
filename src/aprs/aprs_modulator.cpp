@@ -14,7 +14,6 @@ void Modulator::encodePositionPacket(aprs::PositionPacket packet) {
   std::vector<uint8_t> info;
   addLocationData(packet, settings_.base_packet, info);
   std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
-
   encodeBytes(output_bytes);
 }
 

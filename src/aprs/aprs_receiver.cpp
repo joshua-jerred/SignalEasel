@@ -54,6 +54,7 @@ void aprs::Receiver::decode() {
     aprs::PositionPacket position_packet;
     bool success = aprs_demodulator_.parsePositionPacket(position_packet);
     if (success == true) {
+      position_packet.decoded_timestamp.setToNow();
       aprs_positions_.push_back(std::pair<ax25::Frame, aprs::PositionPacket>(
           aprs_demodulator_.frame_, position_packet));
       stats_.total_position_packets++;

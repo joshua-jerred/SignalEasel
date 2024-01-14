@@ -4,3 +4,6 @@
 [submodule "src/SSTV-Image-Tools"]
 	path = lib/SSTV-Image-Tools
 	url = https://github.com/joshua-jerred/SSTV-Image-Tools.git
+[submodule "lib/Boost_erSeat"]
+	path = lib/Boost_erSeat
+	url = git@github.com:joshua-jerred/Boost_erSeat.git

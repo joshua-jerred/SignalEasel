@@ -20,6 +20,8 @@
 #include <cstdint>
 #include <string>
 
+#include <BoosterSeat/time.hpp>
+
 #include <SignalEasel/afsk.hpp>
 #include <SignalEasel/ax25.hpp>
 
@@ -49,6 +51,14 @@ struct PositionPacket : public Packet {
 
   // A comment to add to the end of the packet
   std::string comment = ""; /** @todo max length of comment */
+
+  ax25::Frame frame{};
+
+  /**
+   * @brief This timestamp is set after the packet is decoded. It's used to keep
+   * track of the age of the packet.
+   */
+  bst::Time decoded_timestamp{};
 };
 
 struct MessagePacket {

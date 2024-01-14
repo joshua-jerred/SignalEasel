@@ -23,6 +23,7 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/WavGen)
 if (SSTV_ENABLED)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools)
 endif()
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/Boost_erSeat)
 
 # --------------------------------
 # SignalEasel
@@ -58,7 +59,10 @@ add_library(SignalEasel STATIC
     src/pulse_audio_writer.cpp
     src/pulse_audio_reader.cpp
 )
-target_link_libraries(SignalEasel WavGen)
+target_link_libraries(SignalEasel 
+    WavGen
+    BoosterSeat
+)
 target_include_directories(SignalEasel 
     PUBLIC include 
     PRIVATE src

@@ -113,13 +113,13 @@ $(document).ready(function(){initNavTree('structsignal__easel_1_1aprs_1_1Positio
 <div class="dynheader">
 Inheritance diagram for signal_easel::aprs::PositionPacket:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket__inherit__graph.svg" width="179" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket__inherit__graph.svg" width="182" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::aprs::PositionPacket:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket__coll__graph.svg" width="879" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket__coll__graph.svg" width="1586" height="1212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -143,10 +143,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af253a90967bc821c06d764f2523407d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59a8ed3b50e5be03d0a6fbac39448e80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a59a8ed3b50e5be03d0a6fbac39448e80">course</a> = 0</td></tr>
 <tr class="separator:a59a8ed3b50e5be03d0a6fbac39448e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc19c836c87525d6b92f64a1baf5578f"><td class="memItemLeft" align="right" valign="top">bst::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#adc19c836c87525d6b92f64a1baf5578f">decoded_timestamp</a> {}</td></tr>
+<tr class="memdesc:adc19c836c87525d6b92f64a1baf5578f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This timestamp is set after the packet is decoded. It's used to keep track of the age of the packet.  <a href="structsignal__easel_1_1aprs_1_1PositionPacket.html#adc19c836c87525d6b92f64a1baf5578f">More...</a><br /></td></tr>
+<tr class="separator:adc19c836c87525d6b92f64a1baf5578f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa04bf422d3bebf572895567329b3b081"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#aa04bf422d3bebf572895567329b3b081">destination_address</a> = &quot;APZMWV&quot;</td></tr>
 <tr class="separator:aa04bf422d3bebf572895567329b3b081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff84b8348e6ad55a99463895a2a6abdb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#aff84b8348e6ad55a99463895a2a6abdb">destination_ssid</a> = 0</td></tr>
 <tr class="separator:aff84b8348e6ad55a99463895a2a6abdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a2fe7ad2d3f96c8e7e2be496291964"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#ac3a2fe7ad2d3f96c8e7e2be496291964">frame</a> {}</td></tr>
+<tr class="separator:ac3a2fe7ad2d3f96c8e7e2be496291964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18a52de88ffadc17d5c881c833f992c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c">latitude</a> = 0.0</td></tr>
 <tr class="separator:ad18a52de88ffadc17d5c881c833f992c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26acfd266b0ca4bbef36ef6d79a6a14d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d">longitude</a> = 0.0</td></tr>
@@ -328,6 +333,39 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="namespacesignal__easel.html#ab5fa91b80b16ed3e03f9ed9c6247039f">signal_easel::addLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+
+</div>
+</div>
+<a id="ac3a2fe7ad2d3f96c8e7e2be496291964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a2fe7ad2d3f96c8e7e2be496291964">&#9670;&nbsp;</a></span>frame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> signal_easel::aprs::PositionPacket::frame {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>max length of comment </dd></dl>
+
+</div>
+</div>
+<a id="adc19c836c87525d6b92f64a1baf5578f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc19c836c87525d6b92f64a1baf5578f">&#9670;&nbsp;</a></span>decoded_timestamp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bst::Time signal_easel::aprs::PositionPacket::decoded_timestamp {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This timestamp is set after the packet is decoded. It's used to keep track of the age of the packet. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>.</p>
 
 </div>
 </div>

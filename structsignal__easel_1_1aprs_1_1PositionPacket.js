@@ -16,6 +16,8 @@ var structsignal__easel_1_1aprs_1_1PositionPacket =
     [ "speed", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a3808e1fbfc37a41d009d5d19a2fc58e2", null ],
     [ "course", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a59a8ed3b50e5be03d0a6fbac39448e80", null ],
     [ "comment", "structsignal__easel_1_1aprs_1_1PositionPacket.html#af253a90967bc821c06d764f2523407d4", null ],
+    [ "frame", "structsignal__easel_1_1aprs_1_1PositionPacket.html#ac3a2fe7ad2d3f96c8e7e2be496291964", null ],
+    [ "decoded_timestamp", "structsignal__easel_1_1aprs_1_1PositionPacket.html#adc19c836c87525d6b92f64a1baf5578f", null ],
     [ "source_address", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a0a79d73361ae2f60d0a52753dcd27cbf", null ],
     [ "source_ssid", "structsignal__easel_1_1aprs_1_1PositionPacket.html#ae03095d1c79737bbf5963626c1730f63", null ],
     [ "destination_address", "structsignal__easel_1_1aprs_1_1PositionPacket.html#aa04bf422d3bebf572895567329b3b081", null ],

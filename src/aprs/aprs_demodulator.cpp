@@ -160,12 +160,6 @@ bool Demodulator::parseExperimentalPacket(aprs::Experimental &experimental) {
     return false;
   }
 
-  std::cout << "Parsing experimental packet\n";
-  for (auto b : frame_.getInformation()) {
-    std::cout << b;
-  }
-  std::cout << std::endl;
-
   auto info = frame_.getInformation();
   if (info.size() < 3) {
     return false;

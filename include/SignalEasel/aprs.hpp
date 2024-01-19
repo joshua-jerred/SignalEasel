@@ -171,6 +171,7 @@ public:
     uint32_t total_other_packets = 0;
     uint32_t current_message_packets_in_queue = 0;
     uint32_t current_position_packets_in_queue = 0;
+    uint32_t current_experimental_packets_in_queue = 0;
     uint32_t current_other_packets_in_queue = 0;
   };
 
@@ -182,6 +183,9 @@ public:
   bool getAprsPosition(aprs::PositionPacket &position_packet,
                        ax25::Frame &frame);
 
+  bool getAprsExperimental(aprs::Experimental &experimental_packet,
+                           ax25::Frame &frame);
+
   bool getOtherAprsPacket(ax25::Frame &frame);
 
   double getSNR() { return demodulation_res_.snr; }
@@ -192,6 +196,7 @@ private:
   void decode() override;
   std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};
   std::vector<std::pair<ax25::Frame, aprs::PositionPacket>> aprs_positions_{};
+  std::vector<std::pair<ax25::Frame, aprs::Experimental>> aprs_experimental_{};
   std::vector<ax25::Frame> other_aprs_packets_{};
 
   Stats stats_{};

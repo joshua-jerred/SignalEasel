@@ -14,6 +14,7 @@
  * @license    GNU GPLv3
  */
 
+#include "SignalEasel/constants.hpp"
 #include <SignalEasel/exception.hpp>
 #include <SignalEasel/pulse_audio.hpp>
 
@@ -21,7 +22,7 @@
 #include <cmath>
 #include <iostream>
 
-#ifdef PULSE_AUDIO_ENABLED
+// #ifdef PULSE_AUDIO_ENABLED
 
 namespace signal_easel {
 
@@ -44,8 +45,20 @@ PulseAudioReader::PulseAudioReader() {
 
 PulseAudioReader::~PulseAudioReader() { pa_simple_free(s_); }
 
-void PulseAudioReader::process() {
+bool PulseAudioReader::process() {
   int error = 0;
+
+  latency_ = pa_simple_get_latency(s_, &error) / 1000;
+  constexpr double RATIO_MULTIPLIER =
+      static_cast<double>(AUDIO_SAMPLE_RATE) /
+      static_cast<double>(PULSE_AUDIO_BUFFER_SIZE) / 1000.0;
+  double latency_ratio = static_cast<double>(latency_) * RATIO_MULTIPLIER;
+
+  if (latency_ratio < 1.0) {
+    return false;
+  }
+  // std::cout << "Ratio: " << latency_ * RATIO_MULTIPLIER << "\n";
+
   if (pa_simple_read(s_,                   // The stream to read from
                      audio_buffer_.data(), // Where to store the read data
                      static_cast<size_t>(audio_buffer_.size() *
@@ -54,8 +67,6 @@ void PulseAudioReader::process() {
                      ) < 0) {
     throw Exception(Exception::Id::PULSE_READ_ERROR);
   }
-
-  latency_ = pa_simple_get_latency(s_, &error) / 1000;
 
   rms_ = 1;
   for (int16_t sample : audio_buffer_) {
@@ -66,8 +77,10 @@ void PulseAudioReader::process() {
   if (volume_ < 0.01) {
     volume_ = 0;
   }
+
+  return true;
 }
 
 } // namespace signal_easel
 
-#endif // PULSE_AUDIO_ENABLED
+// #endif // PULSE_AUDIO_ENABLED

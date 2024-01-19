@@ -44,6 +44,17 @@ bool Receiver::getAprsPosition(aprs::PositionPacket &position_packet,
   return true;
 }
 
+bool Receiver::getAprsExperimental(aprs::Experimental &experimental_packet,
+                                   ax25::Frame &frame) {
+  if (aprs_experimental_.empty()) {
+    return false;
+  }
+  frame = aprs_experimental_.back().first;
+  experimental_packet = aprs_experimental_.back().second;
+  aprs_experimental_.pop_back();
+  return true;
+}
+
 bool Receiver::getOtherAprsPacket(ax25::Frame &frame) {
   if (other_aprs_packets_.empty()) {
     return false;
@@ -102,7 +113,8 @@ void Receiver::decode() {
     bool success =
         aprs_demodulator_.parseExperimentalPacket(experimental_packet);
     if (success) {
-      other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+      aprs_experimental_.push_back(std::pair<ax25::Frame, aprs::Experimental>(
+          aprs_demodulator_.frame_, experimental_packet));
       stats_.total_experimental_packets++;
     } else {
       stats_.num_experimental_packets_failed++;
@@ -122,6 +134,7 @@ void Receiver::decode() {
 
   stats_.current_message_packets_in_queue = aprs_messages_.size();
   stats_.current_position_packets_in_queue = aprs_positions_.size();
+  stats_.current_experimental_packets_in_queue = aprs_experimental_.size();
   stats_.current_other_packets_in_queue = other_aprs_packets_.size();
 }
 

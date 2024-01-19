@@ -35,7 +35,7 @@ inline constexpr pa_sample_spec PULSE_AUDIO_SAMPLE_SPEC = {
 const std::string PULSE_AUDIO_APP_NAME = "SignalEasel";
 
 inline constexpr size_t BUFFER_SIZE_IN_SECONDS = 1;
-inline constexpr size_t PULSE_AUDIO_BUFFER_SIZE = 200;
+inline constexpr size_t PULSE_AUDIO_BUFFER_SIZE = 16000;
 // AUDIO_SAMPLE_RATE * NUM_PULSE_CHANNELS * BUFFER_SIZE_IN_SECONDS;
 
 typedef std::array<int16_t, PULSE_AUDIO_BUFFER_SIZE> PulseAudioBuffer;
@@ -51,7 +51,10 @@ public:
   PulseAudioReader(PulseAudioReader &&) = delete;
   PulseAudioReader &operator=(PulseAudioReader &&) = delete;
 
-  void process();
+  /**
+   * @brief Returns true if there was enough audio to process
+   */
+  bool process();
   uint32_t getRms() const { return rms_; }
   double getVolume() const { return volume_; }
   uint64_t getLatency() const { return latency_; }

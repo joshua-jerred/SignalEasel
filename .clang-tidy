@@ -11,8 +11,7 @@ Checks: >
   -misc-non-private-member-variables-in-classes,
   -readability-named-parameter,
   -readability-braces-around-statements,
-  -readability-magic-numbers,
-  -bugprone-easily-swappable-parameters
+  -readability-magic-numbers
 
 HeaderFilterRegex: '.*'
 CheckOptions:
@@ -30,18 +29,18 @@ CheckOptions:
     value: lower_case
   - key: readability-identifier-naming.FunctionCase
     value: camelBack
-  - key: readability-identifier-naming.NamespaceCase
-    value: lower_case
+  # - key: readability-identifier-naming.NamespaceCase
+  #   value: lower_case
+  - key: readability-identifier-naming.ConstantCase
+    value: UPPER_CASE
   - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
-  # - key: readability-identifier-naming.ClassConstantPrefix
-    # value: k
+  - key: readability-identifier-naming.ClassConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ClassConstantPrefix
+    value: k
   - key: readability-identifier-naming.ClassConstantSuffix
     value: _
-  - key: readability-identifier-naming.ConstantCase
-    value: lower_case
-  - key: readability-identifier-naming.ConstantPrefix
-    value: k_
   - key: readability-identifier-naming.PrivateMemberSuffix
     value: _
   - key: misc-assert-side-effect.CheckFunctionCalls

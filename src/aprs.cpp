@@ -14,7 +14,6 @@
  * @license    GNU GPLv3
  */
 
-#include <bitset>
 #include <cmath>
 #include <stdexcept>
 #include <vector>
@@ -139,87 +138,6 @@ std::vector<uint8_t> encodePacket(const aprs::Packet &required_fields,
   auto vec = frame.encodeFrame();
 
   return vec;
-}
-
-bool addLocationData(const aprs::PositionPacket &packet,
-                     const aprs::Packet &required_fields,
-                     std::vector<uint8_t> &info) {
-  bool valid = checkLocationData(packet);
-  if (!valid) {
-    /** @todo generate an invalid frame */
-    throw Exception(Exception::Id::APRS_INVALID_LOCATION_DATA);
-  }
-
-  info.push_back('@'); // telemetry data
-
-  // time code
-  for (char c : packet.time_code) {
-    info.push_back(c);
-  }
-  info.push_back('z'); // UTC DDHHMM
-
-  // Symbol Table ID
-  if (required_fields.symbol_table == aprs::Packet::SymbolTable::PRIMARY) {
-    info.push_back('/');
-  } else {
-    info.push_back('\\');
-  }
-
-  // Latitude
-  int uncompressed_lat = (int)(380926 * (90 - packet.latitude));
-  std::vector<uint8_t> compressed_lat = base91Encode(uncompressed_lat, 4);
-  for (int i = 0; i < 4; i++) {
-    info.push_back(compressed_lat[i]); // YYYY
-  }
-
-  // Longitude
-  int uncompressed_lon = (int)(190463 * (180 + packet.longitude));
-  std::vector<uint8_t> compressed_lon = base91Encode(uncompressed_lon, 4);
-  for (int i = 0; i < 4; i++) {
-    info.push_back(compressed_lon[i]); // XXXX
-  }
-
-  // Symbol
-  info.push_back(required_fields.symbol);
-
-  // csT
-  uint8_t c = (packet.course / 4) + 33;
-  info.push_back(c);
-
-  // Speed
-  const double speed_divisor = 0.076961;
-  uint8_t s = 0;
-  if (packet.speed > 0) {
-    s = (int)std::round(std::log(packet.speed + 1) / speed_divisor);
-  }
-  info.push_back(s + 33); // speed
-
-  // Compression
-  info.push_back((0b00111010 + 33));
-
-  // Altitude
-  int altitude = packet.altitude;
-  char alt[9] = {'/', 'A', '=', '0', '0', '0', '0', '0', '0'};
-  if (altitude > 0 && altitude < 999999) {
-    int i = 8;
-    while (altitude > 0) {
-      alt[i] = (altitude % 10) + '0';
-      altitude /= 10;
-      i--;
-    }
-  }
-
-  for (int i = 0; i < 9; i++) {
-    info.push_back(alt[i]);
-  }
-
-  for (char c : packet.comment) {
-    info.push_back(c);
-  }
-
-  /// @todo Bearing and Number/Range/Quality
-
-  return true;
 }
 
 } // namespace signal_easel::aprs

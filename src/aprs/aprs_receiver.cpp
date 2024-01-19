@@ -71,20 +71,23 @@ void Receiver::decode() {
 
   const auto type = aprs_demodulator_.getType();
 
-  if (res == true && type == aprs::Packet::Type::MESSAGE) {
+  if (res && type == aprs::Packet::Type::MESSAGE) {
+
     aprs::MessagePacket message_packet;
     bool success = aprs_demodulator_.parseMessagePacket(message_packet);
-    if (success == true) {
+    if (success) {
       aprs_messages_.push_back(std::pair<ax25::Frame, aprs::MessagePacket>(
           aprs_demodulator_.frame_, message_packet));
       stats_.total_message_packets++;
     } else {
       stats_.num_message_packets_failed++;
     }
-  } else if (res == true && type == aprs::Packet::Type::POSITION) {
+
+  } else if (res && type == aprs::Packet::Type::POSITION) {
+
     aprs::PositionPacket position_packet;
     bool success = aprs_demodulator_.parsePositionPacket(position_packet);
-    if (success == true) {
+    if (success) {
       position_packet.decoded_timestamp.setToNow();
       aprs_positions_.push_back(std::pair<ax25::Frame, aprs::PositionPacket>(
           aprs_demodulator_.frame_, position_packet));
@@ -92,7 +95,20 @@ void Receiver::decode() {
     } else {
       stats_.num_position_packets_failed++;
     }
-  } else if (res == true) {
+
+  } else if (res && type == aprs::Packet::Type::EXPERIMENTAL) {
+
+    aprs::Experimental experimental_packet;
+    bool success =
+        aprs_demodulator_.parseExperimentalPacket(experimental_packet);
+    if (success) {
+      other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+      stats_.total_experimental_packets++;
+    } else {
+      stats_.num_experimental_packets_failed++;
+    }
+
+  } else if (res) {
     other_aprs_packets_.push_back(aprs_demodulator_.frame_);
     stats_.total_other_packets++;
   } else {

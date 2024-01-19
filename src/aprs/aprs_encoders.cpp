@@ -6,10 +6,90 @@
  * @copyright Copyright (c) 2024
  */
 
+#include <cmath>
+
 #include <SignalEasel/aprs.hpp>
 #include <SignalEasel/exception.hpp>
 
 namespace signal_easel::aprs {
+
+std::vector<uint8_t> PositionPacket::encode() const {
+  std::vector<uint8_t> info;
+
+  /// @warning CHECK LOCATION DATA VALIDITY
+  /// @todo Check location data validity
+
+  info.push_back('@'); // telemetry data
+
+  // time code
+  for (char c : time_code) {
+    info.push_back(c);
+  }
+  info.push_back('z'); // UTC DDHHMM
+
+  // Symbol Table ID
+  if (symbol_table == aprs::Packet::SymbolTable::PRIMARY) {
+    info.push_back('/');
+  } else {
+    info.push_back('\\');
+  }
+
+  // Latitude
+  int uncompressed_lat = (int)(380926 * (90 - latitude));
+  std::vector<uint8_t> compressed_lat = base91Encode(uncompressed_lat, 4);
+  for (int i = 0; i < 4; i++) {
+    info.push_back(compressed_lat[i]); // YYYY
+  }
+
+  // Longitude
+  int uncompressed_lon = (int)(190463 * (180 + longitude));
+  std::vector<uint8_t> compressed_lon = base91Encode(uncompressed_lon, 4);
+  for (int i = 0; i < 4; i++) {
+    info.push_back(compressed_lon[i]); // XXXX
+  }
+
+  // Symbol
+  info.push_back(symbol);
+
+  // csT
+  uint8_t encoded_course = (course / 4) + 33;
+  info.push_back(encoded_course);
+
+  // Speed
+  const double speed_divisor = 0.076961;
+  uint8_t s = 0;
+  if (speed > 0) {
+    s = (int)std::round(std::log(speed + 1) / speed_divisor);
+  }
+  info.push_back(s + 33); // speed
+
+  // Compression
+  info.push_back((0b00111010 + 33));
+
+  // Altitude
+  int alt_buffer = altitude;
+  char alt[9] = {'/', 'A', '=', '0', '0', '0', '0', '0', '0'};
+  if (alt_buffer > 0 && alt_buffer < 999999) {
+    int i = 8;
+    while (alt_buffer > 0) {
+      alt[i] = (alt_buffer % 10) + '0';
+      alt_buffer /= 10;
+      i--;
+    }
+  }
+
+  for (int i = 0; i < 9; i++) {
+    info.push_back(alt[i]);
+  }
+
+  for (char c : comment) {
+    info.push_back(c);
+  }
+
+  /// @todo Bearing and Number/Range/Quality
+
+  return info;
+}
 
 std::vector<uint8_t> MessagePacket::encode() const {
   std::vector<uint8_t> info;
@@ -138,7 +218,6 @@ std::vector<uint8_t> Telemetry::encode(TelemetryPacketType type) const {
     for (char c : comment) {
       info.push_back(c);
     }
-    return info;
 
   } else if (type == TelemetryPacketType::PARAM_NAME) {
 
@@ -218,11 +297,8 @@ std::vector<uint8_t> Telemetry::encode(TelemetryPacketType type) const {
         break;
       }
     }
-    return info;
-
-  } else {
-    throw Exception(Exception::Id::APRS_MESSAGE_NOT_IMPLEMENTED);
   }
+  return info;
 }
 
 std::vector<uint8_t> Experimental::encode() const {
@@ -230,8 +306,8 @@ std::vector<uint8_t> Experimental::encode() const {
   info.push_back('{');
   info.push_back('{');
   info.push_back(packet_type_char);
-  for (char c : data) {
-    info.push_back(c);
+  for (uint8_t data_byte : data) {
+    info.push_back(data_byte);
   }
   return info;
 }

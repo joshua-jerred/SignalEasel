@@ -6,19 +6,16 @@
 TEST(Aprs, EncodeAndDecodeMessagePacket) {
   const std::string kOutFilePath = "aprs_message_test.wav";
 
-  signal_easel::aprs::Packet packet;
-  packet.source_address = "TSTCLL";
-  packet.source_ssid = 11;
-
   signal_easel::aprs::Modulator modulator;
-  modulator.setBasePacket(packet);
 
   signal_easel::aprs::MessagePacket message_packet;
+  message_packet.source_address = "TSTCLL";
+  message_packet.source_ssid = 11;
   message_packet.addressee = "TSTCLL-11";
   message_packet.message = "Hello World!";
   message_packet.message_id = "1";
 
-  modulator.encodeMessagePacket(message_packet);
+  modulator.encode(message_packet);
   modulator.writeToFile(kOutFilePath);
 
   signal_easel::aprs::Demodulator demodulator;
@@ -35,36 +32,72 @@ TEST(Aprs, EncodeAndDecodeMessagePacket) {
   EXPECT_EQ(decoded_message_packet.message_id, message_packet.message_id);
 }
 
-TEST(Aprs, EncodeAndDecodeLocationPacket) {
-  // const std::string kOutFilePath = "aprs_basic_test.wav";
+TEST(Aprs, EncodeAndDecodePositionPacket) {
+  const std::string kOutFilePath = "aprs_position_test.wav";
 
-  // signal_easel::AprsPacket packet;
-  // packet.source_address = "TEST";
+  signal_easel::aprs::Modulator modulator;
 
-  // signal_easel::AprsModulator modulator;
-  // modulator.setBasePacket(packet);
+  signal_easel::aprs::PositionPacket position_packet;
+  position_packet.source_address = "TSTCLL";
+  position_packet.source_ssid = 11;
+  position_packet.time_code = "000000";
+  position_packet.altitude = 1000;
+  position_packet.course = 200;
+  position_packet.speed = 100;
+  position_packet.latitude = 40.0;
+  position_packet.longitude = -105.0;
 
-  // signal_easel::AprsPositionPacket position_packet;
-  // position_packet.time_code = "123456";
-  // position_packet.latitude = 40.0;
+  modulator.encode(position_packet);
+  modulator.writeToFile(kOutFilePath);
 
-  // modulator.encodePositionPacket(position_packet);
-  // modulator.writeToFile(kOutFilePath);
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(kOutFilePath);
+  demodulator.processAudioBuffer();
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(), signal_easel::aprs::Packet::Type::POSITION);
 
-  // signal_easel::AprsDemodulator demodulator;
-  // demodulator.loadAudioFromFile(kOutFilePath);
-  // demodulator.processAudioBuffer();
-  // EXPECT_TRUE(demodulator.lookForAx25Packet());
+  signal_easel::aprs::PositionPacket decoded_position_packet;
+  EXPECT_TRUE(demodulator.parsePositionPacket(decoded_position_packet));
+
+  EXPECT_EQ(decoded_position_packet.time_code, position_packet.time_code);
+  EXPECT_EQ(decoded_position_packet.altitude, position_packet.altitude);
+  EXPECT_EQ(decoded_position_packet.course, position_packet.course);
+  EXPECT_NEAR(decoded_position_packet.speed, position_packet.speed, 0.5);
+  EXPECT_NEAR(decoded_position_packet.latitude, position_packet.latitude,
+              0.001);
+  EXPECT_NEAR(decoded_position_packet.longitude, position_packet.longitude,
+              0.001);
 }
 
-// TEST(Aprs, DecodeMessagePacket) {
-//   const std::string kInputFile = "aprs_message.wav";
+TEST(Aprs, EncodeAndDecodeExperimentalPacket) {
+  const std::string OUT_FILE_PATH = "aprs_experimental_test.wav";
 
-//   signal_easel::AprsDemodulator demodulator;
-//   demodulator.loadAudioFromFile(kInputFile);
-//   demodulator.processAudioBuffer();
-//   EXPECT_TRUE(demodulator.lookForAx25Packet());
-// }
+  signal_easel::aprs::Modulator modulator;
+
+  signal_easel::aprs::Experimental experimental_packet;
+  experimental_packet.source_address = "TSTCLL";
+  experimental_packet.source_ssid = 11;
+  experimental_packet.packet_type_char = 'z';
+  std::string data_str = "experimentaldatatest";
+  experimental_packet.setStringData(data_str);
+
+  modulator.encode(experimental_packet);
+  modulator.writeToFile(OUT_FILE_PATH);
+
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(OUT_FILE_PATH);
+  demodulator.processAudioBuffer();
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(),
+            signal_easel::aprs::Packet::Type::EXPERIMENTAL);
+
+  signal_easel::aprs::Experimental decoded_experimental_packet;
+  EXPECT_TRUE(demodulator.parseExperimentalPacket(decoded_experimental_packet));
+
+  EXPECT_EQ(decoded_experimental_packet.packet_type_char,
+            experimental_packet.packet_type_char);
+  EXPECT_EQ(decoded_experimental_packet.getStringData(), data_str);
+}
 
 TEST(Aprs, DecodeReal) {
   const std::string kInputFile = "aprs_real.wav";

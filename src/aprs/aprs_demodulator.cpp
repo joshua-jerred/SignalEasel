@@ -24,7 +24,7 @@ bool Demodulator::lookForAx25Packet() {
   }
 
   auto info = frame.getInformation();
-  if (info.size() < 1) {
+  if (info.empty()) {
     type_ = aprs::Packet::Type::UNKNOWN;
     return false;
   }
@@ -40,7 +40,9 @@ bool Demodulator::lookForAx25Packet() {
   case ':':
     type_ = aprs::Packet::Type::MESSAGE;
     break;
-
+  case '{':
+    type_ = aprs::Packet::Type::EXPERIMENTAL;
+    break;
   default:
     type_ = aprs::Packet::Type::UNKNOWN;
     return false;
@@ -99,7 +101,7 @@ bool Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
   }
 
   // time code
-  position.time_code = info.substr(1, 7); // ddhhmmz
+  position.time_code = info.substr(1, 6); // ddhhmmz, ignore the z
 
   // Symbol Table ID
   if (info.at(8) == '/') {
@@ -149,6 +151,38 @@ bool Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
     position.comment = info.substr(29);
   }
 
+  return true;
+}
+
+bool Demodulator::parseExperimentalPacket(aprs::Experimental &experimental) {
+  if (type_ != aprs::Packet::Type::EXPERIMENTAL) {
+    /// @todo assert here or something instead. Same with other parse functions
+    return false;
+  }
+
+  std::cout << "Parsing experimental packet\n";
+  for (auto b : frame_.getInformation()) {
+    std::cout << b;
+  }
+  std::cout << std::endl;
+
+  auto info = frame_.getInformation();
+  if (info.size() < 3) {
+    return false;
+  }
+
+  // leading '{{'
+  if (info.at(0) != '{' || info.at(1) != '{') {
+    return false;
+  }
+
+  experimental.packet_type_char = info.at(2);
+
+  if (info.size() < 4) {
+    experimental.data = std::vector<uint8_t>();
+    return true;
+  }
+  experimental.data = std::vector<uint8_t>(info.begin() + 3, info.end());
   return true;
 }
 

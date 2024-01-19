@@ -1,7 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
 project(SignalEasel VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating audio")
 
-# Configuration -------------------
+## Check if SignalEasel is being used directly or via add_subdirectory
+set(MAIN_PROJECT OFF)
+if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    set(MAIN_PROJECT ON)
+endif()
+message(STATUS "=== SignalEasel Main project: ${MAIN_PROJECT}")
+
+# --- Configuration ---------------
 option(USE_PULSEAUDIO "Use PulseAudio for audio input/output" ON)
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
 option(UNIT_TESTS "Enable unit tests" ON)
@@ -24,7 +31,7 @@ if (SSTV_ENABLED)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools)
 endif()
 
-if (NOT DEFINED DONT_ADD_SIGNAL_EASEL_BOOSTER_SEAT)
+if (MAIN_PROJECT)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/Boost_erSeat)
 endif()
 
@@ -104,6 +111,6 @@ else()
 endif()
 
 # --------------------------------
-if (UNIT_TESTS)
+if (UNIT_TESTS OR MAIN_PROJECT)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 endif()

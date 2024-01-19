@@ -10,22 +10,27 @@
 
 namespace signal_easel::aprs {
 
-void Modulator::encodePositionPacket(aprs::PositionPacket packet) {
-  std::vector<uint8_t> info;
-  addLocationData(packet, settings_.base_packet, info);
-  std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
+void Modulator::encode(const aprs::PositionPacket &packet) {
+  std::vector<uint8_t> info = packet.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(packet, info);
   encodeBytes(output_bytes);
 }
 
-void Modulator::encodeMessagePacket(aprs::MessagePacket message) {
-  std::vector<uint8_t> info = message.encode();
-  std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
+void Modulator::encode(const aprs::MessagePacket &packet) {
+  std::vector<uint8_t> info = packet.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(packet, info);
   encodeBytes(output_bytes);
 }
 
-void Modulator::encodeMessageAck(aprs::MessageAck ack) {
-  std::vector<uint8_t> info = ack.encode();
-  std::vector<uint8_t> output_bytes = encodePacket(settings_.base_packet, info);
+void Modulator::encode(const aprs::MessageAck &packet) {
+  std::vector<uint8_t> info = packet.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(packet, info);
+  encodeBytes(output_bytes);
+}
+
+void Modulator::encode(const aprs::Experimental &packet) {
+  std::vector<uint8_t> info = packet.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(packet, info);
   encodeBytes(output_bytes);
 }
 

@@ -42,7 +42,7 @@ inline constexpr uint8_t K_FLAG = 0x7E;
 inline constexpr uint8_t K_PID = 0xF0;
 
 inline constexpr size_t K_PREAMBLE_LENGTH = 33;
-inline constexpr size_t K_POSTAMBLE_LENGTH = 4;
+inline constexpr size_t K_POSTAMBLE_LENGTH = 33;
 
 /**
  * @brief Calculate the Frame Check Sequence (FCS) on a vector of bytes

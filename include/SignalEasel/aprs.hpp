@@ -29,7 +29,7 @@ namespace signal_easel::aprs {
 
 struct Packet {
   enum class SymbolTable { PRIMARY, SECONDARY };
-  enum class Type { UNKNOWN, POSITION, MESSAGE };
+  enum class Type { UNKNOWN, POSITION, MESSAGE, EXPERIMENTAL };
 
   std::string source_address = ""; // 3 - 6 characters, your callsign
   uint8_t source_ssid = 0;         // 0 - 15
@@ -59,9 +59,11 @@ struct PositionPacket : public Packet {
    * keep track of the age of the packet.
    */
   bst::Time decoded_timestamp{};
+
+  std::vector<uint8_t> encode() const;
 };
 
-struct MessagePacket {
+struct MessagePacket : public Packet {
   std::string addressee = "";  // 3-9 characters
   std::string message = "";    // Max length of 67 characters
   std::string message_id = ""; // Optional, 1-5 characters
@@ -69,7 +71,7 @@ struct MessagePacket {
   std::vector<uint8_t> encode() const;
 };
 
-struct MessageAck {
+struct MessageAck : public Packet {
   std::string addressee = "";  // 3-9 characters
   std::string message_id = ""; // 1-5 characters
   std::vector<uint8_t> encode() const;
@@ -83,6 +85,24 @@ struct Settings : public afsk::Settings {
   Packet base_packet;
 };
 
+/**
+ * @brief This packet type will have two `{` characters at the start.
+ */
+struct Experimental : Packet {
+  unsigned char packet_type_char = 'a'; // One character packet type
+  std::vector<uint8_t> data = {};       // 1-252 bytes
+
+  std::string getStringData() const {
+    return std::string(data.begin(), data.end());
+  }
+
+  void setStringData(std::string data_str) {
+    data = std::vector<uint8_t>(data_str.begin(), data_str.end());
+  }
+
+  std::vector<uint8_t> encode() const;
+};
+
 class Modulator : public afsk::Modulator {
 public:
   Modulator(aprs::Settings settings = aprs::Settings())
@@ -92,11 +112,10 @@ public:
     settings_.base_packet.source_address = call_sign;
   }
 
-  void setBasePacket(aprs::Packet packet) { settings_.base_packet = packet; }
-
-  void encodePositionPacket(aprs::PositionPacket packet);
-  void encodeMessagePacket(aprs::MessagePacket message);
-  void encodeMessageAck(aprs::MessageAck ack);
+  void encode(const aprs::PositionPacket &packet);
+  void encode(const aprs::MessagePacket &packet);
+  void encode(const aprs::MessageAck &packet);
+  void encode(const aprs::Experimental &packet);
 
 private:
   aprs::Settings settings_;
@@ -123,13 +142,15 @@ public:
   /**
    * @brief If the packet was a position packet, this function will try to
    * parse the packet into it's positional data.
-   * @todo This function will not be friendly to many types of position
+   * @todo This function will not be friendly to many types of aprs position
    * packets.
    * @param position (out) The position packet
    * @return true if the packet was fully parsed
    * @return false if the packet was not a valid position packet
    */
   bool parsePositionPacket(aprs::PositionPacket &position);
+
+  bool parseExperimentalPacket(aprs::Experimental &experimental);
 
   void printFrame();
 
@@ -145,6 +166,8 @@ public:
     uint32_t num_message_packets_failed = 0;
     uint32_t total_position_packets = 0;
     uint32_t num_position_packets_failed = 0;
+    uint32_t total_experimental_packets = 0;
+    uint32_t num_experimental_packets_failed = 0;
     uint32_t total_other_packets = 0;
     uint32_t current_message_packets_in_queue = 0;
     uint32_t current_position_packets_in_queue = 0;
@@ -235,23 +258,10 @@ struct Telemetry {
   encode(TelemetryPacketType type = TelemetryPacketType::DATA_REPORT) const;
 };
 
-/**
- * @brief This packet type will have two `{` characters at the start.
- */
-struct Experimental {
-  unsigned char packet_type_char = 'a'; // One character packet type
-  std::vector<uint8_t> data = {};       // 1-252 bytes
-
-  std::vector<uint8_t> encode() const;
-};
-
 std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
 int base91Decode(std::vector<uint8_t> encoded);
 std::vector<uint8_t> encodePacket(const aprs::Packet &required_fields,
                                   std::vector<uint8_t> &info);
-bool addLocationData(const aprs::PositionPacket &packet,
-                     const aprs::Packet &required_fields,
-                     std::vector<uint8_t> &info);
 
 } // namespace signal_easel::aprs
 

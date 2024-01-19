@@ -171,6 +171,7 @@ public:
     uint32_t total_other_packets = 0;
     uint32_t current_message_packets_in_queue = 0;
     uint32_t current_position_packets_in_queue = 0;
+    uint32_t current_experimental_packets_in_queue = 0;
     uint32_t current_other_packets_in_queue = 0;
   };
 

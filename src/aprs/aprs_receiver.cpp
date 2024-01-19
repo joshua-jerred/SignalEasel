@@ -134,6 +134,7 @@ void Receiver::decode() {
 
   stats_.current_message_packets_in_queue = aprs_messages_.size();
   stats_.current_position_packets_in_queue = aprs_positions_.size();
+  stats_.current_experimental_packets_in_queue = aprs_experimental_.size();
   stats_.current_other_packets_in_queue = other_aprs_packets_.size();
 }
 

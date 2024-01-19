@@ -106,17 +106,19 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Member <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal</a>  (<a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults" title="Stats related to the processing of the audio buffer.">ProcessResults</a> &amp;results)</dt>
-<dd><a class="anchor" id="_todo000004"></a>This needs to be cleaned up.  </dd>
+<dd><a class="anchor" id="_todo000005"></a>This needs to be cleaned up.  </dd>
 <dt>Member <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#afa479089583504851b2a4a767e397458">signal_easel::afsk::Demodulator::baseBandToBitStream</a>  (<a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults" title="Stats related to the processing of the audio buffer.">ProcessResults</a> &amp;results)</dt>
 <dd><a class="anchor" id="_todo000001"></a>some form of 'confidence rating' could be helpful here  </dd>
-<dt>Member <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData</a>  (const <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html">aprs::PositionPacket</a> &amp;packet, const <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html">aprs::Packet</a> &amp;required_fields, std::vector&lt; uint8_t &gt; &amp;info)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>generate an invalid frame </p>
-<p class="enddd"><a class="anchor" id="_todo000003"></a>Bearing and Number/Range/Quality  </p>
-</dd>
+<dt>Member <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a5e0e78f4186a6334507be9c955df55b6">signal_easel::aprs::Demodulator::parseExperimentalPacket</a>  (<a class="el" href="structsignal__easel_1_1aprs_1_1Experimental.html" title="This packet type will have two { characters at the start.">aprs::Experimental</a> &amp;experimental)</dt>
+<dd><a class="anchor" id="_todo000002"></a>assert here or something instead. Same with other parse functions  </dd>
 <dt>Member <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket</a>  (<a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html">aprs::PositionPacket</a> &amp;position)</dt>
-<dd><a class="anchor" id="_todo000005"></a>This function will not be friendly to many types of position packets.  </dd>
+<dd><a class="anchor" id="_todo000006"></a>This function will not be friendly to many types of aprs position packets.  </dd>
+<dt>Member <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">signal_easel::aprs::PositionPacket::encode</a>  () const</dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Check location data validity </p>
+<p class="enddd"><a class="anchor" id="_todo000004"></a>Bearing and Number/Range/Quality  </p>
+</dd>
 <dt>Class <a class="el" href="classsignal__easel_1_1BitStream.html">signal_easel::BitStream</a>  </dt>
-<dd><a class="anchor" id="_todo000006"></a>Add support for little endian and big endian. </dd>
+<dd><a class="anchor" id="_todo000007"></a>Add support for little endian and big endian. </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

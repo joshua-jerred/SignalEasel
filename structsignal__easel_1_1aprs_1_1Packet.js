@@ -7,7 +7,8 @@ var structsignal__easel_1_1aprs_1_1Packet =
     [ "Type", "structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402", [
       [ "UNKNOWN", "structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "POSITION", "structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1", null ],
-      [ "MESSAGE", "structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4", null ]
+      [ "MESSAGE", "structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4", null ],
+      [ "EXPERIMENTAL", "structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199", null ]
     ] ],
     [ "source_address", "structsignal__easel_1_1aprs_1_1Packet.html#a0a79d73361ae2f60d0a52753dcd27cbf", null ],
     [ "source_ssid", "structsignal__easel_1_1aprs_1_1Packet.html#ae03095d1c79737bbf5963626c1730f63", null ],

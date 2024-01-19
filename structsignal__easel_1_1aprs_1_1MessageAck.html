@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('structsignal__easel_1_1aprs_1_1Message
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structsignal__easel_1_1aprs_1_1MessageAck-members.html">List of all members</a>  </div>
@@ -111,12 +112,31 @@ $(document).ready(function(){initNavTree('structsignal__easel_1_1aprs_1_1Message
 
 <p><code>#include &lt;<a class="el" href="aprs_8hpp_source.html">aprs.hpp</a>&gt;</code></p>
 <div class="dynheader">
+Inheritance diagram for signal_easel::aprs::MessageAck:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1MessageAck__inherit__graph.svg" width="179" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Collaboration diagram for signal_easel::aprs::MessageAck:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1MessageAck__coll__graph.svg" width="170" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1MessageAck__coll__graph.svg" width="674" height="399"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a98e229a0a3f74f1f9751233e3a66dd28"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28">SymbolTable</a> { <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc">PRIMARY</a>
+, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a371b09d93ca01e09a42fbd5a2a423f8e">SECONDARY</a>
+ }</td></tr>
+<tr class="separator:a98e229a0a3f74f1f9751233e3a66dd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88fd2774f44e0c08805a4770d61c2402"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402">Type</a> { <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>
+, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1">POSITION</a>
+, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4">MESSAGE</a>
+, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199">EXPERIMENTAL</a>
+ }</td></tr>
+<tr class="separator:a88fd2774f44e0c08805a4770d61c2402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a26778cade10dfac29dd3a5102ea3030f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a26778cade10dfac29dd3a5102ea3030f">encode</a> () const</td></tr>
@@ -126,9 +146,76 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a849bd5b39fbdbeeee3e532206e72e9b6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a849bd5b39fbdbeeee3e532206e72e9b6">addressee</a> = &quot;&quot;</td></tr>
 <tr class="separator:a849bd5b39fbdbeeee3e532206e72e9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04bf422d3bebf572895567329b3b081"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#aa04bf422d3bebf572895567329b3b081">destination_address</a> = &quot;APZMWV&quot;</td></tr>
+<tr class="separator:aa04bf422d3bebf572895567329b3b081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff84b8348e6ad55a99463895a2a6abdb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#aff84b8348e6ad55a99463895a2a6abdb">destination_ssid</a> = 0</td></tr>
+<tr class="separator:aff84b8348e6ad55a99463895a2a6abdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a288ada444fbccef045bee5c016d4234d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a288ada444fbccef045bee5c016d4234d">message_id</a> = &quot;&quot;</td></tr>
 <tr class="separator:a288ada444fbccef045bee5c016d4234d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a79d73361ae2f60d0a52753dcd27cbf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a0a79d73361ae2f60d0a52753dcd27cbf">source_address</a> = &quot;&quot;</td></tr>
+<tr class="separator:a0a79d73361ae2f60d0a52753dcd27cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03095d1c79737bbf5963626c1730f63"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#ae03095d1c79737bbf5963626c1730f63">source_ssid</a> = 0</td></tr>
+<tr class="separator:ae03095d1c79737bbf5963626c1730f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a896553cf78ab348a52f3a646eb264805"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a896553cf78ab348a52f3a646eb264805">symbol</a> = '/'</td></tr>
+<tr class="separator:a896553cf78ab348a52f3a646eb264805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0428a9a37731cbdd63d24107fe68952a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28">SymbolTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a0428a9a37731cbdd63d24107fe68952a">symbol_table</a> = <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc">SymbolTable::PRIMARY</a></td></tr>
+<tr class="separator:a0428a9a37731cbdd63d24107fe68952a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a98e229a0a3f74f1f9751233e3a66dd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e229a0a3f74f1f9751233e3a66dd28">&#9670;&nbsp;</a></span>SymbolTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28">signal_easel::aprs::Packet::SymbolTable</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc"></a>PRIMARY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a98e229a0a3f74f1f9751233e3a66dd28a371b09d93ca01e09a42fbd5a2a423f8e"></a>SECONDARY&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a88fd2774f44e0c08805a4770d61c2402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88fd2774f44e0c08805a4770d61c2402">&#9670;&nbsp;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402">signal_easel::aprs::Packet::Type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1"></a>POSITION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4"></a>MESSAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199"></a>EXPERIMENTAL&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a26778cade10dfac29dd3a5102ea3030f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26778cade10dfac29dd3a5102ea3030f">&#9670;&nbsp;</a></span>encode()</h2>
@@ -147,11 +234,11 @@ Public Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a849bd5b39fbdbeeee3e532206e72e9b6">addressee</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a288ada444fbccef045bee5c016d4234d">message_id</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#adfa8809d1c11321b9ff2c7efe7f58499">signal_easel::aprs::Modulator::encodeMessageAck()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#a1eea3a877c8c91bc52339a39c84a5b82">signal_easel::aprs::Modulator::encode()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1MessageAck_a26778cade10dfac29dd3a5102ea3030f_icgraph.svg" width="459" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1MessageAck_a26778cade10dfac29dd3a5102ea3030f_icgraph.svg" width="376" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -187,6 +274,150 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="structsignal__easel_1_1aprs_1_1MessageAck.html#a26778cade10dfac29dd3a5102ea3030f">encode()</a>.</p>
+
+</div>
+</div>
+<a id="a0a79d73361ae2f60d0a52753dcd27cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a79d73361ae2f60d0a52753dcd27cbf">&#9670;&nbsp;</a></span>source_address</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string signal_easel::aprs::Packet::source_address = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#a8dd2a3992bdede221d3228712bb20476">signal_easel::aprs::Modulator::setCallSign()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="ae03095d1c79737bbf5963626c1730f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae03095d1c79737bbf5963626c1730f63">&#9670;&nbsp;</a></span>source_ssid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t signal_easel::aprs::Packet::source_ssid = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="aa04bf422d3bebf572895567329b3b081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa04bf422d3bebf572895567329b3b081">&#9670;&nbsp;</a></span>destination_address</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string signal_easel::aprs::Packet::destination_address = &quot;APZMWV&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, and <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>.</p>
+
+</div>
+</div>
+<a id="aff84b8348e6ad55a99463895a2a6abdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff84b8348e6ad55a99463895a2a6abdb">&#9670;&nbsp;</a></span>destination_ssid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t signal_easel::aprs::Packet::destination_ssid = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, and <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>.</p>
+
+</div>
+</div>
+<a id="a0428a9a37731cbdd63d24107fe68952a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0428a9a37731cbdd63d24107fe68952a">&#9670;&nbsp;</a></span>symbol_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28">SymbolTable</a> signal_easel::aprs::Packet::symbol_table = <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc">SymbolTable::PRIMARY</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">signal_easel::aprs::PositionPacket::encode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+
+</div>
+</div>
+<a id="a896553cf78ab348a52f3a646eb264805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a896553cf78ab348a52f3a646eb264805">&#9670;&nbsp;</a></span>symbol</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char signal_easel::aprs::Packet::symbol = '/'</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">signal_easel::aprs::PositionPacket::encode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
 
 </div>
 </div>

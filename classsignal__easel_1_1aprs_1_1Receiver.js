@@ -5,6 +5,8 @@ var classsignal__easel_1_1aprs_1_1Receiver =
       [ "num_message_packets_failed", "classsignal__easel_1_1aprs_1_1Receiver.html#a0fb8dc15c67afe1df96b2a7c885a994b", null ],
       [ "total_position_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#a8f64dfbbc8c0ccdc0dc35ff5ec8d92f1", null ],
       [ "num_position_packets_failed", "classsignal__easel_1_1aprs_1_1Receiver.html#abe92366c7fbd46eb99b4900f3ea42c77", null ],
+      [ "total_experimental_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#a2fe34716e22a63ef28001bf40a68a4ec", null ],
+      [ "num_experimental_packets_failed", "classsignal__easel_1_1aprs_1_1Receiver.html#a8f6046b338372364afa5baa46f39ca84", null ],
       [ "total_other_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#a49b7635ad0840df77f8e1ca5ac9fcf20", null ],
       [ "current_message_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a4c523f6fc9c49063f78f740af9f4307d", null ],
       [ "current_position_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a8951f94a494faf71f69ab1c14324bde3", null ],

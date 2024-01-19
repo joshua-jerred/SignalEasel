@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('structsignal__easel_1_1aprs_1_1Positio
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structsignal__easel_1_1aprs_1_1PositionPacket-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -132,8 +133,14 @@ Public Types</h2></td></tr>
 <tr class="memitem:a88fd2774f44e0c08805a4770d61c2402"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402">Type</a> { <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>
 , <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1">POSITION</a>
 , <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4">MESSAGE</a>
+, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199">EXPERIMENTAL</a>
  }</td></tr>
 <tr class="separator:a88fd2774f44e0c08805a4770d61c2402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af628ff207d9143b1a8d377814fd89cad"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode</a> () const</td></tr>
+<tr class="separator:af628ff207d9143b1a8d377814fd89cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -219,7 +226,45 @@ Public Attributes</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1"></a>POSITION&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4"></a>MESSAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199"></a>EXPERIMENTAL&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af628ff207d9143b1a8d377814fd89cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af628ff207d9143b1a8d377814fd89cad">&#9670;&nbsp;</a></span>encode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; uint8_t &gt; signal_easel::aprs::PositionPacket::encode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>CHECK LOCATION DATA VALIDITY </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Check location data validity </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Bearing and Number/Range/Quality </dd></dl>
+
+<p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a7c00cc8d3bdf29e8f82b50891bc56882">altitude</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef">signal_easel::aprs::base91Encode()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af253a90967bc821c06d764f2523407d4">comment</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a59a8ed3b50e5be03d0a6fbac39448e80">course</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c">latitude</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d">longitude</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc">signal_easel::aprs::Packet::PRIMARY</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a3808e1fbfc37a41d009d5d19a2fc58e2">speed</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a896553cf78ab348a52f3a646eb264805">signal_easel::aprs::Packet::symbol</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a0428a9a37731cbdd63d24107fe68952a">signal_easel::aprs::Packet::symbol_table</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136">time_code</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687">signal_easel::aprs::Modulator::encode()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket_af628ff207d9143b1a8d377814fd89cad_cgraph.svg" width="376" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structsignal__easel_1_1aprs_1_1PositionPacket_af628ff207d9143b1a8d377814fd89cad_icgraph.svg" width="491" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -236,7 +281,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 
 </div>
 </div>
@@ -252,7 +297,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 
 </div>
 </div>
@@ -268,7 +313,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 
 </div>
 </div>
@@ -284,7 +329,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 
 </div>
 </div>
@@ -300,7 +345,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 
 </div>
 </div>
@@ -316,7 +361,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4">signal_easel::aprs::checkLocationData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 
 </div>
 </div>
@@ -332,7 +377,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
 
 </div>
 </div>
@@ -484,7 +529,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
 
 </div>
 </div>
@@ -508,7 +553,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41">signal_easel::aprs::addLocationData()</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">signal_easel::aprs::CheckPacketData()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad">encode()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
 
 </div>
 </div>

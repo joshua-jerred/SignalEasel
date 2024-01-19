@@ -1,13 +1,11 @@
 <map id="signal_easel::ax25::Frame::setDestinationAddress" name="signal_easel::ax25::Frame::setDestinationAddress">
-<area shape="rect" id="node1" title="setters/getters for the frame." alt="" coords="869,213,1096,255"/>
-<area shape="rect" id="node2" href="$namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb" title=" " alt="" coords="656,127,807,168"/>
-<area shape="rect" id="node8" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="641,213,821,255"/>
-<area shape="rect" id="node11" href="$ax25__frame__test_8cpp.html#a091d83d42783f2a0b3fd33a0521dc2ce" title=" " alt="" coords="704,279,759,306"/>
-<area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="422,115,561,156"/>
-<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html#adfa8809d1c11321b9ff2c7efe7f58499" title=" " alt="" coords="108,5,341,47"/>
-<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a147321b48c2e282c62863f114702e54f" title=" " alt="" coords="120,71,329,127"/>
-<area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a943e392227656943d7db842e1889d805" title=" " alt="" coords="123,151,326,207"/>
-<area shape="rect" id="node6" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="5,159,60,186"/>
-<area shape="rect" id="node9" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="389,217,593,273"/>
-<area shape="rect" id="node10" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="153,283,296,324"/>
+<area shape="rect" id="node1" title="setters/getters for the frame." alt="" coords="787,77,1013,119"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb" title=" " alt="" coords="573,8,724,49"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="559,77,739,119"/>
+<area shape="rect" id="node9" href="$ax25__frame__test_8cpp.html#a091d83d42783f2a0b3fd33a0521dc2ce" title=" " alt="" coords="621,143,676,170"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="339,5,478,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="108,5,259,47"/>
+<area shape="rect" id="node5" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="5,42,60,69"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="307,71,511,127"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="112,123,255,164"/>
 </map>

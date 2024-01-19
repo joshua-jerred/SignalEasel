@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['addanalogvalue_505',['addAnalogValue',['../namespacesignal__easel_1_1aprs.html#a660860dd7ee46cb33dc7b9546c7320ed',1,'signal_easel::aprs']]],
-  ['addaudiosample_506',['addAudioSample',['../classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8',1,'signal_easel::Modulator']]],
-  ['addbits_507',['addBits',['../classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6',1,'signal_easel::BitStream']]],
-  ['addbyteforfcs_508',['AddByteForFcs',['../classsignal__easel_1_1ax25_1_1Frame.html#a9fcf77b58aa77883a2b08d6f5d36d151',1,'signal_easel::ax25::Frame']]],
-  ['addbytes_509',['addBytes',['../classsignal__easel_1_1DataModulator.html#ace460b54c3c528fa5784b55c265371a9',1,'signal_easel::DataModulator']]],
-  ['addlocationdata_510',['addLocationData',['../namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41',1,'signal_easel::aprs']]],
+  ['addanalogvalue_506',['addAnalogValue',['../namespacesignal__easel_1_1aprs.html#a660860dd7ee46cb33dc7b9546c7320ed',1,'signal_easel::aprs']]],
+  ['addaudiosample_507',['addAudioSample',['../classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8',1,'signal_easel::Modulator']]],
+  ['addbits_508',['addBits',['../classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6',1,'signal_easel::BitStream']]],
+  ['addbyteforfcs_509',['AddByteForFcs',['../classsignal__easel_1_1ax25_1_1Frame.html#a9fcf77b58aa77883a2b08d6f5d36d151',1,'signal_easel::ax25::Frame']]],
+  ['addbytes_510',['addBytes',['../classsignal__easel_1_1DataModulator.html#ace460b54c3c528fa5784b55c265371a9',1,'signal_easel::DataModulator']]],
   ['addmorsecode_511',['addMorseCode',['../classsignal__easel_1_1Modulator.html#a67263d2a46fdb510adb0b4211699bf26',1,'signal_easel::Modulator']]],
   ['addonebit_512',['addOneBit',['../classsignal__easel_1_1BitStream.html#a81d4aea4c11f65e0c2b7ad2f0f0cc312',1,'signal_easel::BitStream']]],
   ['addrepeateraddress_513',['addRepeaterAddress',['../classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb',1,'signal_easel::ax25::Frame']]],

@@ -1,10 +1,10 @@
 var hierarchy =
 [
     [ "signal_easel::afsk::Demodulator::ProcessResults", "classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults", null ],
-    [ "signal_easel::aprs::Experimental", "structsignal__easel_1_1aprs_1_1Experimental.html", null ],
-    [ "signal_easel::aprs::MessageAck", "structsignal__easel_1_1aprs_1_1MessageAck.html", null ],
-    [ "signal_easel::aprs::MessagePacket", "structsignal__easel_1_1aprs_1_1MessagePacket.html", null ],
     [ "signal_easel::aprs::Packet", "structsignal__easel_1_1aprs_1_1Packet.html", [
+      [ "signal_easel::aprs::Experimental", "structsignal__easel_1_1aprs_1_1Experimental.html", null ],
+      [ "signal_easel::aprs::MessageAck", "structsignal__easel_1_1aprs_1_1MessageAck.html", null ],
+      [ "signal_easel::aprs::MessagePacket", "structsignal__easel_1_1aprs_1_1MessagePacket.html", null ],
       [ "signal_easel::aprs::PositionPacket", "structsignal__easel_1_1aprs_1_1PositionPacket.html", null ]
     ] ],
     [ "signal_easel::aprs::Receiver::Stats", "classsignal__easel_1_1aprs_1_1Receiver.html#structsignal__easel_1_1aprs_1_1Receiver_1_1Stats", null ],

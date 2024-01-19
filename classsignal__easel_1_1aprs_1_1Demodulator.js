@@ -10,6 +10,7 @@ var classsignal__easel_1_1aprs_1_1Demodulator =
     [ "getType", "classsignal__easel_1_1aprs_1_1Demodulator.html#a0149ecf3027f6dcaff8b3d40f7a2d488", null ],
     [ "parseMessagePacket", "classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d", null ],
     [ "parsePositionPacket", "classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb", null ],
+    [ "parseExperimentalPacket", "classsignal__easel_1_1aprs_1_1Demodulator.html#a5e0e78f4186a6334507be9c955df55b6", null ],
     [ "printFrame", "classsignal__easel_1_1aprs_1_1Demodulator.html#a093fdacf32fe29bf475a21196b477cd9", null ],
     [ "processAudioBuffer", "classsignal__easel_1_1aprs_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57", null ],
     [ "lookForString", "classsignal__easel_1_1aprs_1_1Demodulator.html#aef7bf1f641de1283d710f23003dc6c58", null ],

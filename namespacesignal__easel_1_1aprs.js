@@ -24,6 +24,5 @@ var namespacesignal__easel_1_1aprs =
     [ "CheckPacketData", "namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f", null ],
     [ "checkLocationData", "namespacesignal__easel_1_1aprs.html#a7e5cf8507153513e6f422dc8ead78da4", null ],
     [ "AddRequiredFields", "namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb", null ],
-    [ "encodePacket", "namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d", null ],
-    [ "addLocationData", "namespacesignal__easel_1_1aprs.html#a52a5534433f71d7db42197b57ec2ba41", null ]
+    [ "encodePacket", "namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d", null ]
 ];

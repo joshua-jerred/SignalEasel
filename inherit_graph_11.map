@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classsignal__easel_1_1BitStream.html" title=" " alt="" coords="5,5,181,32"/>
+<area shape="rect" id="node1" href="$classsignal__easel_1_1Modulator.html" title="The abstract base class for all modulators that turn data into audio." alt="" coords="5,13,183,39"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1DataModulator.html" title="Another abstract base class for modulators that turn text/binary data into audio." alt="" coords="231,13,439,39"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1afsk_1_1Modulator.html" title="Modulates data into an AFSK signal." alt="" coords="487,5,625,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html" title=" " alt="" coords="673,5,812,47"/>
 </map>

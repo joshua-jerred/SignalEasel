@@ -1,15 +1,13 @@
 <map id="signal_easel::BitStream::getBitStreamLength" name="signal_easel::BitStream::getBitStreamLength">
-<area shape="rect" id="node1" title=" " alt="" coords="920,104,1096,145"/>
-<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396" title="Convert a bit stream from NRZI to standard encoding." alt="" coords="717,5,860,47"/>
-<area shape="rect" id="node7" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="717,71,860,112"/>
-<area shape="rect" id="node8" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="705,205,872,247"/>
-<area shape="rect" id="node13" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="717,136,860,177"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="477,69,657,111"/>
-<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="211,61,415,117"/>
-<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,68,148,109"/>
-<area shape="rect" id="node6" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="49,178,104,205"/>
-<area shape="rect" id="node9" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="498,213,637,255"/>
-<area shape="rect" id="node10" href="$classsignal__easel_1_1aprs_1_1Modulator.html#adfa8809d1c11321b9ff2c7efe7f58499" title=" " alt="" coords="196,141,429,183"/>
-<area shape="rect" id="node11" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a147321b48c2e282c62863f114702e54f" title=" " alt="" coords="208,207,417,263"/>
-<area shape="rect" id="node12" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a943e392227656943d7db842e1889d805" title=" " alt="" coords="211,287,414,343"/>
+<area shape="rect" id="node1" title=" " alt="" coords="891,104,1067,145"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396" title="Convert a bit stream from NRZI to standard encoding." alt="" coords="688,5,831,47"/>
+<area shape="rect" id="node7" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="688,71,831,112"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="676,201,843,243"/>
+<area shape="rect" id="node11" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="688,136,831,177"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="448,75,628,116"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="196,71,400,127"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,79,148,120"/>
+<area shape="rect" id="node6" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="49,151,104,178"/>
+<area shape="rect" id="node9" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="469,173,607,215"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="223,159,373,200"/>
 </map>

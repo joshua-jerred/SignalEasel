@@ -37,7 +37,6 @@ var NAVTREEINDEX0 =
 "aprs-example_8cpp.html#aedb572fba1cb3f5ab3c954b8f2636835":[7,0,6,1],
 "aprs_8cpp.html":[7,0,7],
 "aprs_8cpp.html#a3d23780e9687c92289aa5d426f394aef":[7,0,7,0],
-"aprs_8cpp.html#a52a5534433f71d7db42197b57ec2ba41":[7,0,7,6],
 "aprs_8cpp.html#a53b79c5e1cab35addb27026b3e9e0e21":[7,0,7,1],
 "aprs_8cpp.html#a586b022fa0c917fa8557bbd5cdc6aeeb":[7,0,7,4],
 "aprs_8cpp.html#a77481001a5b78a839972bb4220b43e4d":[7,0,7,5],
@@ -45,7 +44,6 @@ var NAVTREEINDEX0 =
 "aprs_8cpp.html#ae16006b4c75ab6423ad8b90ea814a14f":[7,0,7,2],
 "aprs_8hpp.html":[7,0,8],
 "aprs_8hpp.html#a3d23780e9687c92289aa5d426f394aef":[7,0,8,14],
-"aprs_8hpp.html#a52a5534433f71d7db42197b57ec2ba41":[7,0,8,17],
 "aprs_8hpp.html#a53b79c5e1cab35addb27026b3e9e0e21":[7,0,8,15],
 "aprs_8hpp.html#a564b7f300197bd746ad8864e216572b8":[7,0,8,13],
 "aprs_8hpp.html#a564b7f300197bd746ad8864e216572b8a62740eb30a6e54e71ca12a1acf5d055e":[7,0,8,13,0],
@@ -63,10 +61,11 @@ var NAVTREEINDEX0 =
 "aprs__modulator_8cpp.html":[7,0,12],
 "aprs__receiver_8cpp.html":[7,0,13],
 "aprs__test_8cpp.html":[7,0,14],
-"aprs__test_8cpp.html#a9081963202bf3fb3707231dee2f8530e":[7,0,14,2],
-"aprs__test_8cpp.html#acbdaf22c3fdf11354646c3a3cbe12eb7":[7,0,14,1],
+"aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947":[7,0,14,1],
+"aprs__test_8cpp.html#a9081963202bf3fb3707231dee2f8530e":[7,0,14,3],
+"aprs__test_8cpp.html#a94163b9a63db7738e0cf4c49259e1565":[7,0,14,2],
 "aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a":[7,0,14,0],
-"aprs__test_8cpp.html#aedf2e385a3d870f96178e08e2257dfc4":[7,0,14,3],
+"aprs__test_8cpp.html#aedf2e385a3d870f96178e08e2257dfc4":[7,0,14,4],
 "ax25-example_8cpp.html":[7,0,15],
 "ax25-example_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[7,0,15,0],
 "ax25_8hpp.html":[7,0,16],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "classsignal__easel_1_1afsk_1_1Demodulator.html#a304c31d2b38ba3df25b5f61bc6452e0c":[7,0,0,1,0],
 "classsignal__easel_1_1afsk_1_1Demodulator.html#a304c31d2b38ba3df25b5f61bc6452e0c":[6,0,0,0,0,0,0],
 "classsignal__easel_1_1afsk_1_1Demodulator.html#a3c27635ac79f8aab3e6a75d3f493fcd4":[6,0,0,0,0,16],
-"classsignal__easel_1_1afsk_1_1Demodulator.html#a3d2be69a6584c2c44ecbbea402196d86":[6,0,0,0,0,14]
+"classsignal__easel_1_1afsk_1_1Demodulator.html#a3d2be69a6584c2c44ecbbea402196d86":[6,0,0,0,0,14],
+"classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f":[7,0,0,1,1]
 };

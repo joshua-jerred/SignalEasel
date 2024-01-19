@@ -7,8 +7,10 @@ var structsignal__easel_1_1aprs_1_1PositionPacket =
     [ "Type", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a88fd2774f44e0c08805a4770d61c2402", [
       [ "UNKNOWN", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "POSITION", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1", null ],
-      [ "MESSAGE", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4", null ]
+      [ "MESSAGE", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4", null ],
+      [ "EXPERIMENTAL", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199", null ]
     ] ],
+    [ "encode", "structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad", null ],
     [ "time_code", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136", null ],
     [ "latitude", "structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c", null ],
     [ "longitude", "structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d", null ],

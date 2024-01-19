@@ -186,7 +186,13 @@ public:
         afsk_settings_(settings) {}
   ~Receiver() = default;
 
-  void process() override;
+  /**
+   * @brief Returns true if there was enough data to process.
+   *
+   * @return true
+   * @return false
+   */
+  bool process() override;
 
 protected:
   bool detectSignal(const PulseAudioBuffer &audio_buffer);

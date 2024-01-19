@@ -21,9 +21,12 @@
 
 namespace signal_easel {
 
-void afsk::Receiver::process() {
-  pulse_audio_reader_.process();
+bool afsk::Receiver::process() {
+  if (!pulse_audio_reader_.process()) {
+    return false;
+  }
   detectSignal(pulse_audio_reader_.getAudioBuffer());
+  return true;
 }
 
 bool afsk::Receiver::detectSignal(const PulseAudioBuffer &audio_buffer) {

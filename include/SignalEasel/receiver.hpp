@@ -27,7 +27,7 @@ public:
   Receiver(Settings settings = Settings()) : settings_(std::move(settings)) {}
   virtual ~Receiver() = default;
 
-  virtual void process() = 0;
+  virtual bool process() = 0;
 
   uint64_t getLatency() const { return pulse_audio_reader_.getLatency(); }
 

@@ -6,7 +6,7 @@ var classsignal__easel_1_1PulseAudioReader =
     [ "PulseAudioReader", "classsignal__easel_1_1PulseAudioReader.html#af50cfdaa7ca9c855da63d254af316789", null ],
     [ "operator=", "classsignal__easel_1_1PulseAudioReader.html#a52584ba3f754cacd6ca885e850767f54", null ],
     [ "operator=", "classsignal__easel_1_1PulseAudioReader.html#a991c746d0fd061bbcd92e8ad08ecd587", null ],
-    [ "process", "classsignal__easel_1_1PulseAudioReader.html#a62df29dd3cc835d7cbd8cda4a863f1cf", null ],
+    [ "process", "classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604", null ],
     [ "getRms", "classsignal__easel_1_1PulseAudioReader.html#ae84e99e3e84696d8c8cc2a7d2fb40739", null ],
     [ "getVolume", "classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424", null ],
     [ "getLatency", "classsignal__easel_1_1PulseAudioReader.html#ae13d17e25a6c22178dc02d0a503df329", null ],

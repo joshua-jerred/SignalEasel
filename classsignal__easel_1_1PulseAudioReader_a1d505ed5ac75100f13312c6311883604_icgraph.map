@@ -1,5 +1,5 @@
-<map id="signal_easel::PulseAudioReader::getAudioBuffer" name="signal_easel::PulseAudioReader::getAudioBuffer">
-<area shape="rect" id="node1" title=" " alt="" coords="301,5,484,47"/>
+<map id="signal_easel::PulseAudioReader::process" name="signal_easel::PulseAudioReader::process">
+<area shape="rect" id="node1" title="Returns true if there was enough audio to process." alt="" coords="301,5,484,47"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481" title="Returns true if there was enough data to process." alt="" coords="108,5,253,47"/>
 <area shape="rect" id="node3" href="$pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
 </map>

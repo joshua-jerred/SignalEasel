@@ -18,6 +18,7 @@ var aprs_8hpp =
       [ "total_other_packets", "classsignal__easel_1_1aprs_1_1Receiver.html#a49b7635ad0840df77f8e1ca5ac9fcf20", null ],
       [ "current_message_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a4c523f6fc9c49063f78f740af9f4307d", null ],
       [ "current_position_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a8951f94a494faf71f69ab1c14324bde3", null ],
+      [ "current_experimental_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#a3d9097118f919a98ff6be6ad2942352d", null ],
       [ "current_other_packets_in_queue", "classsignal__easel_1_1aprs_1_1Receiver.html#acab5e248ec448296de4a36e9fa7f2189", null ]
     ] ],
     [ "Settings", "structsignal__easel_1_1aprs_1_1Settings.html", "structsignal__easel_1_1aprs_1_1Settings" ],

@@ -139,8 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a52584ba3f754cacd6ca885e850767f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a991c746d0fd061bbcd92e8ad08ecd587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a991c746d0fd061bbcd92e8ad08ecd587">operator=</a> (<a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a991c746d0fd061bbcd92e8ad08ecd587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62df29dd3cc835d7cbd8cda4a863f1cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a62df29dd3cc835d7cbd8cda4a863f1cf">process</a> ()</td></tr>
-<tr class="separator:a62df29dd3cc835d7cbd8cda4a863f1cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d505ed5ac75100f13312c6311883604"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">process</a> ()</td></tr>
+<tr class="memdesc:a1d505ed5ac75100f13312c6311883604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if there was enough audio to process.  <a href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">More...</a><br /></td></tr>
+<tr class="separator:a1d505ed5ac75100f13312c6311883604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -174,6 +175,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="namespacesignal__easel.html#afd49f40a5604e1000a7354ddbcb6151b">signal_easel::PULSE_AUDIO_APP_NAME</a>, <a class="el" href="namespacesignal__easel.html#ac20ac790a12fdcd944c029c80500752e">signal_easel::PULSE_AUDIO_SAMPLE_SPEC</a>, <a class="el" href="classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a421e225ab39f3b133a0c1673b1eafbec">signal_easel::Exception::PULSE_OPEN_ERROR</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae3a91ac888a1eef47991ea256bba97f7">s_</a>.</p>
+
 </div>
 </div>
 <a id="ad572d4866ad347d16ad3817e62074f3c"></a>
@@ -190,6 +193,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae3a91ac888a1eef47991ea256bba97f7">s_</a>.</p>
 
 </div>
 </div>
@@ -298,14 +303,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a62df29dd3cc835d7cbd8cda4a863f1cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62df29dd3cc835d7cbd8cda4a863f1cf">&#9670;&nbsp;</a></span>process()</h2>
+<a id="a1d505ed5ac75100f13312c6311883604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d505ed5ac75100f13312c6311883604">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void signal_easel::PulseAudioReader::process </td>
+          <td class="memname">bool signal_easel::PulseAudioReader::process </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -313,11 +318,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c">signal_easel::afsk::Receiver::process()</a>.</p>
+<p>Returns true if there was enough audio to process. </p>
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a6e18257db7e73473bb7e4cbf72ac76b6">audio_buffer_</a>, <a class="el" href="namespacesignal__easel.html#aed90c60637ea63f57f997e0e07c9954d">signal_easel::AUDIO_SAMPLE_RATE</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a10740ae002efd9140d30bfae0082281b">latency_</a>, <a class="el" href="namespacesignal__easel.html#a0eab2d34f1a6d54eb605311531bd9a0e">signal_easel::PULSE_AUDIO_BUFFER_SIZE</a>, <a class="el" href="classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ad350461629458ec9207c969ba06a7903">signal_easel::Exception::PULSE_READ_ERROR</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a4cf9395bafd2ee2d5a1fe10db84af416">rms_</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae3a91ac888a1eef47991ea256bba97f7">s_</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ada9a6c1e84a3fdbf60dd9fc3e75300b4">volume_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481">signal_easel::afsk::Receiver::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1PulseAudioReader_a62df29dd3cc835d7cbd8cda4a863f1cf_icgraph.svg" width="490" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1PulseAudioReader_a1d505ed5ac75100f13312c6311883604_icgraph.svg" width="490" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -445,7 +454,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a6e18257db7e73473bb7e4cbf72ac76b6">audio_buffer_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c">signal_easel::afsk::Receiver::process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481">signal_easel::afsk::Receiver::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -478,7 +487,7 @@ Here is the caller graph for this function:</div>
 
 <p>Latency in milliseconds. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae13d17e25a6c22178dc02d0a503df329">getLatency()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae13d17e25a6c22178dc02d0a503df329">getLatency()</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">process()</a>.</p>
 
 </div>
 </div>
@@ -502,7 +511,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae84e99e3e84696d8c8cc2a7d2fb40739">getRms()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae84e99e3e84696d8c8cc2a7d2fb40739">getRms()</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">process()</a>.</p>
 
 </div>
 </div>
@@ -526,7 +535,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424">getVolume()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424">getVolume()</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">process()</a>.</p>
 
 </div>
 </div>
@@ -577,6 +586,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#afc08764202cc8119d6531093f4544408">PulseAudioReader()</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ad572d4866ad347d16ad3817e62074f3c">~PulseAudioReader()</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">process()</a>.</p>
+
 </div>
 </div>
 <a id="a6e18257db7e73473bb7e4cbf72ac76b6"></a>
@@ -599,7 +610,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#adbb78105ceda235ba2314acb2f8dec14">getAudioBuffer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#adbb78105ceda235ba2314acb2f8dec14">getAudioBuffer()</a>, and <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">process()</a>.</p>
 
 </div>
 </div>

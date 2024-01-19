@@ -2,7 +2,7 @@ var classsignal__easel_1_1afsk_1_1Receiver =
 [
     [ "Receiver", "classsignal__easel_1_1afsk_1_1Receiver.html#a8a40dffe2ced91b02d7e8304f276d9ea", null ],
     [ "~Receiver", "classsignal__easel_1_1afsk_1_1Receiver.html#a5170dbba364c692cc1c12e967b967ae0", null ],
-    [ "process", "classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c", null ],
+    [ "process", "classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481", null ],
     [ "detectSignal", "classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3", null ],
     [ "decode", "classsignal__easel_1_1afsk_1_1Receiver.html#ac73db08c49c3f3c0b9dc0b8bb2fee6b8", null ],
     [ "getLatency", "classsignal__easel_1_1afsk_1_1Receiver.html#ad544feeeb5431a5f978d1d7bb59628a1", null ],

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Returns true if there was enough audio to process.">
 <polygon fill="#bfbfbf" stroke="black" points="222,-0.5 222,-30.5 359,-30.5 359,-0.5 222,-0.5"/>
 <text text-anchor="start" x="230" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::PulseAudio</text>
 <text text-anchor="middle" x="290.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Reader::process</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classsignal__easel_1_1afsk_1_1Receiver.html#a7acf1bc3ee9be6d83923a8f9f6c75a1c" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481" target="_top" xlink:title="Returns true if there was enough data to process.">
 <polygon fill="none" stroke="black" points="77,-0.5 77,-30.5 186,-30.5 186,-0.5 77,-0.5"/>
 <text text-anchor="start" x="85" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::afsk</text>
 <text text-anchor="middle" x="131.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Receiver::process</text>

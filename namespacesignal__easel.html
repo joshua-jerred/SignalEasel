@@ -215,7 +215,7 @@ Variables</h2></td></tr>
 <tr class="separator:a47b4a853cd43e50b24e0ee57bdb04be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd49f40a5604e1000a7354ddbcb6151b"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel.html#afd49f40a5604e1000a7354ddbcb6151b">PULSE_AUDIO_APP_NAME</a> = &quot;SignalEasel&quot;</td></tr>
 <tr class="separator:afd49f40a5604e1000a7354ddbcb6151b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eab2d34f1a6d54eb605311531bd9a0e"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel.html#a0eab2d34f1a6d54eb605311531bd9a0e">PULSE_AUDIO_BUFFER_SIZE</a> = 200</td></tr>
+<tr class="memitem:a0eab2d34f1a6d54eb605311531bd9a0e"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel.html#a0eab2d34f1a6d54eb605311531bd9a0e">PULSE_AUDIO_BUFFER_SIZE</a> = 16000</td></tr>
 <tr class="separator:a0eab2d34f1a6d54eb605311531bd9a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c542406e1ec08ba9304d668ed90d27f"><td class="memItemLeft" align="right" valign="top">constexpr pa_sample_format_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel.html#a7c542406e1ec08ba9304d668ed90d27f">PULSE_AUDIO_SAMPLE_FORMAT</a> = PA_SAMPLE_S16NE</td></tr>
 <tr class="separator:a7c542406e1ec08ba9304d668ed90d27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -974,7 +974,7 @@ Here is the caller graph for this function:</div>
 <p>The sample rate of the audio. </p>
 <p>This value was chosen as it's cleanly devisable by 1200 and 60, this is helpful for AFSK and SSTV. Choosing the standard 44100 creates problems, especially with SSTV which was created in the days of 60Hz. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal()</a>, <a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">signal_easel::Modulator::clearBuffer()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10">signal_easel::Modulator::writeToFile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal()</a>, <a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">signal_easel::Modulator::clearBuffer()</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">signal_easel::PulseAudioReader::process()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10">signal_easel::Modulator::writeToFile()</a>.</p>
 
 </div>
 </div>
@@ -1199,7 +1199,7 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="anamespacesignal__easel_html_a7c542406e1ec08ba9304d668ed90d27f"><div class="ttname"><a href="namespacesignal__easel.html#a7c542406e1ec08ba9304d668ed90d27f">signal_easel::PULSE_AUDIO_SAMPLE_FORMAT</a></div><div class="ttdeci">constexpr pa_sample_format_t PULSE_AUDIO_SAMPLE_FORMAT</div><div class="ttdef"><b>Definition:</b> pulse_audio.hpp:30</div></div>
 <div class="ttc" id="anamespacesignal__easel_html_a883b670d441c1c42837c5e5ddfa4b306"><div class="ttname"><a href="namespacesignal__easel.html#a883b670d441c1c42837c5e5ddfa4b306">signal_easel::NUM_PULSE_CHANNELS</a></div><div class="ttdeci">constexpr uint8_t NUM_PULSE_CHANNELS</div><div class="ttdef"><b>Definition:</b> pulse_audio.hpp:31</div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#ae1cf54c8f962ca1920f79b75f96b20be">signal_easel::Modulator::writeToPulseAudio()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#afc08764202cc8119d6531093f4544408">signal_easel::PulseAudioReader::PulseAudioReader()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#ae1cf54c8f962ca1920f79b75f96b20be">signal_easel::Modulator::writeToPulseAudio()</a>.</p>
 
 </div>
 </div>
@@ -1215,7 +1215,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#ae1cf54c8f962ca1920f79b75f96b20be">signal_easel::Modulator::writeToPulseAudio()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#afc08764202cc8119d6531093f4544408">signal_easel::PulseAudioReader::PulseAudioReader()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#ae1cf54c8f962ca1920f79b75f96b20be">signal_easel::Modulator::writeToPulseAudio()</a>.</p>
 
 </div>
 </div>
@@ -1251,7 +1251,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr size_t signal_easel::PULSE_AUDIO_BUFFER_SIZE = 200</td>
+          <td class="memname">constexpr size_t signal_easel::PULSE_AUDIO_BUFFER_SIZE = 16000</td>
         </tr>
       </table>
   </td>
@@ -1260,6 +1260,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">signal_easel::PulseAudioReader::process()</a>.</p>
 
 </div>
 </div>

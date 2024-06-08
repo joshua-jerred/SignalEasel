@@ -1,9 +1,11 @@
 # Signal Easel
+
 A C++ library for modulating and demodulating various digital modes. It is designed to be easy to use/integrate into other projects.
 
 For detailed documentation, please see [https://signaleasel.joshuajer.red](https://signaleasel.joshuajer.red).
 
 ## Supported modes
+
 - AFSK1200
   - Modulation and Demodulation
   - ASCII mode for sending text
@@ -28,6 +30,7 @@ For detailed documentation, please see [https://signaleasel.joshuajer.red](https
 ***Important:*** SSTV requires that you have magick++ installed with the modules related to fonts and the image formats you want to use. This is ***optional***. If you want to use the other modes, then you do not need any 3rd party libraries. This library was developed on a Linux system but it may work on others.
 
 Build:
+
 ```bash
 # Install Prerequisites
 apt install libpulse-dev -y
@@ -65,3 +68,10 @@ make -j8
 sudo make install
 sudo ldconfig # May need to do more for linking
 ```
+
+***
+
+## Resources
+
+- https://user.engineering.uiowa.edu/~eedesign/algorithm.pdf
+- https://archive.org/details/dcc-2014-amateur-bell-202-modem-w-6-kwf-and-bridget-benson

@@ -142,6 +142,7 @@ void afsk::Demodulator::audioBufferToBaseBandSignal(
 
 void afsk::Demodulator::baseBandToBitStream(
     afsk::Demodulator::ProcessResults &results) {
+  (void)results;
   output_bit_stream_ = BitStream();
   /// @brief The sample clock counts up to 40 and then resets.
   /// @details Symbols are 40 samples long. This clock is used to determine when
@@ -156,11 +157,13 @@ void afsk::Demodulator::baseBandToBitStream(
 
   int32_t clock_skew_mean = 0;
   int32_t clock_skew_variance = 0;
+  (void)clock_skew_variance;
 
   int32_t samples_since_last_boundary = 0;
   int32_t samples_since_last_boundary_sum = 0;
   int32_t num_boundaries = 0;
   int32_t mean_samples_between_boundaries = 0;
+  (void)mean_samples_between_boundaries;
 
   uint32_t num_clock_syncs = 0;
 

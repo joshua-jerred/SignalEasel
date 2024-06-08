@@ -57,7 +57,15 @@ public:
     PULSE_AUDIO_DISABLED,
     APRS_RECEIVER_BUFFER_FULL,
     APRS_MESSAGE_NOT_IMPLEMENTED,
-    APRS_INVALID_COMMENT_LENGTH
+    APRS_INVALID_COMMENT_LENGTH,
+    SSTV_MODE_NOT_IMPLEMENTED,
+    SSTV_IMAGE_TOOLS_ERROR,
+    SSTV_IMAGE_SIZE_MISMATCH,
+    SSTV_INVALID_RGB_VALUE,
+    SSTV_SCAN_LINE_BUFFER_SIZE_MISMATCH,
+    SSTV_GET_PIXEL_FAILED,
+    SSTV_COLOR_FORMAT_NOT_IMPLEMENTED,
+    SSTV_INVALID_COLOR_TYPE,
   };
 
   static std::string idToString(Id exception_id) {
@@ -128,13 +136,31 @@ public:
       return "APRS message not implemented";
     case Id::APRS_INVALID_COMMENT_LENGTH:
       return "Invalid APRS comment length";
+    case Id::SSTV_MODE_NOT_IMPLEMENTED:
+      return "SSTV mode not implemented";
+    case Id::SSTV_IMAGE_TOOLS_ERROR:
+      return "SSTV image tools error";
+    case Id::SSTV_IMAGE_SIZE_MISMATCH:
+      return "SSTV image size mismatch";
+    case Id::SSTV_INVALID_RGB_VALUE:
+      return "SSTV invalid RGB value";
+    case Id::SSTV_SCAN_LINE_BUFFER_SIZE_MISMATCH:
+      return "SSTV scan line buffer size mismatch";
+    case Id::SSTV_GET_PIXEL_FAILED:
+      return "SSTV get pixel failed";
+    case Id::SSTV_COLOR_FORMAT_NOT_IMPLEMENTED:
+      return "SSTV color format not implemented";
+    case Id::SSTV_INVALID_COLOR_TYPE:
+      return "SSTV invalid color type";
     default:
       return "Unknown error";
     }
   };
 
-  Exception(const Exception::Id &exception_id)
-      : id_(exception_id), exception_string_(idToString(exception_id)) {}
+  Exception(const Exception::Id &exception_id, const std::string &message = "")
+      : id_(exception_id),
+        exception_string_(idToString(exception_id) +
+                          (message.size() > 0 ? " : " + message : "")) {}
   virtual const char *what() const throw() { return exception_string_.c_str(); }
 
 private:

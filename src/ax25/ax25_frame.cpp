@@ -96,7 +96,7 @@ std::vector<uint8_t> Frame::buildFrame() {
     build_buffer_.push_back(byte);
   }
 
-  if (repeater_addresses_.size() < 0) {
+  if (repeater_addresses_.size() == 0) {
     source_address_.setIsLastAddress(true);
   }
 
@@ -106,7 +106,15 @@ std::vector<uint8_t> Frame::buildFrame() {
   }
 
   // Add the repeater addresses if there are any
-  for (auto address : repeater_addresses_) {
+  for (unsigned int i = 0; i < repeater_addresses_.size(); i++) {
+    auto address = repeater_addresses_.at(i);
+
+    if (i + 1 == repeater_addresses_.size()) {
+      address.setIsLastAddress(true);
+    } else {
+      address.setIsLastAddress(false);
+    }
+
     for (uint8_t byte : address.encodeAddress()) {
       build_buffer_.push_back(byte);
     }
@@ -152,8 +160,8 @@ std::vector<uint8_t> Frame::encodeFrame() {
   // Add the contents of the frame
   // first, reverse the bytes
   for (uint8_t byte : buildFrame()) {
-    uint8_t reversed_byte = reverseByte(byte);
-    for (int i = 7; i >= 0; i--) {
+    uint8_t reversed_byte = byte; // reverseByte(byte);
+    for (int i = 0; i <= 7; i++) {
       bool bit = (reversed_byte >> i) & 1;
       if (bit) {
         consecutive_ones++;
@@ -234,7 +242,17 @@ void Frame::addToBuildBuffer(uint8_t byte, bool reverse) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Frame &frame) {
-  os << frame.destination_address_ << ">" << frame.source_address_ << ":";
+  os << frame.source_address_ << ">" << frame.destination_address_;
+
+  auto repeaters = frame.getRepeaterAddresses();
+
+  if (repeaters.size() != 0) {
+    for (auto &address : repeaters) {
+      std::cout << "," << address;
+    }
+  }
+
+  std::cout << ":";
   for (uint8_t byte : frame.information_) {
     os << (char)byte;
   }

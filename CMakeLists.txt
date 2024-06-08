@@ -68,8 +68,9 @@ set(SignalEasel_sources
     src/aprs/aprs_encoders.cpp
 
     # PSK
-    # ${MWAV_SRC}/modulators/psk.cpp
-    # ${MWAV_SRC}/demodulators/psk.cpp
+    src/psk/psk_modulator.cpp
+    src/psk/convolutional_code.cpp
+    src/psk/varicode.cpp
 
     # PulseAudio
     src/pulse_audio_writer.cpp

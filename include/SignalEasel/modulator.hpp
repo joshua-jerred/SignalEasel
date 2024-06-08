@@ -62,6 +62,14 @@ protected:
   void addAudioSample(int16_t sample) { audio_buffer_.push_back(sample); }
 
   /**
+   * @brief Add a PCM sample to the audio buffer
+   * @param sample The PCM sample to add - -1.0 to 1.0
+   */
+  void addAudioSampleDouble(double sample) {
+    audio_buffer_.push_back(static_cast<int16_t>(sample * 32767));
+  }
+
+  /**
    * @brief Add silence to the audio buffer
    * @param duration_in_samples
    */

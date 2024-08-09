@@ -51,7 +51,7 @@ struct Settings {
   /**
    * @brief The maximum amplitude of the audio. 0.0 - 1.0
    */
-  double amplitude = 0.3;
+  double amplitude = 0.5;
 
   /**
    * @brief The amount of silence to add between the morse code call sign and

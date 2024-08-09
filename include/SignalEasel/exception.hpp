@@ -66,6 +66,8 @@ public:
     SSTV_GET_PIXEL_FAILED,
     SSTV_COLOR_FORMAT_NOT_IMPLEMENTED,
     SSTV_INVALID_COLOR_TYPE,
+    VALIDATION_ERROR,
+    GENERIC
   };
 
   static std::string idToString(Id exception_id) {
@@ -152,6 +154,10 @@ public:
       return "SSTV color format not implemented";
     case Id::SSTV_INVALID_COLOR_TYPE:
       return "SSTV invalid color type";
+    case Id::VALIDATION_ERROR:
+      return "Validation error";
+    case Id::GENERIC:
+      return "Generic";
     default:
       return "Unknown error";
     }
@@ -161,12 +167,22 @@ public:
       : id_(exception_id),
         exception_string_(idToString(exception_id) +
                           (message.size() > 0 ? " : " + message : "")) {}
+  Exception(const std::string &message = "")
+      : id_(Exception::Id::GENERIC),
+        exception_string_(idToString(Exception::Id::GENERIC) +
+                          (message.size() > 0 ? " : " + message : "")) {}
   virtual const char *what() const throw() { return exception_string_.c_str(); }
 
 private:
   Exception::Id id_;
   std::string exception_string_;
 };
+
+inline void validate(bool condition, std::string message = "") {
+  if (!condition) {
+    throw Exception(Exception::Id::VALIDATION_ERROR, message);
+  }
+}
 
 } // namespace signal_easel
 

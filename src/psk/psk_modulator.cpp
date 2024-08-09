@@ -23,6 +23,9 @@
 #include <SignalEasel/constants.hpp>
 #include <SignalEasel/psk.hpp>
 
+#include "convolutional_code.hpp"
+#include "psk_wave_shaper.hpp"
+
 namespace signal_easel::psk {
 
 void Modulator::encodeString(const std::string &message) {
@@ -55,6 +58,8 @@ void Modulator::encodeString(const std::string &message) {
   } else {
     encodeQpsk();
   }
+
+  bit_stream_.clear();
 }
 
 void Modulator::addVaricode(const char c) {
@@ -75,16 +80,12 @@ void Modulator::addVaricode(const char c) {
 }
 
 void Modulator::addPreamble() {
-  // static unsigned char zeros[1] = {0x00};
   for (size_t i = 0; i < settings_.preamble_length; i++) {
     bit_stream_.addZeroBit();
   }
 }
 
 void Modulator::addPostamble() {
-  // static unsigned char zeros[1] = {0x00};
-  // static unsigned char ones[1] = {0xFF};
-
   uint32_t postamble_length = settings_.postamble_length;
 
   postamble_length +=
@@ -99,71 +100,69 @@ void Modulator::addPostamble() {
   }
 }
 
-void Modulator::addSymbol(double shift, int filter_end) {
-  const double power = 2.0;
-  const double roll_off = 2.9;
-  const double amplitude = .5;
-
-  double time = 0 - (samples_per_symbol_ / 2);
-  for (uint32_t i = 0; i < samples_per_symbol_; i++) {
-    double unfiltered = std::cos(carrier_wave_angle_ + shift);
-    double filter = std::pow(
-        std::cos((std::abs(time) / samples_per_symbol_) * roll_off), power);
-    if (!last_symbol_end_filtered_ && (time < 0)) {
-      filter = 1;
-    }
-    if (!filter_end && (time > 0)) { // Remove filter from end of symbol
-      filter = 1;
-    }
-    double sample = amplitude * filter * unfiltered * 32768;
-    std::cout << sample << std::endl;
-    addAudioSample(sample); // write sample to wav file
-
-    carrier_wave_angle_ += angle_delta_;
-    time += 1;
-    if (carrier_wave_angle_ > 2 * M_PI) {
-      carrier_wave_angle_ -= 2 * M_PI;
-    }
-  }
-  last_symbol_end_filtered_ = filter_end;
-}
-
 void Modulator::encodeBpsk() {
+  PskWaveShaper wave_shaper(
+      settings_.carrier_frequency,
+      bst::template_tools::to_underlying(settings_.symbol_rate),
+      settings_.amplitude, audio_buffer_);
+
+  // Swap the phase from 0 to 180 or 180 to 0
+  auto swapPhase = [](Phase phase) {
+    return phase == Phase::ONE_EIGHTY ? Phase::ZERO : Phase::ONE_EIGHTY;
+  };
+
+  Phase last_phase = Phase::ZERO;
+  Phase current_phase = Phase::ZERO;
+
   int bit = bit_stream_.popNextBit();
   int next_bit = bit_stream_.peakNextBit();
-  int last_phase = 0; // 0 = 0, 1 = M_PI
+
+  // Request bits from the BitStream until there are no more.
   while (bit != -1) {
-    int filter_end;
-    if (bit) { // Encode a 1 by keeping the phase shift the same
-      filter_end = next_bit == 1
-                       ? 0
-                       : 1; // If next bit is 1, do not filter end of symbol.
-      addSymbol(last_phase ? 0 : M_PI, filter_end);
-    } else if (!bit) { // Encode a 0 by switching phase
-      filter_end = next_bit == 0
-                       ? 0
-                       : 1; // If next bit is 0, do not filter end of symbol.
-      addSymbol(last_phase ? M_PI : 0, filter_end);
-      last_phase = !last_phase;
+
+    // Encode a 1 by keeping the phase shift the same, encode a 0 by switching
+    // phase
+    if (bit == 1) {
+      current_phase = last_phase;
+    } else if (bit == 0) {
+      current_phase = swapPhase(last_phase);
     }
-    // last_phase ? "1" : "0";
+
+    // If the next bit is a 0, the next symbol will shift in phase.
+    // This is used to determine if the filter should be applied to the end of
+    // this symbol.
+    bool next_symbol_shifts = next_bit == 0 ? true : false;
+    wave_shaper.addSymbol(current_phase, next_symbol_shifts);
+
+    // Update the state for the next iteration
+    last_phase = current_phase;
     bit = bit_stream_.popNextBit();
     next_bit = bit_stream_.peakNextBit();
   }
 }
 
 void Modulator::encodeQpsk() {
-  unsigned char buffer = 0;
+  PskWaveShaper wave_shaper(
+      settings_.carrier_frequency,
+      bst::template_tools::to_underlying(settings_.symbol_rate),
+      settings_.amplitude, audio_buffer_);
+
+  // Five bit shift register
+  uint8_t buffer = 0;
+
+  Phase current_phase = Phase::ZERO;
+  Phase next_phase = Phase::ZERO;
+
   int bit = bit_stream_.popNextBit();
-  int shift = 0;
   while (bit != -1) {
+    current_phase = getShiftedConvolutionalCodePhase(buffer, current_phase);
     buffer = ((buffer << 1) | bit) & 0x1f;
-    int filter_end = 0;
-    if ((int)shift != (int)ConvolutionalCode.at(buffer)) {
-      filter_end = 1;
-    }
-    shift += ConvolutionalCode.at(buffer);
-    addSymbol(shift, filter_end);
+    next_phase = getShiftedConvolutionalCodePhase(buffer, current_phase);
+
+    bool filter_end = current_phase != next_phase;
+
+    wave_shaper.addSymbol(current_phase, filter_end);
+
     bit = bit_stream_.popNextBit();
   }
 }

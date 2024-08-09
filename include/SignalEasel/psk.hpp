@@ -26,7 +26,6 @@
 
 namespace signal_easel::psk {
 
-extern const std::map<uint8_t, double> ConvolutionalCode;
 extern const std::array<uint16_t, 128> AsciiToVaricodeArray;
 extern const std::unordered_map<std::string, uint8_t> VaricodeToAsciiMap;
 

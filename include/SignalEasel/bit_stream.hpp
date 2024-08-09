@@ -58,6 +58,14 @@ public:
 
   const std::vector<uint32_t> &getBitVector() const { return bit_stream_; }
 
+  void clear() {
+    bit_stream_.clear();
+    bit_stream_index_ = 0;
+    bit_stream_buffer_ = 0;
+    bit_stream_offset_ = 0;
+    bit_stream_length_ = 0;
+  }
+
 private:
   std::vector<uint32_t> bit_stream_ = std::vector<uint32_t>();
   int bit_stream_index_ = 0;

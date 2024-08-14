@@ -12,7 +12,7 @@ message(STATUS "=== SignalEasel Main project: ${MAIN_PROJECT}")
 
 # --- Configuration ---------------
 option(USE_PULSEAUDIO "Use PulseAudio for audio input/output" ON)
-option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
+option(SSTV_ENABLED "Enable SSTV - Requires Magick++" ON)
 option(UNIT_TESTS "Enable unit tests" OFF)
 
 # ---------------------------------

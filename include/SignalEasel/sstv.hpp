@@ -69,6 +69,7 @@ private:
   enum class ColorFormat { _4_2_0_, _4_2_2_, NONE };
   enum class ColorType { Y, Cb, Cr };
 
+  void addPreamble();
   void encodeAdjustedImage(SstvImage &image);
   void readImageLine(SstvImage &image, uint32_t line_number);
   void encodeScanLine(uint32_t line_number);
@@ -84,6 +85,8 @@ private:
   ColorFormat color_format_ = ColorFormat::NONE;
   uint32_t line_width_ = 0;
   uint32_t num_of_lines_ = 0;
+
+  uint8_t vis_code_ = 0;
 
   double y_scan_line_time_ = 0;
   double c_scan_line_time_ = 0;

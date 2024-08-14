@@ -27,6 +27,9 @@ Modulator::Modulator(sstv::Settings settings) : settings_(std::move(settings)) {
     color_format_ = ColorFormat::_4_2_0_;
     line_width_ = 320;
     num_of_lines_ = 240;
+
+    vis_code_ = 0b10001000;
+
     y_scan_line_time_ = 88.0;
     c_scan_line_time_ = 44.0;
 
@@ -64,11 +67,39 @@ void Modulator::encodeImage(std::string input_image_path) {
     }
 
     scan_line_buffer_.reserve(line_width_);
-
+    addPreamble();
     encodeAdjustedImage(image);
+
   } catch (const std::exception &e) {
     throw Exception(Exception::Id::SSTV_IMAGE_TOOLS_ERROR, e.what());
   }
+}
+
+void Modulator::addPreamble() {
+  auto visCodeBitFrequncy = [](uint8_t vis_code, uint8_t bit_number) {
+    return vis_code & (1 << bit_number) ? 1100 : 1300;
+  };
+
+  pulse(100, 1900);
+  pulse(100, 1500);
+  pulse(100, 1900);
+  pulse(100, 1500);
+  pulse(100, 2300);
+  pulse(100, 1500);
+  pulse(100, 2300);
+  pulse(100, 1500);
+
+  pulse(300, 1900); // Leader Tone
+  pulse(10, 1500);  // Break
+  pulse(300, 1900); // Leader Tone
+
+  pulse(30, 1200); // Start Bit
+
+  for (int i = 0; i < 8; i++) {
+    pulse(30, visCodeBitFrequncy(vis_code_, i));
+  }
+
+  pulse(21, 1200); // Stop Bit
 }
 
 void Modulator::encodeAdjustedImage(SstvImage &image) {
@@ -167,7 +198,7 @@ void Modulator::writeBuffer(const double total_time, ColorType ycbcr_colors) {
   int previous_pixel_index = -1;
   int frequency = 0;
   double color = 0;
-  for (int i = 0; i < num_of_samples; i++) {
+  for (int i = 1; i <= num_of_samples; i++) {
     int new_pixel_index =
         (int)((double)i / (double)num_of_samples * (double)line_width_);
     if (new_pixel_index != previous_pixel_index) {

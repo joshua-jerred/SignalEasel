@@ -142,7 +142,7 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6d1adbf63c2626b4bc9374eff0e63d13"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1Settings.html#a6d1adbf63c2626b4bc9374eff0e63d13">amplitude</a> = 0.3</td></tr>
+<tr class="memitem:a6d1adbf63c2626b4bc9374eff0e63d13"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1Settings.html#a6d1adbf63c2626b4bc9374eff0e63d13">amplitude</a> = 0.5</td></tr>
 <tr class="memdesc:a6d1adbf63c2626b4bc9374eff0e63d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum amplitude of the audio. 0.0 - 1.0.  <a href="structsignal__easel_1_1Settings.html#a6d1adbf63c2626b4bc9374eff0e63d13">More...</a><br /></td></tr>
 <tr class="separator:a6d1adbf63c2626b4bc9374eff0e63d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab435c367477712933d3edcfec99620a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsignal__easel_1_1afsk_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bb">Settings::BitEncoding</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1afsk_1_1Settings.html#ab435c367477712933d3edcfec99620a3">bit_encoding</a> = <a class="el" href="structsignal__easel_1_1afsk_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bba94e94133f4bdc1794c6b647b8ea134d0">BitEncoding::STANDARD</a></td></tr>
@@ -278,7 +278,7 @@ Public Attributes</h2></td></tr>
 <p>An amateur radio call sign. </p>
 <p>Can be left empty if call_sign_mode is set to NONE, but not if using the APRS modulator. Must conform to the FCC's rules for call signs. </p><dl class="section warning"><dt>Warning</dt><dd>This may be a problem for international users. If so, please create an issue on GitHub. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">signal_easel::Modulator::clearBuffer()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10">signal_easel::Modulator::writeToFile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">signal_easel::Modulator::clearBuffer()</a>, <a class="el" href="classsignal__easel_1_1sstv_1_1Modulator.html#a6598802f6a659efde056f846d7eb9d2c">signal_easel::sstv::Modulator::encodeImage()</a>, <a class="el" href="sstv__test_8cpp.html#a81c59728812e528beb650e55bb38fd4b">TEST()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10">signal_easel::Modulator::writeToFile()</a>.</p>
 
 </div>
 </div>
@@ -319,7 +319,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double signal_easel::Settings::amplitude = 0.3</td>
+          <td class="memname">double signal_easel::Settings::amplitude = 0.5</td>
         </tr>
       </table>
   </td>
@@ -331,7 +331,7 @@ Public Attributes</h2></td></tr>
 
 <p>The maximum amplitude of the audio. 0.0 - 1.0. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb">signal_easel::afsk::Modulator::encodeBytes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1psk_1_1Modulator.html#a0949f7b7120c7a1b3c350681537e3181">signal_easel::psk::Modulator::encodeBpsk()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb">signal_easel::afsk::Modulator::encodeBytes()</a>, and <a class="el" href="classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e">signal_easel::psk::Modulator::encodeQpsk()</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,4 @@
+<map id="signal_easel::psk::PskWaveShaper::addSymbol" name="signal_easel::psk::PskWaveShaper::addSymbol">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,212,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1psk_1_1PskWaveShaper.html#ac4db3c5943e9f56ce1d058a2347a2438" title="A filter to remove the sharp edges of the wave during a phase change." alt="" coords="260,5,487,47"/>
+</map>

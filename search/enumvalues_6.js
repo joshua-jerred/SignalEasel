@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['message_846',['MESSAGE',['../structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4',1,'signal_easel::aprs::Packet']]]
+  ['file_5fopen_5ferror_1056',['FILE_OPEN_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a08715903eca17abcd7ecdb74bc10aa4b',1,'signal_easel::Exception']]]
 ];

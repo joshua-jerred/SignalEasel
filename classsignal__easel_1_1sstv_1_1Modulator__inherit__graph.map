@@ -1,0 +1,4 @@
+<map id="signal_easel::sstv::Modulator" name="signal_easel::sstv::Modulator">
+<area shape="rect" id="node1" title="SSTV Modulator." alt="" coords="5,292,229,677"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Modulator.html" title="The abstract base class for all modulators that turn data into audio." alt="" coords="16,5,219,244"/>
+</map>

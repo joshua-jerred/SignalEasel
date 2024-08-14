@@ -1,0 +1,12 @@
+<map id="signal_easel::sstv::Modulator::encodeImage" name="signal_easel::sstv::Modulator::encodeImage">
+<area shape="rect" id="node1" title="Encodes an image into SSTV audio." alt="" coords="5,43,197,84"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a9e6343e922e5d6dd312d16c0781b28c4" title=" " alt="" coords="254,5,445,47"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a5db5191f0447cc4b34fff09fc35c7ffe" title=" " alt="" coords="245,71,453,127"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a4925712af983bce311224cd51c4b9409" title=" " alt="" coords="777,5,916,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04" title="Add a sine wave to the audio buffer." alt="" coords="983,5,1160,47"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8" title="Add a PCM sample to the audio buffer." alt="" coords="1208,5,1385,47"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1sstv_1_1Modulator.html#acf3f661e744b92527504daff37dc8505" title=" " alt="" coords="501,68,711,109"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a3991e5594ce882fae3a7a7b351b1b102" title=" " alt="" coords="505,133,707,175"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1sstv_1_1Modulator.html#ac6c7141bc8b18abd7e08d8c201aadfb2" title=" " alt="" coords="759,71,935,112"/>
+<area shape="rect" id="node9" href="$namespacesignal__easel_1_1sstv.html#ab81e87d4063acb6dd548de487c8d07b3" title=" " alt="" coords="1002,71,1141,112"/>
+</map>

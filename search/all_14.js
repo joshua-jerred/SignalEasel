@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['_7edatamodulator_430',['~DataModulator',['../classsignal__easel_1_1DataModulator.html#afa8336dcc1aea45266fb636a23e86c34',1,'signal_easel::DataModulator']]],
-  ['_7edemodulator_431',['~Demodulator',['../classsignal__easel_1_1afsk_1_1Demodulator.html#adb580f5fb043a3043a7252642a74e0e6',1,'signal_easel::afsk::Demodulator::~Demodulator()'],['../classsignal__easel_1_1Demodulator.html#af80118391508a4a4b73749eb22d0c904',1,'signal_easel::Demodulator::~Demodulator()']]],
-  ['_7emodulator_432',['~Modulator',['../classsignal__easel_1_1afsk_1_1Modulator.html#a243b344827d941d3a657a6b8e2375724',1,'signal_easel::afsk::Modulator::~Modulator()'],['../classsignal__easel_1_1Modulator.html#a89ee4424ae15fd470ae78b2ad61bece4',1,'signal_easel::Modulator::~Modulator()']]],
-  ['_7epulseaudioreader_433',['~PulseAudioReader',['../classsignal__easel_1_1PulseAudioReader.html#ad572d4866ad347d16ad3817e62074f3c',1,'signal_easel::PulseAudioReader']]],
-  ['_7ereceiver_434',['~Receiver',['../classsignal__easel_1_1afsk_1_1Receiver.html#a5170dbba364c692cc1c12e967b967ae0',1,'signal_easel::afsk::Receiver::~Receiver()'],['../classsignal__easel_1_1Receiver.html#a02cdf84e2e8181e5f08c6edc0ad3806c',1,'signal_easel::Receiver::~Receiver()']]]
+  ['ui_525',['UI',['../classsignal__easel_1_1ax25_1_1Frame.html#ab500d2fcaa5de23d09b5836677c85ffca71ff71526d15db86eb50fcac245d183b',1,'signal_easel::ax25::Frame']]],
+  ['unit_526',['unit',['../structsignal__easel_1_1aprs_1_1Telemetry.html#a663f48f8ba1779b7a4685a7bc4eb1e2d',1,'signal_easel::aprs::Telemetry::Analog::unit()'],['../structsignal__easel_1_1aprs_1_1Telemetry.html#a62201a3c1e4cd45995ab3f37f933112b',1,'signal_easel::aprs::Telemetry::Digital::unit()']]],
+  ['unknown_527',['UNKNOWN',['../structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3',1,'signal_easel::aprs::Packet']]],
+  ['utilities_2ecpp_528',['utilities.cpp',['../utilities_8cpp.html',1,'']]],
+  ['utilities_2ehpp_529',['utilities.hpp',['../utilities_8hpp.html',1,'']]]
 ];

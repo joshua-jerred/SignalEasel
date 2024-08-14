@@ -1,8 +1,4 @@
 <map id="signal_easel::ax25::reverseByte" name="signal_easel::ax25::reverseByte">
-<area shape="rect" id="node1" title="Reverse a byte." alt="" coords="731,39,873,80"/>
-<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#a1389edfa566006427db42adfd700f37d" title=" " alt="" coords="493,5,683,47"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="505,71,671,112"/>
-<area shape="rect" id="node4" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="307,71,445,112"/>
-<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="108,71,259,112"/>
-<area shape="rect" id="node6" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="5,78,60,105"/>
+<area shape="rect" id="node1" title="Reverse a byte." alt="" coords="243,5,385,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#a1389edfa566006427db42adfd700f37d" title=" " alt="" coords="5,5,195,47"/>
 </map>

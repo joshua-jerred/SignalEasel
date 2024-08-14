@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['file_5fopen_5ferror_842',['FILE_OPEN_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a08715903eca17abcd7ecdb74bc10aa4b',1,'signal_easel::Exception']]]
+  ['data_5freport_1053',['DATA_REPORT',['../namespacesignal__easel_1_1aprs.html#a564b7f300197bd746ad8864e216572b8a62740eb30a6e54e71ca12a1acf5d055e',1,'signal_easel::aprs']]]
 ];

@@ -32,14 +32,14 @@ var files_dup =
     ] ],
     [ "commandline-demo.cpp", "commandline-demo_8cpp.html", "commandline-demo_8cpp" ],
     [ "constants.hpp", "constants_8hpp.html", "constants_8hpp" ],
+    [ "convolutional_code.cpp", "convolutional__code_8cpp.html", "convolutional__code_8cpp" ],
+    [ "convolutional_code.hpp", "convolutional__code_8hpp.html", "convolutional__code_8hpp" ],
     [ "data_modulator.puml", "data__modulator_8puml.html", null ],
     [ "demodulator.cpp", "demodulator_8cpp.html", null ],
     [ "demodulator.hpp", "demodulator_8hpp.html", [
       [ "Demodulator", "classsignal__easel_1_1Demodulator.html", "classsignal__easel_1_1Demodulator" ]
     ] ],
-    [ "exception.hpp", "exception_8hpp.html", [
-      [ "Exception", "classsignal__easel_1_1Exception.html", "classsignal__easel_1_1Exception" ]
-    ] ],
+    [ "exception.hpp", "exception_8hpp.html", "exception_8hpp" ],
     [ "modulator.cpp", "modulator_8cpp.html", null ],
     [ "modulator.hpp", "modulator_8hpp.html", [
       [ "DataModulator", "classsignal__easel_1_1DataModulator.html", "classsignal__easel_1_1DataModulator" ],
@@ -47,6 +47,13 @@ var files_dup =
     ] ],
     [ "morse_modulator.cpp", "morse__modulator_8cpp.html", "morse__modulator_8cpp" ],
     [ "psk-example.cpp", "psk-example_8cpp.html", "psk-example_8cpp" ],
+    [ "psk.hpp", "psk_8hpp.html", [
+      [ "Modulator", "classsignal__easel_1_1psk_1_1Modulator.html", "classsignal__easel_1_1psk_1_1Modulator" ],
+      [ "Settings", "structsignal__easel_1_1psk_1_1Settings.html", "structsignal__easel_1_1psk_1_1Settings" ]
+    ] ],
+    [ "psk_modulator.cpp", "psk__modulator_8cpp.html", null ],
+    [ "psk_test.cpp", "psk__test_8cpp.html", "psk__test_8cpp" ],
+    [ "psk_wave_shaper.hpp", "psk__wave__shaper_8hpp.html", "psk__wave__shaper_8hpp" ],
     [ "pulse_audio.hpp", "pulse__audio_8hpp.html", "pulse__audio_8hpp" ],
     [ "pulse_audio_reader.cpp", "pulse__audio__reader_8cpp.html", null ],
     [ "pulse_audio_writer.cpp", "pulse__audio__writer_8cpp.html", null ],
@@ -59,6 +66,15 @@ var files_dup =
     ] ],
     [ "sstv-commandline.cpp", "sstv-commandline_8cpp.html", "sstv-commandline_8cpp" ],
     [ "sstv-example.cpp", "sstv-example_8cpp.html", "sstv-example_8cpp" ],
+    [ "sstv.hpp", "sstv_8hpp.html", [
+      [ "Modulator", "classsignal__easel_1_1sstv_1_1Modulator.html", "classsignal__easel_1_1sstv_1_1Modulator" ],
+      [ "YCbCr", "structsignal__easel_1_1sstv_1_1Modulator_1_1YCbCr.html", "structsignal__easel_1_1sstv_1_1Modulator_1_1YCbCr" ],
+      [ "Settings", "structsignal__easel_1_1sstv_1_1Settings.html", "structsignal__easel_1_1sstv_1_1Settings" ]
+    ] ],
+    [ "sstv_modulator.cpp", "sstv__modulator_8cpp.html", "sstv__modulator_8cpp" ],
+    [ "sstv_test.cpp", "sstv__test_8cpp.html", "sstv__test_8cpp" ],
+    [ "tmp.cpp", "tmp_8cpp.html", "tmp_8cpp" ],
     [ "utilities.cpp", "utilities_8cpp.html", "utilities_8cpp" ],
-    [ "utilities.hpp", "utilities_8hpp.html", "utilities_8hpp" ]
+    [ "utilities.hpp", "utilities_8hpp.html", "utilities_8hpp" ],
+    [ "varicode.cpp", "varicode_8cpp.html", "varicode_8cpp" ]
 ];

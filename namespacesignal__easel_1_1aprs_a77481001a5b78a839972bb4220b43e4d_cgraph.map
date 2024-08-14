@@ -1,8 +1,8 @@
 <map id="signal_easel::aprs::encodePacket" name="signal_easel::aprs::encodePacket">
-<area shape="rect" id="node1" title=" " alt="" coords="5,300,144,341"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,267,144,308"/>
 <area shape="rect" id="node2" href="$namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb" title=" " alt="" coords="427,77,578,119"/>
-<area shape="rect" id="node10" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="196,300,363,341"/>
-<area shape="rect" id="node24" href="$classsignal__easel_1_1ax25_1_1Frame.html#afc5c722b419621f2a4dccbe2208faea1" title=" " alt="" coords="192,365,367,407"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="196,267,363,308"/>
+<area shape="rect" id="node23" href="$classsignal__easel_1_1ax25_1_1Frame.html#afc5c722b419621f2a4dccbe2208faea1" title=" " alt="" coords="192,332,367,373"/>
 <area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f" title=" " alt="" coords="681,5,823,47"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d" title="setters/getters for the frame." alt="" coords="639,71,865,112"/>
 <area shape="rect" id="node9" href="$classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e" title=" " alt="" coords="655,136,849,177"/>
@@ -16,7 +16,6 @@
 <area shape="rect" id="node14" href="$classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e" title="Builds all internal portions of the frame. Doesn&#39;t include the flags." alt="" coords="427,332,579,373"/>
 <area shape="rect" id="node21" href="$classsignal__easel_1_1BitStream.html#aa97152ef51f73088e103a7951134aa85" title=" " alt="" coords="415,397,591,439"/>
 <area shape="rect" id="node22" href="$classsignal__easel_1_1BitStream.html#a5b5339586e09ca5c25a7e9ded0118ffb" title="Returns the next bit of the bit stream that will be encoded." alt="" coords="415,463,591,504"/>
-<area shape="rect" id="node23" href="$namespacesignal__easel_1_1ax25.html#a56c64a06f2dc7d2d270c32e1063400ae" title="Reverse a byte." alt="" coords="431,528,574,569"/>
 <area shape="rect" id="node15" href="$namespacesignal__easel_1_1ax25.html#a6d799107f96d783e620cd508488ab8eb" title="Calculate the Frame Check Sequence (FCS) on a vector of bytes." alt="" coords="681,267,823,308"/>
 <area shape="rect" id="node16" href="$classsignal__easel_1_1ax25_1_1Address.html#a0c31737081a9184b56dc32150b23cb0a" title="Get the address as a byte array." alt="" coords="657,332,847,373"/>
 <area shape="rect" id="node17" href="$classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9" title=" " alt="" coords="671,397,833,439"/>

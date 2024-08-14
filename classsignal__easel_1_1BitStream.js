@@ -12,6 +12,7 @@ var classsignal__easel_1_1BitStream =
     [ "addOneBit", "classsignal__easel_1_1BitStream.html#a81d4aea4c11f65e0c2b7ad2f0f0cc312", null ],
     [ "addZeroBit", "classsignal__easel_1_1BitStream.html#abb315beec8c4d88115d9d4ec5f082863", null ],
     [ "getBitVector", "classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69", null ],
+    [ "clear", "classsignal__easel_1_1BitStream.html#a0b3ebc141d66bd08407e82548c24e6ec", null ],
     [ "bit_stream_", "classsignal__easel_1_1BitStream.html#a14830edaad1ed1f4e8f65ac6bd44fe60", null ],
     [ "bit_stream_index_", "classsignal__easel_1_1BitStream.html#ae2fde82b9610a9ea2197c58b4d8c7cd3", null ],
     [ "bit_stream_buffer_", "classsignal__easel_1_1BitStream.html#a0485a29b7d4e52ddd53dcdeb2cc7a28b", null ],

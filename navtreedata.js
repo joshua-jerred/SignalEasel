@@ -25,9 +25,15 @@
 var NAVTREE =
 [
   [ "Signal Easel", "index.html", [
-    [ "Supported modes", "index.html#autotoc_md1", null ],
-    [ "Building/Installing", "index.html#autotoc_md2", null ],
-    [ "Building/Installing Magick++", "index.html#autotoc_md3", null ],
+    [ "Supported modes", "index.html#autotoc_md5", null ],
+    [ "Building/Installing", "index.html#autotoc_md6", null ],
+    [ "Building/Installing Magick++", "index.html#autotoc_md7", null ],
+    [ "Resources", "index.html#autotoc_md8", null ],
+    [ "PSK Envelope Filter", "md_docs_psk_notes.html", null ],
+    [ "SSTV", "md_docs_sstv.html", [
+      [ "Robot36 quick notes", "md_docs_sstv.html#autotoc_md2", null ],
+      [ "Useful links", "md_docs_sstv.html#autotoc_md3", null ]
+    ] ],
     [ "minimodem raw binary decode", "md_project_doc_legacy_minimodem_raw_binary_decode.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -66,9 +72,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "afsk_8hpp.html",
-"classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f",
-"functions_f.html",
-"structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28"
+"classsignal__easel_1_1Receiver.html#a02cdf84e2e8181e5f08c6edc0ad3806c",
+"classsignal__easel_1_1psk_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10",
+"namespacesignal__easel_1_1ax25.html#a7fd2958cce9db85469f6ab4cc0e0fa8a",
+"structsignal__easel_1_1aprs_1_1Telemetry.html#structsignal__easel_1_1aprs_1_1Telemetry_1_1Analog"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -23,6 +23,15 @@ var annotated_dup =
         [ "Address", "classsignal__easel_1_1ax25_1_1Address.html", "classsignal__easel_1_1ax25_1_1Address" ],
         [ "Frame", "classsignal__easel_1_1ax25_1_1Frame.html", "classsignal__easel_1_1ax25_1_1Frame" ]
       ] ],
+      [ "psk", "namespacesignal__easel_1_1psk.html", [
+        [ "Modulator", "classsignal__easel_1_1psk_1_1Modulator.html", "classsignal__easel_1_1psk_1_1Modulator" ],
+        [ "PskWaveShaper", "classsignal__easel_1_1psk_1_1PskWaveShaper.html", "classsignal__easel_1_1psk_1_1PskWaveShaper" ],
+        [ "Settings", "structsignal__easel_1_1psk_1_1Settings.html", "structsignal__easel_1_1psk_1_1Settings" ]
+      ] ],
+      [ "sstv", "namespacesignal__easel_1_1sstv.html", [
+        [ "Modulator", "classsignal__easel_1_1sstv_1_1Modulator.html", "classsignal__easel_1_1sstv_1_1Modulator" ],
+        [ "Settings", "structsignal__easel_1_1sstv_1_1Settings.html", "structsignal__easel_1_1sstv_1_1Settings" ]
+      ] ],
       [ "BitStream", "classsignal__easel_1_1BitStream.html", "classsignal__easel_1_1BitStream" ],
       [ "DataModulator", "classsignal__easel_1_1DataModulator.html", "classsignal__easel_1_1DataModulator" ],
       [ "Demodulator", "classsignal__easel_1_1Demodulator.html", "classsignal__easel_1_1Demodulator" ],

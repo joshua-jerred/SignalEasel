@@ -1,0 +1,4 @@
+<map id="signal_easel::sstv::Modulator::encodeImage" name="signal_easel::sstv::Modulator::encodeImage">
+<area shape="rect" id="node1" title="Encodes an image into SSTV audio." alt="" coords="108,5,300,47"/>
+<area shape="rect" id="node2" href="$sstv__test_8cpp.html#a81c59728812e528beb650e55bb38fd4b" title=" " alt="" coords="5,13,60,39"/>
+</map>

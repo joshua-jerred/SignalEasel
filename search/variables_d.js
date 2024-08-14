@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['receive_5fbuffer_5f_770',['receive_buffer_',['../classsignal__easel_1_1afsk_1_1Receiver.html#a464304ea4d2ad3a090a03bc7f8767c04',1,'signal_easel::afsk::Receiver']]],
-  ['repeater_5faddresses_5f_771',['repeater_addresses_',['../classsignal__easel_1_1ax25_1_1Frame.html#a42d5ab89b83dea7c2d0c7c41d8c0ec03',1,'signal_easel::ax25::Frame']]],
-  ['reserve_5fbit_5f1_5f_772',['reserve_bit_1_',['../classsignal__easel_1_1ax25_1_1Address.html#a9f1b74d99dffbbcbad03abe37ccb11a6',1,'signal_easel::ax25::Address']]],
-  ['reserve_5fbit_5f2_5f_773',['reserve_bit_2_',['../classsignal__easel_1_1ax25_1_1Address.html#aace3c63169bc60e631e97676202634a1',1,'signal_easel::ax25::Address']]],
-  ['rms_774',['rms',['../classsignal__easel_1_1afsk_1_1Demodulator.html#a304c31d2b38ba3df25b5f61bc6452e0c',1,'signal_easel::afsk::Demodulator::ProcessResults']]],
-  ['rms_5f_775',['rms_',['../classsignal__easel_1_1PulseAudioReader.html#a4cf9395bafd2ee2d5a1fe10db84af416',1,'signal_easel::PulseAudioReader']]]
+  ['packet_5ftype_5fchar_940',['packet_type_char',['../structsignal__easel_1_1aprs_1_1Experimental.html#a5e8cff8733b2f84c9272555c5ba12f2d',1,'signal_easel::aprs::Experimental']]],
+  ['phaseshiftmap_941',['PhaseShiftMap',['../namespacesignal__easel_1_1psk.html#a1517a1f1e75e4819397f7aa6b881e6b7',1,'signal_easel::psk']]],
+  ['pi_5fval_942',['PI_VAL',['../namespacesignal__easel.html#a47b4a853cd43e50b24e0ee57bdb04be1',1,'signal_easel']]],
+  ['pid_5f_943',['pid_',['../classsignal__easel_1_1ax25_1_1Frame.html#a0333497a7259006b37919ca21fb00395',1,'signal_easel::ax25::Frame']]],
+  ['porch_5ffrequency_5f_944',['porch_frequency_',['../classsignal__easel_1_1sstv_1_1Modulator.html#a5196bb8c8cf376c118115302b2f01fdc',1,'signal_easel::sstv::Modulator']]],
+  ['porch_5flength_5fms_5f_945',['porch_length_ms_',['../classsignal__easel_1_1sstv_1_1Modulator.html#a1764111edec39788027df4a42d805028',1,'signal_easel::sstv::Modulator']]],
+  ['postamble_5flength_946',['postamble_length',['../structsignal__easel_1_1psk_1_1Settings.html#a2654b421a6bd83a8b913344fc0b327d4',1,'signal_easel::psk::Settings']]],
+  ['preamble_5flength_947',['preamble_length',['../structsignal__easel_1_1psk_1_1Settings.html#ac860b30030d286d418e509735dc7cce5',1,'signal_easel::psk::Settings']]],
+  ['previous_5fbipolar_5fbit_5f_948',['previous_bipolar_bit_',['../classsignal__easel_1_1afsk_1_1Modulator.html#a12b88f957978a89769a25109693ac54d',1,'signal_easel::afsk::Modulator']]],
+  ['previous_5fphase_5f_949',['previous_phase_',['../classsignal__easel_1_1psk_1_1PskWaveShaper.html#a1f2802db9522250950dc3b2fc48d974d',1,'signal_easel::psk::PskWaveShaper']]],
+  ['project_5ftitle_950',['project_title',['../structsignal__easel_1_1aprs_1_1Telemetry.html#a3ded494f2ce3fec8dd4fbbaa3be54bc2',1,'signal_easel::aprs::Telemetry']]],
+  ['pulse_5faudio_5fapp_5fname_951',['PULSE_AUDIO_APP_NAME',['../namespacesignal__easel.html#afd49f40a5604e1000a7354ddbcb6151b',1,'signal_easel']]],
+  ['pulse_5faudio_5fbuffer_5fsize_952',['PULSE_AUDIO_BUFFER_SIZE',['../namespacesignal__easel.html#a0eab2d34f1a6d54eb605311531bd9a0e',1,'signal_easel']]],
+  ['pulse_5faudio_5freader_5f_953',['pulse_audio_reader_',['../classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914',1,'signal_easel::Receiver']]],
+  ['pulse_5faudio_5fsample_5fformat_954',['PULSE_AUDIO_SAMPLE_FORMAT',['../namespacesignal__easel.html#a7c542406e1ec08ba9304d668ed90d27f',1,'signal_easel']]],
+  ['pulse_5faudio_5fsample_5fspec_955',['PULSE_AUDIO_SAMPLE_SPEC',['../namespacesignal__easel.html#ac20ac790a12fdcd944c029c80500752e',1,'signal_easel']]]
 ];

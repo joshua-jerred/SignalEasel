@@ -10,6 +10,7 @@ var classsignal__easel_1_1afsk_1_1Modulator =
     [ "writeToFile", "classsignal__easel_1_1afsk_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10", null ],
     [ "writeToPulseAudio", "classsignal__easel_1_1afsk_1_1Modulator.html#ae1cf54c8f962ca1920f79b75f96b20be", null ],
     [ "addAudioSample", "classsignal__easel_1_1afsk_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8", null ],
+    [ "addAudioSampleDouble", "classsignal__easel_1_1afsk_1_1Modulator.html#a1e92acffea7ae5b5ecd593ba75604dbf", null ],
     [ "addSilence", "classsignal__easel_1_1afsk_1_1Modulator.html#a83877b4de0ae12992f62c09cf876da04", null ],
     [ "addSineWave", "classsignal__easel_1_1afsk_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04", null ],
     [ "addMorseCode", "classsignal__easel_1_1afsk_1_1Modulator.html#a67263d2a46fdb510adb0b4211699bf26", null ],

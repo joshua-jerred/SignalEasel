@@ -1,10 +1,23 @@
 var searchData=
 [
-  ['latency_5f_262',['latency_',['../classsignal__easel_1_1PulseAudioReader.html#a10740ae002efd9140d30bfae0082281b',1,'signal_easel::PulseAudioReader']]],
-  ['latitude_263',['latitude',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c',1,'signal_easel::aprs::PositionPacket']]],
-  ['letter_5fspace_5flength_264',['LETTER_SPACE_LENGTH',['../namespacesignal__easel.html#ac57d7cbfe79997c9b5d5c527a5aa9de4',1,'signal_easel']]],
-  ['loadaudiofromfile_265',['loadAudioFromFile',['../classsignal__easel_1_1Demodulator.html#a9cc9df67eabbfac3aecb04f113726afc',1,'signal_easel::Demodulator']]],
-  ['longitude_266',['longitude',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d',1,'signal_easel::aprs::PositionPacket']]],
-  ['lookforax25packet_267',['lookForAx25Packet',['../classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa',1,'signal_easel::aprs::Demodulator']]],
-  ['lookforstring_268',['lookForString',['../classsignal__easel_1_1afsk_1_1Demodulator.html#aef7bf1f641de1283d710f23003dc6c58',1,'signal_easel::afsk::Demodulator']]]
+  ['id_275',['Id',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644',1,'signal_easel::Exception']]],
+  ['id_5f_276',['id_',['../classsignal__easel_1_1Exception.html#a879a4cac7058e1f95177f207650d4540',1,'signal_easel::Exception']]],
+  ['idtostring_277',['idToString',['../classsignal__easel_1_1Exception.html#a45f91afa482d22f72ef2a5489f2e4c55',1,'signal_easel::Exception']]],
+  ['include_5fascii_5fpadding_278',['include_ascii_padding',['../structsignal__easel_1_1afsk_1_1Settings.html#a4725b9d0a0422feb6c40890f046fd1c0',1,'signal_easel::afsk::Settings']]],
+  ['information_5f_279',['information_',['../classsignal__easel_1_1ax25_1_1Frame.html#a08c3f03b6f4600ef8d15dd2187c5570e',1,'signal_easel::ax25::Frame']]],
+  ['integral_5fvalue_5f_280',['integral_value_',['../classsignal__easel_1_1afsk_1_1Modulator.html#a68718c0635c131b33bc170b245096b7d',1,'signal_easel::afsk::Modulator']]],
+  ['invalid_5fcall_5fsign_281',['INVALID_CALL_SIGN',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a437d9676547a871ea78c177288d8a9d3',1,'signal_easel::Exception']]],
+  ['invalid_5fcall_5fsign_5fmode_282',['INVALID_CALL_SIGN_MODE',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a7a1481381d822e832c5fd1dc7696d8ad',1,'signal_easel::Exception']]],
+  ['invalid_5fmorse_5fchar_283',['INVALID_MORSE_CHAR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644aac36e1cd086dee0271945086ed52ed4a',1,'signal_easel::Exception']]],
+  ['is_5flast_5faddress_5f_284',['is_last_address_',['../classsignal__easel_1_1ax25_1_1Address.html#a54e724c1d7e725155b5c65ce0da329e1',1,'signal_easel::ax25::Address']]],
+  ['isaddressstringvalid_285',['isAddressStringValid',['../classsignal__easel_1_1ax25_1_1Address.html#a56c55b48bfc809a33aa0e22a5aeb95ca',1,'signal_easel::ax25::Address']]],
+  ['isbitset_286',['isBitSet',['../namespacesignal__easel.html#a248ddb36f02c1436acd66c0409189637',1,'signal_easel']]],
+  ['iscallsignvalid_287',['isCallSignValid',['../namespacesignal__easel.html#a3befdd8242efcc43e4e99a8e20a7be6c',1,'signal_easel']]],
+  ['iscommandorresponse_288',['isCommandOrResponse',['../classsignal__easel_1_1ax25_1_1Address.html#aa40f4e0059a6d4102b0165ec5991756f',1,'signal_easel::ax25::Address']]],
+  ['isframevalid_289',['isFrameValid',['../classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9',1,'signal_easel::ax25::Frame']]],
+  ['islastaddress_290',['isLastAddress',['../classsignal__easel_1_1ax25_1_1Address.html#a3b72de1f090f396d37b1649372bb9fdb',1,'signal_easel::ax25::Address']]],
+  ['isreservedbit1set_291',['isReservedBit1Set',['../classsignal__easel_1_1ax25_1_1Address.html#a580f49300d0957516709ee9efa505f43',1,'signal_easel::ax25::Address']]],
+  ['isreservedbit2set_292',['isReservedBit2Set',['../classsignal__easel_1_1ax25_1_1Address.html#a2b674f00d191a86e2c05ddfb88971fdb',1,'signal_easel::ax25::Address']]],
+  ['isssidvalid_293',['isSsidValid',['../classsignal__easel_1_1ax25_1_1Address.html#ad66c149737cc4aa52ae9e8860176acf3',1,'signal_easel::ax25::Address']]],
+  ['isvalid_294',['isValid',['../classsignal__easel_1_1ax25_1_1Address.html#aae81920cfd0dc7d89cb107f9d825488c',1,'signal_easel::ax25::Address']]]
 ];

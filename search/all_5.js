@@ -1,11 +1,22 @@
 var searchData=
 [
-  ['fcs_5f_201',['fcs_',['../classsignal__easel_1_1ax25_1_1Frame.html#a5b1d51a7dfa145da5fb731b8f154729e',1,'signal_easel::ax25::Frame']]],
-  ['file_5fopen_5ferror_202',['FILE_OPEN_ERROR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a08715903eca17abcd7ecdb74bc10aa4b',1,'signal_easel::Exception']]],
-  ['filter_203',['filter',['../namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a',1,'signal_easel']]],
-  ['findstartflags_204',['findStartFlags',['../namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3',1,'signal_easel::ax25']]],
-  ['frame_205',['Frame',['../classsignal__easel_1_1ax25_1_1Frame.html#a62e55729eff1c6daa30b619fa4ea2596',1,'signal_easel::ax25::Frame']]],
-  ['frame_206',['frame',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#ac3a2fe7ad2d3f96c8e7e2be496291964',1,'signal_easel::aprs::PositionPacket']]],
-  ['frame_207',['Frame',['../classsignal__easel_1_1ax25_1_1Frame.html',1,'signal_easel::ax25']]],
-  ['frame_5f_208',['frame_',['../classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5',1,'signal_easel::aprs::Demodulator']]]
+  ['empty_5finput_5fstring_218',['EMPTY_INPUT_STRING',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a6cf070926494b7f88543e492fa3d15a3',1,'signal_easel::Exception']]],
+  ['encode_219',['encode',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad',1,'signal_easel::aprs::PositionPacket::encode()'],['../structsignal__easel_1_1aprs_1_1MessagePacket.html#a2384b4285118df9fdcbd506a8332dc91',1,'signal_easel::aprs::MessagePacket::encode()'],['../structsignal__easel_1_1aprs_1_1MessageAck.html#a26778cade10dfac29dd3a5102ea3030f',1,'signal_easel::aprs::MessageAck::encode()'],['../structsignal__easel_1_1aprs_1_1Experimental.html#af4bd4a5ab417552aa92a4e57fabd74d7',1,'signal_easel::aprs::Experimental::encode()'],['../classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687',1,'signal_easel::aprs::Modulator::encode(const aprs::PositionPacket &amp;packet)'],['../classsignal__easel_1_1aprs_1_1Modulator.html#a52966b0bc3dc5a5ff608473566d81850',1,'signal_easel::aprs::Modulator::encode(const aprs::MessagePacket &amp;packet)'],['../classsignal__easel_1_1aprs_1_1Modulator.html#a1eea3a877c8c91bc52339a39c84a5b82',1,'signal_easel::aprs::Modulator::encode(const aprs::MessageAck &amp;packet)'],['../classsignal__easel_1_1aprs_1_1Modulator.html#ab62beb6429f29933a7bec9ae479a7fd7',1,'signal_easel::aprs::Modulator::encode(const aprs::Experimental &amp;packet)'],['../structsignal__easel_1_1aprs_1_1Telemetry.html#a63c34aa36bb9415e1084998abdc549a9',1,'signal_easel::aprs::Telemetry::encode()']]],
+  ['encodeaddress_220',['encodeAddress',['../classsignal__easel_1_1ax25_1_1Address.html#a0c31737081a9184b56dc32150b23cb0a',1,'signal_easel::ax25::Address']]],
+  ['encodeadjustedimage_221',['encodeAdjustedImage',['../classsignal__easel_1_1sstv_1_1Modulator.html#a5db5191f0447cc4b34fff09fc35c7ffe',1,'signal_easel::sstv::Modulator']]],
+  ['encodebpsk_222',['encodeBpsk',['../classsignal__easel_1_1psk_1_1Modulator.html#a0949f7b7120c7a1b3c350681537e3181',1,'signal_easel::psk::Modulator']]],
+  ['encodebytes_223',['encodeBytes',['../classsignal__easel_1_1DataModulator.html#add44309f9d9a2bcc1afd4a8eefc8839f',1,'signal_easel::DataModulator::encodeBytes()'],['../classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb',1,'signal_easel::afsk::Modulator::encodeBytes()']]],
+  ['encodeframe_224',['encodeFrame',['../classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503',1,'signal_easel::ax25::Frame']]],
+  ['encodeimage_225',['encodeImage',['../classsignal__easel_1_1sstv_1_1Modulator.html#a6598802f6a659efde056f846d7eb9d2c',1,'signal_easel::sstv::Modulator']]],
+  ['encodepacket_226',['encodePacket',['../namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d',1,'signal_easel::aprs']]],
+  ['encodeqpsk_227',['encodeQpsk',['../classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e',1,'signal_easel::psk::Modulator']]],
+  ['encodescanline_228',['encodeScanLine',['../classsignal__easel_1_1sstv_1_1Modulator.html#acf3f661e744b92527504daff37dc8505',1,'signal_easel::sstv::Modulator']]],
+  ['encodestring_229',['encodeString',['../classsignal__easel_1_1psk_1_1Modulator.html#acd4a6a5bac7af1c62ffaaa0ff1d9259f',1,'signal_easel::psk::Modulator']]],
+  ['envelopefilter_230',['envelopeFilter',['../classsignal__easel_1_1psk_1_1PskWaveShaper.html#ac4db3c5943e9f56ce1d058a2347a2438',1,'signal_easel::psk::PskWaveShaper']]],
+  ['even_5fseparation_5fpulse_5ffrequency_5f_231',['even_separation_pulse_frequency_',['../classsignal__easel_1_1sstv_1_1Modulator.html#ad690860fee0450d17bcdb5f7253071f9',1,'signal_easel::sstv::Modulator']]],
+  ['exception_232',['Exception',['../classsignal__easel_1_1Exception.html#a5a1c7022c11d82e435f6bc9e3af7e178',1,'signal_easel::Exception::Exception(const Exception::Id &amp;exception_id, const std::string &amp;message=&quot;&quot;)'],['../classsignal__easel_1_1Exception.html#a8c327cb338a4096f141c1351e26bf3f0',1,'signal_easel::Exception::Exception(const std::string &amp;message=&quot;&quot;)'],['../classsignal__easel_1_1Exception.html',1,'signal_easel::Exception']]],
+  ['exception_2ehpp_233',['exception.hpp',['../exception_8hpp.html',1,'']]],
+  ['exception_5fstring_5f_234',['exception_string_',['../classsignal__easel_1_1Exception.html#a8bb4e262b645384de2abc1ca10648c11',1,'signal_easel::Exception']]],
+  ['experimental_235',['EXPERIMENTAL',['../structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199',1,'signal_easel::aprs::Packet']]],
+  ['experimental_236',['Experimental',['../structsignal__easel_1_1aprs_1_1Experimental.html',1,'signal_easel::aprs']]]
 ];

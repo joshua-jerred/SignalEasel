@@ -1,6 +1,7 @@
 <map id="signal_easel::ax25::Frame::encodeFrame" name="signal_easel::ax25::Frame::encodeFrame">
-<area shape="rect" id="node1" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="493,5,660,47"/>
+<area shape="rect" id="node1" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="493,35,660,76"/>
 <area shape="rect" id="node2" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="307,5,445,47"/>
+<area shape="rect" id="node5" href="$tmp_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="349,71,403,98"/>
 <area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="108,5,259,47"/>
 <area shape="rect" id="node4" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="5,13,60,39"/>
 </map>

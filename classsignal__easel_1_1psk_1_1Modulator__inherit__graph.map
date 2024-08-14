@@ -1,0 +1,4 @@
+<map id="signal_easel::psk::Modulator" name="signal_easel::psk::Modulator">
+<area shape="rect" id="node1" title="PSK Modulator." alt="" coords="6,292,207,575"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1Modulator.html" title="The abstract base class for all modulators that turn data into audio." alt="" coords="5,5,208,244"/>
+</map>

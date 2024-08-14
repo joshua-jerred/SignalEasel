@@ -120,6 +120,10 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacesignal__easel_1_1ax25"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1ax25.html">ax25</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesignal__easel_1_1psk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1psk.html">psk</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesignal__easel_1_1sstv"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1sstv.html">sstv</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -180,6 +184,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3befdd8242efcc43e4e99a8e20a7be6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52622d8b5a12dedeb59e5442e887a8e5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel.html#a52622d8b5a12dedeb59e5442e887a8e5">trinomialMultiply</a> (unsigned int filter_order, const std::vector&lt; double &gt; &amp;b_coeffs, const std::vector&lt; double &gt; &amp;c_coeffs)</td></tr>
 <tr class="separator:a52622d8b5a12dedeb59e5442e887a8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad126551dc8d66646bf44054c32b8ea6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel.html#ad126551dc8d66646bf44054c32b8ea6b">validate</a> (bool condition, std::string message=&quot;&quot;)</td></tr>
+<tr class="separator:ad126551dc8d66646bf44054c32b8ea6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -803,6 +809,52 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ad126551dc8d66646bf44054c32b8ea6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad126551dc8d66646bf44054c32b8ea6b">&#9670;&nbsp;</a></span>validate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void signal_easel::validate </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>condition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a2fa475b43d744661c4c9e1dbd9840278">signal_easel::Exception::VALIDATION_ERROR</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1psk_1_1PskWaveShaper.html#a60cd442e3c55b420e29dcefd27eda5eb">signal_easel::psk::PskWaveShaper::PskWaveShaper()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesignal__easel_ad126551dc8d66646bf44054c32b8ea6b_icgraph.svg" width="462" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a10f4d406b246c67af3903de0ba8e0ef0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10f4d406b246c67af3903de0ba8e0ef0">&#9670;&nbsp;</a></span>MORSE_TONE_FREQUENCY</h2>
@@ -974,7 +1026,7 @@ Here is the caller graph for this function:</div>
 <p>The sample rate of the audio. </p>
 <p>This value was chosen as it's cleanly devisable by 1200 and 60, this is helpful for AFSK and SSTV. Choosing the standard 44100 creates problems, especially with SSTV which was created in the days of 60Hz. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal()</a>, <a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">signal_easel::Modulator::clearBuffer()</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">signal_easel::PulseAudioReader::process()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10">signal_easel::Modulator::writeToFile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1psk_1_1PskWaveShaper.html#a60cd442e3c55b420e29dcefd27eda5eb">signal_easel::psk::PskWaveShaper::PskWaveShaper()</a>, <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal()</a>, <a class="el" href="classsignal__easel_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916">signal_easel::Modulator::clearBuffer()</a>, <a class="el" href="classsignal__easel_1_1psk_1_1Modulator.html#acd4a6a5bac7af1c62ffaaa0ff1d9259f">signal_easel::psk::Modulator::encodeString()</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">signal_easel::PulseAudioReader::process()</a>, <a class="el" href="classsignal__easel_1_1sstv_1_1Modulator.html#a4925712af983bce311224cd51c4b9409">signal_easel::sstv::Modulator::pulse()</a>, <a class="el" href="classsignal__easel_1_1sstv_1_1Modulator.html#ac6c7141bc8b18abd7e08d8c201aadfb2">signal_easel::sstv::Modulator::writeBuffer()</a>, and <a class="el" href="classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10">signal_easel::Modulator::writeToFile()</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1105,7 @@ Here is the caller graph for this function:</div>
 
 <p>The maximum value of a sample (2^15 - 1) </p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal()</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb">signal_easel::afsk::Modulator::encodeBytes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04">signal_easel::Modulator::addSineWave()</a>, <a class="el" href="classsignal__easel_1_1psk_1_1PskWaveShaper.html#a43adb5526e215f4183ad439ca92daf1f">signal_easel::psk::PskWaveShaper::addSymbol()</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161">signal_easel::afsk::Demodulator::audioBufferToBaseBandSignal()</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb">signal_easel::afsk::Modulator::encodeBytes()</a>.</p>
 
 </div>
 </div>

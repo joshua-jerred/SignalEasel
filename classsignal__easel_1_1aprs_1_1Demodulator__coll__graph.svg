@@ -295,30 +295,31 @@
 <g id="node12" class="node">
 <title>Node12</title>
 <g id="a_node12"><a xlink:href="classsignal__easel_1_1BitStream.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="474.5,-584.5 474.5,-762.5 621.5,-762.5 621.5,-584.5 474.5,-584.5"/>
-<text text-anchor="middle" x="548" y="-750.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::BitStream</text>
-<polyline fill="none" stroke="black" points="474.5,-743.5 621.5,-743.5 "/>
-<text text-anchor="middle" x="548" y="-731.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="474.5,-724.5 621.5,-724.5 "/>
-<text text-anchor="start" x="482.5" y="-712.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addBits()</text>
-<text text-anchor="start" x="482.5" y="-701.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addOneBit()</text>
-<text text-anchor="start" x="482.5" y="-690.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addZeroBit()</text>
-<text text-anchor="start" x="482.5" y="-679.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ dumpBitStream()</text>
-<text text-anchor="start" x="482.5" y="-668.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ dumpBitStreamAsAscii()</text>
-<text text-anchor="start" x="482.5" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ dumpBitStreamAsHex()</text>
-<text text-anchor="start" x="482.5" y="-646.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBitStreamLength()</text>
-<text text-anchor="start" x="482.5" y="-635.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBitVector()</text>
-<text text-anchor="start" x="482.5" y="-624.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ peakNextBit()</text>
-<text text-anchor="start" x="482.5" y="-613.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ peakNextByte()</text>
-<text text-anchor="start" x="482.5" y="-602.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ popNextBit()</text>
-<text text-anchor="start" x="482.5" y="-591.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ pushBufferToBitStream()</text>
+<polygon fill="none" stroke="black" points="474.5,-579 474.5,-768 621.5,-768 621.5,-579 474.5,-579"/>
+<text text-anchor="middle" x="548" y="-756" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::BitStream</text>
+<polyline fill="none" stroke="black" points="474.5,-749 621.5,-749 "/>
+<text text-anchor="middle" x="548" y="-737" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="474.5,-730 621.5,-730 "/>
+<text text-anchor="start" x="482.5" y="-718" font-family="Helvetica,sans-Serif" font-size="10.00">+ addBits()</text>
+<text text-anchor="start" x="482.5" y="-707" font-family="Helvetica,sans-Serif" font-size="10.00">+ addOneBit()</text>
+<text text-anchor="start" x="482.5" y="-696" font-family="Helvetica,sans-Serif" font-size="10.00">+ addZeroBit()</text>
+<text text-anchor="start" x="482.5" y="-685" font-family="Helvetica,sans-Serif" font-size="10.00">+ clear()</text>
+<text text-anchor="start" x="482.5" y="-674" font-family="Helvetica,sans-Serif" font-size="10.00">+ dumpBitStream()</text>
+<text text-anchor="start" x="482.5" y="-663" font-family="Helvetica,sans-Serif" font-size="10.00">+ dumpBitStreamAsAscii()</text>
+<text text-anchor="start" x="482.5" y="-652" font-family="Helvetica,sans-Serif" font-size="10.00">+ dumpBitStreamAsHex()</text>
+<text text-anchor="start" x="482.5" y="-641" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBitStreamLength()</text>
+<text text-anchor="start" x="482.5" y="-630" font-family="Helvetica,sans-Serif" font-size="10.00">+ getBitVector()</text>
+<text text-anchor="start" x="482.5" y="-619" font-family="Helvetica,sans-Serif" font-size="10.00">+ peakNextBit()</text>
+<text text-anchor="start" x="482.5" y="-608" font-family="Helvetica,sans-Serif" font-size="10.00">+ peakNextByte()</text>
+<text text-anchor="start" x="482.5" y="-597" font-family="Helvetica,sans-Serif" font-size="10.00">+ popNextBit()</text>
+<text text-anchor="start" x="482.5" y="-586" font-family="Helvetica,sans-Serif" font-size="10.00">+ pushBufferToBitStream()</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node2 -->
 <g id="edge12" class="edge">
 <title>Node12&#45;&gt;Node2</title>
-<path fill="none" stroke="#404040" d="M527.2,-584.27C525.49,-574.44 524.03,-564.54 523,-555 518.07,-509.19 517.74,-457.45 518.69,-416.68"/>
+<path fill="none" stroke="#404040" d="M526.28,-578.82C524.96,-570.8 523.84,-562.78 523,-555 518.07,-509.19 517.74,-457.45 518.69,-416.68"/>
 <polygon fill="none" stroke="#404040" points="518.69,-416.66 514.85,-410.56 519.01,-404.67 522.85,-410.77 518.69,-416.66"/>
 <text text-anchor="middle" x="576" y="-536" font-family="Helvetica,sans-Serif" font-size="10.00"> #output_bit_stream_</text>
 </g>
@@ -338,8 +339,8 @@
 <!-- Node13&#45;&gt;Node12 -->
 <g id="edge13" class="edge">
 <title>Node13&#45;&gt;Node12</title>
-<path fill="none" stroke="#404040" d="M616.28,-887.13C617.55,-861.86 617.45,-823.81 609,-792 607.42,-786.04 605.5,-780.05 603.33,-774.08"/>
-<polygon fill="none" stroke="#404040" points="603.24,-773.85 597.33,-769.72 598.87,-762.67 604.78,-766.8 603.24,-773.85"/>
+<path fill="none" stroke="#404040" d="M616.28,-887.13C617.55,-861.86 617.45,-823.81 609,-792 607.92,-787.93 606.68,-783.85 605.31,-779.77"/>
+<polygon fill="none" stroke="#404040" points="605.24,-779.57 599.43,-775.3 601.14,-768.3 606.95,-772.57 605.24,-779.57"/>
 <text text-anchor="middle" x="665.5" y="-828" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;bit_stream_buffer_</text>
 </g>
 <!-- Node14 -->
@@ -358,8 +359,8 @@
 <!-- Node14&#45;&gt;Node12 -->
 <g id="edge14" class="edge">
 <title>Node14&#45;&gt;Node12</title>
-<path fill="none" stroke="#404040" d="M508.97,-887.46C507.65,-862.41 507,-824.5 512,-792 512.88,-786.3 513.97,-780.5 515.22,-774.68"/>
-<polygon fill="none" stroke="#404040" points="515.28,-774.41 512.75,-767.66 518,-762.72 520.54,-769.47 515.28,-774.41"/>
+<path fill="none" stroke="#404040" d="M508.97,-887.46C507.65,-862.41 507,-824.5 512,-792 512.6,-788.1 513.3,-784.15 514.09,-780.17"/>
+<polygon fill="none" stroke="#404040" points="514.14,-779.94 511.5,-773.23 516.68,-768.22 519.32,-774.93 514.14,-779.94"/>
 <text text-anchor="middle" x="560.5" y="-844.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;bit_stream_index_</text>
 <text text-anchor="start" x="512" y="-833.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;bit_stream_length</text>
 <text text-anchor="middle" x="560.5" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00">_</text>

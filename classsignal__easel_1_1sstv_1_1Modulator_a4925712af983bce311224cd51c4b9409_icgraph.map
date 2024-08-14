@@ -1,0 +1,8 @@
+<map id="signal_easel::sstv::Modulator::pulse" name="signal_easel::sstv::Modulator::pulse">
+<area shape="rect" id="node1" title=" " alt="" coords="861,43,1000,84"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a9e6343e922e5d6dd312d16c0781b28c4" title=" " alt="" coords="357,5,547,47"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1sstv_1_1Modulator.html#acf3f661e744b92527504daff37dc8505" title=" " alt="" coords="604,72,813,113"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a6598802f6a659efde056f846d7eb9d2c" title="Encodes an image into SSTV audio." alt="" coords="108,43,300,84"/>
+<area shape="rect" id="node4" href="$sstv__test_8cpp.html#a81c59728812e528beb650e55bb38fd4b" title=" " alt="" coords="5,50,60,77"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a5db5191f0447cc4b34fff09fc35c7ffe" title=" " alt="" coords="348,71,556,127"/>
+</map>

@@ -1,6 +1,6 @@
 <map id="signal_easel::afsk::Modulator" name="signal_easel::afsk::Modulator">
-<area shape="rect" id="node1" title="Modulates data into an AFSK signal." alt="" coords="5,461,228,759"/>
-<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html" title=" " alt="" coords="47,807,186,972"/>
-<area shape="rect" id="node2" href="$classsignal__easel_1_1DataModulator.html" title="Another abstract base class for modulators that turn text/binary data into audio." alt="" coords="13,277,221,413"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1Modulator.html" title="The abstract base class for all modulators that turn data into audio." alt="" coords="28,5,205,229"/>
+<area shape="rect" id="node1" title="Modulates data into an AFSK signal." alt="" coords="5,476,228,773"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html" title=" " alt="" coords="47,821,186,987"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1DataModulator.html" title="Another abstract base class for modulators that turn text/binary data into audio." alt="" coords="13,292,221,428"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1Modulator.html" title="The abstract base class for all modulators that turn data into audio." alt="" coords="15,5,218,244"/>
 </map>

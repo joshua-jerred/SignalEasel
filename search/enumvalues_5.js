@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['invalid_5fcall_5fsign_843',['INVALID_CALL_SIGN',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a437d9676547a871ea78c177288d8a9d3',1,'signal_easel::Exception']]],
-  ['invalid_5fcall_5fsign_5fmode_844',['INVALID_CALL_SIGN_MODE',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a7a1481381d822e832c5fd1dc7696d8ad',1,'signal_easel::Exception']]],
-  ['invalid_5fmorse_5fchar_845',['INVALID_MORSE_CHAR',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644aac36e1cd086dee0271945086ed52ed4a',1,'signal_easel::Exception']]]
+  ['empty_5finput_5fstring_1054',['EMPTY_INPUT_STRING',['../classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a6cf070926494b7f88543e492fa3d15a3',1,'signal_easel::Exception']]],
+  ['experimental_1055',['EXPERIMENTAL',['../structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199',1,'signal_easel::aprs::Packet']]]
 ];

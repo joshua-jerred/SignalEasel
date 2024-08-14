@@ -1,0 +1,7 @@
+<map id="signal_easel::psk::Modulator::encodeBpsk" name="signal_easel::psk::Modulator::encodeBpsk">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,180,112"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1psk_1_1PskWaveShaper.html#a43adb5526e215f4183ad439ca92daf1f" title=" " alt="" coords="228,5,435,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1BitStream.html#ad7b803a89b3a53ec1e4108122861a90b" title="Returns the next bit of the bit stream without removing it." alt="" coords="243,71,419,112"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1BitStream.html#a5b5339586e09ca5c25a7e9ded0118ffb" title="Returns the next bit of the bit stream that will be encoded." alt="" coords="243,136,419,177"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1psk_1_1PskWaveShaper.html#ac4db3c5943e9f56ce1d058a2347a2438" title="A filter to remove the sharp edges of the wave during a phase change." alt="" coords="483,5,709,47"/>
+</map>

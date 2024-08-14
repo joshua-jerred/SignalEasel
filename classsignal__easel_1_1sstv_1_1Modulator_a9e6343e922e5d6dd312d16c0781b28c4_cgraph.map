@@ -1,0 +1,6 @@
+<map id="signal_easel::sstv::Modulator::addPreamble" name="signal_easel::sstv::Modulator::addPreamble">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1sstv_1_1Modulator.html#a4925712af983bce311224cd51c4b9409" title=" " alt="" coords="244,5,383,47"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04" title="Add a sine wave to the audio buffer." alt="" coords="431,5,608,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8" title="Add a PCM sample to the audio buffer." alt="" coords="656,5,833,47"/>
+</map>

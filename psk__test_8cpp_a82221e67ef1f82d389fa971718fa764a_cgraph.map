@@ -1,0 +1,26 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,519,60,546"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1psk_1_1Modulator.html#acd4a6a5bac7af1c62ffaaa0ff1d9259f" title=" " alt="" coords="108,305,289,347"/>
+<area shape="rect" id="node19" href="$classsignal__easel_1_1Modulator.html#a6ff0b49cd126afe576ac949476268f10" title="Write the audio to a file." alt="" coords="110,679,287,720"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6" title=" " alt="" coords="859,156,1035,197"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1psk_1_1Modulator.html#ad465eb5c136ada635cd01cdceb1dc402" title=" " alt="" coords="337,232,527,273"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1psk_1_1Modulator.html#a9210187601fe988d188b66ba5ee66a73" title=" " alt="" coords="341,137,523,179"/>
+<area shape="rect" id="node9" href="$classsignal__easel_1_1psk_1_1Modulator.html#aa18265ffb20963bce90f935ae12913bf" title=" " alt="" coords="344,305,520,347"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1BitStream.html#a0b3ebc141d66bd08407e82548c24e6ec" title=" " alt="" coords="344,371,520,412"/>
+<area shape="rect" id="node11" href="$classsignal__easel_1_1psk_1_1Modulator.html#a0949f7b7120c7a1b3c350681537e3181" title=" " alt="" coords="345,511,519,552"/>
+<area shape="rect" id="node16" href="$classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e" title=" " alt="" coords="344,440,520,481"/>
+<area shape="rect" id="node18" href="$classsignal__easel_1_1BitStream.html#a278666dbf58a4792e4f77538ab72b4b6" title="After adding all of the data to the bit stream, this method will write the data left in the buffer." alt="" coords="343,5,521,47"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1BitStream.html#a81d4aea4c11f65e0c2b7ad2f0f0cc312" title=" " alt="" coords="592,188,768,229"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1BitStream.html#abb315beec8c4d88115d9d4ec5f082863" title=" " alt="" coords="592,123,768,164"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1BitStream.html#aa97152ef51f73088e103a7951134aa85" title=" " alt="" coords="592,253,768,295"/>
+<area shape="rect" id="node12" href="$classsignal__easel_1_1psk_1_1PskWaveShaper.html#a43adb5526e215f4183ad439ca92daf1f" title=" " alt="" coords="577,516,783,557"/>
+<area shape="rect" id="node14" href="$classsignal__easel_1_1BitStream.html#ad7b803a89b3a53ec1e4108122861a90b" title="Returns the next bit of the bit stream without removing it." alt="" coords="592,581,768,623"/>
+<area shape="rect" id="node15" href="$classsignal__easel_1_1BitStream.html#a5b5339586e09ca5c25a7e9ded0118ffb" title="Returns the next bit of the bit stream that will be encoded." alt="" coords="592,451,768,492"/>
+<area shape="rect" id="node13" href="$classsignal__easel_1_1psk_1_1PskWaveShaper.html#ac4db3c5943e9f56ce1d058a2347a2438" title="A filter to remove the sharp edges of the wave during a phase change." alt="" coords="833,516,1060,557"/>
+<area shape="rect" id="node17" href="$namespacesignal__easel_1_1psk.html#a104a25083c06056bf0c5cf7d9226f73d" title="Shift the provided phase with the convolutional code." alt="" coords="575,370,785,426"/>
+<area shape="rect" id="node20" href="$classsignal__easel_1_1Modulator.html#a67263d2a46fdb510adb0b4211699bf26" title="Add morse code to the output audio." alt="" coords="343,649,521,691"/>
+<area shape="rect" id="node21" href="$classsignal__easel_1_1Modulator.html#a83877b4de0ae12992f62c09cf876da04" title="Add silence to the audio buffer." alt="" coords="591,712,769,753"/>
+<area shape="rect" id="node24" href="$namespacesignal__easel.html#a3befdd8242efcc43e4e99a8e20a7be6c" title="Basic checks to see if a call sign is valid." alt="" coords="345,767,519,808"/>
+<area shape="rect" id="node23" href="$classsignal__easel_1_1Modulator.html#a0fcce44b034c83731048ca17dc985f04" title="Add a sine wave to the audio buffer." alt="" coords="591,647,769,688"/>
+<area shape="rect" id="node22" href="$classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8" title="Add a PCM sample to the audio buffer." alt="" coords="858,679,1035,720"/>
+</map>

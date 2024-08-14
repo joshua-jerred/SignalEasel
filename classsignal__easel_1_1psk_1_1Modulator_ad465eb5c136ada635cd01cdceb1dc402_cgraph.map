@@ -1,0 +1,7 @@
+<map id="signal_easel::psk::Modulator::addPostamble" name="signal_easel::psk::Modulator::addPostamble">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,195,112"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1BitStream.html#a81d4aea4c11f65e0c2b7ad2f0f0cc312" title=" " alt="" coords="243,5,419,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1BitStream.html#abb315beec8c4d88115d9d4ec5f082863" title=" " alt="" coords="243,71,419,112"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1BitStream.html#aa97152ef51f73088e103a7951134aa85" title=" " alt="" coords="243,136,419,177"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6" title=" " alt="" coords="467,39,643,80"/>
+</map>

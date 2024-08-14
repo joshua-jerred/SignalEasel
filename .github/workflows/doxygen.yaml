@@ -6,7 +6,7 @@ on:
 
 jobs:
   doxygen_publish:
-    name: Doxygen/Structurizr
+    name: Doxygen
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

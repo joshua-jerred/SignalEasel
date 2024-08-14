@@ -5,7 +5,7 @@
  * https://joshuajer.red/signal-easel
  * =*===========================*=
  *
- * @file   psk.cpp
+ * @file   psk.hpp
  * @date   2024-06-08
  * @brief  Phase Shift Keying Implementation
  *

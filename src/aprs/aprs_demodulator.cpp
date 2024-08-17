@@ -161,7 +161,8 @@ bool Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
   return true;
 }
 
-bool Demodulator::parseExperimentalPacket(aprs::Experimental &experimental) {
+bool Demodulator::parseExperimentalPacket(
+    aprs::ExperimentalPacket &experimental) {
   if (type_ != aprs::Packet::Type::EXPERIMENTAL) {
     /// @todo assert here or something instead. Same with other parse functions
     return false;

@@ -93,7 +93,7 @@ public:
 
   /// @brief Get the unit or label of the parameter.
   /// @return The unit or label of the parameter.
-  std::string getUnitOrLabel() const { return unit_or_label_; }
+  std::string getLabel() const { return unit_or_label_; }
 
 protected:
   /// @brief Construct a new Parameter with the given ID.
@@ -131,7 +131,7 @@ public:
 
   /// @brief Get the raw value of the parameter.
   /// @return The raw value.
-  uint8_t getRawValue() const { return raw_value_; }
+  uint8_t getValue() const { return raw_value_; }
 
   /// @brief Get the calculated value of the parameter using the formula
   /// y = ax^2 + bx + c.
@@ -174,15 +174,18 @@ public:
                        const std::string &coefficient_b,
                        const std::string &coefficient_c);
 
-private:
-  /// @brief Validate the format of a coefficient.
-  /// @param coefficient - The coefficient to validate.
-  /// @param[out] numerical_value - The numerical value of the coefficient. This
-  /// is only set if the coefficient is valid.
-  /// @return \c true if the coefficient is valid, \c false otherwise.
-  bool validateCoefficient(const std::string &coefficient,
-                           double &numerical_value) const;
+  /// @brief Get all coefficients in the formula y = ax^2 + bx + c.
+  /// @param[out] coefficient_a - The a coefficient.
+  /// @param[out] coefficient_b - The b coefficient.
+  /// @param[out] coefficient_c - The c coefficient.
+  void getCoefficients(std::string &coefficient_a, std::string &coefficient_b,
+                       std::string &coefficient_c) const {
+    coefficient_a = coefficient_a_;
+    coefficient_b = coefficient_b_;
+    coefficient_c = coefficient_c_;
+  }
 
+private:
   /// @brief The raw value of the analog parameter (0-255).
   uint8_t raw_value_{0};
 
@@ -227,7 +230,21 @@ private:
   bool value_{false};
 
   /// @brief The bit sense of the digital parameter.
-  bool bit_sense_{false};
+  bool bit_sense_{true};
 };
+
+/// @brief Validate the format of a coefficient.
+/// @param coefficient - The coefficient to validate.
+/// @param[out] numerical_value - The numerical value of the coefficient. This
+/// is only set if the coefficient is valid.
+/// @return \c true if the coefficient is valid, \c false otherwise.
+bool validateCoefficient(const std::string &coefficient,
+                         double &numerical_value);
+
+/// @brief Wrapper for validateCoefficient that does not require the numerical
+/// value.
+/// @param coefficient - The coefficient to validate.
+/// @return \c true if the coefficient is valid, \c false otherwise.
+bool validateCoefficient(const std::string &coefficient);
 
 }; // namespace signal_easel::aprs::telemetry

@@ -187,6 +187,16 @@ inline void validate(bool condition, std::string message = "") {
   }
 }
 
+inline void validateWithContext(bool condition, const char *file, size_t line) {
+  if (!condition) {
+    throw Exception(Exception::Id::VALIDATION_ERROR,
+                    std::string(file) + ":" + std::to_string(line));
+  }
+}
+
+#define signal_easel_validate(__e)                                             \
+  validateWithContext((__e), __FILE__, __LINE__)
+
 } // namespace signal_easel
 
 #endif /* SIGNAL_EASEL_EXCEPTION_HPP_ */

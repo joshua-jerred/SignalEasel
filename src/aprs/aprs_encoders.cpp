@@ -123,7 +123,7 @@ std::vector<uint8_t> MessagePacket::encode() const {
   return info;
 }
 
-std::vector<uint8_t> MessageAck::encode() const {
+std::vector<uint8_t> MessageAckPacket::encode() const {
   std::vector<uint8_t> info;
 
   info.push_back(':');
@@ -301,7 +301,7 @@ void addUnitOrParam(const std::string &unit_or_param,
 //   return info;
 // }
 
-std::vector<uint8_t> Experimental::encode() const {
+std::vector<uint8_t> ExperimentalPacket::encode() const {
   std::vector<uint8_t> info;
   info.push_back('{');
   info.push_back('{');

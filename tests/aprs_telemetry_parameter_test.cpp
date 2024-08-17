@@ -17,15 +17,17 @@
 #include "gtest/gtest.h"
 
 #include <SignalEasel/aprs/telemetry_parameter.hpp>
-#include <iostream> /// @todo remove
 
 using namespace signal_easel::aprs::telemetry;
 
-TEST(telemetry_parameters_test, AnalogParameter_setName) {
+TEST(aprs_telemetry_parameters_test, AnalogParameter_setName) {
   AnalogParameter parameter_a1(Parameter::Id::A1);
   AnalogParameter parameter_a2(Parameter::Id::A2);
 
   EXPECT_EQ(parameter_a1.getType(), Parameter::Type::Analog);
+  EXPECT_EQ(parameter_a1.getId(), Parameter::Id::A1);
+  EXPECT_EQ(parameter_a2.getType(), Parameter::Type::Analog);
+  EXPECT_EQ(parameter_a2.getId(), Parameter::Id::A2);
 
   // A1 is special. It must be non-empty.
   EXPECT_FALSE(parameter_a1.setName(""));
@@ -37,8 +39,9 @@ TEST(telemetry_parameters_test, AnalogParameter_setName) {
   EXPECT_EQ(parameter_a2.getName(), "");
 }
 
-TEST(telemetry_parameters_test, DigitalParameter_setName) {
+TEST(aprs_telemetry_parameters_test, DigitalParameter_setName) {
   DigitalParameter parameter_b8(Parameter::Id::B8);
+  EXPECT_EQ(parameter_b8.getId(), Parameter::Id::B8);
   EXPECT_EQ(parameter_b8.getType(), Parameter::Type::Digital);
 
   // B8 can be empty or up to 2 characters.
@@ -52,7 +55,7 @@ TEST(telemetry_parameters_test, DigitalParameter_setName) {
   EXPECT_EQ(parameter_b8.getName(), "ab");
 }
 
-TEST(telemetry_parameters_test, AnalogParameter_getCoefficient_default) {
+TEST(aprs_telemetry_parameters_test, AnalogParameter_getCoefficient_default) {
   AnalogParameter parameter(Parameter::Id::A1);
 
   EXPECT_EQ(parameter.getCoefficientA(), "0");
@@ -60,7 +63,7 @@ TEST(telemetry_parameters_test, AnalogParameter_getCoefficient_default) {
   EXPECT_EQ(parameter.getCoefficientC(), "0");
 }
 
-TEST(telemetry_parameters_test, AnalogParameter_setCoefficient) {
+TEST(aprs_telemetry_parameters_test, AnalogParameter_setCoefficient) {
   // We're not too picky. Just make sure it's a valid number.
   const std::vector<std::string> VALID_COEFFICIENTS = {
       ".0", "0",    "0.",       "0.0", "-0", "-.0", "-0.0",      "-0.",
@@ -89,17 +92,17 @@ TEST(telemetry_parameters_test, AnalogParameter_setCoefficient) {
   }
 }
 
-TEST(telemetry_parameters_test, AnalogParameter_getRawValue) {
+TEST(aprs_telemetry_parameters_test, AnalogParameter_getRawValue) {
   AnalogParameter parameter(Parameter::Id::A1);
 
-  EXPECT_EQ(parameter.getRawValue(), 0) << "Default raw value should be 0.";
+  EXPECT_EQ(parameter.getValue(), 0) << "Default raw value should be 0.";
 
   constexpr uint8_t TEST_VALUE = 250;
   parameter.setRawValue(TEST_VALUE);
   EXPECT_EQ(parameter.getCalculatedValue(), TEST_VALUE);
 }
 
-TEST(telemetry_parameters_test, AnalogParameter_getScaledValue_default) {
+TEST(aprs_telemetry_parameters_test, AnalogParameter_getScaledValue_default) {
   AnalogParameter parameter(Parameter::Id::A1);
 
   constexpr uint8_t TEST_RAW_VALUE = 250;
@@ -110,7 +113,7 @@ TEST(telemetry_parameters_test, AnalogParameter_getScaledValue_default) {
   EXPECT_NEAR(parameter.getCalculatedValue(), TEST_RAW_VALUE, 0.00001);
 }
 
-TEST(telemetry_parameters_test, AnalogParameter_getCalculatedValue) {
+TEST(aprs_telemetry_parameters_test, AnalogParameter_getCalculatedValue) {
   struct Test {
     uint8_t raw_value;
     std::string coefficient_a;

@@ -16,6 +16,42 @@
 
 namespace signal_easel::aprs::telemetry {
 
+bool validateCoefficient(const std::string &coefficient,
+                         double &numerical_value) {
+  // Checks not done by regex first
+  if (coefficient.size() > 9 || coefficient.empty()) { // Max length of 9
+    return false;
+  }
+
+  if (coefficient.size() == 1 && (coefficient == "." || coefficient == "-")) {
+    return false;
+  }
+
+  if (coefficient.size() == 2 && coefficient == "-.") {
+    return false;
+  }
+
+  // Regex check
+  const std::regex coefficient_regex("^-?\\d*\\.?\\d*$");
+  if (!std ::regex_match(coefficient, coefficient_regex)) {
+    return false;
+  }
+
+  // Final check of conversion
+  try {
+    numerical_value = std::stod(coefficient);
+  } catch (const std::invalid_argument &e) {
+    return false;
+  }
+
+  return true;
+};
+
+bool validateCoefficient(const std::string &coefficient) {
+  double numerical_value;
+  return validateCoefficient(coefficient, numerical_value);
+}
+
 Parameter::Parameter(Id id, Type type) : id_(id), type_{type} {
   if (id_ == Id::A1) { // Spec requires A1 to be non-empty.
     name_ = "x";
@@ -128,37 +164,6 @@ bool AnalogParameter::setCoefficients(const std::string &coefficient_a,
       !setCoefficientC(coefficient_c)) {
     return false;
   }
-  return true;
-}
-
-bool AnalogParameter::validateCoefficient(const std::string &coefficient,
-                                          double &numerical_value) const {
-  // Checks not done by regex first
-  if (coefficient.size() > 9 || coefficient.empty()) { // Max length of 9
-    return false;
-  }
-
-  if (coefficient.size() == 1 && (coefficient == "." || coefficient == "-")) {
-    return false;
-  }
-
-  if (coefficient.size() == 2 && coefficient == "-.") {
-    return false;
-  }
-
-  // Regex check
-  const std::regex coefficient_regex("^-?\\d*\\.?\\d*$");
-  if (!std ::regex_match(coefficient, coefficient_regex)) {
-    return false;
-  }
-
-  // Final check of conversion
-  try {
-    numerical_value = std::stod(coefficient);
-  } catch (const std::invalid_argument &e) {
-    return false;
-  }
-
   return true;
 }
 

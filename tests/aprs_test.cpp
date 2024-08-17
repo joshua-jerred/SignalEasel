@@ -74,7 +74,7 @@ TEST(Aprs, EncodeAndDecodeExperimentalPacket) {
 
   signal_easel::aprs::Modulator modulator;
 
-  signal_easel::aprs::Experimental experimental_packet;
+  signal_easel::aprs::ExperimentalPacket experimental_packet;
   experimental_packet.source_address = "TSTCLL";
   experimental_packet.source_ssid = 11;
   experimental_packet.packet_type_char = 'z';
@@ -91,7 +91,7 @@ TEST(Aprs, EncodeAndDecodeExperimentalPacket) {
   EXPECT_EQ(demodulator.getType(),
             signal_easel::aprs::Packet::Type::EXPERIMENTAL);
 
-  signal_easel::aprs::Experimental decoded_experimental_packet;
+  signal_easel::aprs::ExperimentalPacket decoded_experimental_packet;
   EXPECT_TRUE(demodulator.parseExperimentalPacket(decoded_experimental_packet));
 
   EXPECT_EQ(decoded_experimental_packet.packet_type_char,

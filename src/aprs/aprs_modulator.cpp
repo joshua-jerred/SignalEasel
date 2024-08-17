@@ -11,27 +11,30 @@
 namespace signal_easel::aprs {
 
 void Modulator::encode(const aprs::PositionPacket &packet) {
+  // Generate the information bytes
   std::vector<uint8_t> info = packet.encode();
+  // Use the information from the packet base class to encode the full packet
   std::vector<uint8_t> output_bytes = encodePacket(packet, info);
-  encodeBytes(output_bytes);
+  // Encode with AX.25
+  afsk::Modulator::encodeBytes(output_bytes);
 }
 
 void Modulator::encode(const aprs::MessagePacket &packet) {
   std::vector<uint8_t> info = packet.encode();
   std::vector<uint8_t> output_bytes = encodePacket(packet, info);
-  encodeBytes(output_bytes);
+  afsk::Modulator::encodeBytes(output_bytes);
 }
 
-void Modulator::encode(const aprs::MessageAck &packet) {
+void Modulator::encode(const aprs::MessageAckPacket &packet) {
   std::vector<uint8_t> info = packet.encode();
   std::vector<uint8_t> output_bytes = encodePacket(packet, info);
-  encodeBytes(output_bytes);
+  afsk::Modulator::encodeBytes(output_bytes);
 }
 
-void Modulator::encode(const aprs::Experimental &packet) {
+void Modulator::encode(const aprs::ExperimentalPacket &packet) {
   std::vector<uint8_t> info = packet.encode();
   std::vector<uint8_t> output_bytes = encodePacket(packet, info);
-  encodeBytes(output_bytes);
+  afsk::Modulator::encodeBytes(output_bytes);
 }
 
 } // namespace signal_easel::aprs

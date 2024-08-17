@@ -66,6 +66,7 @@ set(SignalEasel_sources
     src/aprs/aprs_modulator.cpp
     src/aprs/aprs_receiver.cpp
     src/aprs/aprs_encoders.cpp
+    src/aprs/telemetry_parameter.cpp
 
     # PSK
     src/psk/psk_modulator.cpp

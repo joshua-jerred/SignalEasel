@@ -4,6 +4,7 @@ find_package(GTest REQUIRED)
 set(signal_easel_unit_tests_sources
   ${CMAKE_CURRENT_SOURCE_DIR}/afsk_test.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/aprs_test.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/aprs_telemetry_test.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/ax25_crc_test.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/ax25_frame_test.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/ax25_address_test.cpp

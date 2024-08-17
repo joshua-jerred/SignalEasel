@@ -43,6 +43,13 @@ bool Demodulator::lookForAx25Packet() {
   case '{':
     type_ = aprs::Packet::Type::EXPERIMENTAL;
     break;
+  case 'T':
+  case 'P': // PARM
+  case 'U': // UNIT
+  case 'E': // EQNS
+  case 'B': // BITS
+    type_ = aprs::Packet::Type::TELEMETRY;
+    break;
   default:
     type_ = aprs::Packet::Type::UNKNOWN;
     return false;

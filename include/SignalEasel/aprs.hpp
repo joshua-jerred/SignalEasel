@@ -29,7 +29,7 @@ namespace signal_easel::aprs {
 
 struct Packet {
   enum class SymbolTable { PRIMARY, SECONDARY };
-  enum class Type { UNKNOWN, POSITION, MESSAGE, EXPERIMENTAL };
+  enum class Type { UNKNOWN, POSITION, MESSAGE, EXPERIMENTAL, TELEMETRY };
 
   std::string source_address = ""; // 3 - 6 characters, your callsign
   uint8_t source_ssid = 0;         // 0 - 15
@@ -206,62 +206,62 @@ private:
   Demodulator aprs_demodulator_{};
 };
 
-enum class TelemetryPacketType {
-  DATA_REPORT,
-  PARAM_NAME,
-  PARAM_UNIT,
-  PARAM_COEF,
-  BIT_SENSE_PROJ_NAME
-};
+// enum class TelemetryPacketType {
+//   DATA_REPORT,
+//   PARAM_NAME,
+//   PARAM_UNIT,
+//   PARAM_COEF,
+//   BIT_SENSE_PROJ_NAME
+// };
 
-struct Telemetry {
-  // The sequence number and comment are use in the DATA_REPORT packet
-  std::string sequence_number = "001"; // 3 digits
-  std::string comment = "";            // Max length of 220 characters
+// struct Telemetry {
+//   // The sequence number and comment are use in the DATA_REPORT packet
+//   std::string sequence_number = "001"; // 3 digits
+//   std::string comment = "";            // Max length of 220 characters
 
-  // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
-  std::string project_title = ""; // 0-23 characters
+//   // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
+//   std::string project_title = ""; // 0-23 characters
 
-  std::string destination_address = "   "; // between 3 and 9 chars
+//   std::string destination_address = "   "; // between 3 and 9 chars
 
-  struct Analog {
-    uint8_t value = 0;
+//   struct Analog {
+//     uint8_t value = 0;
 
-    // the length differs for each value.
-    std::string name = ""; // 1 - max_name_length characters
-    std::string unit = ""; // 1 - max_name_length characters
-    // a*x^2 + b*x + c
-    std::string coef_a = "0"; // 1-9 characters, -, ., 0-9
-    std::string coef_b = "1"; // 1-9 characters, -, ., 0-9
-    std::string coef_c = "0"; // 1-9 characters, -, ., 0-9
-  };
+//     // the length differs for each value.
+//     std::string name = ""; // 1 - max_name_length characters
+//     std::string unit = ""; // 1 - max_name_length characters
+//     // a*x^2 + b*x + c
+//     std::string coef_a = "0"; // 1-9 characters, -, ., 0-9
+//     std::string coef_b = "1"; // 1-9 characters, -, ., 0-9
+//     std::string coef_c = "0"; // 1-9 characters, -, ., 0-9
+//   };
 
-  struct Digital {
-    bool value = false;
-    bool sense = false; // for BIT_SENSE_PROJ_NAME packet
+//   struct Digital {
+//     bool value = false;
+//     bool sense = false; // for BIT_SENSE_PROJ_NAME packet
 
-    std::string name = ""; // 1 - max_name_length characters
-    std::string unit = ""; // 1 - max_name_length characters
-  };
+//     std::string name = ""; // 1 - max_name_length characters
+//     std::string unit = ""; // 1 - max_name_length characters
+//   };
 
-  Analog a1{};
-  Analog a2{};
-  Analog a3{};
-  Analog a4{};
-  Analog a5{};
+//   Analog a1{};
+//   Analog a2{};
+//   Analog a3{};
+//   Analog a4{};
+//   Analog a5{};
 
-  Digital d1{};
-  Digital d2{};
-  Digital d3{};
-  Digital d4{};
-  Digital d5{};
-  Digital d6{};
-  Digital d7{};
-  Digital d8{};
+//   Digital d1{};
+//   Digital d2{};
+//   Digital d3{};
+//   Digital d4{};
+//   Digital d5{};
+//   Digital d6{};
+//   Digital d7{};
+//   Digital d8{};
 
-  std::vector<uint8_t>
-  encode(TelemetryPacketType type = TelemetryPacketType::DATA_REPORT) const;
-};
+//   std::vector<uint8_t>
+//   encode(TelemetryPacketType type = TelemetryPacketType::DATA_REPORT) const;
+// };
 
 std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
 int base91Decode(std::vector<uint8_t> encoded);

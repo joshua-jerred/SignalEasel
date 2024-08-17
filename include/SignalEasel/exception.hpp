@@ -67,7 +67,8 @@ public:
     SSTV_COLOR_FORMAT_NOT_IMPLEMENTED,
     SSTV_INVALID_COLOR_TYPE,
     VALIDATION_ERROR,
-    GENERIC
+    GENERIC,
+    APRS_TELEMETRY
   };
 
   static std::string idToString(Id exception_id) {
@@ -158,6 +159,8 @@ public:
       return "Validation error";
     case Id::GENERIC:
       return "Generic";
+    case Id::APRS_TELEMETRY:
+      return "APRS telemetry";
     default:
       return "Unknown error";
     }

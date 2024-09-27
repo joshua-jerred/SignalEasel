@@ -43,6 +43,21 @@ bool Demodulator::lookForAx25Packet() {
   case '{':
     type_ = aprs::Packet::Type::EXPERIMENTAL;
     break;
+  case 'T': // TELEMETRY DATA REPORT
+    type_ = aprs::Packet::Type::TELEMETRY_DATA_REPORT;
+    break;
+  case 'P': // PARM
+    type_ = aprs::Packet::Type::TELEMETRY_PARAMETER_NAME;
+    break;
+  case 'U': // UNIT
+    type_ = aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT;
+    break;
+  case 'E': // EQNS
+    type_ = aprs::Packet::Type::TELEMETRY_COEFFICIENT;
+    break;
+  case 'B': // BITS
+    type_ = aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME;
+    break;
   default:
     type_ = aprs::Packet::Type::UNKNOWN;
     return false;
@@ -55,6 +70,7 @@ bool Demodulator::parseMessagePacket(aprs::MessagePacket &message_packet) {
   if (type_ != aprs::Packet::Type::MESSAGE) {
     return false;
   }
+  populateGenericFields(message_packet);
 
   auto info = frame_.getInformation();
 
@@ -88,6 +104,8 @@ bool Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
   if (type_ != aprs::Packet::Type::POSITION) {
     return false;
   }
+  populateGenericFields(position);
+
   auto info_vec = frame_.getInformation();
   std::string info(info_vec.begin(), info_vec.end());
 
@@ -154,11 +172,14 @@ bool Demodulator::parsePositionPacket(aprs::PositionPacket &position) {
   return true;
 }
 
-bool Demodulator::parseExperimentalPacket(aprs::Experimental &experimental) {
+bool Demodulator::parseExperimentalPacket(
+    aprs::ExperimentalPacket &experimental) {
   if (type_ != aprs::Packet::Type::EXPERIMENTAL) {
     /// @todo assert here or something instead. Same with other parse functions
     return false;
   }
+
+  populateGenericFields(experimental);
 
   auto info = frame_.getInformation();
   if (info.size() < 3) {
@@ -178,6 +199,35 @@ bool Demodulator::parseExperimentalPacket(aprs::Experimental &experimental) {
   }
   experimental.data = std::vector<uint8_t>(info.begin() + 3, info.end());
   return true;
+}
+
+bool Demodulator::parseTelemetryPacket(aprs::TelemetryPacket &packet) {
+  if (type_ != aprs::Packet::Type::TELEMETRY_DATA_REPORT &&
+      type_ != aprs::Packet::Type::TELEMETRY_PARAMETER_NAME &&
+      type_ != aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT &&
+      type_ != aprs::Packet::Type::TELEMETRY_COEFFICIENT &&
+      type_ != aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME) {
+    /// @todo assert here or something instead. Same with other parse functions
+    return false;
+  }
+  populateGenericFields(packet);
+
+  packet.telemetry_type = type_;
+
+  auto &info = frame_.getInformationRef();
+  telemetry::TelemetryTranscoder decoder{};
+
+  return decoder.decodeMessage(packet.telemetry_data, info);
+}
+
+void Demodulator::populateGenericFields(aprs::Packet &packet) const {
+  const auto source = frame_.getSourceAddress();
+  packet.source_address = source.getAddressString();
+  packet.source_ssid = source.getSsid();
+
+  const auto destination = frame_.getDestinationAddress();
+  packet.destination_ssid = destination.getSsid();
+  packet.destination_address = destination.getAddressString();
 }
 
 } // namespace signal_easel::aprs

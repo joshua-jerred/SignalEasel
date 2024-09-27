@@ -175,6 +175,10 @@ public:
   }
   void setInformation(std::vector<uint8_t> information);
   std::vector<uint8_t> getInformation() const { return information_; }
+
+  /// @brief Get a reference to the information field
+  /// @return A const reference to the information field vector
+  const std::vector<uint8_t> &getInformationRef() const { return information_; }
   /**
    * @}
    */

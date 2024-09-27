@@ -67,7 +67,9 @@ public:
     SSTV_COLOR_FORMAT_NOT_IMPLEMENTED,
     SSTV_INVALID_COLOR_TYPE,
     VALIDATION_ERROR,
-    GENERIC
+    GENERIC,
+    APRS_TELEMETRY,
+    INVALID_TELEMETRY_TYPE,
   };
 
   static std::string idToString(Id exception_id) {
@@ -158,6 +160,10 @@ public:
       return "Validation error";
     case Id::GENERIC:
       return "Generic";
+    case Id::APRS_TELEMETRY:
+      return "APRS telemetry";
+    case Id::INVALID_TELEMETRY_TYPE:
+      return "Invalid telemetry type";
     default:
       return "Unknown error";
     }
@@ -183,6 +189,16 @@ inline void validate(bool condition, std::string message = "") {
     throw Exception(Exception::Id::VALIDATION_ERROR, message);
   }
 }
+
+inline void validateWithContext(bool condition, const char *file, size_t line) {
+  if (!condition) {
+    throw Exception(Exception::Id::VALIDATION_ERROR,
+                    std::string(file) + ":" + std::to_string(line));
+  }
+}
+
+#define signal_easel_validate(__e)                                             \
+  validateWithContext((__e), __FILE__, __LINE__)
 
 } // namespace signal_easel
 

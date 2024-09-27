@@ -16,7 +16,7 @@
 namespace signal_easel::aprs::telemetry {
 
 bool TelemetryTranscoder::encodeDataReportMessage(
-    std::vector<uint8_t> &output) const {
+    const TelemetryData &data, std::vector<uint8_t> &output) {
   output.clear();
 
   // Add the message type
@@ -24,14 +24,14 @@ bool TelemetryTranscoder::encodeDataReportMessage(
 
   // Add the sequence number
   output.push_back('#');
-  std::string sequence_number = getSequenceNumberString();
+  std::string sequence_number = data.getSequenceNumberString();
   for (char c : sequence_number) {
     output.push_back(c);
   }
   output.push_back(',');
 
   // Add the analog parameters
-  for (const auto &analog : getAnalogParametersConst()) {
+  for (const auto &analog : data.getAnalogParametersConst()) {
     output.push_back(analog.getValue() / 100 + '0');
     output.push_back(analog.getValue() / 10 % 10 + '0');
     output.push_back(analog.getValue() % 10 + '0');
@@ -39,12 +39,12 @@ bool TelemetryTranscoder::encodeDataReportMessage(
   }
 
   // Add the digital parameters
-  for (const auto &digital : getDigitalParametersConst()) {
+  for (const auto &digital : data.getDigitalParametersConst()) {
     output.push_back(digital.getValue() ? '1' : '0');
   }
 
   // Add the comment
-  for (char c : getComment()) {
+  for (char c : data.getComment()) {
     output.push_back(c);
   }
 
@@ -52,7 +52,7 @@ bool TelemetryTranscoder::encodeDataReportMessage(
 }
 
 bool TelemetryTranscoder::encodeParameterCoefficientMessage(
-    std::vector<uint8_t> &output) const {
+    const TelemetryData &data, std::vector<uint8_t> &output) {
   output.clear();
 
   // Add the message type
@@ -64,7 +64,7 @@ bool TelemetryTranscoder::encodeParameterCoefficientMessage(
 
   // Add the equation coefficients for each analog parameter
   bool first = true;
-  for (const auto &analog : getAnalogParametersConst()) {
+  for (const auto &analog : data.getAnalogParametersConst()) {
     if (!first) {
       output.push_back(',');
     }
@@ -89,7 +89,7 @@ bool TelemetryTranscoder::encodeParameterCoefficientMessage(
 }
 
 bool TelemetryTranscoder::encodeParameterNameMessage(
-    std::vector<uint8_t> &output) const {
+    const TelemetryData &data, std::vector<uint8_t> &output) {
   output.clear();
 
   // Add the message type
@@ -104,7 +104,7 @@ bool TelemetryTranscoder::encodeParameterNameMessage(
 
   // Add the analog parameters
   bool first = true;
-  for (const auto &analog : getAnalogParametersConst()) {
+  for (const auto &analog : data.getAnalogParametersConst()) {
     if (!first) {
       output.push_back(',');
     }
@@ -120,7 +120,7 @@ bool TelemetryTranscoder::encodeParameterNameMessage(
   }
 
   // Add the digital parameters
-  for (const auto &digital : getDigitalParametersConst()) {
+  for (const auto &digital : data.getDigitalParametersConst()) {
     output.push_back(',');
 
     for (char c : digital.getName()) {
@@ -139,7 +139,7 @@ bool TelemetryTranscoder::encodeParameterNameMessage(
 }
 
 bool TelemetryTranscoder::encodeUnitAndLabelMessage(
-    std::vector<uint8_t> &output) const {
+    const TelemetryData &data, std::vector<uint8_t> &output) {
   output.clear();
 
   // Add the message type
@@ -154,7 +154,7 @@ bool TelemetryTranscoder::encodeUnitAndLabelMessage(
 
   // Add the analog parameters
   bool first = true;
-  for (const auto &analog : getAnalogParametersConst()) {
+  for (const auto &analog : data.getAnalogParametersConst()) {
     if (!first) {
       output.push_back(',');
     }
@@ -170,7 +170,7 @@ bool TelemetryTranscoder::encodeUnitAndLabelMessage(
   }
 
   // Add the digital parameters
-  for (const auto &digital : getDigitalParametersConst()) {
+  for (const auto &digital : data.getDigitalParametersConst()) {
     output.push_back(',');
 
     for (char c : digital.getLabel()) {
@@ -188,8 +188,8 @@ bool TelemetryTranscoder::encodeUnitAndLabelMessage(
   return true;
 }
 
-bool TelemetryTranscoder::encodeBitSenseMessage(
-    std::vector<uint8_t> &output) const {
+bool TelemetryTranscoder::encodeBitSenseMessage(const TelemetryData &data,
+                                                std::vector<uint8_t> &output) {
   output.clear();
 
   // Add the message type
@@ -200,11 +200,11 @@ bool TelemetryTranscoder::encodeBitSenseMessage(
   output.push_back('.');
 
   // Add the digital parameters
-  for (const auto &digital : getDigitalParametersConst()) {
+  for (const auto &digital : data.getDigitalParametersConst()) {
     output.push_back(digital.getBitSense() ? '1' : '0');
   }
 
-  std::string project_title = getProjectTitle();
+  std::string project_title = data.getProjectTitle();
   if (!project_title.empty()) {
     output.push_back(',');
     for (char c : project_title) {
@@ -215,29 +215,30 @@ bool TelemetryTranscoder::encodeBitSenseMessage(
   return true;
 }
 
-bool TelemetryTranscoder::decodeMessage(const std::vector<uint8_t> &message) {
+bool TelemetryTranscoder::decodeMessage(TelemetryData &data,
+                                        const std::vector<uint8_t> &message) {
   if (message.empty()) {
     return false;
   }
 
   switch (message.at(0)) {
   case 'T':
-    return decodeDataReportMessage(message);
+    return decodeDataReportMessage(data, message);
   case 'P':
-    return decodeParameterDescriptor(message, true);
+    return decodeParameterDescriptor(data, message, true);
   case 'U':
-    return decodeParameterDescriptor(message, false);
+    return decodeParameterDescriptor(data, message, false);
   case 'E':
-    return decodeParameterCoefficientMessage(message);
+    return decodeParameterCoefficientMessage(data, message);
   case 'B':
-    return decodeBitSenseMessage(message);
+    return decodeBitSenseMessage(data, message);
   default:
     return false;
   };
 }
 
 bool TelemetryTranscoder::decodeValidateHeader(
-    const std::vector<uint8_t> &message, const std::string &header) const {
+    const std::vector<uint8_t> &message, const std::string &header) {
   if (message.size() < header.size()) {
     return false;
   }
@@ -252,7 +253,7 @@ bool TelemetryTranscoder::decodeValidateHeader(
 }
 
 bool TelemetryTranscoder::decodeDataReportMessage(
-    const std::vector<uint8_t> &message) {
+    TelemetryData &data, const std::vector<uint8_t> &message) {
   constexpr size_t MINIMUM_DATA_REPORT_MESSAGE_LENGTH =
       33; // In the case of "MIC" and not comma following it.
   if (message.size() < MINIMUM_DATA_REPORT_MESSAGE_LENGTH) {
@@ -272,7 +273,7 @@ bool TelemetryTranscoder::decodeDataReportMessage(
   // Get the sequence number or MIC
   if (message.at(pos) == 'M' && message.at(pos + 1) == 'I' &&
       message.at(pos + 2) == 'C') {
-    setSequenceNumber(0); // MIC, just set to 0
+    data.setSequenceNumber(0); // MIC, just set to 0
     pos += 3;
 
     // MIC may or may not have a comma after it
@@ -288,13 +289,13 @@ bool TelemetryTranscoder::decodeDataReportMessage(
     uint16_t sequence_num = (message.at(pos) - '0') * 100 +
                             (message.at(pos + 1) - '0') * 10 +
                             (message.at(pos + 2) - '0');
-    setSequenceNumber(sequence_num);
+    data.setSequenceNumber(sequence_num);
 
     pos += 4;
   }
 
   // Get the analog parameters
-  for (auto &analog : getAnalogParameters()) {
+  for (auto &analog : data.getAnalogParameters()) {
 
     // Ensure the next three characters are digits
     if (!isDigit(message.at(pos)) || !isDigit(message.at(pos + 1)) ||
@@ -315,7 +316,7 @@ bool TelemetryTranscoder::decodeDataReportMessage(
   }
 
   // Get the digital parameters
-  for (auto &digital : getDigitalParameters()) {
+  for (auto &digital : data.getDigitalParameters()) {
     uint8_t bit_char = message.at(pos++);
     if (bit_char == '1') {
       digital.setValue(true);
@@ -329,16 +330,17 @@ bool TelemetryTranscoder::decodeDataReportMessage(
   // Get the comment, if it exists
   std::string comment = "";
   while (pos < message.size() &&
-         pos < MINIMUM_DATA_REPORT_MESSAGE_LENGTH + COMMENT_MAX_LENGTH_) {
+         pos < MINIMUM_DATA_REPORT_MESSAGE_LENGTH + data.COMMENT_MAX_LENGTH_) {
     comment += message.at(pos++);
   }
-  setComment(comment);
+  data.setComment(comment);
 
   return true;
 }
 
 bool TelemetryTranscoder::decodeParameterDescriptor(
-    const std::vector<uint8_t> &message, const bool name_or_unit) {
+    TelemetryData &data, const std::vector<uint8_t> &message,
+    const bool name_or_unit) {
   constexpr size_t MINIMUM_PARAMETER_NAME_OR_UNIT_MESSAGE_LENGTH =
       5 + 1; // PARM.x
 
@@ -359,7 +361,7 @@ bool TelemetryTranscoder::decodeParameterDescriptor(
   }
 
   // First attempt to decode the analog parameter names
-  for (auto &analog : getAnalogParameters()) {
+  for (auto &analog : data.getAnalogParameters()) {
     // If there is data available, read it, otherwise the descriptor is empty
     // which is expected.
     std::string descriptor = "";
@@ -378,7 +380,7 @@ bool TelemetryTranscoder::decodeParameterDescriptor(
   }
 
   // Now do the same for the digital parameters
-  for (auto &digital : getDigitalParameters()) {
+  for (auto &digital : data.getDigitalParameters()) {
     // If there is data available, read it, otherwise the descriptor is empty
     // which is expected.
     std::string descriptor = "";
@@ -400,7 +402,7 @@ bool TelemetryTranscoder::decodeParameterDescriptor(
 }
 
 bool TelemetryTranscoder::decodeParameterCoefficientMessage(
-    const std::vector<uint8_t> &message) {
+    TelemetryData &data, const std::vector<uint8_t> &message) {
   constexpr size_t MINIMUM_EQUATION_COEFFICIENTS_MESSAGE_LENGTH = 5 + 29;
   if (message.size() < MINIMUM_EQUATION_COEFFICIENTS_MESSAGE_LENGTH) {
     return false;
@@ -414,7 +416,7 @@ bool TelemetryTranscoder::decodeParameterCoefficientMessage(
   size_t pos = EXPECTED_HEADER.size();
 
   // Get the equation coefficients for each analog parameter
-  for (auto &analog : getAnalogParameters()) {
+  for (auto &analog : data.getAnalogParameters()) {
     std::string a = "";
     std::string b = "";
     std::string c = "";
@@ -462,7 +464,7 @@ bool TelemetryTranscoder::decodeParameterCoefficientMessage(
 }
 
 bool TelemetryTranscoder::decodeBitSenseMessage(
-    const std::vector<uint8_t> &message) {
+    TelemetryData &data, const std::vector<uint8_t> &message) {
   constexpr size_t MINIMUM_BIT_SENSE_MESSAGE_LENGTH = 5 + 8;
   if (message.size() < MINIMUM_BIT_SENSE_MESSAGE_LENGTH) {
     return false;
@@ -476,7 +478,7 @@ bool TelemetryTranscoder::decodeBitSenseMessage(
   size_t pos = EXPECTED_HEADER.size();
 
   // Get the bit sense values
-  for (auto &digital : getDigitalParameters()) {
+  for (auto &digital : data.getDigitalParameters()) {
     if (pos >= message.size()) {
       return false;
     }
@@ -505,7 +507,7 @@ bool TelemetryTranscoder::decodeBitSenseMessage(
       project_title += message.at(pos);
     }
 
-    setProjectTitle(project_title);
+    data.setProjectTitle(project_title);
   }
 
   return true;

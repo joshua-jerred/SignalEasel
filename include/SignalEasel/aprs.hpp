@@ -24,6 +24,7 @@
 
 #include <SignalEasel/afsk.hpp>
 #include <SignalEasel/aprs/packets.hpp>
+#include <SignalEasel/aprs/telemetry_transcoder.hpp>
 #include <SignalEasel/ax25.hpp>
 
 namespace signal_easel::aprs {
@@ -44,6 +45,7 @@ public:
   void encode(const aprs::MessagePacket &packet);
   void encode(const aprs::MessageAckPacket &packet);
   void encode(const aprs::ExperimentalPacket &packet);
+  void encode(const aprs::TelemetryPacket &telemetryData);
 
 private:
   aprs::Settings settings_;
@@ -80,9 +82,17 @@ public:
 
   bool parseExperimentalPacket(aprs::ExperimentalPacket &experimental);
 
+  /// @brief If the packet was a telemetry packet, this function will try to
+  /// parse the packet and populate the telemetry data object.
+  /// @param packet - The telemetry packet to populate
+  /// @return \c true if the packet was successfully parsed, \c false otherwise.
+  bool parseTelemetryPacket(aprs::TelemetryPacket &packet);
+
   void printFrame();
 
 private:
+  void populateGenericFields(aprs::Packet &packet) const;
+
   ax25::Frame frame_{};
   aprs::Packet::Type type_ = aprs::Packet::Type::UNKNOWN;
 };
@@ -96,10 +106,13 @@ public:
     uint32_t num_position_packets_failed = 0;
     uint32_t total_experimental_packets = 0;
     uint32_t num_experimental_packets_failed = 0;
+    uint32_t total_telemetry_packets = 0;
+    uint32_t num_telemetry_packets_failed = 0;
     uint32_t total_other_packets = 0;
     uint32_t current_message_packets_in_queue = 0;
     uint32_t current_position_packets_in_queue = 0;
     uint32_t current_experimental_packets_in_queue = 0;
+    uint32_t current_telemetry_packets_in_queue = 0;
     uint32_t current_other_packets_in_queue = 0;
   };
 
@@ -126,6 +139,7 @@ private:
   std::vector<std::pair<ax25::Frame, aprs::PositionPacket>> aprs_positions_{};
   std::vector<std::pair<ax25::Frame, aprs::ExperimentalPacket>>
       aprs_experimental_{};
+  std::vector<std::pair<ax25::Frame, aprs::TelemetryPacket>> aprs_telemetry_{};
   std::vector<ax25::Frame> other_aprs_packets_{};
 
   Stats stats_{};

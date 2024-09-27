@@ -94,6 +94,12 @@ TEST(Aprs, EncodeAndDecodeExperimentalPacket) {
   signal_easel::aprs::ExperimentalPacket decoded_experimental_packet;
   EXPECT_TRUE(demodulator.parseExperimentalPacket(decoded_experimental_packet));
 
+  // Verify that the generic fields were also decoded correctly
+  EXPECT_EQ(experimental_packet.source_address,
+            decoded_experimental_packet.source_address);
+  EXPECT_EQ(experimental_packet.source_ssid,
+            decoded_experimental_packet.source_ssid);
+
   EXPECT_EQ(decoded_experimental_packet.packet_type_char,
             experimental_packet.packet_type_char);
   EXPECT_EQ(decoded_experimental_packet.getStringData(), data_str);
@@ -107,6 +113,80 @@ TEST(Aprs, DecodeReal) {
   demodulator.processAudioBuffer();
   EXPECT_TRUE(demodulator.lookForAx25Packet());
   demodulator.printFrame();
+}
+
+TEST(Aprs, EncodeAndDecodeTelemetryDataReport) {
+  const std::string OUT_FILE_PATH = "aprs_telemetry_data_report_test.wav";
+
+  namespace tel = signal_easel::aprs::telemetry;
+
+  tel::TelemetryData in_data;
+  in_data.setSequenceNumber(100);
+  in_data.getAnalog(tel::AnalogParameter::Id::A1).setRawValue(2);
+  in_data.getAnalog(tel::AnalogParameter::Id::A2).setRawValue(10);
+  in_data.getAnalog(tel::AnalogParameter::Id::A3).setRawValue(100);
+  in_data.getAnalog(tel::AnalogParameter::Id::A4).setRawValue(255);
+  in_data.getAnalog(tel::AnalogParameter::Id::A5).setRawValue(99);
+  in_data.getDigital(tel::DigitalParameter::Id::B1).setValue(true);
+  in_data.getDigital(tel::DigitalParameter::Id::B2).setValue(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B3).setValue(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B4).setValue(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B5).setValue(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B6).setValue(true);
+  in_data.getDigital(tel::DigitalParameter::Id::B7).setValue(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B8).setValue(true);
+
+  signal_easel::aprs::TelemetryPacket encode_packet{in_data};
+  encode_packet.telemetry_type =
+      signal_easel::aprs::Packet::Type::TELEMETRY_DATA_REPORT;
+  encode_packet.source_address = "TSTCLL";
+  encode_packet.source_ssid = 11;
+
+  signal_easel::aprs::Modulator modulator;
+  modulator.encode(encode_packet);
+  modulator.writeToFile(OUT_FILE_PATH);
+
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(OUT_FILE_PATH);
+  demodulator.processAudioBuffer();
+
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(),
+            signal_easel::aprs::Packet::Type::TELEMETRY_DATA_REPORT);
+
+  // -- Decode --
+  signal_easel::aprs::TelemetryPacket decoded_packet;
+  EXPECT_TRUE(demodulator.parseTelemetryPacket(decoded_packet));
+  EXPECT_EQ(signal_easel::aprs::Packet::Type::TELEMETRY_DATA_REPORT,
+            decoded_packet.telemetry_type);
+  auto &out_data = decoded_packet.telemetry_data;
+
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A1).getValue(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A1).getValue());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A2).getValue(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A2).getValue());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A3).getValue(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A3).getValue());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A4).getValue(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A4).getValue());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A5).getValue(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A5).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B1).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B1).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B2).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B2).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B3).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B3).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B4).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B4).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B5).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B5).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B6).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B6).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B7).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B7).getValue());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B8).getValue(),
+            out_data.getDigital(tel::DigitalParameter::Id::B8).getValue());
 }
 
 // TEST(Aprs, Telemetry) {

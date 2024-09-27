@@ -19,12 +19,24 @@
 
 #include <BoosterSeat/time.hpp>
 
+#include <SignalEasel/aprs/telemetry_data.hpp>
+
 namespace signal_easel::aprs {
 
 /// @brief The base APRS packet structure.
 struct Packet {
   enum class SymbolTable { PRIMARY, SECONDARY };
-  enum class Type { UNKNOWN, POSITION, MESSAGE, EXPERIMENTAL, TELEMETRY };
+  enum class Type {
+    UNKNOWN,
+    POSITION,
+    MESSAGE,
+    EXPERIMENTAL,
+    TELEMETRY_DATA_REPORT,
+    TELEMETRY_COEFFICIENT,
+    TELEMETRY_PARAMETER_NAME,
+    TELEMETRY_PARAMETER_UNIT,
+    TELEMETRY_BIT_SENSE_PROJ_NAME,
+  };
 
   std::string source_address = ""; // 3 - 6 characters, your callsign
   uint8_t source_ssid = 0;         // 0 - 15
@@ -82,6 +94,19 @@ struct ExperimentalPacket : Packet {
   void setStringData(std::string data_str) {
     data = std::vector<uint8_t>(data_str.begin(), data_str.end());
   }
+
+  std::vector<uint8_t> encode() const;
+};
+
+struct TelemetryPacket : Packet {
+  TelemetryPacket() = default;
+  TelemetryPacket(Packet packet, telemetry::TelemetryData data = {})
+      : Packet(packet), telemetry_data(data) {}
+  TelemetryPacket(telemetry::TelemetryData data) : telemetry_data(data) {}
+
+  telemetry::TelemetryData telemetry_data{};
+
+  Packet::Type telemetry_type = Packet::Type::UNKNOWN;
 
   std::vector<uint8_t> encode() const;
 };

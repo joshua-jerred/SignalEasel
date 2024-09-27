@@ -121,6 +121,23 @@ void Receiver::decode() {
       stats_.num_experimental_packets_failed++;
     }
 
+  } else if (res &&
+             (type == aprs::Packet::Type::TELEMETRY_DATA_REPORT ||
+              type == aprs::Packet::Type::TELEMETRY_COEFFICIENT ||
+              type == aprs::Packet::Type::TELEMETRY_PARAMETER_NAME ||
+              type == aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT ||
+              type == aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME)) {
+
+    aprs::TelemetryPacket telemetry_packet;
+    bool success = aprs_demodulator_.parseTelemetryPacket(telemetry_packet);
+    if (success) {
+      aprs_telemetry_.push_back(std::pair<ax25::Frame, aprs::TelemetryPacket>(
+          aprs_demodulator_.frame_, telemetry_packet));
+      stats_.total_telemetry_packets++;
+    } else {
+      stats_.num_telemetry_packets_failed++;
+    }
+
   } else if (res) {
     other_aprs_packets_.push_back(aprs_demodulator_.frame_);
     stats_.total_other_packets++;
@@ -136,6 +153,7 @@ void Receiver::decode() {
   stats_.current_message_packets_in_queue = aprs_messages_.size();
   stats_.current_position_packets_in_queue = aprs_positions_.size();
   stats_.current_experimental_packets_in_queue = aprs_experimental_.size();
+  stats_.current_telemetry_packets_in_queue = aprs_telemetry_.size();
   stats_.current_other_packets_in_queue = other_aprs_packets_.size();
 }
 

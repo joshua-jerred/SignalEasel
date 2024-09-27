@@ -73,7 +73,6 @@ public:
   /// @return The project title.
   std::string getProjectTitle() const { return project_title_; }
 
-protected:
   const std::array<AnalogParameter, 5> &getAnalogParametersConst() const {
     return analog_parameters_;
   }
@@ -98,6 +97,7 @@ protected:
   /// message. This number is 23, but we need to account for the comma.
   static constexpr size_t PROJECT_TITLE_MAX_LENGTH_ = 23 - 1;
 
+protected:
 private:
   /// @brief The sequence number of the data report message.
   uint16_t sequence_number_{0};

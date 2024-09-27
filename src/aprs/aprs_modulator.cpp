@@ -37,4 +37,10 @@ void Modulator::encode(const aprs::ExperimentalPacket &packet) {
   afsk::Modulator::encodeBytes(output_bytes);
 }
 
+void Modulator::encode(const aprs::TelemetryPacket &packet) {
+  std::vector<uint8_t> info = packet.encode();
+  std::vector<uint8_t> output_bytes = encodePacket(packet, info);
+  afsk::Modulator::encodeBytes(output_bytes);
+}
+
 } // namespace signal_easel::aprs

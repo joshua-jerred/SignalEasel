@@ -173,6 +173,49 @@ void addUnitOrParam(const std::string &unit_or_param,
   }
 }
 
+std::vector<uint8_t> ExperimentalPacket::encode() const {
+  std::vector<uint8_t> info;
+  info.push_back('{');
+  info.push_back('{');
+  info.push_back(packet_type_char);
+  for (uint8_t data_byte : data) {
+    info.push_back(data_byte);
+  }
+  return info;
+}
+
+std::vector<uint8_t> TelemetryPacket::encode() const {
+  std::vector<uint8_t> info;
+
+  switch (telemetry_type) {
+  case Packet::Type::TELEMETRY_DATA_REPORT:
+    telemetry::TelemetryTranscoder::encodeDataReportMessage(telemetry_data,
+                                                            info);
+    break;
+  case Packet::Type::TELEMETRY_PARAMETER_NAME:
+    telemetry::TelemetryTranscoder::encodeParameterNameMessage(telemetry_data,
+                                                               info);
+    break;
+  case Packet::Type::TELEMETRY_PARAMETER_UNIT:
+    telemetry::TelemetryTranscoder::encodeUnitAndLabelMessage(telemetry_data,
+                                                              info);
+    break;
+  case Packet::Type::TELEMETRY_COEFFICIENT:
+    telemetry::TelemetryTranscoder::encodeParameterCoefficientMessage(
+        telemetry_data, info);
+    break;
+  case Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME:
+    telemetry::TelemetryTranscoder::encodeBitSenseMessage(telemetry_data, info);
+    break;
+
+  default:
+    throw Exception(Exception::Id::INVALID_TELEMETRY_TYPE);
+    break;
+  };
+
+  return info;
+}
+
 // std::vector<uint8_t> Telemetry::encode(TelemetryPacketType type) const {
 //   std::vector<uint8_t> info;
 //   if (type == TelemetryPacketType::DATA_REPORT) {
@@ -300,16 +343,5 @@ void addUnitOrParam(const std::string &unit_or_param,
 //   }
 //   return info;
 // }
-
-std::vector<uint8_t> ExperimentalPacket::encode() const {
-  std::vector<uint8_t> info;
-  info.push_back('{');
-  info.push_back('{');
-  info.push_back(packet_type_char);
-  for (uint8_t data_byte : data) {
-    info.push_back(data_byte);
-  }
-  return info;
-}
 
 } // namespace signal_easel::aprs

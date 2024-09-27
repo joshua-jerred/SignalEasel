@@ -161,6 +161,13 @@ TEST(Aprs, EncodeAndDecodeTelemetryDataReport) {
             decoded_packet.telemetry_type);
   auto &out_data = decoded_packet.telemetry_data;
 
+  // Check generics
+  EXPECT_EQ(encode_packet.source_address, decoded_packet.source_address);
+  EXPECT_EQ(encode_packet.source_ssid, decoded_packet.source_ssid);
+  EXPECT_EQ(encode_packet.destination_address,
+            decoded_packet.destination_address);
+  EXPECT_EQ(encode_packet.destination_ssid, decoded_packet.destination_ssid);
+
   EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A1).getValue(),
             out_data.getAnalog(tel::AnalogParameter::Id::A1).getValue());
   EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A2).getValue(),
@@ -187,6 +194,294 @@ TEST(Aprs, EncodeAndDecodeTelemetryDataReport) {
             out_data.getDigital(tel::DigitalParameter::Id::B7).getValue());
   EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B8).getValue(),
             out_data.getDigital(tel::DigitalParameter::Id::B8).getValue());
+}
+
+TEST(Aprs, EncodeAndDecodeTelemetryBitSense) {
+  const std::string OUT_FILE_PATH = "aprs_telemetry_bit_sense_test.wav";
+
+  namespace tel = signal_easel::aprs::telemetry;
+
+  tel::TelemetryData in_data;
+  in_data.setProjectTitle("project 1234");
+  in_data.getDigital(tel::DigitalParameter::Id::B1).setBitSense(true);
+  in_data.getDigital(tel::DigitalParameter::Id::B2).setBitSense(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B3).setBitSense(true);
+  in_data.getDigital(tel::DigitalParameter::Id::B4).setBitSense(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B5).setBitSense(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B6).setBitSense(true);
+  in_data.getDigital(tel::DigitalParameter::Id::B7).setBitSense(false);
+  in_data.getDigital(tel::DigitalParameter::Id::B8).setBitSense(false);
+
+  signal_easel::aprs::TelemetryPacket encode_packet{in_data};
+  encode_packet.telemetry_type =
+      signal_easel::aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME;
+  encode_packet.source_address = "TSTCLL";
+  encode_packet.source_ssid = 11;
+
+  signal_easel::aprs::Modulator modulator;
+  modulator.encode(encode_packet);
+  modulator.writeToFile(OUT_FILE_PATH);
+
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(OUT_FILE_PATH);
+  demodulator.processAudioBuffer();
+
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(),
+            signal_easel::aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME);
+
+  // -- Decode --
+  signal_easel::aprs::TelemetryPacket decoded_packet;
+  EXPECT_TRUE(demodulator.parseTelemetryPacket(decoded_packet));
+  EXPECT_EQ(signal_easel::aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME,
+            decoded_packet.telemetry_type);
+
+  // Check generics
+  EXPECT_EQ(encode_packet.source_address, decoded_packet.source_address);
+  EXPECT_EQ(encode_packet.source_ssid, decoded_packet.source_ssid);
+  EXPECT_EQ(encode_packet.destination_address,
+            decoded_packet.destination_address);
+  EXPECT_EQ(encode_packet.destination_ssid, decoded_packet.destination_ssid);
+
+  auto &out_data = decoded_packet.telemetry_data;
+
+  EXPECT_EQ(in_data.getProjectTitle(), out_data.getProjectTitle());
+
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B1).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B1).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B2).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B2).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B3).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B3).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B4).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B4).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B5).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B5).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B6).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B6).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B7).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B7).getBitSense());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B8).getBitSense(),
+            out_data.getDigital(tel::DigitalParameter::Id::B8).getBitSense());
+}
+
+TEST(Aprs, EncodeAndDecodeTelemetryParameterName) {
+  const std::string OUT_FILE_PATH = "aprs_telemetry_parameter_name_test.wav";
+
+  namespace tel = signal_easel::aprs::telemetry;
+
+  tel::TelemetryData in_data;
+  in_data.getAnalog(tel::AnalogParameter::Id::A1).setName("aaaaaaa");
+  in_data.getAnalog(tel::AnalogParameter::Id::A2).setName("aaaaaa");
+  in_data.getAnalog(tel::AnalogParameter::Id::A3).setName("aaaaa");
+  in_data.getAnalog(tel::AnalogParameter::Id::A4).setName("aaaaa");
+  in_data.getAnalog(tel::AnalogParameter::Id::A5).setName("aaaa");
+  in_data.getDigital(tel::DigitalParameter::Id::B1).setName("bbbbb");
+  in_data.getDigital(tel::DigitalParameter::Id::B2).setName("bbbb");
+  in_data.getDigital(tel::DigitalParameter::Id::B3).setName("bbb");
+  in_data.getDigital(tel::DigitalParameter::Id::B4).setName("bbb");
+  in_data.getDigital(tel::DigitalParameter::Id::B5).setName("bbb");
+  in_data.getDigital(tel::DigitalParameter::Id::B6).setName("bb");
+  in_data.getDigital(tel::DigitalParameter::Id::B7).setName("bb");
+  in_data.getDigital(tel::DigitalParameter::Id::B8).setName("bb");
+
+  signal_easel::aprs::TelemetryPacket encode_packet{in_data};
+  encode_packet.telemetry_type =
+      signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_NAME;
+  encode_packet.source_address = "TSTCLL";
+  encode_packet.source_ssid = 11;
+  encode_packet.destination_address = "aprs4";
+  encode_packet.destination_ssid = 3;
+
+  signal_easel::aprs::Modulator modulator;
+  modulator.encode(encode_packet);
+  modulator.writeToFile(OUT_FILE_PATH);
+
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(OUT_FILE_PATH);
+  demodulator.processAudioBuffer();
+
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(),
+            signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_NAME);
+
+  // -- Decode --
+  signal_easel::aprs::TelemetryPacket decoded_packet;
+  EXPECT_TRUE(demodulator.parseTelemetryPacket(decoded_packet));
+  EXPECT_EQ(signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_NAME,
+            decoded_packet.telemetry_type);
+
+  // Check generics
+  EXPECT_EQ(encode_packet.source_address, decoded_packet.source_address);
+  EXPECT_EQ(encode_packet.source_ssid, decoded_packet.source_ssid);
+  EXPECT_EQ(encode_packet.destination_address,
+            decoded_packet.destination_address);
+  EXPECT_EQ(encode_packet.destination_ssid, decoded_packet.destination_ssid);
+
+  auto &out_data = decoded_packet.telemetry_data;
+
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A1).getName(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A1).getName());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A2).getName(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A2).getName());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A3).getName(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A3).getName());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A4).getName(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A4).getName());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A5).getName(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A5).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B1).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B1).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B2).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B2).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B3).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B3).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B4).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B4).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B5).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B5).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B6).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B6).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B7).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B7).getName());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B8).getName(),
+            out_data.getDigital(tel::DigitalParameter::Id::B8).getName());
+}
+
+TEST(Aprs, EncodeAndDecodeTelemetryParameterUnitOrLabel) {
+  const std::string OUT_FILE_PATH =
+      "aprs_telemetry_parameter_unit_or_label_test.wav";
+
+  namespace tel = signal_easel::aprs::telemetry;
+
+  tel::TelemetryData in_data;
+  in_data.getAnalog(tel::AnalogParameter::Id::A1).setUnitOrLabel("a1");
+  in_data.getAnalog(tel::AnalogParameter::Id::A2).setUnitOrLabel("a2");
+  in_data.getAnalog(tel::AnalogParameter::Id::A3).setUnitOrLabel("a3");
+  in_data.getAnalog(tel::AnalogParameter::Id::A4).setUnitOrLabel("a4");
+  in_data.getAnalog(tel::AnalogParameter::Id::A5).setUnitOrLabel("a5");
+  in_data.getDigital(tel::DigitalParameter::Id::B1).setUnitOrLabel("b1");
+  in_data.getDigital(tel::DigitalParameter::Id::B2).setUnitOrLabel("b2");
+  in_data.getDigital(tel::DigitalParameter::Id::B3).setUnitOrLabel("b3");
+  in_data.getDigital(tel::DigitalParameter::Id::B4).setUnitOrLabel("b4");
+  in_data.getDigital(tel::DigitalParameter::Id::B5).setUnitOrLabel("b5");
+  in_data.getDigital(tel::DigitalParameter::Id::B6).setUnitOrLabel("b6");
+  in_data.getDigital(tel::DigitalParameter::Id::B7).setUnitOrLabel("b7");
+  in_data.getDigital(tel::DigitalParameter::Id::B8).setUnitOrLabel("b8");
+
+  signal_easel::aprs::TelemetryPacket encode_packet{in_data};
+  encode_packet.telemetry_type =
+      signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT;
+  encode_packet.source_address = "TSTCLL";
+  encode_packet.source_ssid = 11;
+  encode_packet.destination_address = "aprs4";
+  encode_packet.destination_ssid = 3;
+
+  signal_easel::aprs::Modulator modulator;
+  modulator.encode(encode_packet);
+  modulator.writeToFile(OUT_FILE_PATH);
+
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(OUT_FILE_PATH);
+  demodulator.processAudioBuffer();
+
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(),
+            signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT);
+
+  // -- Decode --
+  signal_easel::aprs::TelemetryPacket decoded_packet;
+  EXPECT_TRUE(demodulator.parseTelemetryPacket(decoded_packet));
+  EXPECT_EQ(signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT,
+            decoded_packet.telemetry_type);
+
+  // Check generics
+  EXPECT_EQ(encode_packet.source_address, decoded_packet.source_address);
+  EXPECT_EQ(encode_packet.source_ssid, decoded_packet.source_ssid);
+  EXPECT_EQ(encode_packet.destination_address,
+            decoded_packet.destination_address);
+  EXPECT_EQ(encode_packet.destination_ssid, decoded_packet.destination_ssid);
+
+  auto &out_data = decoded_packet.telemetry_data;
+
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A1).getLabel(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A1).getLabel());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A2).getLabel(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A2).getLabel());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A3).getLabel(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A3).getLabel());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A4).getLabel(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A4).getLabel());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A5).getLabel(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A5).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B1).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B1).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B2).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B2).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B3).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B3).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B4).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B4).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B5).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B5).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B6).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B6).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B7).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B7).getLabel());
+  EXPECT_EQ(in_data.getDigital(tel::DigitalParameter::Id::B8).getLabel(),
+            out_data.getDigital(tel::DigitalParameter::Id::B8).getLabel());
+}
+
+TEST(Aprs, EncodeAndDecodeTelemetryCoefficients) {
+  const std::string OUT_FILE_PATH = "aprs_telemetry_coefficients_test.wav";
+
+  namespace tel = signal_easel::aprs::telemetry;
+
+  tel::TelemetryData in_data;
+  in_data.getAnalog(tel::AnalogParameter::Id::A1)
+      .setCoefficients("1", "2", "3");
+  in_data.getAnalog(tel::AnalogParameter::Id::A5)
+      .setCoefficients("0", "0", "0");
+
+  signal_easel::aprs::TelemetryPacket encode_packet{in_data};
+  encode_packet.telemetry_type =
+      signal_easel::aprs::Packet::Type::TELEMETRY_COEFFICIENT;
+  encode_packet.source_address = "TSTCLL";
+  encode_packet.source_ssid = 11;
+  encode_packet.destination_address = "aprs4";
+  encode_packet.destination_ssid = 3;
+
+  signal_easel::aprs::Modulator modulator;
+  modulator.encode(encode_packet);
+  modulator.writeToFile(OUT_FILE_PATH);
+
+  signal_easel::aprs::Demodulator demodulator;
+  demodulator.loadAudioFromFile(OUT_FILE_PATH);
+  demodulator.processAudioBuffer();
+
+  EXPECT_TRUE(demodulator.lookForAx25Packet());
+  EXPECT_EQ(demodulator.getType(),
+            signal_easel::aprs::Packet::Type::TELEMETRY_COEFFICIENT);
+
+  // -- Decode --
+  signal_easel::aprs::TelemetryPacket decoded_packet;
+  EXPECT_TRUE(demodulator.parseTelemetryPacket(decoded_packet));
+  EXPECT_EQ(signal_easel::aprs::Packet::Type::TELEMETRY_COEFFICIENT,
+            decoded_packet.telemetry_type);
+
+  // Check generics
+  EXPECT_EQ(encode_packet.source_address, decoded_packet.source_address);
+  EXPECT_EQ(encode_packet.source_ssid, decoded_packet.source_ssid);
+  EXPECT_EQ(encode_packet.destination_address,
+            decoded_packet.destination_address);
+  EXPECT_EQ(encode_packet.destination_ssid, decoded_packet.destination_ssid);
+
+  auto &out_data = decoded_packet.telemetry_data;
+
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A1).getCoefficientA(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A1).getCoefficientA());
+  EXPECT_EQ(in_data.getAnalog(tel::AnalogParameter::Id::A2).getCoefficientB(),
+            out_data.getAnalog(tel::AnalogParameter::Id::A2).getCoefficientB());
 }
 
 // TEST(Aprs, Telemetry) {

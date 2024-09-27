@@ -127,6 +127,9 @@ public:
   bool getAprsExperimental(aprs::ExperimentalPacket &experimental_packet,
                            ax25::Frame &frame);
 
+  bool getAprsTelemetry(aprs::TelemetryPacket &telemetry_packet,
+                        ax25::Frame &frame);
+
   bool getOtherAprsPacket(ax25::Frame &frame);
 
   double getSNR() { return demodulation_res_.snr; }

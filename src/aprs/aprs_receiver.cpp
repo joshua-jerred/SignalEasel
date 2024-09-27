@@ -55,6 +55,17 @@ bool Receiver::getAprsExperimental(
   return true;
 }
 
+bool Receiver::getAprsTelemetry(aprs::TelemetryPacket &telemetry_packet,
+                                ax25::Frame &frame) {
+  if (aprs_telemetry_.empty()) {
+    return false;
+  }
+  frame = aprs_telemetry_.back().first;
+  telemetry_packet = aprs_telemetry_.back().second;
+  aprs_telemetry_.pop_back();
+  return true;
+}
+
 bool Receiver::getOtherAprsPacket(ax25::Frame &frame) {
   if (other_aprs_packets_.empty()) {
     return false;

@@ -95,14 +95,13 @@ public:
   /// @return The unit or label of the parameter.
   std::string getLabel() const { return unit_or_label_; }
 
-protected:
   /// @brief Construct a new Parameter with the given ID.
   /// @param id - The ID of the parameter.
   /// @param type - The type of the parameter.
   Parameter(Id id, Type type);
 
   /// @brief Default destructor.
-  ~Parameter() = default;
+  virtual ~Parameter() = default;
 
 private:
   /// @brief Parameter names, along with units for analog parameters and labels
@@ -112,8 +111,8 @@ private:
   /// @return \c true if the descriptor is valid, \c false otherwise.
   bool validateParameterDescriptor(const std::string &descriptor);
 
-  const Id id_;
-  const Type type_;
+  Id id_;
+  Type type_;
 
   std::string name_{};
   std::string unit_or_label_{};

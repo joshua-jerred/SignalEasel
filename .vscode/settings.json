@@ -1,0 +1,31 @@
+{
+  // CMake
+  "cmake.sourceDirectory": "${workspaceFolder}",
+
+  // Formating (C++, Clang-Format)
+  "clang-format.style": "file",
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true
+  },
+
+  // Doxygen
+  "doxdocgen.file.fileOrder": [
+    "custom",
+  ],
+  "doxdocgen.file.customTag": [
+    "=*=======================SignalEasel=======================*=",
+    "A friendly library for signal modulation and demodulation.",
+    "Learn more at https://signaleasel.joshuajer.red",
+    "",
+    "@copyright{indent:11}Copyright {year} Joshua Jerred. All rights reserved.",
+    "This project is licensed under the GNU GPL v3.0 license.",
+    "=*=========================================================*=",
+  ],
+
+  // Spell Checker
+  "cSpell.words": [],
+  "doxdocgen.c.commentPrefix": "/// ",
+  "doxdocgen.c.firstLine": "",
+  "doxdocgen.c.lastLine": ""
+}

@@ -448,7 +448,9 @@ TEST_F(TelemetryTranscoder_test, decodeMessages_parameterCoefficientsMessage) {
   EXPECT_EQ(packet_string, PARAM_COEF_MESSAGE);
 
   // Validate the analog names
-  std::string coef_a, coef_b, coef_c;
+  std::string coef_a;
+  std::string coef_b;
+  std::string coef_c;
   data_.getAnalog(AnalogParameter::Id::A1)
       .getCoefficients(coef_a, coef_b, coef_c);
   EXPECT_EQ(coef_a, "1");

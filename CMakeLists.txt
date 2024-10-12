@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.25)
 project(SignalEasel VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating audio")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
 # # Check if SignalEasel is being used directly or via add_subdirectory
 set(MAIN_PROJECT OFF)
@@ -28,14 +29,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -Wno-float-equal")
 
 # no type limits and no float equal are for the ImageMagick library
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/WavGen)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/WavGen EXCLUDE_FROM_ALL SYSTEM)
 
 if(SSTV_ENABLED)
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools EXCLUDE_FROM_ALL SYSTEM)
 endif()
 
 if(MAIN_PROJECT)
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/Boost_erSeat)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/Boost_erSeat EXCLUDE_FROM_ALL SYSTEM)
 endif()
 
 # --------------------------------

@@ -7,7 +7,7 @@ DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "Signal Easel"
 PROJECT_NUMBER         = 1.1
 PROJECT_BRIEF          = "A simple library for signal generation and processing."
-PROJECT_LOGO           = "project/doc/assets/logo.svg"
+PROJECT_LOGO           = "project/logo.svg"
 # TODO: Logo
 
 

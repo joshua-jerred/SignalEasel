@@ -165,6 +165,7 @@ void addUnitOrParam(const std::string &unit_or_param,
     info.push_back(' ');
     return;
   }
+
   size_t i = 0;
   while (i < max_length && len > 0) {
     info.push_back(unit_or_param.at(i));

@@ -39,7 +39,7 @@ public:
   void encode(const aprs::MessagePacket &packet);
   void encode(const aprs::MessageAckPacket &packet);
   void encode(const aprs::ExperimentalPacket &packet);
-  void encode(const aprs::TelemetryPacket &telemetryData);
+  void encode(const aprs::TelemetryPacket &packet);
 
 private:
   aprs::Settings settings_;

@@ -32,8 +32,8 @@ bool validateCoefficient(const std::string &coefficient,
   }
 
   // Regex check
-  const std::regex coefficient_regex("^-?\\d*\\.?\\d*$");
-  if (!std ::regex_match(coefficient, coefficient_regex)) {
+  const std::regex k_coefficient_regex("^-?\\d*\\.?\\d*$");
+  if (!std ::regex_match(coefficient, k_coefficient_regex)) {
     return false;
   }
 
@@ -88,32 +88,32 @@ bool Parameter::validateParameterDescriptor(const std::string &descriptor) {
   constexpr size_t MAX_NAME_LENGTH_B3_B4_B5 = 3;
   constexpr size_t MAX_NAME_LENGTH_B6_B7_B8 = 2;
 
-  const size_t descriptor_size = descriptor.size();
+  const size_t k_descriptor_size = descriptor.size();
 
   switch (id_) {
   case Id::A1:
-    return descriptor_size >= MIN_NAME_LENGTH_A1 &&
-           descriptor_size <= MAX_NAME_LENGTH_A1;
+    return k_descriptor_size >= MIN_NAME_LENGTH_A1 &&
+           k_descriptor_size <= MAX_NAME_LENGTH_A1;
   case Id::A2:
-    return descriptor_size <= MAX_NAME_LENGTH_A2;
+    return k_descriptor_size <= MAX_NAME_LENGTH_A2;
   case Id::A3:
   case Id::A4:
-    return descriptor_size <= MAX_NAME_LENGTH_A3_A4;
+    return k_descriptor_size <= MAX_NAME_LENGTH_A3_A4;
   case Id::A5:
-    return descriptor_size <= MAX_NAME_LENGTH_A5;
+    return k_descriptor_size <= MAX_NAME_LENGTH_A5;
     break;
   case Id::B1:
-    return descriptor_size <= MAX_NAME_LENGTH_B1;
+    return k_descriptor_size <= MAX_NAME_LENGTH_B1;
   case Id::B2:
-    return descriptor_size <= MAX_NAME_LENGTH_B2;
+    return k_descriptor_size <= MAX_NAME_LENGTH_B2;
   case Id::B3:
   case Id::B4:
   case Id::B5:
-    return descriptor_size <= MAX_NAME_LENGTH_B3_B4_B5;
+    return k_descriptor_size <= MAX_NAME_LENGTH_B3_B4_B5;
   case Id::B6:
   case Id::B7:
   case Id::B8:
-    return descriptor_size <= MAX_NAME_LENGTH_B6_B7_B8;
+    return k_descriptor_size <= MAX_NAME_LENGTH_B6_B7_B8;
   default:
     return false;
   };
@@ -160,11 +160,8 @@ bool AnalogParameter::setCoefficientC(const std::string &coefficient) {
 bool AnalogParameter::setCoefficients(const std::string &coefficient_a,
                                       const std::string &coefficient_b,
                                       const std::string &coefficient_c) {
-  if (!setCoefficientA(coefficient_a) || !setCoefficientB(coefficient_b) ||
-      !setCoefficientC(coefficient_c)) {
-    return false;
-  }
-  return true;
+  return setCoefficientA(coefficient_a) && setCoefficientB(coefficient_b) &&
+         setCoefficientC(coefficient_c);
 }
 
 DigitalParameter::DigitalParameter(Id id) : Parameter(id, Type::Digital) {

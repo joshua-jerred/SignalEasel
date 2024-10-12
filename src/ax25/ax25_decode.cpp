@@ -45,10 +45,10 @@ void print_hex(uint8_t byte) {
  */
 BitStream decodeNrzi(BitStream &bit_stream) {
   BitStream nrzi_bit_stream;
-  int previous_bit = 0;
+  int8_t previous_bit = 0;
   size_t num_bits = bit_stream.getBitStreamLength();
   while (num_bits > 0) {
-    int bit = bit_stream.popNextBit();
+    int8_t bit = bit_stream.popNextBit();
     if (bit == -1) {
       std::cout << "No more bits in bit stream" << std::endl;
       break;
@@ -164,20 +164,20 @@ std::vector<uint8_t> deStuffBytes(BitStream &bit_stream) {
 }
 
 bool Frame::parseBitStream(BitStream &bit_stream) {
-  constexpr int k_min_start_flags = 2;
-  constexpr int k_min_bytes = 20;
+  constexpr int MIN_START_FLAGS = 2;
+  constexpr int MIN_BYTES = 20;
 
   BitStream nrzi_bit_stream = decodeNrzi(bit_stream);
   // nrzi_bit_stream.dumpBitStream();
   auto start_flags = findStartFlags(nrzi_bit_stream);
-  if (start_flags < k_min_start_flags) {
+  if (start_flags < MIN_START_FLAGS) {
     // std::cout << "Not enough start flags: " << start_flags << std::endl;
     return false;
   }
 
   std::vector<uint8_t> destuffed_bytes = deStuffBytes(nrzi_bit_stream);
 
-  if (destuffed_bytes.size() < k_min_bytes) {
+  if (destuffed_bytes.size() < MIN_BYTES) {
     // std::cout << "Not enough bytes" << std::endl;
     return false;
   }
@@ -198,7 +198,7 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
   setDestinationAddress(dest_address);
 
   // parse the source address
-  std::string source_address_string = "";
+  std::string source_address_string;
   bool last_address = false;
   int num_sources = 0;
   while (!last_address) {

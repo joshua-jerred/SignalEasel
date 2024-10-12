@@ -99,12 +99,10 @@ jobs:
         mkdir build
         cd build
         cmake -DSIGNALEASEL_UNIT_TESTS=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-    - name: Install clang-tidy
-      run: sudo apt-get install clang-tidy -y
     - name: Run clang-tidy
       continue-on-error: true
       run: bash project/clang-tidy.sh -e
-    - name: Report clang-tidy results
-      uses: actions/github-script@v5
-      with:
-        fixesFile: .clang-tidy-suggested-fixes.yaml
+    # - name: Report clang-tidy results
+      # uses: actions/github-script@v5
+      # with:
+        # fixesFile: .clang-tidy-suggested-fixes.yaml

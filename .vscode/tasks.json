@@ -39,6 +39,19 @@
       "options": {
         "cwd": "${workspaceFolder}",
       }
+    },
+    {
+      "label": "Build Docker Image",
+      "type": "shell",
+      "command": "bash ./project/build_docker_image.sh",
+      "detail": "Build the SignalEasel Build Environment Docker image",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+      }
     }
   ]
 }

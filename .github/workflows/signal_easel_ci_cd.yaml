@@ -10,6 +10,8 @@ jobs:
   unit_tests:
     name: Unit Tests
     runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/signaleasel
     steps:
     - uses: actions/checkout@v3
       with:
@@ -39,6 +41,8 @@ jobs:
   doxygen:
     name: Doxygen
     runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/signaleasel
     timeout-minutes: 3
     steps:
       - uses: actions/checkout@v3
@@ -60,6 +64,8 @@ jobs:
   test_coverage:
     name: Test Coverage
     runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/signaleasel
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -86,6 +92,8 @@ jobs:
   clang_tidy:
     name: clang-tidy
     runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/signaleasel
     steps:
     - uses: actions/checkout@v3
       with:

@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
 option(USE_PULSEAUDIO "Use PulseAudio for audio input/output" ON)
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
-option(UNIT_TESTS "Enable unit tests" OFF)
+option(SIGNALEASEL_UNIT_TESTS "Enable unit tests" ON)
 
 # ---------------------------------
 
@@ -134,6 +134,6 @@ else()
 endif()
 
 # --------------------------------
-if(UNIT_TESTS OR MAIN_PROJECT)
+if(SIGNALEASEL_UNIT_TESTS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 endif()

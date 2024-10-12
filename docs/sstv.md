@@ -1,4 +1,4 @@
-# SSTV
+@page sstv_usage SSTV Usage
 
 ## Robot36 quick notes
 

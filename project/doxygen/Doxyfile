@@ -6,8 +6,8 @@ DOXYFILE_ENCODING      = UTF-8
 
 PROJECT_NAME           = "SignalEasel"
 PROJECT_NUMBER         = 1.1
-PROJECT_BRIEF          = "A C++ library for audio modulation and demodulation via PulseAudio and WAV files through a variety of analog & digital modes. APRS, SSTV (Robot36), BPSK/QPSK (ARRL PSK Spec), AFSK1200 (Bell 202), AX.25, and Morse Code."
-PROJECT_LOGO           = "project/logo.svg"
+PROJECT_BRIEF          = "A C++ library for audio modulation and demodulation via PulseAudio and WAV files with a variety of analog & digital modes."
+PROJECT_LOGO           = "docs/images/logo.svg"
 # TODO: Logo
 
 
@@ -17,8 +17,9 @@ PROJECT_LOGO           = "project/logo.svg"
 INPUT  = src
 INPUT += include
 INPUT += tests
+INPUT += ./
 EXCLUDE_PATTERNS = */lib/*
-IMAGE_PATH             = ./docs
+IMAGE_PATH             = docs/images
 RECURSIVE              = YES
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.cpp \
@@ -112,12 +113,12 @@ GENERATE_TESTLIST      = YES
 GENERATE_BUGLIST       = YES
 GENERATE_DEPRECATEDLIST= YES
 MAX_INITIALIZER_LINES  = 30
-SHOW_USED_FILES        = NO
+SHOW_USED_FILES        = YES
 SHOW_FILES             = YES
 
 SHOW_NAMESPACES        = YES
 
-LAYOUT_FILE            =
+LAYOUT_FILE            = docs/doxygen_layout.xml
 
 #---------------------------------------------------------------------------
 # Configuration options related to warning and progress messages

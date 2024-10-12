@@ -60,10 +60,10 @@ jobs:
   clang_tidy:
     name: clang-tidy
     runs-on: ubuntu-latest
-    with:
-      submodules: true
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Configure CMake
       run: |
         mkdir build

@@ -4,10 +4,11 @@ SignalEasel is a C++ library for audio modulation and demodulation through a
 variety of analog and digital modes via PulseAudio and `.wav` files. It also
 provides encoding and decoding for higher level protocols.
 
-![SignalEasel Logo](project/logo.svg)
+![SignalEasel](docs/images/logo.svg)
 
-### [Detailed Documentation](https://signaleasel.joshuajer.red)
-### [Repository](https://github.com/joshua-jerred/SignalEasel)
+[Detailed Documentation](https://signaleasel.joshuajer.red)
+
+[Repository](https://github.com/joshua-jerred/SignalEasel)
 
 ## Features
 - APRS

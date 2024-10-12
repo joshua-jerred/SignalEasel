@@ -75,4 +75,6 @@ jobs:
       continue-on-error: true
       run: bash project/clang-tidy.sh -e
     - name: Report clang-tidy results
-      uses: asarium/clang-tidy-action@v1.0
+      uses: asarium/clang-tidy-action@v1.0 # https://github.com/asarium/clang-tidy-action
+      with:
+        fixesFile: .clang-tidy-suggested-fixes.yaml

@@ -14,13 +14,16 @@
     "custom",
   ],
   "doxdocgen.file.customTag": [
-    "=*=======================SignalEasel=======================*=",
-    "A friendly library for signal modulation and demodulation.",
-    "Learn more at https://signaleasel.joshuajer.red",
+    "=*============================= SignalEasel ==============================*=",
+    "A C++ library for audio modulation/demodulation into analog & digital modes.",
+    "Detailed documentation can be found here: https://signaleasel.joshuajer.red",
+    "",
+    "@author Joshua Jerred",
+    "@date   {date}",
     "",
     "@copyright{indent:11}Copyright {year} Joshua Jerred. All rights reserved.",
-    "This project is licensed under the GNU GPL v3.0 license.",
-    "=*=========================================================*=",
+    "@license{indent:11}This project is licensed under the GNU GPL v3.0 license.",
+    "=*========================================================================*=",
   ],
 
   // Spell Checker

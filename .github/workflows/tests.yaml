@@ -1,4 +1,4 @@
-name: Signal Easel Unit Tests (C++ CI)
+name: SignalEasel Unit Tests
 
 on:
   push:

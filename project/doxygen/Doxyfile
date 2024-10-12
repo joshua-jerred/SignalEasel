@@ -16,9 +16,9 @@ PROJECT_LOGO           = "project/logo.svg"
 
 INPUT  = src
 INPUT += include
-INPUT += ./
+INPUT += tests
 EXCLUDE_PATTERNS = */lib/*
-IMAGE_PATH             = ./project/doc
+IMAGE_PATH             = ./project/assets
 RECURSIVE              = YES
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.cpp \

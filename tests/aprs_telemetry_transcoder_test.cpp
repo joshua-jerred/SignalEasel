@@ -1,15 +1,13 @@
-/**
- * =*========SignalEasel========*=
- * A friendly library for signal modulation and demodulation.
- * https://signaleasel.joshuajer.red/
- * https://github.com/joshua-jerred/SignalEasel
- * =*=======================*=
- * @file       aprs_telemetry_data__test.cpp
- * @date       2024-08-17
- * =*=======================*=
- * @copyright  2024 Joshua Jerred
- * @license    GNU GPLv3
- */
+/// =*============================= SignalEasel ==============================*=
+/// A C++ library for audio modulation/demodulation into analog & digital modes.
+/// Detailed documentation can be found here: https://signaleasel.joshuajer.red
+///
+/// @author Joshua Jerred
+/// @date   2024-08-17
+///
+/// @copyright Copyright 2024 Joshua Jerred. All rights reserved.
+/// @license   This project is licensed under the GNU GPL v3.0 license.
+/// =*========================================================================*=
 
 #include "gtest/gtest.h"
 

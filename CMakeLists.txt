@@ -2,6 +2,15 @@ cmake_minimum_required(VERSION 3.25)
 project(SignalEasel VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating audio")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
+# --- Configuration ---------------
+# The following options can be set to enable/disable features.
+
+option(USE_PULSEAUDIO "Use PulseAudio for audio input/output" ON)
+option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
+option(UNIT_TESTS "Enable unit tests" OFF)
+
+# ---------------------------------
+
 # # Check if SignalEasel is being used directly or via add_subdirectory
 set(MAIN_PROJECT OFF)
 
@@ -11,12 +20,6 @@ endif()
 
 message(STATUS "=== SignalEasel Main project: ${MAIN_PROJECT}")
 
-# --- Configuration ---------------
-option(USE_PULSEAUDIO "Use PulseAudio for audio input/output" ON)
-option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
-option(UNIT_TESTS "Enable unit tests" OFF)
-
-# ---------------------------------
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 -fno-omit-frame-pointer \

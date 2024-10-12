@@ -13,6 +13,19 @@
       "options": {
         "cwd": "${workspaceFolder}",
       }
+    },
+    {
+      "label": "Doxygen",
+      "type": "shell",
+      "command": "mkdir -p build/dox && doxygen ${workspaceFolder}/project/doxygen/Doxyfile",
+      "detail": "Generate Doxygen documentation for the project",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+      }
     }
   ]
 }

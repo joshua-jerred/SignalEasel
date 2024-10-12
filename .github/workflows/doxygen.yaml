@@ -3,6 +3,8 @@ name: Doxygen Publish
 on:
    push:
     branches: [ main ]
+   pull_request:
+    branches: [ "main" ]
 
 jobs:
   doxygen_publish:
@@ -17,8 +19,9 @@ jobs:
       - name: Build Doxygen
         run: doxygen project/doxygen/Doxyfile
       - name: Deploy to GitHub Pages
+        # Only deploy on the main branch
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
-      # - name: Deploy to GitHub Pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/dox/html

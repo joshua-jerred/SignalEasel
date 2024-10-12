@@ -1,5 +1,7 @@
 # Signal Easel
 
+![Signal Easel Logo](project/logo.svg)
+
 A C++ library for modulating and demodulating various digital modes. It is designed to be easy to use/integrate into other projects.
 
 For detailed documentation, please see [https://signaleasel.joshuajer.red](https://signaleasel.joshuajer.red).
@@ -56,7 +58,7 @@ make SignalEasel
 
 ## Building/Installing Magick++
 
-```c++
+```bash
 sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install libjpeg62-dev libpng-dev libfreetype6-dev
@@ -75,3 +77,4 @@ sudo ldconfig # May need to do more for linking
 
 - https://user.engineering.uiowa.edu/~eedesign/algorithm.pdf
 - https://archive.org/details/dcc-2014-amateur-bell-202-modem-w-6-kwf-and-bridget-benson
+- https://github.com/PhirePhly/aprs_notes

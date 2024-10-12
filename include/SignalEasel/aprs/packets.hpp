@@ -41,8 +41,8 @@ struct Packet {
   std::string source_address = ""; // 3 - 6 characters, your callsign
   uint8_t source_ssid = 0;         // 0 - 15
 
-  std::string destination_address = "APZMWV"; // Default is APRS
-  uint8_t destination_ssid = 0;               // 0 - 15
+  std::string destination_address = "APZSEA";
+  uint8_t destination_ssid = 0; // 0 - 15
 
   SymbolTable symbol_table = SymbolTable::PRIMARY;
   char symbol = '/'; // Symbol character default is dot (//)

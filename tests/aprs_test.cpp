@@ -296,7 +296,7 @@ TEST(Aprs, EncodeAndDecodeTelemetryParameterName) {
       signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_NAME;
   encode_packet.source_address = "TSTCLL";
   encode_packet.source_ssid = 11;
-  encode_packet.destination_address = "aprs4";
+  encode_packet.destination_address = "APZSEA";
   encode_packet.destination_ssid = 3;
 
   signal_easel::aprs::Modulator modulator;
@@ -386,7 +386,7 @@ TEST(Aprs, EncodeAndDecodeTelemetryParameterUnitOrLabel) {
       signal_easel::aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT;
   encode_packet.source_address = "TSTCLL";
   encode_packet.source_ssid = 11;
-  encode_packet.destination_address = "aprs4";
+  encode_packet.destination_address = "APZSEA";
   encode_packet.destination_ssid = 3;
 
   signal_easel::aprs::Modulator modulator;
@@ -466,7 +466,7 @@ TEST(Aprs, EncodeAndDecodeTelemetryCoefficients) {
       signal_easel::aprs::Packet::Type::TELEMETRY_COEFFICIENT;
   encode_packet.source_address = "TSTCLL";
   encode_packet.source_ssid = 11;
-  encode_packet.destination_address = "aprs4";
+  encode_packet.destination_address = "APZSEA";
   encode_packet.destination_ssid = 3;
 
   signal_easel::aprs::Modulator modulator;

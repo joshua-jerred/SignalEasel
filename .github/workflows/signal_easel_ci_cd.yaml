@@ -1,0 +1,75 @@
+name: SignalEasel CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  unit_tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Install GTest
+      run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+    - name: Install Pulse Audio Dev Packages
+      run: sudo apt-get install libpulse-dev
+    - name: Configure CMake
+      run: |
+        mkdir build
+        cd build
+        cmake -DMWAV_UNIT_TESTS=ON ..
+    - name: Build the SignalEasel library
+      run: |
+        cd build
+        make SignalEasel -j 4
+    - name: Build Tests
+      run: |
+        cd build
+        make signal_easel_unit_tests
+    - name: Run Tests
+      run: |
+        cd build/tests
+        ./signal_easel_unit_tests
+
+  doxygen:
+    name: Doxygen
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen graphviz -y && mkdir build && mkdir build/dox
+      # - name: Generate Structurizr PlantUML SVGs
+        # run: bash project/generate_uml.sh
+      - name: Build Doxygen
+        run: doxygen project/doxygen/Doxyfile
+      - name: Deploy to GitHub Pages (Main Branch Only)
+        # Only deploy on the main branch
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/dox/html
+          cname: signaleasel.joshuajer.red
+
+  clang_tidy:
+    name: clang-tidy
+    runs-on: ubuntu-latest
+    with:
+      submodules: true
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configure CMake
+      run: |
+        mkdir build
+        cd build
+        cmake -DMWAV_UNIT_TESTS=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+    - name: Install clang-tidy
+      run: sudo apt-get install clang-tidy -y
+    - name: Run clang-tidy
+      run: bash project/clang-tidy.sh -e

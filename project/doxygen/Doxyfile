@@ -4,9 +4,9 @@ DOXYFILE_ENCODING      = UTF-8
 # ---------------------------------------------------------------------------- #
 # Project
 
-PROJECT_NAME           = "Signal Easel"
+PROJECT_NAME           = "SignalEasel"
 PROJECT_NUMBER         = 1.1
-PROJECT_BRIEF          = "A simple library for signal generation and processing."
+PROJECT_BRIEF          = "A C++ library for audio modulation and demodulation via PulseAudio and WAV files through a variety of analog & digital modes. APRS, SSTV (Robot36), BPSK/QPSK (ARRL PSK Spec), AFSK1200 (Bell 202), AX.25, and Morse Code."
 PROJECT_LOGO           = "project/logo.svg"
 # TODO: Logo
 
@@ -18,7 +18,7 @@ INPUT  = src
 INPUT += include
 INPUT += tests
 EXCLUDE_PATTERNS = */lib/*
-IMAGE_PATH             = ./docs/doxygen_images
+IMAGE_PATH             = ./docs
 RECURSIVE              = YES
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.cpp \
@@ -184,7 +184,7 @@ HTML_EXTRA_FILES      += project/doxygen/theme/doxygen-awesome-darkmode-toggle.j
 HTML_EXTRA_FILES       = project/doxygen/theme/doxygen-awesome-fragment-copy-button.js
 HTML_EXTRA_FILES      += project/doxygen/theme/doxygen-awesome-paragraph-link.js
 
-HTML_COLORSTYLE        = LIGHT
+# HTML_COLORSTYLE        = LIGHT # Tag does nothing
 HTML_COLORSTYLE_HUE    = 209
 HTML_COLORSTYLE_SAT    = 255
 HTML_COLORSTYLE_GAMMA  = 113
@@ -254,7 +254,7 @@ EXTERNAL_PAGES         = YES
 # Configuration options related to the dot tool
 #---------------------------------------------------------------------------
 
-CLASS_DIAGRAMS         = YES
+# CLASS_DIAGRAMS         = YES
 DIA_PATH               =
 
 HIDE_UNDOC_RELATIONS   = NO

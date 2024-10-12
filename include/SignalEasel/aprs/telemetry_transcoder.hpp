@@ -90,12 +90,14 @@ private:
                                    const std::string &header);
 
   /// @brief Decode a data report message.
+  /// @param[out] data - The telemetry data object to populate.
   /// @param message - The message to decode.
   /// @return \c true if the message was decoded, \c false if not.
   static bool decodeDataReportMessage(TelemetryData &data,
                                       const std::vector<uint8_t> &message);
 
   /// @brief Decode a name or unit/label message. They're the same format.
+  /// @param[out] data - The telemetry data object to populate.
   /// @param message - The message to decode.
   /// @param name_or_unit - \c true if decoding a name, \c false if decoding a
   /// unit or label.
@@ -105,6 +107,7 @@ private:
                                         const bool name_or_unit);
 
   /// @brief Decode the parameter coefficients message.
+  /// @param[out] data - The telemetry data object to populate.
   /// @param message - The message to decode.
   /// @return \c true if the message was decoded, \c false if not.
   static bool
@@ -112,6 +115,7 @@ private:
                                     const std::vector<uint8_t> &message);
 
   /// @brief Decode the bit sense / project name message.
+  /// @param[out] data - The telemetry data object to populate.
   /// @param message - The message to decode.
   /// @return \c true if the message was decoded, \c false if not.
   static bool decodeBitSenseMessage(TelemetryData &data,

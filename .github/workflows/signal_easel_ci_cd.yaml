@@ -67,7 +67,7 @@ jobs:
         submodules: true
     - name: Run test coverage script (gcovr)
       run: bash project/coverage.sh
-    # - name: Upload coverage report artifact
+    # - name: Upload coverage report artifact # This might not be needed, the step below can do artifact uploads.
     #   uses: actions/upload-artifact@v4
     #   with:
     #     name: test-coverage-report

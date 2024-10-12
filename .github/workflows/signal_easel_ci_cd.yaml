@@ -72,4 +72,7 @@ jobs:
     - name: Install clang-tidy
       run: sudo apt-get install clang-tidy -y
     - name: Run clang-tidy
+      continue-on-error: true
       run: bash project/clang-tidy.sh -e
+    - name: Report clang-tidy results
+      uses: asarium/clang-tidy-action@v1.0

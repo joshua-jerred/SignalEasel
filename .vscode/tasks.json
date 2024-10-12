@@ -15,6 +15,19 @@
       }
     },
     {
+      "label": "coverage",
+      "type": "shell",
+      "command": "bash ./project/coverage.sh",
+      "detail": "Get test coverage information from CTest",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+      }
+    },
+    {
       "label": "Doxygen",
       "type": "shell",
       "command": "mkdir -p build/dox && doxygen ${workspaceFolder}/project/doxygen/Doxyfile",

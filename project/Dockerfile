@@ -23,10 +23,11 @@ RUN apt-get install -y \
     doxygen \
     graphviz
 
+# Install gcovr and lcov
 RUN apt-get install -y \
     python3-full \
-    python3-pip
-
+    python3-pip \
+    lcov
 RUN pip install gcovr --break-system-packages
 
 # Build and install gtest

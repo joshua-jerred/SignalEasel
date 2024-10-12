@@ -91,9 +91,9 @@ jobs:
         gistID: ${{ secrets.CODE_COVERAGE_GIST_ID }}
         filename: code_coverage.json # Use test.svg if you want to use the SVG mode.
         label: Test Coverage
-        message: test
+        message: ${{ env.TEST_COVERAGE }} %
         color: orange
-        valColorRange: 65 # The actual value that will be displayed on the badge.
+        valColorRange: ${{ env.TEST_COVERAGE }} # The actual value that will be displayed on the badge.
         minColorRange: 50 # If valColorRange is at or below this, the badge will be red.
         maxColorRange: 90 # If valColorRange is at or above this, the badge will be green.
 

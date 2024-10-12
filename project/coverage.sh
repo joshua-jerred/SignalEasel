@@ -17,4 +17,12 @@ ctest --force-new-ctest-process
 
 # Generate coverage report. Create an LCOV report file and print a text summary
 gcovr -r .. --config ../project/gcovr.cfg --lcov coverage_data.lcov --txt coverage_data.txt
-cat coverage_data.txt
+# cat coverage_data.txt
+
+# COVERAGE_VAR = "TEST_COVERAGE=58"
+export COVERAGE_VAR="TEST_COVERAGE=$(tail -2 coverage_data.txt | head -1 | awk '{print $(NF)}' | tr -d '%')"
+
+if [ ! -z "$GITHUB_ACTIONS" ]; then
+  # Send to the gha environment
+  echo $COVERAGE_VAR >> $GITHUB_ENV
+fi

@@ -37,26 +37,31 @@ bool Demodulator::lookForAx25Packet() {
   case '/':
     type_ = aprs::Packet::Type::POSITION;
     break;
-  case ':':
-    type_ = aprs::Packet::Type::MESSAGE;
-    break;
+  case ':': {
+    // Telemetry messages that describe the telemetry data report are in the
+    // APRS message format. Ex: ":NOCALL-1 :BITS.xxx"
+    if (info.size() > 15 && info.at(15) == '.') {
+      std::string message_type(info.begin() + 11, info.begin() + 15);
+      if (message_type == "PARM") {
+        type_ = aprs::Packet::Type::TELEMETRY_PARAMETER_NAME;
+      } else if (message_type == "UNIT") {
+        type_ = aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT;
+      } else if (message_type == "EQNS") {
+        type_ = aprs::Packet::Type::TELEMETRY_COEFFICIENT;
+      } else if (message_type == "BITS") {
+        type_ = aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME;
+      } else {
+        type_ = aprs::Packet::Type::MESSAGE;
+      }
+    } else {
+      type_ = aprs::Packet::Type::MESSAGE;
+    }
+  } break;
   case '{':
     type_ = aprs::Packet::Type::EXPERIMENTAL;
     break;
   case 'T': // TELEMETRY DATA REPORT
     type_ = aprs::Packet::Type::TELEMETRY_DATA_REPORT;
-    break;
-  case 'P': // PARM
-    type_ = aprs::Packet::Type::TELEMETRY_PARAMETER_NAME;
-    break;
-  case 'U': // UNIT
-    type_ = aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT;
-    break;
-  case 'E': // EQNS
-    type_ = aprs::Packet::Type::TELEMETRY_COEFFICIENT;
-    break;
-  case 'B': // BITS
-    type_ = aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME;
     break;
   default:
     type_ = aprs::Packet::Type::UNKNOWN;

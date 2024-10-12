@@ -71,6 +71,13 @@ public:
                             const std::vector<uint8_t> &message);
 
 private:
+  /// @brief Used in the encode methods to add the telemetry station address to
+  /// the message in the format ":N0CALL-1 :".
+  /// @param data - The input telemetry data, which contains the address.
+  /// @param[out] output - The message to add the address to.
+  static void addTelemetryStationAddress(const TelemetryData &data,
+                                         std::vector<uint8_t> &output);
+
   /// @brief Validate the first few bytes of a message.
   /// @param message - The message to validate.
   /// @param header - The header to validate against, ex: "PARM."

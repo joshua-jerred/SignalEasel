@@ -133,6 +133,3 @@ endif()
 if(UNIT_TESTS OR MAIN_PROJECT)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 endif()
-
-add_executable(tester tmp.cpp)
-target_link_libraries(tester SignalEasel)

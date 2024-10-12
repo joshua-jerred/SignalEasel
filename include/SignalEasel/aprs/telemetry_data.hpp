@@ -38,6 +38,30 @@ public:
   /// @return A reference to the digital parameter.
   DigitalParameter &getDigital(Parameter::Id id);
 
+  /// @brief Set the address of the station that is *sending* the telemetry data
+  /// for use in the parameter name, unit/label, equation, and bit sense
+  /// messages.
+  /// @param address - The address of the station *including* the SSID, e.g.
+  /// "N0CALL-1". Must be 9 characters or less. There is no other enforcement
+  /// of the address format.
+  /// @throws signal_easel::Exception if the address is too long.
+  void setTelemetryStationAddress(const std::string &address);
+
+  /// @brief Set the address of the station that is *sending* the telemetry data
+  /// for use in the parameter name, unit/label, equation, and bit sense
+  /// messages.
+  /// @param address - The address of the station *excluding* the SSID, e.g.
+  /// "NOCALL". Must be 9 characters or less. There is no other enforcement of
+  /// the address format.
+  /// @param ssid - The SSID of the station, in the range of 0-15.
+  void setTelemetryStationAddress(const std::string &address, uint8_t ssid);
+
+  /// @brief Get the address of the station that is sending the telemetry data.
+  /// @return The address of the station.
+  std::string getTelemetryStationAddress() const {
+    return telemetry_station_address_;
+  }
+
   /// @brief Set the sequence number. Must be less than 1000. If the sequence
   /// number is greater than 999, it will be set to 0.
   /// @param sequence_number - The sequence number.
@@ -89,6 +113,9 @@ public:
     return digital_parameters_;
   }
 
+  /// @brief The maximum length of the telemetry station address including the
+  /// SSID. APRS 1.0 Chapter 13 "On-Air Definition of Telemetry Parameters"
+  static constexpr size_t TELEMETRY_STATION_ADDRESS_MAX_LENGTH_ = 9;
   /// @brief The maximum sequence number.
   static constexpr size_t SEQUENCE_NUMBER_MAX_ = 999;
   /// @brief The maximum length of the comment within the data report message.
@@ -97,8 +124,12 @@ public:
   /// message. This number is 23, but we need to account for the comma.
   static constexpr size_t PROJECT_TITLE_MAX_LENGTH_ = 23 - 1;
 
-protected:
 private:
+  /// @brief The address of the station that is sending the telemetry data.
+  /// @details Used in all telemetry messages other than the data report
+  /// message. Example of where this is used: ":N0CALL-1 :PARM.x"
+  std::string telemetry_station_address_{""};
+
   /// @brief The sequence number of the data report message.
   uint16_t sequence_number_{0};
 

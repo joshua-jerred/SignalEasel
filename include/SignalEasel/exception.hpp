@@ -70,6 +70,7 @@ public:
     GENERIC,
     APRS_TELEMETRY,
     INVALID_TELEMETRY_TYPE,
+    INVALID_TELEMETRY_STATION_ADDRESS,
   };
 
   static std::string idToString(Id exception_id) {
@@ -164,6 +165,8 @@ public:
       return "APRS telemetry";
     case Id::INVALID_TELEMETRY_TYPE:
       return "Invalid telemetry type";
+    case Id::INVALID_TELEMETRY_STATION_ADDRESS:
+      return "Invalid telemetry station address";
     default:
       return "Unknown error";
     }

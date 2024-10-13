@@ -13,7 +13,7 @@ jobs:
     container:
       image: joshuajerred/signaleasel
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - name: Configure CMake
@@ -41,7 +41,7 @@ jobs:
       image: joshuajerred/signaleasel
     timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Doxygen
         run: mkdir build && mkdir build/dox
       # - name: Generate Structurizr PlantUML SVGs
@@ -64,7 +64,7 @@ jobs:
       image: joshuajerred/signaleasel
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
     - name: Run test coverage script (gcovr)
@@ -75,7 +75,11 @@ jobs:
         name: test-coverage-report
         path: build/coverage_data.txt
     # - name: Report LCOV
-    #   uses: zgosalvez/github-actions-report-lcov@v3
+    #   uses: zgosalvez/github-actions-report-lcov@v3 # This thing doesn't let you disable
+                                                      # `genhtml` even if you don't define the
+                                                      # artifact path. There are multiple issues
+                                                      # in the repo that have been open for a while
+                                                      # and a solid PR that's sitting there.
     #   with:
     #     coverage-files: build/coverage_data.lcov
     #     # minimum-coverage:  # No minimum for now

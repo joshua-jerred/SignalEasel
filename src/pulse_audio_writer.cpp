@@ -5,7 +5,7 @@
  * https://joshuajer.red/signal-easel
  * =*===========================*=
  *
- * @file   pulse_audio.hpp
+ * @file   pulse_audio_writer.cpp
  * @date   2023-12-09
  * @brief  Simple pulse audio interface
  *

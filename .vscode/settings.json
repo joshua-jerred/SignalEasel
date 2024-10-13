@@ -27,7 +27,10 @@
   ],
 
   // Spell Checker
-  "cSpell.words": [],
+  "cSpell.words": [
+    "schneegans",
+    "signaleasel"
+  ],
   "doxdocgen.c.commentPrefix": "/// ",
   "doxdocgen.c.firstLine": "",
   "doxdocgen.c.lastLine": ""

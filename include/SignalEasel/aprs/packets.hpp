@@ -44,6 +44,7 @@ struct Packet {
   std::string destination_address = "APZSEA";
   uint8_t destination_ssid = 0; // 0 - 15
 
+  /// @brief The symbol table to use for the symbol character.
   SymbolTable symbol_table = SymbolTable::PRIMARY;
   char symbol = '/'; // Symbol character default is dot (//)
 };

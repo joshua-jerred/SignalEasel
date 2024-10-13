@@ -15,9 +15,22 @@
       }
     },
     {
-      "label": "coverage",
+      "label": "test coverage",
       "type": "shell",
-      "command": "bash ./project/coverage.sh",
+      "command": "bash ./project/test_coverage.sh",
+      "detail": "Get test coverage information from CTest",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+      }
+    },
+    {
+      "label": "doc coverage",
+      "type": "shell",
+      "command": "bash ./project/doxygen_coverage.sh",
       "detail": "Get test coverage information from CTest",
       "presentation": {
         "reveal": "always",

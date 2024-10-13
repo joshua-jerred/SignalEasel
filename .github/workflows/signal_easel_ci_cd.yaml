@@ -1,4 +1,4 @@
-name: SignalEasel CI/CD
+name: SignalEasel
 
 on:
   push:
@@ -58,7 +58,7 @@ jobs:
           cname: signaleasel.joshuajer.red
 
   test_coverage:
-    name: Test and Documentation Coverage
+    name: Test Coverage
     runs-on: ubuntu-latest
     container:
       image: joshuajerred/signaleasel
@@ -69,13 +69,11 @@ jobs:
         submodules: true
     - name: Run test coverage script (gcovr)
       run: bash project/test_coverage.sh
-    - name: Upload coverage report artifact # This might not be needed, the step below can do artifact uploads.
+    - name: Upload coverage report artifact
       uses: actions/upload-artifact@v4
       with:
         name: test-coverage-report
         path: build/coverage_data.txt
-    - name: Run doxygen coverage script (coverxygen)
-      run: bash project/doxygen_coverage.sh
     # - name: Report LCOV
     #   uses: zgosalvez/github-actions-report-lcov@v3 # This thing doesn't let you disable
                                                       # `genhtml` even if you don't define the
@@ -102,6 +100,19 @@ jobs:
         valColorRange: ${{ env.TEST_COVERAGE }} # The actual value that will be displayed on the badge.
         minColorRange: 50 # If valColorRange is at or below this, the badge will be red.
         maxColorRange: 90 # If valColorRange is at or above this, the badge will be green.
+
+  doxygen_coverage:
+    name: Doxygen Coverage
+    runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/signaleasel
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+    - name: Run doxygen coverage script (coverxygen)
+      run: bash project/doxygen_coverage.sh
     - name: Update doxygen coverage badge
       uses: schneegans/dynamic-badges-action@v1.7.0
       with:

@@ -23,12 +23,13 @@ RUN apt-get install -y \
     doxygen \
     graphviz
 
-# Install gcovr and lcov
+# Install gcovr, lcov, and coverxygen
 RUN apt-get install -y \
     python3-full \
     python3-pip \
     lcov
 RUN pip install gcovr --break-system-packages
+RUN pip install coverxygen --break-system-packages
 
 # Build and install gtest
 # RUN cd /usr/src/gtest && cmake CMakeLists.txt && make && cp lib/*.a /usr/lib && ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a

@@ -5,6 +5,7 @@ Checks: >
   performance-*,
   portability-*,
   readability-*,
+  -bugprone-easily-swappable-parameters,
   -google-readability-namespace-comments,
   -google-runtime-int,
   -google-runtime-references,
@@ -13,7 +14,8 @@ Checks: >
   -readability-braces-around-statements,
   -readability-magic-numbers
 
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: 'src'
+
 CheckOptions:
   - key: readability-identifier-naming.TypedefCase
     value: CamelCase
@@ -25,22 +27,32 @@ CheckOptions:
     value: lower_case
   - key: readability-identifier-naming.ParameterCase
     value: lower_case
-  - key: readability-identifier-naming.ConstantParameterCase
-    value: lower_case
   - key: readability-identifier-naming.FunctionCase
     value: camelBack
   # - key: readability-identifier-naming.NamespaceCase
   #   value: lower_case
+
+  ### Constant naming
   - key: readability-identifier-naming.ConstantCase
     value: UPPER_CASE
   - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
   - key: readability-identifier-naming.ClassConstantCase
     value: UPPER_CASE
-  - key: readability-identifier-naming.ClassConstantPrefix
-    value: k
+  - key: readability-identifier-naming.ConstantParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.ConstexprVariableCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.LocalConstantCase
+    value: lower_case
+  - key: readability-identifier-naming.LocalConstantPrefix
+    value: k_
+
   - key: readability-identifier-naming.ClassConstantSuffix
     value: _
+  - key: readability-identifier-length.IgnoredParameterNames
+    value: 'id'
+
   - key: readability-identifier-naming.PrivateMemberSuffix
     value: _
   - key: misc-assert-side-effect.CheckFunctionCalls

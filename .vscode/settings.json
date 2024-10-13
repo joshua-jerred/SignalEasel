@@ -1,0 +1,37 @@
+{
+  // CMake
+  "cmake.sourceDirectory": "${workspaceFolder}",
+
+  // Formating (C++, Clang-Format)
+  "clang-format.style": "file",
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true
+  },
+
+  // Doxygen
+  "doxdocgen.file.fileOrder": [
+    "custom",
+  ],
+  "doxdocgen.file.customTag": [
+    "=*============================= SignalEasel ==============================*=",
+    "A C++ library for audio modulation/demodulation into analog & digital modes.",
+    "Detailed documentation can be found here: https://signaleasel.joshuajer.red",
+    "",
+    "@author Joshua Jerred",
+    "@date   {date}",
+    "",
+    "@copyright{indent:11}Copyright {year} Joshua Jerred. All rights reserved.",
+    "@license{indent:11}This project is licensed under the GNU GPL v3.0 license.",
+    "=*========================================================================*=",
+  ],
+
+  // Spell Checker
+  "cSpell.words": [
+    "schneegans",
+    "signaleasel"
+  ],
+  "doxdocgen.c.commentPrefix": "/// ",
+  "doxdocgen.c.firstLine": "",
+  "doxdocgen.c.lastLine": ""
+}

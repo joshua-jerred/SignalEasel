@@ -1,0 +1,198 @@
+# Doxyfile 1.9.1
+DOXYFILE_ENCODING      = UTF-8
+
+# ---------------------------------------------------------------------------- #
+# Input
+
+INPUT  = src
+INPUT += include
+INPUT += tests
+# INPUT = .
+# EXCLUDE_PATTERNS = */lib/*
+# IMAGE_PATH             = docs/images
+RECURSIVE              = YES
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.cpp \
+                         *.hpp
+
+ALIASES += "license=@par License: "
+
+# CITE_BIB_FILES = docs/references.bib
+
+# ---------------------------------------------------------------------------- #
+# Output
+
+OUTPUT_DIRECTORY       = ./build/dox_coverage/
+# OUTPUT_LANGUAGE        = English
+
+# ---------------------------------------------------------------------------- #
+# Appearance
+
+# BRIEF_MEMBER_DESC      = YES
+# REPEAT_BRIEF           = YES
+
+# ABBREVIATE_BRIEF       = "The $name class" \
+                        #  "The $name widget" \
+                        #  "The $name file" \
+                        #  is \
+                        #  provides \
+                        #  specifies \
+                        #  contains \
+                        #  represents \
+                        #  a \
+                        #  an \
+                        #  the
+
+# when set to NO it drops the total by ~25% but the covered percentage
+# remains the same. This one should be disabled, it's useless duplication.
+# INLINE_INHERITED_MEMB  = NO 
+
+# FULL_PATH_NAMES        = NO
+# TAB_SIZE               = 2
+# MARKDOWN_SUPPORT       = YES
+# TOC_INCLUDE_HEADINGS   = 4
+# AUTOLINK_SUPPORT       = YES
+BUILTIN_STL_SUPPORT    = NO # increases covered by 1 when set to YES
+# IDL_PROPERTY_SUPPORT   = NO
+DISTRIBUTE_GROUP_DOC   = YES # increases covered by 7
+# GROUP_NESTED_COMPOUNDS = NO
+# SUBGROUPING            = NO
+# INLINE_GROUPED_CLASSES = NO
+# INLINE_SIMPLE_STRUCTS  = NO
+# TYPEDEF_HIDES_STRUCT   = NO
+# LOOKUP_CACHE_SIZE      = 0
+NUM_PROC_THREADS       = 15
+
+
+GENERATE_XML = YES
+# XML_PROGRAMLISTING = YES
+
+#  include namespace members in file scope
+XML_NS_MEMB_FILE_SCOPE = YES
+
+#---------------------------------------------------------------------------
+# Build related configuration options
+#---------------------------------------------------------------------------
+
+# EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES # increases both coverage and total docs
+# EXTRACT_PRIV_VIRTUAL   = NO
+# EXTRACT_PACKAGE        = NO
+# EXTRACT_STATIC         = NO
+# EXTRACT_LOCAL_CLASSES  = NO
+
+# RESOLVE_UNNAMED_PARAMS = NO
+
+# HIDE_UNDOC_MEMBERS     = NO
+# HIDE_UNDOC_CLASSES     = NO
+# HIDE_FRIEND_COMPOUNDS  = NO
+
+HIDE_IN_BODY_DOCS      = YES # This one seems to matter. +-0.5% coverage.
+
+# INTERNAL_DOCS          = NO
+# CASE_SENSE_NAMES       = NO
+# HIDE_SCOPE_NAMES       = NO
+# HIDE_COMPOUND_REFERENCE= NO
+# SHOW_INCLUDE_FILES     = NO
+# SHOW_GROUPED_MEMB_INC  = YES
+# FORCE_LOCAL_INCLUDES   = YES
+# INLINE_INFO            = YES
+
+# SORT_MEMBER_DOCS       = NO
+# SORT_BRIEF_DOCS        = NO
+# SORT_MEMBERS_CTORS_1ST = NO
+# SORT_GROUP_NAMES       = NO
+# SORT_BY_SCOPE_NAME     = YES
+# STRICT_PROTO_MATCHING  = NO
+
+# When set to yes, coverxygen will add a whole new section
+# called "pages" with one item in it.
+GENERATE_TODOLIST      = NO
+
+# GENERATE_TESTLIST      = NO
+# GENERATE_BUGLIST       = NO
+# GENERATE_DEPRECATEDLIST= NO
+# MAX_INITIALIZER_LINES  = 30
+# SHOW_USED_FILES        = NO
+# SHOW_FILES             = NO
+# SHOW_NAMESPACES        = YES
+
+# LAYOUT_FILE            = docs/doxygen_layout.xml
+
+#---------------------------------------------------------------------------
+# Configuration options related to warning and progress messages
+#---------------------------------------------------------------------------
+
+QUIET                  = YES
+WARNINGS               = NO
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = NO
+WARN_NO_PARAMDOC       = NO
+WARN_AS_ERROR          = NO
+WARN_FORMAT            = "$file:$line: $text"
+
+#---------------------------------------------------------------------------
+# Configuration options related to source browsing
+#---------------------------------------------------------------------------
+
+# SOURCE_BROWSER         = NO
+# INLINE_SOURCES         = NO
+# STRIP_CODE_COMMENTS    = NO
+
+# If the REFERENCED_BY_RELATION tag is set to YES then for each documented
+# entity all documented functions referencing it will be listed.
+# The default value is: NO.
+# REFERENCED_BY_RELATION = NO
+# REFERENCES_RELATION    = NO
+# REFERENCES_LINK_SOURCE = NO
+# SOURCE_TOOLTIPS        = NO
+
+# If the VERBATIM_HEADERS tag is set the YES then doxygen will generate a
+# verbatim copy of the header file for each class for which an include is
+# specified. Set to NO to disable this.
+# See also: Section \class.
+# The default value is: YES.
+
+# VERBATIM_HEADERS       = YES
+
+# GENERATE_LATEX        = NO
+#---------------------------------------------------------------------------
+# Configuration options related to the alphabetical class index
+#---------------------------------------------------------------------------
+
+# ALPHABETICAL_INDEX     = NO
+# IGNORE_PREFIX          = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the preprocessor
+#---------------------------------------------------------------------------
+
+# If the ENABLE_PREPROCESSING tag is set to YES, doxygen will evaluate all
+# C-preprocessor directives found in the sources and include files.
+# The default value is: YES.
+
+# ENABLE_PREPROCESSING   = YES
+
+# MACRO_EXPANSION        = NO
+# EXPAND_ONLY_PREDEF     = NO
+
+# SEARCH_INCLUDES        = YES
+# INCLUDE_PATH           =
+# INCLUDE_FILE_PATTERNS  =
+
+# PREDEFINED             =
+# EXPAND_AS_DEFINED      =
+# SKIP_FUNCTION_MACROS   = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to external references
+#---------------------------------------------------------------------------
+
+# TAGFILES               =
+# GENERATE_TAGFILE       =
+# ALLEXTERNALS           = NO
+# EXTERNAL_GROUPS        = YES
+# EXTERNAL_PAGES         = YES
+HAVE_DOT = NO
+UML_LOOK = NO
+CLASS_GRAPH = NO

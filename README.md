@@ -1,62 +1,103 @@
-# Signal Easel
+# SignalEasel
 
-A C++ library for modulating and demodulating various digital modes. It is designed to be easy to use/integrate into other projects.
+[![SignalEasel CI](https://github.com/joshua-jerred/SignalEasel/actions/workflows/signal_easel_ci_cd.yaml/badge.svg)](https://github.com/joshua-jerred/SignalEasel/actions/workflows/signal_easel_ci_cd.yaml)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/joshua-jerred/b51272b5db76d6d818ada419ce2d1bef/raw/code_coverage.json)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/joshua-jerred/b51272b5db76d6d818ada419ce2d1bef/raw/doxygen_coverage.json)
 
-For detailed documentation, please see [https://signaleasel.joshuajer.red](https://signaleasel.joshuajer.red).
+SignalEasel is a C++ library for audio modulation and demodulation through a
+variety of analog and digital modes via PulseAudio and `.wav` files. It also
+provides encoding and decoding for higher level protocols.
 
-## Supported modes
+![SignalEasel](docs/images/logo.svg)
 
-- AFSK1200
-  - Modulation and Demodulation
+[Detailed Documentation](https://signaleasel.joshuajer.red)
+
+[Repository](https://github.com/joshua-jerred/SignalEasel)
+
+## Features
+- APRS
+  - Full encoding and decoding of APRS packets through continuous and discrete modes
+  - Location (Compressed)
+  - Telemetry Data Reports w/Parameter Metadata Messages
+  - Messages with ACK/REJ
+  - User Defined Packets
+- AX.25
+  - Encoding and Decoding of UI Frames
+  - NRZI, CRC-16, Bit Stuffing
+- AFSK
+  - AFSK1200 (Bell 202)
   - ASCII mode for sending text
-- AX.25 UI Frames (AFSK1200 with CRC, bit stuffing, NRZI)
-  - Modulation and Demodulation
-- APRS 
-  - Modulation and Demodulation
-  - (Compressed Location, Telemetry, Messages with ACK/REJ, User Defined, Invalid Format)
-- SSTV (Robot36, Optional callsign overlay)
-  - Modulation only
-- PSK31 (Fldigi Compatible BPSK/QPSK 125, 250, 500, 1000 baud)
-  - Modulation only
-  - ARRL Specification using Varicode and Convolutional Encoding, supports Fldigi
+- BPSK & QPSK
+  - Varicode and Convolutional Encoding (ARRL PSK31 Spec)
+  - Fldigi mode at 125, 250, 500, 1000 baud
   - Also supports raw binary PSK without encoding
-- Morse Code For adding optional station identification in all modes
+- Morse Code for additional station identification
+- SSTV (Robot36, Optional Call Sign & data overlay)
   - Modulation only
 
 ***
 
-## Building/Installing
+## Build / Install
 
-***Important:*** SSTV requires that you have magick++ installed with the modules related to fonts and the image formats you want to use. This is ***optional***. If you want to use the other modes, then you do not need any 3rd party libraries. This library was developed on a Linux system but it may work on others.
+### Optional Features & Dependencies
 
-Build:
+There are a few optional features that require additional dependencies. These
+features can be toggled in the root CMakeLists.txt
+
+```
+option(USE_PULSEAUDIO ... ON)
+option(SSTV_ENABLED ... OFF)
+option(UNIT_TESTS ... OFF)
+```
+
+#### Real-Time Modulation/Demodulation - PulseAudio
+PulseAudio is required for real-time modulation and demodulation. If enabled,
+in the root CMakeLists.txt, SignalEasel will use PulseAudio for audio I/O.
+Without PulseAudio, you can still use the library to generate and read `.wav`
+files.
 
 ```bash
-# Install Prerequisites
-apt install libpulse-dev -y
+sudo apt-get install libpulse-dev
+```
 
+#### SSTV - ImageMagick++
+SSTV requires that you have magick++ installed with the modules related to fonts and the image formats you want to use. This is ***optional***. If you want to use the other modes, then you do not need any 3rd party libraries. This library was developed on a Linux system but it may work on others.
+
+Installation instructions: https://imagemagick.org/Magick++/Install.html
+
+### Method 1: CMake
+This library is designed to be used as a part of another CMake project. To use
+it, you simply add the subdirectory to your project and link against it.
+
+```cmake
+add_subdirectory(lib/SignalEasel)
+
+target_link_libraries(your_target SignalEasel)
+```
+
+### Method 2: Manual Installation
+Not recommended, but it's as simple as building the static library and
+including the `include` directory in your project.
+
+```bash
 # Clone the repository with submodules (WavGen and SSTV-Image-Tools)
-git clone --recurse-submodules  https://github.com/joshua-jerred/MWAV.git
+git clone --recurse-submodules  https://github.com/joshua-jerred/SignalEasel
 
 # Create and enter the build directory
-cd MWAV && mkdir build && cd build
+cd SignalEasel && mkdir build && cd build
 
 # Configure
-cmake -DSSTV_ENABLED=OFF .. # Disable SSTV if you don't have magick++ installed, default is ON
+cmake ..
 
 # Build
-make SignalEasel
-
-# Install
-# Installation is currently not supported, the library is in this directory
-# The header file is in the include directory
+make SignalEasel # Builds a static library at `build/libSignalEasel.a`
 ```
 
 ***
 
 ## Building/Installing Magick++
 
-```c++
+```bash
 sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install libjpeg62-dev libpng-dev libfreetype6-dev
@@ -75,3 +116,4 @@ sudo ldconfig # May need to do more for linking
 
 - https://user.engineering.uiowa.edu/~eedesign/algorithm.pdf
 - https://archive.org/details/dcc-2014-amateur-bell-202-modem-w-6-kwf-and-bridget-benson
+- https://github.com/PhirePhly/aprs_notes

@@ -1,19 +1,13 @@
-/**
- * =*========SignalEasel========*=
- * A friendly library for signal modulation and demodulation.
- * https://github.com/joshua-jerred/Giraffe
- * https://joshuajer.red/signal-easel
- * =*===========================*=
- *
- * @file   band_pass_filter.cpp
- * @date   2023-12-05
- * @brief  See
- * https://github.com/nxsEdson/Butterworth-Filter/blob/master/butterworth.cpp
- *
- * =*=======================*=
- * @copyright  2023 Joshua Jerred
- * @license    GNU GPLv3
- */
+/// =*============================= SignalEasel ==============================*=
+/// A C++ library for audio modulation/demodulation into analog & digital modes.
+/// Detailed documentation can be found here: https://signaleasel.joshuajer.red
+///
+/// @author Joshua Jerred
+/// @date   2023-12-05
+///
+/// @copyright Copyright 2024 Joshua Jerred. All rights reserved.
+/// @license   This project is licensed under the GNU GPL v3.0 license.
+/// =*========================================================================*=
 
 #include <complex>
 #include <fstream>

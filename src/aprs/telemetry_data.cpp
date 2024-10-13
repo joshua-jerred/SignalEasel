@@ -12,6 +12,7 @@
  */
 
 #include <SignalEasel/aprs/telemetry_data.hpp>
+#include <SignalEasel/exception.hpp>
 
 namespace signal_easel::aprs::telemetry {
 
@@ -40,6 +41,29 @@ DigitalParameter &TelemetryData::getDigital(Parameter::Id id) {
   const size_t index =
       static_cast<uint8_t>(id) - static_cast<uint8_t>(Parameter::Id::B1);
   return digital_parameters_.at(index);
+}
+
+void TelemetryData::setTelemetryStationAddress(const std::string &address) {
+  if (address.size() > TELEMETRY_STATION_ADDRESS_MAX_LENGTH_) {
+    throw Exception(Exception::Id::APRS_INVALID_SOURCE_ADDRESS_LENGTH, address);
+  }
+  telemetry_station_address_ = address;
+}
+
+void TelemetryData::setTelemetryStationAddress(const std::string &address,
+                                               uint8_t ssid) {
+  if (address.size() > 6) {
+    throw Exception(Exception::Id::APRS_INVALID_SOURCE_ADDRESS_LENGTH,
+                    "w/o ssid: " + address);
+  }
+
+  if (ssid > 15) {
+    throw Exception(Exception::Id::APRS_INVALID_SOURCE_ADDRESS_LENGTH,
+                    "ssid" + std::to_string(ssid));
+  }
+
+  telemetry_station_address_ =
+      address + "-" + std::to_string(static_cast<int>(ssid));
 }
 
 bool TelemetryData::setSequenceNumber(uint16_t sequence_number) {

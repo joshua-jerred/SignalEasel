@@ -85,7 +85,10 @@ void Address::decodeAddress(Address::AddressArray address_array) {
     address_string_ += address_char;
   }
 
-  assertAddressStringIsValid();
+  /// @todo This is incredibly stupid. Packets will be received from all sorts
+  /// of sources. I'm thinking this should only be used for encoding, not
+  /// decoding.
+  // assertAddressStringIsValid();
 
   uint8_t ssid_byte = address_array.at(6);
   command_or_response_ = (ssid_byte & 0b10000000) > 0;
@@ -94,7 +97,8 @@ void Address::decodeAddress(Address::AddressArray address_array) {
   is_last_address_ = (ssid_byte & 0b00000001) > 0;
   ssid_ = (ssid_byte >> 1) & 0x0F;
 
-  assertSsidIsValid();
+  /// @todo Same as above - this is stupid
+  // assertSsidIsValid();
 }
 
 bool Address::isSsidValid() { return ssid_ <= K_MAX_SSID_VALUE; }
@@ -122,8 +126,16 @@ void Address::assertAddressStringIsValid() {
   }
 
   for (uint8_t c : address_string_) {
+    // Must be alphanumeric or space
     if (!std::isalnum(c) && c != ' ') {
-      throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS);
+      throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS,
+                      "non-alphanumeric: " + address_string_);
+    }
+
+    // Must be uppercase
+    if (std::isalpha(c) && !std::isupper(c)) {
+      throw Exception(Exception::Id::AX25_INVALID_CHARACTER_IN_ADDRESS,
+                      "lowercase: " + address_string_);
     }
   }
 }
@@ -137,6 +149,7 @@ void Address::assertSsidIsValid() {
 
 void Address::setAddressString(std::string address_string) {
   address_string_ = address_string;
+
   assertAddressStringIsValid();
 }
 

@@ -68,7 +68,6 @@ public:
   /**
    * @brief Set the Address String object
    * @param address_string The address string to set
-   * @return true if the address string was successfully set
    */
   void setAddressString(std::string address_string);
   std::string getAddressString() const { return address_string_; }
@@ -76,7 +75,6 @@ public:
   /**
    * @brief Set the SSID (0-15)
    * @param ssid The 4 bit SSID to set
-   * @return true if the SSID was successfully set/is valid
    */
   void setSsid(uint8_t ssid);
   uint8_t getSsid() const { return ssid_; }

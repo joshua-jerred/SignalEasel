@@ -1,18 +1,10 @@
-/**
- * =*========SignalEasel========*=
- * A friendly library for signal modulation and demodulation.
- * https://github.com/joshua-jerred/Giraffe
- * https://joshuajer.red/signal-easel
- * =*===========================*=
- *
- * @file   aprs.hpp
- * @date   2023-12-05
- * @brief  APRS implementation
- *
- * =*=======================*=
- * @copyright  2023 Joshua Jerred
- * @license    GNU GPLv3
- */
+/// =*=======================SignalEasel=======================*=
+/// A friendly library for signal modulation and demodulation.
+/// Learn more at https://signaleasel.joshuajer.red
+///
+/// @copyright Copyright 2024 Joshua Jerred. All rights reserved.
+/// This project is licensed under the GNU GPL v3.0 license.
+/// =*=========================================================*=
 
 #ifndef SIGNAL_EASEL_APRS_HPP_
 #define SIGNAL_EASEL_APRS_HPP_
@@ -31,7 +23,9 @@ namespace signal_easel::aprs {
 
 struct Settings : public afsk::Settings {
   Settings() {
+    /// @brief APRS uses NRZI encoding.
     bit_encoding = BitEncoding::NRZI;
+    /// @todo Disable SYN/EOT wrapping for APRS.
     include_ascii_padding = false;
   }
 };
@@ -45,7 +39,7 @@ public:
   void encode(const aprs::MessagePacket &packet);
   void encode(const aprs::MessageAckPacket &packet);
   void encode(const aprs::ExperimentalPacket &packet);
-  void encode(const aprs::TelemetryPacket &telemetryData);
+  void encode(const aprs::TelemetryPacket &packet);
 
 private:
   aprs::Settings settings_;
@@ -152,65 +146,23 @@ private:
   Demodulator aprs_demodulator_{};
 };
 
-// enum class TelemetryPacketType {
-//   DATA_REPORT,
-//   PARAM_NAME,
-//   PARAM_UNIT,
-//   PARAM_COEF,
-//   BIT_SENSE_PROJ_NAME
-// };
-
-// struct Telemetry {
-//   // The sequence number and comment are use in the DATA_REPORT packet
-//   std::string sequence_number = "001"; // 3 digits
-//   std::string comment = "";            // Max length of 220 characters
-
-//   // The Project Title is used in the BIT_SENSE_PROJ_NAME packet
-//   std::string project_title = ""; // 0-23 characters
-
-//   std::string destination_address = "   "; // between 3 and 9 chars
-
-//   struct Analog {
-//     uint8_t value = 0;
-
-//     // the length differs for each value.
-//     std::string name = ""; // 1 - max_name_length characters
-//     std::string unit = ""; // 1 - max_name_length characters
-//     // a*x^2 + b*x + c
-//     std::string coef_a = "0"; // 1-9 characters, -, ., 0-9
-//     std::string coef_b = "1"; // 1-9 characters, -, ., 0-9
-//     std::string coef_c = "0"; // 1-9 characters, -, ., 0-9
-//   };
-
-//   struct Digital {
-//     bool value = false;
-//     bool sense = false; // for BIT_SENSE_PROJ_NAME packet
-
-//     std::string name = ""; // 1 - max_name_length characters
-//     std::string unit = ""; // 1 - max_name_length characters
-//   };
-
-//   Analog a1{};
-//   Analog a2{};
-//   Analog a3{};
-//   Analog a4{};
-//   Analog a5{};
-
-//   Digital d1{};
-//   Digital d2{};
-//   Digital d3{};
-//   Digital d4{};
-//   Digital d5{};
-//   Digital d6{};
-//   Digital d7{};
-//   Digital d8{};
-
-//   std::vector<uint8_t>
-//   encode(TelemetryPacketType type = TelemetryPacketType::DATA_REPORT) const;
-// };
-
+/// @brief Encodes a string into a base91 encoded string.
+/// @param value - The value to encode.
+/// @param num_bytes - The number of bytes to encode the value into.
+/// @return The base91 encoded value, of size num_bytes.
 std::vector<uint8_t> base91Encode(int value, unsigned int num_bytes);
+
+/// @brief Decodes a base91 encoded value to an integer.
+/// @param encoded - A vector of bytes that represent the base91 encoded value.
+/// @return The decoded integer.
 int base91Decode(std::vector<uint8_t> encoded);
+
+/// @brief The base function to encode an APRS packet with the provided base
+/// data and info field.
+/// @param required_fields - The required fields for the packet, a base APRS
+/// packet.
+/// @param info - The information field of the APRS packet.
+/// @return The encoded APRS packet.
 std::vector<uint8_t> encodePacket(const aprs::Packet &required_fields,
                                   std::vector<uint8_t> &info);
 

@@ -7,7 +7,7 @@
  *
  * @file   band_pass_filter.hpp
  * @date   2023-12-05
- * @brief  Bandpass filter implementation
+ * @brief  Band-pass filter implementation
  *
  * =*=======================*=
  * @copyright  2023 Joshua Jerred
@@ -23,14 +23,16 @@
 namespace signal_easel {
 
 /**
- * @brief A band-pass filter implementation
+ * @brief A simple band-pass filter
+ * @details Source:
+ * https://github.com/nxsEdson/Butterworth-Filter/blob/master/butterworth.cpp
  *
  * @param input The input signal
- * @param sample_rate The sample rate of the input signal (ie. 44100)
- * @param lower_cutoff The lower cutoff frequency
- * @param upper_cutoff The upper cutoff frequency
- * @param filter_order The order of the filter (ie. 4)
- * @return std::vector<double> The filtered signal
+ * @param sample_rate - The sample rate of the input signal (ie. 44100)
+ * @param lower_cutoff - The lower cutoff frequency
+ * @param upper_cutoff - The upper cutoff frequency
+ * @param filter_order - The order of the filter (ie. 4)
+ * @return The filtered signal
  */
 std::vector<double> bandPassFilter(const std::vector<double> &input,
                                    double sample_rate, double lower_cutoff,

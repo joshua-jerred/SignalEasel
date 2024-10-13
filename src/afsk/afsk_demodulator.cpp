@@ -65,18 +65,18 @@ void afsk::Demodulator::audioBufferToBaseBandSignal(
   rms = std::sqrt(rms / lower_audio.size());
 
   // calculate the RMS for a wider signal
-  constexpr double k_wide_band_lower_cutoff = 500;
-  constexpr double k_wide_band_upper_cutoff = 2700;
-  constexpr double k_wide_band_included_bandwidth =
-      k_wide_band_upper_cutoff - k_wide_band_lower_cutoff;
-  constexpr double k_wide_band_rms_additional_weight = 0.5;
+  constexpr double WIDE_BAND_LOWER_CUTOFF = 500;
+  constexpr double WIDE_BAND_UPPER_CUTOFF = 2700;
+  constexpr double WIDE_BAND_INCLUDED_BANDWIDTH =
+      WIDE_BAND_UPPER_CUTOFF - WIDE_BAND_LOWER_CUTOFF;
+  constexpr double WIDE_BAND_RMS_ADDITIONAL_WEIGHT = 0.5;
   auto wide_audio =
-      bandPassFilter(unfiltered, AUDIO_SAMPLE_RATE_D, k_wide_band_lower_cutoff,
-                     k_wide_band_upper_cutoff, AFSK_BP_FILTER_ORDER);
+      bandPassFilter(unfiltered, AUDIO_SAMPLE_RATE_D, WIDE_BAND_LOWER_CUTOFF,
+                     WIDE_BAND_UPPER_CUTOFF, AFSK_BP_FILTER_ORDER);
   double wide_rms = 0;
   for (double &sample : wide_audio) {
-    double adjusted = (sample / k_wide_band_included_bandwidth) +
-                      k_wide_band_rms_additional_weight;
+    double adjusted = (sample / WIDE_BAND_INCLUDED_BANDWIDTH) +
+                      WIDE_BAND_RMS_ADDITIONAL_WEIGHT;
     wide_rms += adjusted * adjusted;
   }
   wide_rms = std::sqrt(wide_rms / wide_audio.size());
@@ -169,10 +169,10 @@ void afsk::Demodulator::baseBandToBitStream(
 
   // bool ahead = false;
 
-  constexpr double k_clock_skew_alpha = 0.5;
+  constexpr double CLOCK_SKEW_ALPHA = 0.5;
   double clock_skew_accumulator = 0;
 
-  constexpr int32_t k_min_samples_between_clock_adjustments = 10;
+  constexpr int32_t MIN_SAMPLES_BETWEEN_CLOCK_ADJUSTMENTS = 10;
   int32_t samples_since_last_clock_adjustment = 0;
 
   for (uint8_t sample : base_band_signal_) {
@@ -212,8 +212,8 @@ void afsk::Demodulator::baseBandToBitStream(
                             (clock_skew_mean * clock_skew_mean);
 
       clock_skew_accumulator =
-          (k_clock_skew_alpha * static_cast<double>(timing_error_num_samples)) +
-          (1.0 - k_clock_skew_alpha) * clock_skew_accumulator;
+          (CLOCK_SKEW_ALPHA * static_cast<double>(timing_error_num_samples)) +
+          (1.0 - CLOCK_SKEW_ALPHA) * clock_skew_accumulator;
 
       // std::cout << "(" << (ahead ? "+" : "-") <<
       // (int)timing_error_num_samples
@@ -226,7 +226,7 @@ void afsk::Demodulator::baseBandToBitStream(
     // adjust the sample clock in an attempt to synchronize
     if (clock_skew_accumulator > 7 &&
         samples_since_last_clock_adjustment >
-            k_min_samples_between_clock_adjustments) {
+            MIN_SAMPLES_BETWEEN_CLOCK_ADJUSTMENTS) {
       samples_since_last_clock_adjustment = 0;
       if (clock_skew_accumulator > 15) {
         sample_clock += 15;
@@ -255,14 +255,14 @@ afsk::Demodulator::lookForString(std::string &output) {
 
   const auto &bit_vector = output_bit_stream_.getBitVector();
 
-  constexpr uint8_t k_syn_character = 0x16;
+  constexpr uint8_t SYN_CHAR = 0x16;
 
   // detect syn character
   int8_t char_offset = -1;
   for (uint32_t word : bit_vector) {
     for (int8_t i = 0; i < 32; i++) {
       uint8_t byte = (word >> (24 - i)) & 0xFF;
-      if (byte == k_syn_character) {
+      if (byte == SYN_CHAR) {
         char_offset = i;
         break;
       }
@@ -299,7 +299,7 @@ afsk::Demodulator::lookForString(std::string &output) {
 
     // Ignore SYN and STX
     if (byte != 0x16 && byte != 0x02) {
-      output += static_cast<unsigned char>(byte);
+      output += static_cast<uint8_t>(byte);
     }
     num_bits -= 8;
   }

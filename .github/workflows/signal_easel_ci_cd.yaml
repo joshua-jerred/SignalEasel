@@ -96,7 +96,6 @@ jobs:
         filename: code_coverage.json
         label: Test Coverage
         message: ${{ env.TEST_COVERAGE }} %
-        # color: orange
         valColorRange: ${{ env.TEST_COVERAGE }} # The actual value that will be displayed on the badge.
         minColorRange: 50 # If valColorRange is at or below this, the badge will be red.
         maxColorRange: 90 # If valColorRange is at or above this, the badge will be green.
@@ -120,8 +119,7 @@ jobs:
         gistID: ${{ secrets.CODE_COVERAGE_GIST_ID }}
         filename: doxygen_coverage.json
         label: Doxygen Coverage
-        message: ${{ env.DOC_COVERAGE_LABEL }} %
-        # color: orange
+        message: ${{ env.DOC_COVERAGE_LABEL }}
         valColorRange: ${{ env.DOC_COVERAGE_VALUE }} # The actual value that will be displayed on the badge.
         minColorRange: 50 # If valColorRange is at or below this, the badge will be red.
         maxColorRange: 90 # If valColorRange is at or above this, the badge will be green.

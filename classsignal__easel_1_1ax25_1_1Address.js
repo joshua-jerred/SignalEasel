@@ -21,7 +21,7 @@ var classsignal__easel_1_1ax25_1_1Address =
     [ "isAddressStringValid", "classsignal__easel_1_1ax25_1_1Address.html#a56c55b48bfc809a33aa0e22a5aeb95ca", null ],
     [ "assertAddressStringIsValid", "classsignal__easel_1_1ax25_1_1Address.html#af34b361f739b7995e7816b7a04465828", null ],
     [ "assertSsidIsValid", "classsignal__easel_1_1ax25_1_1Address.html#a8b44c6e311d3462bd86eda03c1d384f0", null ],
-    [ "operator<<", "classsignal__easel_1_1ax25_1_1Address.html#a125ef1d54e4d0f7175f399a28bedd675", null ],
+    [ "operator<<", "classsignal__easel_1_1ax25_1_1Address.html#a1a1e1999414ed13dd06140c874264ffb", null ],
     [ "address_string_", "classsignal__easel_1_1ax25_1_1Address.html#a144451036cbd835ff60aeff31429cdb9", null ],
     [ "ssid_", "classsignal__easel_1_1ax25_1_1Address.html#a4e9deaa10630ebe83b3ba8289ab3054f", null ],
     [ "command_or_response_", "classsignal__easel_1_1ax25_1_1Address.html#a9d93c7c427fe1c9722df1287e2f8888d", null ],

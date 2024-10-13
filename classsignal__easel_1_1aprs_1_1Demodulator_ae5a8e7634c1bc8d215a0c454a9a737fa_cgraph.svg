@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classsignal__easel_1_1ax25_1_1Frame.html#a9e6110247fa4368c64e39cf17f08759d" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="190.5,-367.5 190.5,-397.5 322.5,-397.5 322.5,-367.5 190.5,-367.5"/>
 <text text-anchor="start" x="198.5" y="-385.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="256.5" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Frame::getInformation</text>
@@ -86,7 +86,7 @@
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" target="_top" xlink:title=" ">
+<g id="a_node16"><a xlink:href="namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="391.5,-171.5 391.5,-201.5 498.5,-201.5 498.5,-171.5 391.5,-171.5"/>
 <text text-anchor="start" x="399.5" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="445" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">::deStuffBytes</text>
@@ -373,7 +373,7 @@
 <!-- Node20 -->
 <g id="node20" class="node">
 <title>Node20</title>
-<g id="a_node20"><a xlink:href="classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" target="_top" xlink:title=" ">
+<g id="a_node20"><a xlink:href="classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="567,-147.5 567,-177.5 699,-177.5 699,-147.5 567,-147.5"/>
 <text text-anchor="start" x="575" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::BitStream</text>
 <text text-anchor="middle" x="633" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getBitVector</text>

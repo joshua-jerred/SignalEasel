@@ -1,0 +1,6 @@
+<map id="signal_easel::aprs::telemetry::TelemetryTranscoder::decodeParameterCoefficientMessage" name="signal_easel::aprs::telemetry::TelemetryTranscoder::decodeParameterCoefficientMessage">
+<area shape="rect" id="node1" title="Decode the parameter coefficients message." alt="" coords="5,85,277,141"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a23b19f60f731079282eb88c5ab433579" title="Validate the first few bytes of a message." alt="" coords="325,5,561,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a953b60ecf9067ab71e13de6fdfdcfeec" title=" " alt="" coords="345,85,542,141"/>
+<area shape="rect" id="node4" href="$namespacesignal__easel_1_1aprs_1_1telemetry.html#a06228386caafe56440016944e280b484" title="Validate the format of a coefficient." alt="" coords="331,166,555,207"/>
+</map>

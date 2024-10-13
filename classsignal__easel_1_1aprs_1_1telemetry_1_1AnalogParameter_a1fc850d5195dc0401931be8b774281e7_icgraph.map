@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::AnalogParameter::getCoefficientA" name="signal_easel::aprs::telemetry::AnalogParameter::getCoefficientA">
+<area shape="rect" id="node1" title="Get the A coefficient in the formula y = ax^2 + bx + c." alt="" coords="108,5,321,61"/>
+<area shape="rect" id="node2" href="$aprs__telemetry__parameter__test_8cpp.html#a4184358b11b569e47db4bcc74968c173" title=" " alt="" coords="5,20,60,47"/>
+</map>

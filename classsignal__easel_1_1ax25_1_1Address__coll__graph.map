@@ -1,6 +1,6 @@
 <map id="signal_easel::ax25::Address" name="signal_easel::ax25::Address">
-<area shape="rect" id="node1" title="AX.25 Address class. For encoding and decoding AX.25 addresses." alt="" coords="115,233,330,501"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,56,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="189,5,256,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="280,5,339,83"/>
+<area shape="rect" id="node1" title="AX.25 Address class. For encoding and decoding AX.25 addresses." alt="" coords="70,233,285,501"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,64,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="144,5,211,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="235,5,285,83"/>
 </map>

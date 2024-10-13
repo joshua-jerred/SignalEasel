@@ -233,7 +233,7 @@
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="pulse__audio_8hpp.html" target="_top" xlink:title="Simple pulse audio interface.">
+<g id="a_node13"><a xlink:href="pulse__audio_8hpp.html" target="_top" xlink:title="Reads audio from pulse audio.">
 <polygon fill="none" stroke="black" points="630.5,-112.5 630.5,-131.5 785.5,-131.5 785.5,-112.5 630.5,-112.5"/>
 <text text-anchor="middle" x="708" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/pulse_audio.hpp</text>
 </a>

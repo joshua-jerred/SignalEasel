@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::TelemetryPacket" name="signal_easel::aprs::TelemetryPacket">
+<area shape="rect" id="node1" title=" " alt="" coords="12,219,167,369"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Packet.html" title="The base APRS packet structure." alt="" coords="5,5,173,171"/>
+</map>

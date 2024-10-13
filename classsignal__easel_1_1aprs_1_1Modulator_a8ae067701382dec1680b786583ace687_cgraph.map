@@ -2,8 +2,8 @@
 <area shape="rect" id="node1" title=" " alt="" coords="5,120,156,161"/>
 <area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1PositionPacket.html#af628ff207d9143b1a8d377814fd89cad" title=" " alt="" coords="209,23,387,64"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1afsk_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb" title="This is overridden by the child classes to encode the data that is passed in by addBytes and addStrin..." alt="" coords="204,120,392,161"/>
-<area shape="rect" id="node9" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="229,273,367,315"/>
-<area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef" title=" " alt="" coords="461,5,600,47"/>
+<area shape="rect" id="node9" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title="The base function to encode an APRS packet with the provided base data and info field." alt="" coords="229,273,367,315"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef" title="Encodes a string into a base91 encoded string." alt="" coords="461,5,600,47"/>
 <area shape="rect" id="node5" href="$classsignal__easel_1_1Modulator.html#af99ee22156e320703891f0fda4df95e8" title="Add a PCM sample to the audio buffer." alt="" coords="442,71,619,112"/>
 <area shape="rect" id="node6" href="$namespacesignal__easel.html#a815178bfbe2aee7cc2e3c74237233e6c" title="Gets the bipolar value of a bit at a given index from a vector of bytes." alt="" coords="440,136,621,177"/>
 <area shape="rect" id="node7" href="$namespacesignal__easel.html#aa81833e925b9f020659999a2a4a82559" title="Converts a bit to it&#39;s bipolar value (0 = 1, 1 = &#45;1)" alt="" coords="669,93,889,119"/>

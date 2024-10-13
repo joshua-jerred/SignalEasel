@@ -1,7 +1,7 @@
 var ax25_8hpp =
 [
-    [ "Address", "classsignal__easel_1_1ax25_1_1Address.html", "classsignal__easel_1_1ax25_1_1Address" ],
-    [ "Frame", "classsignal__easel_1_1ax25_1_1Frame.html", "classsignal__easel_1_1ax25_1_1Frame" ],
+    [ "signal_easel::ax25::Address", "classsignal__easel_1_1ax25_1_1Address.html", "classsignal__easel_1_1ax25_1_1Address" ],
+    [ "signal_easel::ax25::Frame", "classsignal__easel_1_1ax25_1_1Frame.html", "classsignal__easel_1_1ax25_1_1Frame" ],
     [ "calculateFcs", "ax25_8hpp.html#a6d799107f96d783e620cd508488ab8eb", null ],
     [ "operator<<", "ax25_8hpp.html#a045e37043ec985ae61922db1bc6bc7a3", null ],
     [ "K_MINIMUM_ADDRESS_LENGTH", "ax25_8hpp.html#a2aec61fa01de12913975fa0c4f942493", null ],

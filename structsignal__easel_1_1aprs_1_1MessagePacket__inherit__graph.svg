@@ -27,7 +27,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structsignal__easel_1_1aprs_1_1Packet.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structsignal__easel_1_1aprs_1_1Packet.html" target="_top" xlink:title="The base APRS packet structure.">
 <polygon fill="none" stroke="black" points="0,-127.5 0,-250.5 126,-250.5 126,-127.5 0,-127.5"/>
 <text text-anchor="start" x="8" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="63" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Packet</text>

@@ -1,0 +1,9 @@
+<map id="signal_easel::aprs::telemetry::TelemetryData::setProjectTitle" name="signal_easel::aprs::telemetry::TelemetryData::setProjectTitle">
+<area shape="rect" id="node1" title="Set the project title. Must be less than 23 characters. If the project title is too long,..." alt="" coords="1036,61,1233,117"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a3633b357cad1d35d2f59846a8ad66672" title="Decode the bit sense / project name message." alt="" coords="752,27,988,83"/>
+<area shape="rect" id="node7" href="$aprs__telemetry__data__test_8cpp.html#a1496bc8e9bca5aa2d5a7e9740c7d04e2" title=" " alt="" coords="843,107,897,134"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a8728ebd6e5dbd7ca50a219fda62b7375" title="Takes in the information field of an APRS telemetry message and decodes it with the appropriate metho..." alt="" coords="468,27,704,83"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#a97af61f7afb63db275020ba523abcc3a" title="If the packet was a telemetry packet, this function will try to parse the packet and populate the tel..." alt="" coords="196,27,420,83"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" id="node6" href="$aprs__test_8cpp.html#a8de4b7853d7e8c5ad2bb05a656082327" title=" " alt="" coords="49,71,104,98"/>
+</map>

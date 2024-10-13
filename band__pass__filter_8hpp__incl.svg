@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Bandpass filter implementation.">
+<g id="a_node1"><a xlink:title="Band&#45;pass filter implementation.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-56.5 0,-75.5 116,-75.5 116,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="58" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">band_pass_filter.hpp</text>
 </a>

@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" target="_top" xlink:title="The base function to encode an APRS packet with the provided base data and info field.">
 <polygon fill="none" stroke="black" points="226,-0.5 226,-30.5 330,-30.5 330,-0.5 226,-0.5"/>
 <text text-anchor="start" x="234" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="278" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::encodePacket</text>

@@ -8,7 +8,12 @@ var structsignal__easel_1_1aprs_1_1MessagePacket =
       [ "UNKNOWN", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "POSITION", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1", null ],
       [ "MESSAGE", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4", null ],
-      [ "EXPERIMENTAL", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199", null ]
+      [ "EXPERIMENTAL", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199", null ],
+      [ "TELEMETRY_DATA_REPORT", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a978270d962aa29e9ad7da961e567c1c4", null ],
+      [ "TELEMETRY_COEFFICIENT", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402aa78fc49e8fd46e367275b5e6483f4150", null ],
+      [ "TELEMETRY_PARAMETER_NAME", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402a2bd566f488f3cd962385e3da2cf2eda7", null ],
+      [ "TELEMETRY_PARAMETER_UNIT", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402ad844901c37a114e6b31ae868b45ed7a9", null ],
+      [ "TELEMETRY_BIT_SENSE_PROJ_NAME", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a88fd2774f44e0c08805a4770d61c2402aff4d8347b205cf6fff215887c98e84ff", null ]
     ] ],
     [ "encode", "structsignal__easel_1_1aprs_1_1MessagePacket.html#a2384b4285118df9fdcbd506a8332dc91", null ],
     [ "addressee", "structsignal__easel_1_1aprs_1_1MessagePacket.html#aed8f7810ed3a7532186e619bbf73b7f4", null ],

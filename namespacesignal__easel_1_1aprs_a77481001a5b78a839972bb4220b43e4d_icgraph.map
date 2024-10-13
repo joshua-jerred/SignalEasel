@@ -1,5 +1,5 @@
 <map id="signal_easel::aprs::encodePacket" name="signal_easel::aprs::encodePacket">
-<area shape="rect" id="node1" title=" " alt="" coords="307,5,445,47"/>
+<area shape="rect" id="node1" title="The base function to encode an APRS packet with the provided base data and info field." alt="" coords="307,5,445,47"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="108,5,259,47"/>
 <area shape="rect" id="node3" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="5,13,60,39"/>
 </map>

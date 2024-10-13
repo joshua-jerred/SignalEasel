@@ -1,0 +1,6 @@
+<map id="signal_easel::aprs::telemetry::Parameter" name="signal_easel::aprs::telemetry::Parameter">
+<area shape="rect" id="node1" title="A representation of APRS telemetry parameters." alt="" coords="5,160,233,384"/>
+<area shape="rect" id="node2" title=" " alt="" coords="31,5,69,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="93,5,145,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="170,5,229,83"/>
+</map>

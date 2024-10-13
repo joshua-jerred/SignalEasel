@@ -1,5 +1,5 @@
 <map id="signal_easel::Demodulator" name="signal_easel::Demodulator">
 <area shape="rect" id="node1" title="The base class for all demodulators that turn audio into data." alt="" coords="25,5,221,156"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Demodulator.html" title="Demodulates an AFSK signal into data." alt="" coords="5,204,240,399"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Demodulator.html" title=" " alt="" coords="17,447,229,641"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Demodulator.html" title=" " alt="" coords="17,447,229,671"/>
 </map>

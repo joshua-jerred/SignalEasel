@@ -1,11 +1,11 @@
 var classsignal__easel_1_1aprs_1_1Modulator =
 [
     [ "Modulator", "classsignal__easel_1_1aprs_1_1Modulator.html#a07b72f0c4a24dac711f834192e723ceb", null ],
-    [ "setCallSign", "classsignal__easel_1_1aprs_1_1Modulator.html#a8dd2a3992bdede221d3228712bb20476", null ],
     [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687", null ],
     [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#a52966b0bc3dc5a5ff608473566d81850", null ],
-    [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#a1eea3a877c8c91bc52339a39c84a5b82", null ],
-    [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#ab62beb6429f29933a7bec9ae479a7fd7", null ],
+    [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#a3ea083caf55c7ebedaf166482ad9a556", null ],
+    [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#a6d2d2d32296822b4b2c7dba249489594", null ],
+    [ "encode", "classsignal__easel_1_1aprs_1_1Modulator.html#a5620d9527654c44810aeffe98e1aade4", null ],
     [ "encodeBytes", "classsignal__easel_1_1aprs_1_1Modulator.html#a8e377665e5432ebb66de359635aeeafb", null ],
     [ "convertToNRZI", "classsignal__easel_1_1aprs_1_1Modulator.html#a3ee8e2f9bee2005216f8ee1916a1a976", null ],
     [ "addBytes", "classsignal__easel_1_1aprs_1_1Modulator.html#ace460b54c3c528fa5784b55c265371a9", null ],

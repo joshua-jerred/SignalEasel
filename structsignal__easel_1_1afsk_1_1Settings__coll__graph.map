@@ -1,9 +1,9 @@
 <map id="signal_easel::afsk::Settings" name="signal_easel::afsk::Settings">
-<area shape="rect" id="node1" title="Settings for AFSK modulation/demodulation." alt="" coords="271,315,409,407"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="102,175,266,252"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="129,5,239,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="303,5,361,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="291,175,389,252"/>
-<area shape="rect" id="node7" title=" " alt="" coords="444,175,495,252"/>
+<area shape="rect" id="node1" title="Settings for AFSK modulation/demodulation." alt="" coords="231,315,369,407"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="62,175,226,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,64,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="89,5,199,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,5,325,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="251,175,349,252"/>
+<area shape="rect" id="node7" title=" " alt="" coords="404,175,455,252"/>
 </map>

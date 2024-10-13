@@ -1,0 +1,6 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,100,60,127"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a6b44655fc3fb06869a801b41c7b5630e" title="Get the sequence number." alt="" coords="111,5,309,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a011a75e05eac5dc7dcd30f1d1b4c5174" title="Get the sequence number as a string of 3 digits." alt="" coords="108,85,312,141"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a06202af15469a4f816c38c1a980c589d" title="Set the sequence number. Must be less than 1000. If the sequence number is greater than 999,..." alt="" coords="111,165,309,221"/>
+</map>

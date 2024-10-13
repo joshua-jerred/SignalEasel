@@ -43,12 +43,15 @@ var classsignal__easel_1_1Exception =
       [ "SSTV_COLOR_FORMAT_NOT_IMPLEMENTED", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a5a7db944f6fdefedcb42bda4a174056a", null ],
       [ "SSTV_INVALID_COLOR_TYPE", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644aae6a18609b55f7601d8b78cfaec47ffc", null ],
       [ "VALIDATION_ERROR", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a2fa475b43d744661c4c9e1dbd9840278", null ],
-      [ "GENERIC", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ac942dc2a9f958acddc67e11472d3ca0b", null ]
+      [ "GENERIC", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644ac942dc2a9f958acddc67e11472d3ca0b", null ],
+      [ "APRS_TELEMETRY", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a4020fa2f22212c3d631c382b9f7add06", null ],
+      [ "INVALID_TELEMETRY_TYPE", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a4d84d5a13869e3764358bad70aaad3c2", null ],
+      [ "INVALID_TELEMETRY_STATION_ADDRESS", "classsignal__easel_1_1Exception.html#a7d32adc7a6383a3ec4a59ce2de655644a61ee703fdecd4e73e83a65583f2179b9", null ]
     ] ],
     [ "Exception", "classsignal__easel_1_1Exception.html#a5a1c7022c11d82e435f6bc9e3af7e178", null ],
     [ "Exception", "classsignal__easel_1_1Exception.html#a8c327cb338a4096f141c1351e26bf3f0", null ],
     [ "idToString", "classsignal__easel_1_1Exception.html#a45f91afa482d22f72ef2a5489f2e4c55", null ],
-    [ "what", "classsignal__easel_1_1Exception.html#a0bb35db1350eef242918c3f69d36805f", null ],
+    [ "what", "classsignal__easel_1_1Exception.html#ade9fb71d42591cee090ba14de9bb06a8", null ],
     [ "id_", "classsignal__easel_1_1Exception.html#a879a4cac7058e1f95177f207650d4540", null ],
     [ "exception_string_", "classsignal__easel_1_1Exception.html#a8bb4e262b645384de2abc1ca10648c11", null ]
 ];

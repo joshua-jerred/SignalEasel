@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_1108',['operator&lt;&lt;',['../classsignal__easel_1_1ax25_1_1Address.html#a125ef1d54e4d0f7175f399a28bedd675',1,'signal_easel::ax25::Address::operator&lt;&lt;()'],['../classsignal__easel_1_1ax25_1_1Frame.html#af38cb86cf0f6b7a2dfe48ac4bed6fffd',1,'signal_easel::ax25::Frame::operator&lt;&lt;()']]]
+  ['operator_3c_3c_0',['operator&lt;&lt;',['../classsignal__easel_1_1ax25_1_1Address.html#a1a1e1999414ed13dd06140c874264ffb',1,'signal_easel::ax25::Address::operator&lt;&lt;()'],['../classsignal__easel_1_1ax25_1_1Frame.html#a19ee2fe29d668f31c2e8f89f99353fce',1,'signal_easel::ax25::Frame::operator&lt;&lt;()']]]
 ];

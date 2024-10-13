@@ -103,7 +103,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="namespacesignal__easel.html#a62db979f7f4a67d6a7d263788813e1b9" target="_top" xlink:title="A band&#45;pass filter implementation.">
+<g id="a_node6"><a xlink:href="namespacesignal__easel.html#a62db979f7f4a67d6a7d263788813e1b9" target="_top" xlink:title="A simple band&#45;pass filter.">
 <polygon fill="none" stroke="black" points="471,-71.5 471,-90.5 625,-90.5 625,-71.5 471,-71.5"/>
 <text text-anchor="middle" x="548" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::bandPassFilter</text>
 </a>
@@ -118,7 +118,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="namespacesignal__easel.html#ab828fd4a325ae3f35f6c4c707ffb6886" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="namespacesignal__easel.html#afd47c8498c742658f934b9fccf52a74d" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="662.5,-115 662.5,-145 808.5,-145 808.5,-115 662.5,-115"/>
 <text text-anchor="start" x="670.5" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::computeDen</text>
 <text text-anchor="middle" x="735.5" y="-122" font-family="Helvetica,sans-Serif" font-size="10.00">Coeffs</text>
@@ -134,7 +134,7 @@
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="namespacesignal__easel.html#a61e5160a96fbff531fdbecf3737f80b9" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="namespacesignal__easel.html#af5443e0125b511759ebeb7e4defb112d" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="661,-66 661,-96 810,-96 810,-66 661,-66"/>
 <text text-anchor="start" x="669" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::computeNum</text>
 <text text-anchor="middle" x="735.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">Coeffs</text>
@@ -150,7 +150,7 @@
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="namespacesignal__easel.html#a1b9537a0b58c35ffe0048a0eb3826ba4" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="682.5,-27.5 682.5,-46.5 788.5,-46.5 788.5,-27.5 682.5,-27.5"/>
 <text text-anchor="middle" x="735.5" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::filter</text>
 </a>
@@ -165,7 +165,7 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="namespacesignal__easel.html#a52622d8b5a12dedeb59e5442e887a8e5" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="namespacesignal__easel.html#a3895406ee8a9253b288a6a015583be42" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="846,-120.5 846,-139.5 1013,-139.5 1013,-120.5 846,-120.5"/>
 <text text-anchor="middle" x="929.5" y="-127.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::trinomialMultiply</text>
 </a>
@@ -180,7 +180,7 @@
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="namespacesignal__easel.html#aec86a114666943d1400f780edb69eab0" target="_top" xlink:title=" ">
+<g id="a_node10"><a xlink:href="namespacesignal__easel.html#a27a021f34e5a88ec2faa0b01087f9ec9" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="859.5,-71.5 859.5,-90.5 999.5,-90.5 999.5,-71.5 859.5,-71.5"/>
 <text text-anchor="middle" x="929.5" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::computeHP</text>
 </a>
@@ -195,7 +195,7 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="namespacesignal__easel.html#a6049a00d790189b698bd2dfb04885a31" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="namespacesignal__easel.html#a9772e972ada009af79d3f18221aca4e3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1049,-71.5 1049,-90.5 1186,-90.5 1186,-71.5 1049,-71.5"/>
 <text text-anchor="middle" x="1117.5" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::computeLP</text>
 </a>

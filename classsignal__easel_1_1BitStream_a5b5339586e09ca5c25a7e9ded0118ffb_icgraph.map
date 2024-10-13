@@ -1,18 +1,17 @@
 <map id="signal_easel::BitStream::popNextBit" name="signal_easel::BitStream::popNextBit">
 <area shape="rect" id="node1" title="Returns the next bit of the bit stream that will be encoded." alt="" coords="901,169,1077,211"/>
 <area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396" title="Convert a bit stream from NRZI to standard encoding." alt="" coords="694,5,837,47"/>
-<area shape="rect" id="node7" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="694,71,837,112"/>
+<area shape="rect" id="node7" href="$namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" title=" " alt="" coords="694,71,837,112"/>
 <area shape="rect" id="node8" href="$classsignal__easel_1_1psk_1_1Modulator.html#a0949f7b7120c7a1b3c350681537e3181" title=" " alt="" coords="678,201,853,243"/>
 <area shape="rect" id="node11" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="682,332,849,373"/>
-<area shape="rect" id="node15" href="$classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e" title=" " alt="" coords="677,267,853,308"/>
-<area shape="rect" id="node16" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="694,136,837,177"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="449,135,629,176"/>
-<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="196,129,400,185"/>
-<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,136,148,177"/>
-<area shape="rect" id="node6" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="49,234,104,261"/>
-<area shape="rect" id="node9" href="$classsignal__easel_1_1psk_1_1Modulator.html#acd4a6a5bac7af1c62ffaaa0ff1d9259f" title=" " alt="" coords="448,203,629,244"/>
-<area shape="rect" id="node10" href="$psk__test_8cpp.html#a82221e67ef1f82d389fa971718fa764a" title=" " alt="" coords="271,210,325,237"/>
-<area shape="rect" id="node12" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title=" " alt="" coords="469,271,608,312"/>
-<area shape="rect" id="node14" href="$tmp_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="511,339,566,366"/>
-<area shape="rect" id="node13" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="223,265,373,307"/>
+<area shape="rect" id="node14" href="$classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e" title=" " alt="" coords="677,267,853,308"/>
+<area shape="rect" id="node15" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="694,136,837,177"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="449,112,629,153"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="196,137,400,193"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,144,148,185"/>
+<area shape="rect" id="node6" href="$aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" title=" " alt="" coords="49,242,104,269"/>
+<area shape="rect" id="node9" href="$classsignal__easel_1_1psk_1_1Modulator.html#acd4a6a5bac7af1c62ffaaa0ff1d9259f" title=" " alt="" coords="448,225,629,267"/>
+<area shape="rect" id="node10" href="$psk__test_8cpp.html#a82221e67ef1f82d389fa971718fa764a" title=" " alt="" coords="271,233,325,259"/>
+<area shape="rect" id="node12" href="$namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" title="The base function to encode an APRS packet with the provided base data and info field." alt="" coords="469,299,608,340"/>
+<area shape="rect" id="node13" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" title=" " alt="" coords="223,287,373,328"/>
 </map>

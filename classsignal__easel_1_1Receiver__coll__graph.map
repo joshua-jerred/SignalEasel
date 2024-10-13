@@ -1,13 +1,13 @@
 <map id="signal_easel::Receiver" name="signal_easel::Receiver">
-<area shape="rect" id="node1" title=" " alt="" coords="319,491,487,627"/>
-<area shape="rect" id="node2" href="$classsignal__easel_1_1PulseAudioReader.html" title=" " alt="" coords="570,189,753,428"/>
-<area shape="rect" id="node3" title=" " alt="" coords="292,13,359,90"/>
+<area shape="rect" id="node1" title=" " alt="" coords="285,491,453,627"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1PulseAudioReader.html" title=" " alt="" coords="503,189,686,428"/>
+<area shape="rect" id="node3" title=" " alt="" coords="876,13,951,90"/>
+<area shape="rect" id="node4" title=" " alt="" coords="975,13,1049,90"/>
+<area shape="rect" id="node5" title=" " alt="" coords="279,13,345,90"/>
 <area shape="rect" id="node9" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="137,270,301,347"/>
-<area shape="rect" id="node4" title=" " alt="" coords="847,13,921,90"/>
-<area shape="rect" id="node5" title=" " alt="" coords="945,13,1076,90"/>
-<area shape="rect" id="node6" title=" " alt="" coords="417,5,599,97"/>
-<area shape="rect" id="node7" title=" " alt="" coords="624,13,699,90"/>
-<area shape="rect" id="node8" title=" " alt="" coords="723,13,823,90"/>
-<area shape="rect" id="node10" title=" " alt="" coords="89,13,199,90"/>
-<area shape="rect" id="node11" title=" " alt="" coords="5,13,64,90"/>
+<area shape="rect" id="node6" title=" " alt="" coords="389,13,520,90"/>
+<area shape="rect" id="node7" title=" " alt="" coords="545,13,645,90"/>
+<area shape="rect" id="node8" title=" " alt="" coords="669,5,851,97"/>
+<area shape="rect" id="node10" title=" " alt="" coords="5,13,64,90"/>
+<area shape="rect" id="node11" title=" " alt="" coords="89,13,199,90"/>
 </map>

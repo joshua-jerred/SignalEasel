@@ -37,7 +37,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="516.5,-196.5 516.5,-226.5 623.5,-226.5 623.5,-196.5 516.5,-196.5"/>
 <text text-anchor="start" x="524.5" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="570" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">::deStuffBytes</text>
@@ -82,35 +82,35 @@
 <path fill="none" stroke="midnightblue" d="M718.23,-114.39C699.42,-92.51 668.63,-60.05 636,-39.5 630.71,-36.17 624.88,-33.2 618.96,-30.58"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="715.71,-116.82 724.83,-122.2 721.06,-112.31 715.71,-116.82"/>
 </g>
-<!-- Node15 -->
-<g id="node15" class="node">
-<title>Node15</title>
-<g id="a_node15"><a xlink:href="classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e" target="_top" xlink:title=" ">
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="classsignal__easel_1_1psk_1_1Modulator.html#a60d1a9253af253f4b62b678b6fc2b21e" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="504,-49.5 504,-79.5 636,-79.5 636,-49.5 504,-49.5"/>
 <text text-anchor="start" x="512" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::psk::</text>
 <text text-anchor="middle" x="570" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Modulator::encodeQpsk</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge16" class="edge">
-<title>Node1&#45;&gt;Node15</title>
+<!-- Node1&#45;&gt;Node14 -->
+<g id="edge15" class="edge">
+<title>Node1&#45;&gt;Node14</title>
 <path fill="none" stroke="midnightblue" d="M697.74,-117.98C679.17,-108.98 656.6,-98.34 636,-89.5 628.22,-86.16 619.84,-82.78 611.76,-79.63"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="696.26,-121.16 706.78,-122.39 699.33,-114.86 696.26,-121.16"/>
 </g>
-<!-- Node16 -->
-<g id="node16" class="node">
-<title>Node16</title>
-<g id="a_node16"><a xlink:href="namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" target="_top" xlink:title="Finds the start flags in the bit stream and removes them.">
+<!-- Node15 -->
+<g id="node15" class="node">
+<title>Node15</title>
+<g id="a_node15"><a xlink:href="namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" target="_top" xlink:title="Finds the start flags in the bit stream and removes them.">
 <polygon fill="none" stroke="black" points="516.5,-147.5 516.5,-177.5 623.5,-177.5 623.5,-147.5 516.5,-147.5"/>
 <text text-anchor="start" x="524.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="570" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">::findStartFlags</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node16 -->
-<g id="edge18" class="edge">
-<title>Node1&#45;&gt;Node16</title>
+<!-- Node1&#45;&gt;Node15 -->
+<g id="edge17" class="edge">
+<title>Node1&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M661.65,-148.85C648.82,-150.78 635.74,-152.75 623.65,-154.57"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="662.5,-152.26 671.87,-147.31 661.46,-145.34 662.5,-152.26"/>
 </g>
@@ -118,167 +118,152 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" target="_top" xlink:title="Attempt to parse an incoming bit stream into an AX.25 frame.">
-<polygon fill="none" stroke="black" points="332.5,-148.5 332.5,-178.5 467.5,-178.5 467.5,-148.5 332.5,-148.5"/>
-<text text-anchor="start" x="340.5" y="-166.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
-<text text-anchor="middle" x="400" y="-155.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Frame::parseBitStream</text>
+<polygon fill="none" stroke="black" points="332.5,-165.5 332.5,-195.5 467.5,-195.5 467.5,-165.5 332.5,-165.5"/>
+<text text-anchor="start" x="340.5" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
+<text text-anchor="middle" x="400" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Frame::parseBitStream</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M514.21,-241.47C510.71,-239.89 507.28,-238.23 504,-236.5 472.2,-219.74 438.87,-194.49 419.03,-178.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="513,-244.76 523.57,-245.48 515.76,-238.33 513,-244.76"/>
+<path fill="none" stroke="midnightblue" d="M516.04,-241.67C511.94,-239.99 507.88,-238.26 504,-236.5 476.75,-224.14 446.83,-207.51 426.3,-195.59"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="515.05,-245.05 525.64,-245.48 517.64,-238.54 515.05,-245.05"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="143,-142 143,-183 296,-183 296,-142 143,-142"/>
-<text text-anchor="start" x="151" y="-171" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
-<text text-anchor="start" x="151" y="-160" font-family="Helvetica,sans-Serif" font-size="10.00">::Demodulator::lookForAx25</text>
-<text text-anchor="middle" x="219.5" y="-149" font-family="Helvetica,sans-Serif" font-size="10.00">Packet</text>
+<polygon fill="none" stroke="black" points="143,-136 143,-177 296,-177 296,-136 143,-136"/>
+<text text-anchor="start" x="151" y="-165" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
+<text text-anchor="start" x="151" y="-154" font-family="Helvetica,sans-Serif" font-size="10.00">::Demodulator::lookForAx25</text>
+<text text-anchor="middle" x="219.5" y="-143" font-family="Helvetica,sans-Serif" font-size="10.00">Packet</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M322.22,-163.07C313.58,-163.02 304.77,-162.97 296.14,-162.92"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="322.26,-166.57 332.28,-163.13 322.3,-159.57 322.26,-166.57"/>
+<path fill="none" stroke="midnightblue" d="M322.22,-170.18C313.58,-169.01 304.77,-167.83 296.14,-166.67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="321.9,-173.67 332.28,-171.53 322.83,-166.73 321.9,-173.67"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="0,-147.5 0,-177.5 107,-177.5 107,-147.5 0,-147.5"/>
-<text text-anchor="start" x="8" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
-<text text-anchor="middle" x="53.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Receiver::decode</text>
+<polygon fill="none" stroke="black" points="0,-141.5 0,-171.5 107,-171.5 107,-141.5 0,-141.5"/>
+<text text-anchor="start" x="8" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
+<text text-anchor="middle" x="53.5" y="-148.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Receiver::decode</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M132.67,-162.5C124.09,-162.5 115.56,-162.5 107.47,-162.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="132.74,-166 142.74,-162.5 132.74,-159 132.74,-166"/>
+<path fill="none" stroke="midnightblue" d="M132.67,-156.5C124.09,-156.5 115.56,-156.5 107.47,-156.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="132.74,-160 142.74,-156.5 132.74,-153 132.74,-160"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="33,-85 33,-104 74,-104 74,-85 33,-85"/>
-<text text-anchor="middle" x="53.5" y="-92" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
+<polygon fill="none" stroke="black" points="33,-79 33,-98 74,-98 74,-79 33,-79"/>
+<text text-anchor="middle" x="53.5" y="-86" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node4&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M158.63,-137.96C153.34,-135.78 148.07,-133.6 143,-131.5 119.31,-121.68 92.09,-110.29 74.17,-102.77"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="157.54,-141.3 168.12,-141.87 160.21,-134.82 157.54,-141.3"/>
+<path fill="none" stroke="midnightblue" d="M159.31,-131.96C129.4,-119.56 95.09,-105.33 74.1,-96.63"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="158.27,-135.32 168.85,-135.91 160.95,-128.85 158.27,-135.32"/>
 </g>
 <!-- Node7&#45;&gt;Node3 -->
 <g id="edge7" class="edge">
 <title>Node7&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M506.25,-193.57C488.89,-188.61 470.23,-183.28 453.51,-178.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="505.73,-197.06 516.3,-196.44 507.65,-190.33 505.73,-197.06"/>
+<path fill="none" stroke="midnightblue" d="M506.37,-199.94C493.76,-197.62 480.47,-195.16 467.73,-192.81"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="505.84,-203.4 516.3,-201.78 507.11,-196.52 505.84,-203.4"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="classsignal__easel_1_1psk_1_1Modulator.html#acd4a6a5bac7af1c62ffaaa0ff1d9259f" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="332,-97.5 332,-127.5 468,-127.5 468,-97.5 332,-97.5"/>
-<text text-anchor="start" x="340" y="-115.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::psk::</text>
-<text text-anchor="middle" x="400" y="-104.5" font-family="Helvetica,sans-Serif" font-size="10.00">Modulator::encodeString</text>
+<polygon fill="none" stroke="black" points="332,-80.5 332,-110.5 468,-110.5 468,-80.5 332,-80.5"/>
+<text text-anchor="start" x="340" y="-98.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::psk::</text>
+<text text-anchor="middle" x="400" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">Modulator::encodeString</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node9 -->
 <g id="edge9" class="edge">
 <title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M493.97,-113.05C485.32,-113 476.54,-112.95 468,-112.9"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="494.03,-116.55 504.05,-113.11 494.07,-109.55 494.03,-116.55"/>
+<path fill="none" stroke="midnightblue" d="M493.97,-105.46C485.32,-104.53 476.54,-103.59 468,-102.68"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="493.73,-108.96 504.05,-106.54 494.48,-102 493.73,-108.96"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
 <g id="a_node10"><a xlink:href="psk__test_8cpp.html#a82221e67ef1f82d389fa971718fa764a" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="199,-103 199,-122 240,-122 240,-103 199,-103"/>
-<text text-anchor="middle" x="219.5" y="-110" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
+<polygon fill="none" stroke="black" points="199,-86 199,-105 240,-105 240,-86 199,-86"/>
+<text text-anchor="middle" x="219.5" y="-93" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
 </a>
 </g>
 </g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge10" class="edge">
 <title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M321.72,-112.5C291.84,-112.5 260.12,-112.5 240.32,-112.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="321.77,-116 331.77,-112.5 321.77,-109 321.77,-116"/>
+<path fill="none" stroke="midnightblue" d="M321.72,-95.5C291.84,-95.5 260.12,-95.5 240.32,-95.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="321.77,-99 331.77,-95.5 321.77,-92 321.77,-99"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="348,-46.5 348,-76.5 452,-76.5 452,-46.5 348,-46.5"/>
-<text text-anchor="start" x="356" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
-<text text-anchor="middle" x="400" y="-53.5" font-family="Helvetica,sans-Serif" font-size="10.00">::encodePacket</text>
+<g id="a_node12"><a xlink:href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" target="_top" xlink:title="The base function to encode an APRS packet with the provided base data and info field.">
+<polygon fill="none" stroke="black" points="348,-25.5 348,-55.5 452,-55.5 452,-25.5 348,-25.5"/>
+<text text-anchor="start" x="356" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
+<text text-anchor="middle" x="400" y="-32.5" font-family="Helvetica,sans-Serif" font-size="10.00">::encodePacket</text>
 </a>
 </g>
 </g>
 <!-- Node11&#45;&gt;Node12 -->
 <g id="edge12" class="edge">
 <title>Node11&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M504.02,-33.29C486.82,-38 468.5,-43.02 452.15,-47.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="505.27,-36.58 513.99,-30.56 503.42,-29.83 505.27,-36.58"/>
-</g>
-<!-- Node14 -->
-<g id="node14" class="node">
-<title>Node14</title>
-<g id="a_node14"><a xlink:href="tmp_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="379.5,-6 379.5,-25 420.5,-25 420.5,-6 379.5,-6"/>
-<text text-anchor="middle" x="400" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
-</a>
-</g>
-</g>
-<!-- Node11&#45;&gt;Node14 -->
-<g id="edge15" class="edge">
-<title>Node11&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M497.25,-15.5C469.42,-15.5 439.76,-15.5 420.84,-15.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="497.4,-19 507.4,-15.5 497.4,-12 497.4,-19"/>
+<path fill="none" stroke="midnightblue" d="M497.48,-26.14C482.23,-28.41 466.42,-30.76 452.12,-32.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="498.02,-29.6 507.4,-24.67 496.99,-22.68 498.02,-29.6"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
 <g id="a_node13"><a xlink:href="classsignal__easel_1_1aprs_1_1Modulator.html#a8ae067701382dec1680b786583ace687" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="163,-50.5 163,-80.5 276,-80.5 276,-50.5 163,-50.5"/>
-<text text-anchor="start" x="171" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
-<text text-anchor="middle" x="219.5" y="-57.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Modulator::encode</text>
+<polygon fill="none" stroke="black" points="163,-34.5 163,-64.5 276,-64.5 276,-34.5 163,-34.5"/>
+<text text-anchor="start" x="171" y="-52.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
+<text text-anchor="middle" x="219.5" y="-41.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Modulator::encode</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node13 -->
 <g id="edge13" class="edge">
 <title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M337.61,-62.88C317.62,-63.32 295.57,-63.82 276.03,-64.26"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="337.93,-66.37 347.85,-62.65 337.77,-59.37 337.93,-66.37"/>
+<path fill="none" stroke="midnightblue" d="M337.61,-43.6C317.62,-44.6 295.57,-45.72 276.03,-46.7"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="338.04,-47.08 347.85,-43.08 337.69,-40.09 338.04,-47.08"/>
 </g>
 <!-- Node13&#45;&gt;Node6 -->
 <g id="edge14" class="edge">
 <title>Node13&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M153.11,-77.06C124.84,-82.06 93.81,-87.55 74.25,-91.01"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="153.74,-80.51 162.98,-75.32 152.52,-73.61 153.74,-80.51"/>
+<path fill="none" stroke="midnightblue" d="M153.11,-65.05C124.84,-71.77 93.81,-79.15 74.25,-83.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="154.06,-68.42 162.98,-62.7 152.44,-61.61 154.06,-68.42"/>
 </g>
-<!-- Node15&#45;&gt;Node9 -->
-<g id="edge17" class="edge">
-<title>Node15&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M506.25,-82.43C488.89,-87.39 470.23,-92.72 453.51,-97.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="507.65,-85.67 516.3,-79.56 505.73,-78.94 507.65,-85.67"/>
+<!-- Node14&#45;&gt;Node9 -->
+<g id="edge16" class="edge">
+<title>Node14&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M493.67,-78.4C485.18,-79.97 476.57,-81.56 468.19,-83.1"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="494.37,-81.83 503.57,-76.57 493.1,-74.95 494.37,-81.83"/>
 </g>
-<!-- Node16&#45;&gt;Node3 -->
-<g id="edge19" class="edge">
-<title>Node16&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M505.99,-162.88C493.5,-162.95 480.34,-163.03 467.73,-163.1"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="506.33,-166.37 516.3,-162.81 506.28,-159.37 506.33,-166.37"/>
+<!-- Node15&#45;&gt;Node3 -->
+<g id="edge18" class="edge">
+<title>Node15&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M505.99,-169.25C493.5,-170.59 480.34,-172 467.73,-173.35"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="506.73,-172.69 516.3,-168.15 505.99,-165.73 506.73,-172.69"/>
 </g>
 </g>
 </svg>

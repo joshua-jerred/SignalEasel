@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::DigitalParameter" name="signal_easel::aprs::telemetry::DigitalParameter">
+<area shape="rect" id="node1" title="A digital parameter." alt="" coords="14,321,225,487"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html" title="A representation of APRS telemetry parameters." alt="" coords="5,5,233,273"/>
+</map>

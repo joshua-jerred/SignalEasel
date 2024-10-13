@@ -8,16 +8,23 @@ var annotated_dup =
         [ "Settings", "structsignal__easel_1_1afsk_1_1Settings.html", "structsignal__easel_1_1afsk_1_1Settings" ]
       ] ],
       [ "aprs", "namespacesignal__easel_1_1aprs.html", [
+        [ "telemetry", "namespacesignal__easel_1_1aprs_1_1telemetry.html", [
+          [ "AnalogParameter", "classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html", "classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter" ],
+          [ "DigitalParameter", "classsignal__easel_1_1aprs_1_1telemetry_1_1DigitalParameter.html", "classsignal__easel_1_1aprs_1_1telemetry_1_1DigitalParameter" ],
+          [ "Parameter", "classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html", "classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter" ],
+          [ "TelemetryData", "classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html", "classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData" ],
+          [ "TelemetryTranscoder", "classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html", "classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder" ]
+        ] ],
         [ "Demodulator", "classsignal__easel_1_1aprs_1_1Demodulator.html", "classsignal__easel_1_1aprs_1_1Demodulator" ],
-        [ "Experimental", "structsignal__easel_1_1aprs_1_1Experimental.html", "structsignal__easel_1_1aprs_1_1Experimental" ],
-        [ "MessageAck", "structsignal__easel_1_1aprs_1_1MessageAck.html", "structsignal__easel_1_1aprs_1_1MessageAck" ],
+        [ "ExperimentalPacket", "structsignal__easel_1_1aprs_1_1ExperimentalPacket.html", "structsignal__easel_1_1aprs_1_1ExperimentalPacket" ],
+        [ "MessageAckPacket", "structsignal__easel_1_1aprs_1_1MessageAckPacket.html", "structsignal__easel_1_1aprs_1_1MessageAckPacket" ],
         [ "MessagePacket", "structsignal__easel_1_1aprs_1_1MessagePacket.html", "structsignal__easel_1_1aprs_1_1MessagePacket" ],
         [ "Modulator", "classsignal__easel_1_1aprs_1_1Modulator.html", "classsignal__easel_1_1aprs_1_1Modulator" ],
         [ "Packet", "structsignal__easel_1_1aprs_1_1Packet.html", "structsignal__easel_1_1aprs_1_1Packet" ],
         [ "PositionPacket", "structsignal__easel_1_1aprs_1_1PositionPacket.html", "structsignal__easel_1_1aprs_1_1PositionPacket" ],
         [ "Receiver", "classsignal__easel_1_1aprs_1_1Receiver.html", "classsignal__easel_1_1aprs_1_1Receiver" ],
         [ "Settings", "structsignal__easel_1_1aprs_1_1Settings.html", "structsignal__easel_1_1aprs_1_1Settings" ],
-        [ "Telemetry", "structsignal__easel_1_1aprs_1_1Telemetry.html", "structsignal__easel_1_1aprs_1_1Telemetry" ]
+        [ "TelemetryPacket", "structsignal__easel_1_1aprs_1_1TelemetryPacket.html", "structsignal__easel_1_1aprs_1_1TelemetryPacket" ]
       ] ],
       [ "ax25", "namespacesignal__easel_1_1ax25.html", [
         [ "Address", "classsignal__easel_1_1ax25_1_1Address.html", "classsignal__easel_1_1ax25_1_1Address" ],
@@ -41,5 +48,6 @@ var annotated_dup =
       [ "PulseAudioReader", "classsignal__easel_1_1PulseAudioReader.html", "classsignal__easel_1_1PulseAudioReader" ],
       [ "Receiver", "classsignal__easel_1_1Receiver.html", "classsignal__easel_1_1Receiver" ],
       [ "Settings", "structsignal__easel_1_1Settings.html", "structsignal__easel_1_1Settings" ]
-    ] ]
+    ] ],
+    [ "TelemetryTranscoder_test", "classTelemetryTranscoder__test.html", "classTelemetryTranscoder__test" ]
 ];

@@ -1,0 +1,11 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,140,60,167"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a6643207121e4a10a1faf8bcdeb9ed8ba" title="Get the calculated value of the parameter using the formula y = ax^2 + bx + c." alt="" coords="108,5,321,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a4fd035e5379315eaab869673edb0477a" title="Set all coefficients in the formula y = ax^2 + bx + c." alt="" coords="108,85,321,141"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a2ded73d2e822ab962ef878705576387d" title="Set the raw value of the parameter. 0&#45;255." alt="" coords="108,165,321,221"/>
+<area shape="rect" id="node9" href="$aprs-example_8cpp.html#aedb572fba1cb3f5ab3c954b8f2636835" title=" " alt="" coords="191,245,238,272"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a7c5705a070a081de4a4888dc7c38557d" title="Set the A coefficient in the formula y = ax^2 + bx + c." alt="" coords="369,5,583,61"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a8e660d1c9ddcd71c21ac1ea4750e1a81" title="Set the B coefficient in the formula y = ax^2 + bx + c." alt="" coords="369,85,583,141"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#ad289542e484756aae17ca7c77b6cb58e" title="Set the C coefficient in the formula y = ax^2 + bx + c." alt="" coords="369,165,583,221"/>
+<area shape="rect" id="node5" href="$namespacesignal__easel_1_1aprs_1_1telemetry.html#a06228386caafe56440016944e280b484" title="Validate the format of a coefficient." alt="" coords="631,93,855,134"/>
+</map>

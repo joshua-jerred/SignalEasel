@@ -1,8 +1,0 @@
-<map id="signal_easel::aprs::MessageAck" name="signal_easel::aprs::MessageAck">
-<area shape="rect" id="node1" title=" " alt="" coords="377,301,515,393"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Packet.html" title=" " alt="" coords="218,160,357,252"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,111,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="167,5,218,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="254,5,321,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="493,5,551,83"/>
-</map>

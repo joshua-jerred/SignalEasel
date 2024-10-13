@@ -1,0 +1,7 @@
+<map id="signal_easel::aprs::telemetry::AnalogParameter::setCoefficients" name="signal_easel::aprs::telemetry::AnalogParameter::setCoefficients">
+<area shape="rect" id="node1" title="Set all coefficients in the formula y = ax^2 + bx + c." alt="" coords="5,85,219,141"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a7c5705a070a081de4a4888dc7c38557d" title="Set the A coefficient in the formula y = ax^2 + bx + c." alt="" coords="267,5,480,61"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a8e660d1c9ddcd71c21ac1ea4750e1a81" title="Set the B coefficient in the formula y = ax^2 + bx + c." alt="" coords="267,85,480,141"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#ad289542e484756aae17ca7c77b6cb58e" title="Set the C coefficient in the formula y = ax^2 + bx + c." alt="" coords="267,165,480,221"/>
+<area shape="rect" id="node3" href="$namespacesignal__easel_1_1aprs_1_1telemetry.html#a06228386caafe56440016944e280b484" title="Validate the format of a coefficient." alt="" coords="528,93,752,134"/>
+</map>

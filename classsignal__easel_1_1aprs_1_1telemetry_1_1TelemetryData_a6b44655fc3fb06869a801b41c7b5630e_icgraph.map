@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::TelemetryData::getSequenceNumber" name="signal_easel::aprs::telemetry::TelemetryData::getSequenceNumber">
+<area shape="rect" id="node1" title="Get the sequence number." alt="" coords="108,5,305,61"/>
+<area shape="rect" id="node2" href="$aprs__telemetry__data__test_8cpp.html#a2d581dcdcf40d56ebc45e55cc895ec98" title=" " alt="" coords="5,20,60,47"/>
+</map>

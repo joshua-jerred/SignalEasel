@@ -53,7 +53,7 @@
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d" target="_top" xlink:title="The base function to encode an APRS packet with the provided base data and info field.">
 <polygon fill="none" stroke="black" points="167.5,-225.5 167.5,-255.5 271.5,-255.5 271.5,-225.5 167.5,-225.5"/>
 <text text-anchor="start" x="175.5" y="-243.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="219.5" y="-232.5" font-family="Helvetica,sans-Serif" font-size="10.00">::encodePacket</text>
@@ -69,7 +69,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef" target="_top" xlink:title="Encodes a string into a base91 encoded string.">
 <polygon fill="none" stroke="black" points="342,-426.5 342,-456.5 446,-456.5 446,-426.5 342,-426.5"/>
 <text text-anchor="start" x="350" y="-444.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="394" y="-433.5" font-family="Helvetica,sans-Serif" font-size="10.00">::base91Encode</text>

@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::Parameter::setUnitOrLabel" name="signal_easel::aprs::telemetry::Parameter::setUnitOrLabel">
+<area shape="rect" id="node1" title="Set the unit or label of the parameter." alt="" coords="5,5,173,61"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#a94edd305fa00b5c3c21d5ff8dd186cf8" title="Parameter names, along with units for analog parameters and labels for digital parameters,..." alt="" coords="221,5,439,61"/>
+</map>

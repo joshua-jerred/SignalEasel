@@ -11,7 +11,7 @@
 <area shape="rect" id="node12" href="$receiver_8hpp.html" title="Base class for receivers. Demodulators that use pulse audio." alt="" coords="909,155,1091,181"/>
 <area shape="rect" id="node7" title=" " alt="" coords="619,379,685,405"/>
 <area shape="rect" id="node10" href="$settings_8hpp.html" title="Settings structures for SignalEasel." alt="" coords="628,229,809,256"/>
-<area shape="rect" id="node13" href="$pulse__audio_8hpp.html" title="Simple pulse audio interface." alt="" coords="846,229,1053,256"/>
+<area shape="rect" id="node13" href="$pulse__audio_8hpp.html" title="Reads audio from pulse audio." alt="" coords="846,229,1053,256"/>
 <area shape="rect" id="node14" title=" " alt="" coords="820,304,876,331"/>
 <area shape="rect" id="node15" title=" " alt="" coords="901,304,1003,331"/>
 <area shape="rect" id="node16" title=" " alt="" coords="679,304,796,331"/>

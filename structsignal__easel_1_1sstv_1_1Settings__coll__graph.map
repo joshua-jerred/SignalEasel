@@ -1,9 +1,9 @@
 <map id="signal_easel::sstv::Settings" name="signal_easel::sstv::Settings">
-<area shape="rect" id="node1" title="Settings for SSTV modulation." alt="" coords="247,315,385,407"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="102,175,266,252"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="129,5,239,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="303,5,361,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="291,175,341,252"/>
-<area shape="rect" id="node7" title=" " alt="" coords="433,175,519,252"/>
+<area shape="rect" id="node1" title="Settings for SSTV modulation." alt="" coords="224,315,363,407"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="62,175,226,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,64,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="89,5,199,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,5,325,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="250,175,337,252"/>
+<area shape="rect" id="node7" title=" " alt="" coords="361,175,412,252"/>
 </map>

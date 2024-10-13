@@ -1,14 +1,10 @@
 <map id="signal_easel::aprs::Settings" name="signal_easel::aprs::Settings">
-<area shape="rect" id="node1" title=" " alt="" coords="238,471,377,563"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1afsk_1_1Settings.html" title="Settings for AFSK modulation/demodulation." alt="" coords="453,329,591,421"/>
-<area shape="rect" id="node3" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="639,182,803,259"/>
-<area shape="rect" id="node4" title=" " alt="" coords="835,5,902,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="665,5,776,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="495,5,554,83"/>
-<area shape="rect" id="node9" href="$structsignal__easel_1_1aprs_1_1Packet.html" title=" " alt="" coords="201,175,339,267"/>
-<area shape="rect" id="node7" title=" " alt="" coords="363,182,462,259"/>
-<area shape="rect" id="node8" title=" " alt="" coords="517,182,567,259"/>
-<area shape="rect" id="node10" title=" " alt="" coords="5,5,111,83"/>
-<area shape="rect" id="node11" title=" " alt="" coords="167,5,218,83"/>
-<area shape="rect" id="node12" title=" " alt="" coords="254,5,321,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="231,456,369,548"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1afsk_1_1Settings.html" title="Settings for AFSK modulation/demodulation." alt="" coords="231,315,369,407"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="62,175,226,252"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,5,64,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="89,5,199,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="259,5,325,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="251,175,349,252"/>
+<area shape="rect" id="node8" title=" " alt="" coords="404,175,455,252"/>
 </map>

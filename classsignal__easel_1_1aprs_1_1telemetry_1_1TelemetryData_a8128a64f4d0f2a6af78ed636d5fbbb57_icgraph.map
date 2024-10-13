@@ -1,0 +1,9 @@
+<map id="signal_easel::aprs::telemetry::TelemetryData::getDigitalParametersConst" name="signal_easel::aprs::telemetry::TelemetryData::getDigitalParametersConst">
+<area shape="rect" id="node1" title=" " alt="" coords="733,125,939,181"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a51e875c6aae69befbefc51fc8787454e" title="Encodes the bit sense and project name into a message." alt="" coords="447,5,683,61"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#ae5d6a4f37c1a561ae6be756dfef2f838" title="Encodes the parameter data into a data report message." alt="" coords="447,85,683,141"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a31185ab0ef295b51409170c1b7d5f880" title="Encodes the parameter names into a message." alt="" coords="444,165,685,221"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a1ef507c0f7b59c9fcf34a1749124cf4e" title="Encodes the parameter units and labels into a message." alt="" coords="447,245,683,301"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1aprs_1_1TelemetryPacket.html#a6098e85ae94eded273fcf84adbdcdf35" title=" " alt="" coords="204,133,396,174"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a5620d9527654c44810aeffe98e1aade4" title=" " alt="" coords="5,133,156,174"/>
+</map>

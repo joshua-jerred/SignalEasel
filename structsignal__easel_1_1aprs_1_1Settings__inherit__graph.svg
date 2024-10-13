@@ -16,7 +16,7 @@
 <text text-anchor="start" x="31" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="75" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Settings</text>
 <polyline fill="none" stroke="black" points="23,-38.5 127,-38.5 "/>
-<text text-anchor="start" x="31" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ base_packet</text>
+<text text-anchor="middle" x="75" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="23,-19.5 127,-19.5 "/>
 <text text-anchor="start" x="31" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Settings()</text>
 </a>

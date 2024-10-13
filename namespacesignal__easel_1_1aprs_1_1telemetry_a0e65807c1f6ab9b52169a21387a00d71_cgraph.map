@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::validateCoefficient" name="signal_easel::aprs::telemetry::validateCoefficient">
+<area shape="rect" id="node1" title="Wrapper for validateCoefficient that does not require the numerical value." alt="" coords="5,5,229,47"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel_1_1aprs_1_1telemetry.html#a06228386caafe56440016944e280b484" title="Validate the format of a coefficient." alt="" coords="277,5,501,47"/>
+</map>

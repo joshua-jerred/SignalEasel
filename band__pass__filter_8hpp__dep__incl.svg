@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Bandpass filter implementation.">
+<g id="a_node1"><a xlink:title="Band&#45;pass filter implementation.">
 <polygon fill="#bfbfbf" stroke="black" points="73.5,-56.5 73.5,-75.5 189.5,-75.5 189.5,-56.5 73.5,-56.5"/>
 <text text-anchor="middle" x="131.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">band_pass_filter.hpp</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="band__pass__filter_8cpp.html" target="_top" xlink:title="See https://github.com/nxsEdson/Butterworth&#45;Filter/blob/master/butterworth.cpp.">
+<g id="a_node3"><a xlink:href="band__pass__filter_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="143.5,-0.5 143.5,-19.5 259.5,-19.5 259.5,-0.5 143.5,-0.5"/>
 <text text-anchor="middle" x="201.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">band_pass_filter.cpp</text>
 </a>

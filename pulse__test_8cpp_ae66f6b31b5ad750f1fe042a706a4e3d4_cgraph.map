@@ -5,6 +5,6 @@
 <area shape="rect" id="node8" href="$classsignal__easel_1_1Modulator.html#ae1cf54c8f962ca1920f79b75f96b20be" title="Write the audio to the default PulseAudio output device." alt="" coords="123,169,301,211"/>
 <area shape="rect" id="node3" href="$classsignal__easel_1_1DataModulator.html#add44309f9d9a2bcc1afd4a8eefc8839f" title="This is overridden by the child classes to encode the data that is passed in by addBytes and addStrin..." alt="" coords="364,5,572,47"/>
 <area shape="rect" id="node5" href="$classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3" title=" " alt="" coords="380,71,556,112"/>
-<area shape="rect" id="node6" href="$classsignal__easel_1_1PulseAudioReader.html#adbb78105ceda235ba2314acb2f8dec14" title=" " alt="" coords="377,136,559,177"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1PulseAudioReader.html#acab1af66b45821dc593e77e10d73d185" title=" " alt="" coords="377,136,559,177"/>
 <area shape="rect" id="node7" href="$classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604" title="Returns true if there was enough audio to process." alt="" coords="377,201,559,243"/>
 </map>

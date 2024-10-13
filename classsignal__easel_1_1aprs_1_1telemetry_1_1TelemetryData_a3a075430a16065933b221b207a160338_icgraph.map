@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::TelemetryData::getAnalog" name="signal_easel::aprs::telemetry::TelemetryData::getAnalog">
+<area shape="rect" id="node1" title="Access an analog parameter." alt="" coords="108,5,305,61"/>
+<area shape="rect" id="node2" href="$aprs__telemetry__data__test_8cpp.html#ade71374445747f9f2425736f69c56d8b" title=" " alt="" coords="5,20,60,47"/>
+</map>

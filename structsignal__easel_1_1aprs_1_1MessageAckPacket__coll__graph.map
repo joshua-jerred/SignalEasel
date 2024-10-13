@@ -1,0 +1,8 @@
+<map id="signal_easel::aprs::MessageAckPacket" name="signal_easel::aprs::MessageAckPacket">
+<area shape="rect" id="node1" title=" " alt="" coords="5,301,160,393"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Packet.html" title="The base APRS packet structure." alt="" coords="172,160,311,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="13,5,72,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="208,5,275,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="341,5,446,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="503,5,553,83"/>
+</map>

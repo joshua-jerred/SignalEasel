@@ -17,7 +17,7 @@ var classsignal__easel_1_1afsk_1_1Demodulator =
     [ "baseBandToBitStream", "classsignal__easel_1_1afsk_1_1Demodulator.html#afa479089583504851b2a4a767e397458", null ],
     [ "clearBuffer", "classsignal__easel_1_1afsk_1_1Demodulator.html#a76d933f4fd5b8dc740cc6dab49d44c97", null ],
     [ "loadAudioFromFile", "classsignal__easel_1_1afsk_1_1Demodulator.html#a9cc9df67eabbfac3aecb04f113726afc", null ],
-    [ "getAudioBuffer", "classsignal__easel_1_1afsk_1_1Demodulator.html#a60d9217eedde350a79dfa0af4ee31738", null ],
+    [ "getAudioBuffer", "classsignal__easel_1_1afsk_1_1Demodulator.html#a9cf5d923961354401de6bc31de3adf49", null ],
     [ "Receiver", "classsignal__easel_1_1afsk_1_1Demodulator.html#ac6980ec23d7dc8dda9ac05a1a7abbfa5", null ],
     [ "aprs::Receiver", "classsignal__easel_1_1afsk_1_1Demodulator.html#ab8ee6b72e4d8c50dbda710ff5801d41b", null ],
     [ "output_bit_stream_", "classsignal__easel_1_1afsk_1_1Demodulator.html#a737069a72a958d9cc0a6c777f191a626", null ],

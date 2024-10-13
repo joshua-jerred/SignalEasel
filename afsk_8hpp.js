@@ -1,13 +1,13 @@
 var afsk_8hpp =
 [
-    [ "Demodulator", "classsignal__easel_1_1afsk_1_1Demodulator.html", "classsignal__easel_1_1afsk_1_1Demodulator" ],
-    [ "ProcessResults", "classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults", [
+    [ "signal_easel::afsk::Demodulator", "classsignal__easel_1_1afsk_1_1Demodulator.html", "classsignal__easel_1_1afsk_1_1Demodulator" ],
+    [ "signal_easel::afsk::Demodulator::ProcessResults", "classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults", [
       [ "rms", "classsignal__easel_1_1afsk_1_1Demodulator.html#a304c31d2b38ba3df25b5f61bc6452e0c", null ],
       [ "snr", "classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f", null ]
     ] ],
-    [ "Modulator", "classsignal__easel_1_1afsk_1_1Modulator.html", "classsignal__easel_1_1afsk_1_1Modulator" ],
-    [ "Receiver", "classsignal__easel_1_1afsk_1_1Receiver.html", "classsignal__easel_1_1afsk_1_1Receiver" ],
-    [ "Settings", "structsignal__easel_1_1afsk_1_1Settings.html", "structsignal__easel_1_1afsk_1_1Settings" ],
+    [ "signal_easel::afsk::Modulator", "classsignal__easel_1_1afsk_1_1Modulator.html", "classsignal__easel_1_1afsk_1_1Modulator" ],
+    [ "signal_easel::afsk::Receiver", "classsignal__easel_1_1afsk_1_1Receiver.html", "classsignal__easel_1_1afsk_1_1Receiver" ],
+    [ "signal_easel::afsk::Settings", "structsignal__easel_1_1afsk_1_1Settings.html", "structsignal__easel_1_1afsk_1_1Settings" ],
     [ "AFSK_BAUD_RATE", "afsk_8hpp.html#a48cd37f2c8dfe25cb9d041607f589512", null ],
     [ "AFSK_MARK_FREQUENCY", "afsk_8hpp.html#a6cdd5aa818deb363e78d7f007a99a9dc", null ],
     [ "AFSK_CENTER_FREQUENCY", "afsk_8hpp.html#ad3ffb193f444d1240a0a0ec65cb2ef75", null ],

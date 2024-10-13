@@ -1,6 +1,6 @@
 var psk__wave__shaper_8hpp =
 [
-    [ "PskWaveShaper", "classsignal__easel_1_1psk_1_1PskWaveShaper.html", "classsignal__easel_1_1psk_1_1PskWaveShaper" ],
+    [ "signal_easel::psk::PskWaveShaper", "classsignal__easel_1_1psk_1_1PskWaveShaper.html", "classsignal__easel_1_1psk_1_1PskWaveShaper" ],
     [ "Phase", "psk__wave__shaper_8hpp.html#ae5f06592623b5e86a7ec0a7feab86c97", [
       [ "ZERO", "psk__wave__shaper_8hpp.html#ae5f06592623b5e86a7ec0a7feab86c97a529e9e0beb5f85d1f132917c1a09860c", null ],
       [ "NINETY", "psk__wave__shaper_8hpp.html#ae5f06592623b5e86a7ec0a7feab86c97a0cfd6dfe80dfff1d11bf6cb2f2841f82", null ],

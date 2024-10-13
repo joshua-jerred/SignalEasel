@@ -1,0 +1,9 @@
+<map id="signal_easel::aprs::telemetry::Parameter::getType" name="signal_easel::aprs::telemetry::Parameter::getType">
+<area shape="rect" id="node1" title="Get the parameter type." alt="" coords="369,125,537,181"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a175b3e9aec5a216c07dddee5288f0a5e" title="An analog parameter." alt="" coords="108,5,321,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1DigitalParameter.html#ae3cb236259ebe6c50b2cb6574a56e0e4" title="Construct a new DigitalParameter with the given ID." alt="" coords="109,85,320,141"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a3a075430a16065933b221b207a160338" title="Access an analog parameter." alt="" coords="116,165,313,221"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a290989d4a66c2ce645b8c0b592646033" title="Access a digital parameter." alt="" coords="116,245,313,301"/>
+<area shape="rect" id="node5" href="$aprs__telemetry__data__test_8cpp.html#ade71374445747f9f2425736f69c56d8b" title=" " alt="" coords="5,180,60,207"/>
+<area shape="rect" id="node7" href="$aprs__telemetry__data__test_8cpp.html#a8866f186b990f91021dde827f5dfec9b" title=" " alt="" coords="5,260,60,287"/>
+</map>

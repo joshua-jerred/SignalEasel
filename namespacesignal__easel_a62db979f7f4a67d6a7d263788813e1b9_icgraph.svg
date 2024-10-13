@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="A band&#45;pass filter implementation.">
+<g id="a_node1"><a xlink:title="A simple band&#45;pass filter.">
 <polygon fill="#bfbfbf" stroke="black" points="522,-22.5 522,-41.5 676,-41.5 676,-22.5 522,-22.5"/>
 <text text-anchor="middle" x="599" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::bandPassFilter</text>
 </a>

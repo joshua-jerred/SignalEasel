@@ -1,0 +1,5 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,60,60,87"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a6d64ddefdea8ac5471aa2e16f32cde9a" title="Get the comment." alt="" coords="108,5,305,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a76c46a2b54c40e87c984d957f0439b43" title="Set the comment. Must be less than 220 characters. If the comment is too long, it will be truncated." alt="" coords="108,85,305,141"/>
+</map>

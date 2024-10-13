@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Simple pulse audio interface.">
 <polygon fill="#bfbfbf" stroke="black" points="191.5,-168.5 191.5,-187.5 319.5,-187.5 319.5,-168.5 191.5,-168.5"/>
 <text text-anchor="middle" x="255.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">pulse_audio_writer.cpp</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="pulse__audio_8hpp.html" target="_top" xlink:title="Simple pulse audio interface.">
+<g id="a_node8"><a xlink:href="pulse__audio_8hpp.html" target="_top" xlink:title="Reads audio from pulse audio.">
 <polygon fill="none" stroke="black" points="390,-112.5 390,-131.5 545,-131.5 545,-112.5 390,-112.5"/>
 <text text-anchor="middle" x="467.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/pulse_audio.hpp</text>
 </a>

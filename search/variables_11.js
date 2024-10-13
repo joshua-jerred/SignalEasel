@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unit_1000',['unit',['../structsignal__easel_1_1aprs_1_1Telemetry.html#a663f48f8ba1779b7a4685a7bc4eb1e2d',1,'signal_easel::aprs::Telemetry::Analog::unit()'],['../structsignal__easel_1_1aprs_1_1Telemetry.html#a62201a3c1e4cd45995ab3f37f933112b',1,'signal_easel::aprs::Telemetry::Digital::unit()']]]
+  ['unit_5for_5flabel_5f_0',['unit_or_label_',['../classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#ae0027120d432239bd4e2760c20dcd18f',1,'signal_easel::aprs::telemetry::Parameter']]]
 ];

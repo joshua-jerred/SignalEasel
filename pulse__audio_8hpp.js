@@ -1,6 +1,6 @@
 var pulse__audio_8hpp =
 [
-    [ "PulseAudioReader", "classsignal__easel_1_1PulseAudioReader.html", "classsignal__easel_1_1PulseAudioReader" ],
+    [ "signal_easel::PulseAudioReader", "classsignal__easel_1_1PulseAudioReader.html", "classsignal__easel_1_1PulseAudioReader" ],
     [ "PulseAudioBuffer", "pulse__audio_8hpp.html#a7016c069fb9b7e8a412d48b970980fe1", null ],
     [ "PULSE_AUDIO_SAMPLE_FORMAT", "pulse__audio_8hpp.html#a7c542406e1ec08ba9304d668ed90d27f", null ],
     [ "NUM_PULSE_CHANNELS", "pulse__audio_8hpp.html#a883b670d441c1c42837c5e5ddfa4b306", null ],

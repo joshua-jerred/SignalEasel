@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::DigitalParameter::DigitalParameter" name="signal_easel::aprs::telemetry::DigitalParameter::DigitalParameter">
+<area shape="rect" id="node1" title="Construct a new DigitalParameter with the given ID." alt="" coords="5,5,216,61"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#af678bae9a0bef5e4cb9c3ba0c455e949" title="Get the parameter type." alt="" coords="264,5,432,61"/>
+</map>

@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="143,-98.5 143,-128.5 275,-128.5 275,-98.5 143,-98.5"/>
 <text text-anchor="start" x="151" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::BitStream</text>
 <text text-anchor="middle" x="209" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getBitVector</text>

@@ -1,0 +1,8 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,140,60,167"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#a186031c7264121743bc364fe7a068474" title="Get the parameter ID." alt="" coords="108,5,276,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#ad1dd708ef689101502a401ce6133a5c4" title="Get the name of the parameter." alt="" coords="108,85,276,141"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#a652ee666cf8523a3cd203bdcc6a834d9" title="Get the type of the parameter." alt="" coords="108,165,276,221"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#a31860a0009bc0d958635ad105183d9f6" title="Set the name of the parameter." alt="" coords="108,245,276,301"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#a94edd305fa00b5c3c21d5ff8dd186cf8" title="Parameter names, along with units for analog parameters and labels for digital parameters,..." alt="" coords="324,245,541,301"/>
+</map>

@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="namespacesignal__easel_1_1aprs.html#a3d23780e9687c92289aa5d426f394aef" target="_top" xlink:title="Encodes a string into a base91 encoded string.">
 <polygon fill="none" stroke="black" points="170,-0.5 170,-30.5 274,-30.5 274,-0.5 170,-0.5"/>
 <text text-anchor="start" x="178" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::aprs</text>
 <text text-anchor="middle" x="222" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::base91Encode</text>

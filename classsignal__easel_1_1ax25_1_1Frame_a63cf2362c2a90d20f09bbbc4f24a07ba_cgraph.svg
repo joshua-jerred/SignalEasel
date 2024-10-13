@@ -53,7 +53,7 @@
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" target="_top" xlink:title=" ">
+<g id="a_node14"><a xlink:href="namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="202.5,-171.5 202.5,-201.5 309.5,-201.5 309.5,-171.5 202.5,-171.5"/>
 <text text-anchor="start" x="210.5" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::ax25</text>
 <text text-anchor="middle" x="256" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">::deStuffBytes</text>
@@ -340,7 +340,7 @@
 <!-- Node18 -->
 <g id="node18" class="node">
 <title>Node18</title>
-<g id="a_node18"><a xlink:href="classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" target="_top" xlink:title=" ">
+<g id="a_node18"><a xlink:href="classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="378,-147.5 378,-177.5 510,-177.5 510,-147.5 378,-147.5"/>
 <text text-anchor="start" x="386" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::BitStream</text>
 <text text-anchor="middle" x="444" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getBitVector</text>

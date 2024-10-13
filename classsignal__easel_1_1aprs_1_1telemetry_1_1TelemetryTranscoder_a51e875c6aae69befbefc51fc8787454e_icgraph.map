@@ -1,0 +1,5 @@
+<map id="signal_easel::aprs::telemetry::TelemetryTranscoder::encodeBitSenseMessage" name="signal_easel::aprs::telemetry::TelemetryTranscoder::encodeBitSenseMessage">
+<area shape="rect" id="node1" title="Encodes the bit sense and project name into a message." alt="" coords="444,5,680,61"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1TelemetryPacket.html#a6098e85ae94eded273fcf84adbdcdf35" title=" " alt="" coords="204,13,396,54"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a5620d9527654c44810aeffe98e1aade4" title=" " alt="" coords="5,13,156,54"/>
+</map>

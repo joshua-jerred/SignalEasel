@@ -1,5 +1,5 @@
 <map id="signal_easel::bandPassFilter" name="signal_easel::bandPassFilter">
-<area shape="rect" id="node1" title="A band&#45;pass filter implementation." alt="" coords="701,42,907,69"/>
+<area shape="rect" id="node1" title="A simple band&#45;pass filter." alt="" coords="701,42,907,69"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161" title="Takes the raw signal and converts it into the FSK baseband signal." alt="" coords="455,27,653,83"/>
 <area shape="rect" id="node3" href="$classsignal__easel_1_1afsk_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57" title=" " alt="" coords="196,27,407,83"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,5,148,47"/>

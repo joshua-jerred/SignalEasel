@@ -1,7 +1,7 @@
 <map id="signal_easel::ax25::findStartFlags" name="signal_easel::ax25::findStartFlags">
 <area shape="rect" id="node1" title="Finds the start flags in the bit stream and removes them." alt="" coords="5,104,148,145"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1BitStream.html#aa97152ef51f73088e103a7951134aa85" title=" " alt="" coords="196,5,372,47"/>
-<area shape="rect" id="node3" href="$classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" title=" " alt="" coords="196,71,372,112"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" title=" " alt="" coords="196,71,372,112"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1BitStream.html#a3212a6021fa0e315170f8654c8e1c103" title=" " alt="" coords="196,136,372,177"/>
 <area shape="rect" id="node5" href="$classsignal__easel_1_1BitStream.html#a5b5339586e09ca5c25a7e9ded0118ffb" title="Returns the next bit of the bit stream that will be encoded." alt="" coords="196,201,372,243"/>
 </map>

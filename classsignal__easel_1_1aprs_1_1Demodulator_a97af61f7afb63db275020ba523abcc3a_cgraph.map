@@ -1,0 +1,20 @@
+<map id="signal_easel::aprs::Demodulator::parseTelemetryPacket" name="signal_easel::aprs::Demodulator::parseTelemetryPacket">
+<area shape="rect" id="node1" title="If the packet was a telemetry packet, this function will try to parse the packet and populate the tel..." alt="" coords="5,389,229,445"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a8728ebd6e5dbd7ca50a219fda62b7375" title="Takes in the information field of an APRS telemetry message and decodes it with the appropriate metho..." alt="" coords="277,272,513,328"/>
+<area shape="rect" id="node15" href="$classsignal__easel_1_1ax25_1_1Frame.html#ad48d93e63f0870a7bc7f7c10fde78ba8" title="Get a reference to the information field." alt="" coords="296,397,495,438"/>
+<area shape="rect" id="node16" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f" title=" " alt="" coords="280,465,511,521"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a3633b357cad1d35d2f59846a8ad66672" title="Decode the bit sense / project name message." alt="" coords="579,392,815,448"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#afe0271b7bbae16a79c2bd4e77d4f3945" title="Decode a data report message." alt="" coords="579,152,815,208"/>
+<area shape="rect" id="node11" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a581c58aa360dc40ddcbc475b96b25942" title="Decode the parameter coefficients message." alt="" coords="561,232,833,288"/>
+<area shape="rect" id="node13" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a74a84913b8e86de5b415616ecbd853b8" title="Decode a name or unit/label message. They&#39;re the same format." alt="" coords="579,312,815,368"/>
+<area shape="rect" id="node14" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a8daed50d0a02a99c50e19e6985391823" title="Set the address of the station that is sending the telemetry data for use in the parameter name,..." alt="" coords="591,72,804,128"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a23b19f60f731079282eb88c5ab433579" title="Validate the first few bytes of a message." alt="" coords="881,392,1117,448"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#afeb4d3aa91fc5deb8123589daccd87ea" title=" " alt="" coords="901,312,1098,368"/>
+<area shape="rect" id="node6" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a275ba1315153f5513e61ef640562530b" title="Set the project title. Must be less than 23 characters. If the project title is too long,..." alt="" coords="901,472,1098,528"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a953b60ecf9067ab71e13de6fdfdcfeec" title=" " alt="" coords="901,165,1098,221"/>
+<area shape="rect" id="node9" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a76c46a2b54c40e87c984d957f0439b43" title="Set the comment. Must be less than 220 characters. If the comment is too long, it will be truncated." alt="" coords="901,5,1098,61"/>
+<area shape="rect" id="node10" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a06202af15469a4f816c38c1a980c589d" title="Set the sequence number. Must be less than 1000. If the sequence number is greater than 999,..." alt="" coords="901,85,1098,141"/>
+<area shape="rect" id="node12" href="$namespacesignal__easel_1_1aprs_1_1telemetry.html#a06228386caafe56440016944e280b484" title="Validate the format of a coefficient." alt="" coords="887,246,1111,287"/>
+<area shape="rect" id="node17" href="$classsignal__easel_1_1ax25_1_1Frame.html#a84c80d41e67e5091d2a77553f3941d5f" title=" " alt="" coords="584,538,811,579"/>
+<area shape="rect" id="node18" href="$classsignal__easel_1_1ax25_1_1Frame.html#af84ab589067667886d9e54abe213109c" title=" " alt="" coords="599,473,795,514"/>
+</map>

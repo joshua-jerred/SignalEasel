@@ -1,7 +1,8 @@
 <map id="signal_easel::aprs::Packet" name="signal_easel::aprs::Packet">
-<area shape="rect" id="node1" title=" " alt="" coords="247,5,415,171"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Experimental.html" title="This packet type will have two { characters at the start." alt="" coords="5,255,156,391"/>
-<area shape="rect" id="node3" href="$structsignal__easel_1_1aprs_1_1MessageAck.html" title=" " alt="" coords="181,270,319,377"/>
-<area shape="rect" id="node4" href="$structsignal__easel_1_1aprs_1_1MessagePacket.html" title=" " alt="" coords="343,263,482,384"/>
-<area shape="rect" id="node5" href="$structsignal__easel_1_1aprs_1_1PositionPacket.html" title=" " alt="" coords="506,219,677,428"/>
+<area shape="rect" id="node1" title="The base APRS packet structure." alt="" coords="353,5,521,171"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1ExperimentalPacket.html" title="Raw packet with two &#39;{&#39; characters at the start." alt="" coords="5,248,164,384"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1aprs_1_1MessageAckPacket.html" title=" " alt="" coords="189,263,343,369"/>
+<area shape="rect" id="node4" href="$structsignal__easel_1_1aprs_1_1MessagePacket.html" title=" " alt="" coords="367,255,506,377"/>
+<area shape="rect" id="node5" href="$structsignal__easel_1_1aprs_1_1PositionPacket.html" title=" " alt="" coords="530,219,701,413"/>
+<area shape="rect" id="node6" href="$structsignal__easel_1_1aprs_1_1TelemetryPacket.html" title=" " alt="" coords="725,241,879,391"/>
 </map>

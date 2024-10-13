@@ -1,6 +1,6 @@
 <map id="signal_easel::ax25::reverse_bits" name="signal_easel::ax25::reverse_bits">
 <area shape="rect" id="node1" title=" " alt="" coords="867,35,1009,76"/>
-<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="676,35,819,76"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" title=" " alt="" coords="676,35,819,76"/>
 <area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="448,35,628,76"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="196,27,400,83"/>
 <area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,5,148,47"/>

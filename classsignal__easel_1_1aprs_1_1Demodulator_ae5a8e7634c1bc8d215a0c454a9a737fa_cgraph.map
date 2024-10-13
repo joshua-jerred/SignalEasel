@@ -1,10 +1,10 @@
 <map id="signal_easel::aprs::Demodulator::lookForAx25Packet" name="signal_easel::aprs::Demodulator::lookForAx25Packet">
 <area shape="rect" id="node1" title=" " alt="" coords="5,189,209,245"/>
-<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#a9e6110247fa4368c64e39cf17f08759d" title=" " alt="" coords="259,163,435,204"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603" title=" " alt="" coords="259,163,435,204"/>
 <area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="257,228,437,269"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb" title=" " alt="" coords="491,64,706,105"/>
 <area shape="rect" id="node9" href="$namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396" title="Convert a bit stream from NRZI to standard encoding." alt="" coords="527,260,670,301"/>
-<area shape="rect" id="node16" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="527,424,670,465"/>
+<area shape="rect" id="node16" href="$namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" title=" " alt="" coords="527,424,670,465"/>
 <area shape="rect" id="node19" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="527,359,670,400"/>
 <area shape="rect" id="node22" href="$classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d" title="setters/getters for the frame." alt="" coords="485,129,712,171"/>
 <area shape="rect" id="node23" href="$classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e" title=" " alt="" coords="501,195,696,236"/>
@@ -20,6 +20,6 @@
 <area shape="rect" id="node11" href="$classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6" title=" " alt="" coords="1009,167,1185,208"/>
 <area shape="rect" id="node17" href="$classsignal__easel_1_1BitStream.html#ad7b803a89b3a53ec1e4108122861a90b" title="Returns the next bit of the bit stream without removing it." alt="" coords="761,587,937,628"/>
 <area shape="rect" id="node18" href="$namespacesignal__easel_1_1ax25.html#a464aaf0b31941db183dcd08d641a793c" title=" " alt="" coords="778,652,921,693"/>
-<area shape="rect" id="node20" href="$classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" title=" " alt="" coords="761,456,937,497"/>
+<area shape="rect" id="node20" href="$classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" title=" " alt="" coords="761,456,937,497"/>
 <area shape="rect" id="node21" href="$classsignal__easel_1_1BitStream.html#a3212a6021fa0e315170f8654c8e1c103" title=" " alt="" coords="761,521,937,563"/>
 </map>

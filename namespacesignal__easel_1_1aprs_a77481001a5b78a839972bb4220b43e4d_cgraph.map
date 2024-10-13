@@ -1,5 +1,5 @@
 <map id="signal_easel::aprs::encodePacket" name="signal_easel::aprs::encodePacket">
-<area shape="rect" id="node1" title=" " alt="" coords="5,267,144,308"/>
+<area shape="rect" id="node1" title="The base function to encode an APRS packet with the provided base data and info field." alt="" coords="5,267,144,308"/>
 <area shape="rect" id="node2" href="$namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb" title=" " alt="" coords="427,77,578,119"/>
 <area shape="rect" id="node10" href="$classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503" title="A step beyond buildFrame. This function builds the frame, does the bit stuffing, adds the flags,..." alt="" coords="196,267,363,308"/>
 <area shape="rect" id="node23" href="$classsignal__easel_1_1ax25_1_1Frame.html#afc5c722b419621f2a4dccbe2208faea1" title=" " alt="" coords="192,332,367,373"/>

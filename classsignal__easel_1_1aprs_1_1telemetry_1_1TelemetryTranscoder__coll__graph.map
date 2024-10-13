@@ -1,0 +1,3 @@
+<map id="signal_easel::aprs::telemetry::TelemetryTranscoder" name="signal_easel::aprs::telemetry::TelemetryTranscoder">
+<area shape="rect" id="node1" title="A class for encoding and decoding APRS telemetry messages." alt="" coords="5,5,264,288"/>
+</map>

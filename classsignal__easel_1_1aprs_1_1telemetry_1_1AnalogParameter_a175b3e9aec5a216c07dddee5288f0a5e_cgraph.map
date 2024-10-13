@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::telemetry::AnalogParameter::AnalogParameter" name="signal_easel::aprs::telemetry::AnalogParameter::AnalogParameter">
+<area shape="rect" id="node1" title="An analog parameter." alt="" coords="5,5,219,61"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#af678bae9a0bef5e4cb9c3ba0c455e949" title="Get the parameter type." alt="" coords="267,5,435,61"/>
+</map>

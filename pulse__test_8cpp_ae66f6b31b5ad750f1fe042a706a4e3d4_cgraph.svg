@@ -100,7 +100,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="classsignal__easel_1_1PulseAudioReader.html#adbb78105ceda235ba2314acb2f8dec14" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="classsignal__easel_1_1PulseAudioReader.html#acab1af66b45821dc593e77e10d73d185" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="278.5,-49.5 278.5,-79.5 415.5,-79.5 415.5,-49.5 278.5,-49.5"/>
 <text text-anchor="start" x="286.5" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">signal_easel::PulseAudio</text>
 <text text-anchor="middle" x="347" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Reader::getAudioBuffer</text>

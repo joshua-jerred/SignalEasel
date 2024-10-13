@@ -25,11 +25,11 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="18.5,-105.5 18.5,-162.5 47.5,-162.5 47.5,-105.5 18.5,-105.5"/>
+<polygon fill="none" stroke="black" points="18.5,-105.5 18.5,-162.5 47.5,-162.5 47.5,-105.5 18.5,-105.5"/>
 <text text-anchor="middle" x="33" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">int</text>
-<polyline fill="none" stroke="#bfbfbf" points="18.5,-143.5 47.5,-143.5 "/>
+<polyline fill="none" stroke="black" points="18.5,-143.5 47.5,-143.5 "/>
 <text text-anchor="middle" x="33" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="18.5,-124.5 47.5,-124.5 "/>
+<polyline fill="none" stroke="black" points="18.5,-124.5 47.5,-124.5 "/>
 <text text-anchor="middle" x="33" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
@@ -45,11 +45,11 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="65.5,-105.5 65.5,-162.5 140.5,-162.5 140.5,-105.5 65.5,-105.5"/>
+<polygon fill="none" stroke="black" points="65.5,-105.5 65.5,-162.5 140.5,-162.5 140.5,-105.5 65.5,-105.5"/>
 <text text-anchor="middle" x="103" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">const char *</text>
-<polyline fill="none" stroke="#bfbfbf" points="65.5,-143.5 140.5,-143.5 "/>
+<polyline fill="none" stroke="black" points="65.5,-143.5 140.5,-143.5 "/>
 <text text-anchor="middle" x="103" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="#bfbfbf" points="65.5,-124.5 140.5,-124.5 "/>
+<polyline fill="none" stroke="black" points="65.5,-124.5 140.5,-124.5 "/>
 <text text-anchor="middle" x="103" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>

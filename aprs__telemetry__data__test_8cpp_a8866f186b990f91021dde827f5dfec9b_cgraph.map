@@ -1,0 +1,5 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title=" " alt="" coords="5,20,60,47"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a290989d4a66c2ce645b8c0b592646033" title="Access a digital parameter." alt="" coords="108,5,305,61"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#af678bae9a0bef5e4cb9c3ba0c455e949" title="Get the parameter type." alt="" coords="353,5,521,61"/>
+</map>

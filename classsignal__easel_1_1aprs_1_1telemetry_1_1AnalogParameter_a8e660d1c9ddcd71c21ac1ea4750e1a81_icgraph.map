@@ -1,0 +1,5 @@
+<map id="signal_easel::aprs::telemetry::AnalogParameter::setCoefficientB" name="signal_easel::aprs::telemetry::AnalogParameter::setCoefficientB">
+<area shape="rect" id="node1" title="Set the B coefficient in the formula y = ax^2 + bx + c." alt="" coords="369,5,583,61"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a4fd035e5379315eaab869673edb0477a" title="Set all coefficients in the formula y = ax^2 + bx + c." alt="" coords="108,5,321,61"/>
+<area shape="rect" id="node3" href="$aprs__telemetry__parameter__test_8cpp.html#aa8357c93b7e821465e22baa9912ace89" title=" " alt="" coords="5,20,60,47"/>
+</map>

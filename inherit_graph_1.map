@@ -1,7 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structsignal__easel_1_1aprs_1_1Packet.html" title=" " alt="" coords="5,104,144,145"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1Experimental.html" title="This packet type will have two { characters at the start." alt="" coords="192,5,331,47"/>
-<area shape="rect" id="node3" href="$structsignal__easel_1_1aprs_1_1MessageAck.html" title=" " alt="" coords="192,71,331,112"/>
-<area shape="rect" id="node4" href="$structsignal__easel_1_1aprs_1_1MessagePacket.html" title=" " alt="" coords="192,136,331,177"/>
-<area shape="rect" id="node5" href="$structsignal__easel_1_1aprs_1_1PositionPacket.html" title=" " alt="" coords="192,201,331,243"/>
+<area shape="rect" id="node1" href="$structsignal__easel_1_1aprs_1_1Packet.html" title="The base APRS packet structure." alt="" coords="5,136,144,177"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1aprs_1_1ExperimentalPacket.html" title="Raw packet with two &#39;{&#39; characters at the start." alt="" coords="192,5,351,47"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1aprs_1_1MessageAckPacket.html" title=" " alt="" coords="194,71,349,112"/>
+<area shape="rect" id="node4" href="$structsignal__easel_1_1aprs_1_1MessagePacket.html" title=" " alt="" coords="202,136,341,177"/>
+<area shape="rect" id="node5" href="$structsignal__easel_1_1aprs_1_1PositionPacket.html" title=" " alt="" coords="202,201,341,243"/>
+<area shape="rect" id="node6" href="$structsignal__easel_1_1aprs_1_1TelemetryPacket.html" title=" " alt="" coords="202,267,341,308"/>
 </map>

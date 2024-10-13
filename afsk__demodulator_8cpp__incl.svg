@@ -110,7 +110,7 @@
 <!-- Node22 -->
 <g id="node22" class="node">
 <title>Node22</title>
-<g id="a_node22"><a xlink:href="band__pass__filter_8hpp.html" target="_top" xlink:title="Bandpass filter implementation.">
+<g id="a_node22"><a xlink:href="band__pass__filter_8hpp.html" target="_top" xlink:title="Band&#45;pass filter implementation.">
 <polygon fill="none" stroke="black" points="797,-168.5 797,-187.5 913,-187.5 913,-168.5 797,-168.5"/>
 <text text-anchor="middle" x="855" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">band_pass_filter.hpp</text>
 </a>
@@ -302,7 +302,7 @@
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="pulse__audio_8hpp.html" target="_top" xlink:title="Simple pulse audio interface.">
+<g id="a_node16"><a xlink:href="pulse__audio_8hpp.html" target="_top" xlink:title="Reads audio from pulse audio.">
 <polygon fill="none" stroke="black" points="124.5,-112.5 124.5,-131.5 279.5,-131.5 279.5,-112.5 124.5,-112.5"/>
 <text text-anchor="middle" x="202" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/pulse_audio.hpp</text>
 </a>

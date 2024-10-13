@@ -1,0 +1,7 @@
+<map id="signal_easel::aprs::telemetry::TelemetryData::getComment" name="signal_easel::aprs::telemetry::TelemetryData::getComment">
+<area shape="rect" id="node1" title="Get the comment." alt="" coords="728,39,925,95"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#ae5d6a4f37c1a561ae6be756dfef2f838" title="Encodes the parameter data into a data report message." alt="" coords="444,5,680,61"/>
+<area shape="rect" id="node5" href="$aprs__telemetry__data__test_8cpp.html#a2818430a44916fc6f3f43739f974d4a2" title=" " alt="" coords="535,85,589,112"/>
+<area shape="rect" id="node3" href="$structsignal__easel_1_1aprs_1_1TelemetryPacket.html#a6098e85ae94eded273fcf84adbdcdf35" title=" " alt="" coords="204,13,396,54"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Modulator.html#a5620d9527654c44810aeffe98e1aade4" title=" " alt="" coords="5,13,156,54"/>
+</map>

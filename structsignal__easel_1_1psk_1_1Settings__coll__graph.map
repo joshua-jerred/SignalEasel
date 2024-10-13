@@ -1,11 +1,11 @@
 <map id="signal_easel::psk::Settings" name="signal_easel::psk::Settings">
-<area shape="rect" id="node1" title="Settings for PSK modulation." alt="" coords="335,344,478,436"/>
-<area shape="rect" id="node2" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="102,175,266,252"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,72,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="129,5,239,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="303,5,361,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="291,175,349,252"/>
-<area shape="rect" id="node7" title=" " alt="" coords="373,175,448,252"/>
-<area shape="rect" id="node8" title=" " alt="" coords="516,175,617,252"/>
-<area shape="rect" id="node9" title=" " alt="" coords="669,175,720,252"/>
+<area shape="rect" id="node1" title="Settings for PSK modulation." alt="" coords="305,344,447,436"/>
+<area shape="rect" id="node2" href="$structsignal__easel_1_1Settings.html" title="The universal settings for MWAV." alt="" coords="62,175,226,252"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,64,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="89,5,199,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,5,325,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="251,175,309,252"/>
+<area shape="rect" id="node7" title=" " alt="" coords="333,175,435,252"/>
+<area shape="rect" id="node8" title=" " alt="" coords="467,175,541,252"/>
+<area shape="rect" id="node9" title=" " alt="" coords="639,175,689,252"/>
 </map>

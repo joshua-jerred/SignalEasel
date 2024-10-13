@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['time_5fbetween_5fsymbols_992',['TIME_BETWEEN_SYMBOLS',['../namespacesignal__easel.html#af321cfafbc2ee42270a7ea73d5affc53',1,'signal_easel']]],
-  ['time_5fcode_993',['time_code',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136',1,'signal_easel::aprs::PositionPacket']]],
-  ['total_5fexperimental_5fpackets_994',['total_experimental_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a2fe34716e22a63ef28001bf40a68a4ec',1,'signal_easel::aprs::Receiver::Stats']]],
-  ['total_5fmessage_5fpackets_995',['total_message_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#aa7ee31d1533a0a34f909c1e7e9ea2950',1,'signal_easel::aprs::Receiver::Stats']]],
-  ['total_5fother_5fpackets_996',['total_other_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a49b7635ad0840df77f8e1ca5ac9fcf20',1,'signal_easel::aprs::Receiver::Stats']]],
-  ['total_5fposition_5fpackets_997',['total_position_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a8f64dfbbc8c0ccdc0dc35ff5ec8d92f1',1,'signal_easel::aprs::Receiver::Stats']]],
-  ['two_5fpi_5fval_998',['TWO_PI_VAL',['../namespacesignal__easel.html#acad287fc393f05c78f253f2212b005af',1,'signal_easel']]],
-  ['type_5f_999',['type_',['../classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd',1,'signal_easel::aprs::Demodulator::type_()'],['../classsignal__easel_1_1ax25_1_1Frame.html#a02440775246b4a0be7edde5d82153fec',1,'signal_easel::ax25::Frame::type_()']]]
+  ['telemetry_5fdata_0',['telemetry_data',['../structsignal__easel_1_1aprs_1_1TelemetryPacket.html#a58cbec3774c9f283eb38e6bedaad7d27',1,'signal_easel::aprs::TelemetryPacket']]],
+  ['telemetry_5fmessage_5faddress_5fsection_5flength_1',['TELEMETRY_MESSAGE_ADDRESS_SECTION_LENGTH',['../namespacesignal__easel_1_1aprs_1_1telemetry.html#a869378e9a7ab131f2002f83da411af39',1,'signal_easel::aprs::telemetry']]],
+  ['telemetry_5fmessage_5fprefix_2',['TELEMETRY_MESSAGE_PREFIX',['../classTelemetryTranscoder__test.html#ae6bfef0e6f0bd1a406dc72a8e26e89ad',1,'TelemetryTranscoder_test']]],
+  ['telemetry_5fstation_5faddress_3',['TELEMETRY_STATION_ADDRESS',['../classTelemetryTranscoder__test.html#a4c26e674f85902a3064692c20cafe615',1,'TelemetryTranscoder_test']]],
+  ['telemetry_5fstation_5faddress_5f_4',['telemetry_station_address_',['../classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#ac86b8bea29fb1a0e685f780c48c49ae1',1,'signal_easel::aprs::telemetry::TelemetryData']]],
+  ['telemetry_5fstation_5faddress_5fmax_5flength_5f_5',['TELEMETRY_STATION_ADDRESS_MAX_LENGTH_',['../classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a6486c23c3bccf030fe7a1e70c1da453c',1,'signal_easel::aprs::telemetry::TelemetryData']]],
+  ['telemetry_5ftype_6',['telemetry_type',['../structsignal__easel_1_1aprs_1_1TelemetryPacket.html#ac2c23c7c9e21a8a71b63e13420427d71',1,'signal_easel::aprs::TelemetryPacket']]],
+  ['time_5fbetween_5fsymbols_7',['TIME_BETWEEN_SYMBOLS',['../namespacesignal__easel.html#af321cfafbc2ee42270a7ea73d5affc53',1,'signal_easel']]],
+  ['time_5fcode_8',['time_code',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136',1,'signal_easel::aprs::PositionPacket']]],
+  ['total_5fexperimental_5fpackets_9',['total_experimental_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a2fe34716e22a63ef28001bf40a68a4ec',1,'signal_easel::aprs::Receiver::Stats']]],
+  ['total_5fmessage_5fpackets_10',['total_message_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#aa7ee31d1533a0a34f909c1e7e9ea2950',1,'signal_easel::aprs::Receiver::Stats']]],
+  ['total_5fother_5fpackets_11',['total_other_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a49b7635ad0840df77f8e1ca5ac9fcf20',1,'signal_easel::aprs::Receiver::Stats']]],
+  ['total_5fposition_5fpackets_12',['total_position_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a8f64dfbbc8c0ccdc0dc35ff5ec8d92f1',1,'signal_easel::aprs::Receiver::Stats']]],
+  ['total_5ftelemetry_5fpackets_13',['total_telemetry_packets',['../classsignal__easel_1_1aprs_1_1Receiver.html#a01c63ab8e10e8303439c8b7ce14a5271',1,'signal_easel::aprs::Receiver::Stats']]],
+  ['two_5fpi_5fval_14',['TWO_PI_VAL',['../namespacesignal__easel.html#acad287fc393f05c78f253f2212b005af',1,'signal_easel']]],
+  ['type_5f_15',['type_',['../classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd',1,'signal_easel::aprs::Demodulator::type_()'],['../classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#a30138377d2d858272b50780313ceaee9',1,'signal_easel::aprs::telemetry::Parameter::type_()'],['../classsignal__easel_1_1ax25_1_1Frame.html#a02440775246b4a0be7edde5d82153fec',1,'signal_easel::ax25::Frame::type_()']]]
 ];

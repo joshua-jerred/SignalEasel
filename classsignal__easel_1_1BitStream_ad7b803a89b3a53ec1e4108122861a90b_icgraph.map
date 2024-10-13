@@ -1,6 +1,6 @@
 <map id="signal_easel::BitStream::peakNextBit" name="signal_easel::BitStream::peakNextBit">
 <area shape="rect" id="node1" title="Returns the next bit of the bit stream without removing it." alt="" coords="900,68,1076,109"/>
-<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="693,35,836,76"/>
+<area shape="rect" id="node2" href="$namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" title=" " alt="" coords="693,35,836,76"/>
 <area shape="rect" id="node7" href="$classsignal__easel_1_1psk_1_1Modulator.html#a0949f7b7120c7a1b3c350681537e3181" title=" " alt="" coords="677,100,852,141"/>
 <area shape="rect" id="node3" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="449,35,629,76"/>
 <area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="196,27,400,83"/>

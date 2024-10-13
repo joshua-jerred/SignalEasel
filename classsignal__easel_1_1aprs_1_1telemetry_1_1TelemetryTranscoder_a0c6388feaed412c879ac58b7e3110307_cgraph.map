@@ -1,0 +1,6 @@
+<map id="signal_easel::aprs::telemetry::TelemetryTranscoder::encodeParameterCoefficientMessage" name="signal_easel::aprs::telemetry::TelemetryTranscoder::encodeParameterCoefficientMessage">
+<area shape="rect" id="node1" title="Encodes the parameter coefficients into a message." alt="" coords="5,45,277,101"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a195a39f0f0e23c8eacd3f552e4389932" title="Used in the encode methods to add the telemetry station address to the message in the format &quot;:N0CALL..." alt="" coords="325,5,561,61"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a5e9a7e28d18dbd0e50bb53ea7734aa1a" title=" " alt="" coords="340,85,547,141"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a447c24a8880aa1098b47ad923ec33b70" title="Get the address of the station that is sending the telemetry data." alt="" coords="609,5,824,61"/>
+</map>

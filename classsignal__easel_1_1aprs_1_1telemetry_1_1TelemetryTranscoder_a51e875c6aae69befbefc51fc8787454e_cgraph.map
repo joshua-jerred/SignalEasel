@@ -1,0 +1,7 @@
+<map id="signal_easel::aprs::telemetry::TelemetryTranscoder::encodeBitSenseMessage" name="signal_easel::aprs::telemetry::TelemetryTranscoder::encodeBitSenseMessage">
+<area shape="rect" id="node1" title="Encodes the bit sense and project name into a message." alt="" coords="5,85,241,141"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a195a39f0f0e23c8eacd3f552e4389932" title="Used in the encode methods to add the telemetry station address to the message in the format &quot;:N0CALL..." alt="" coords="289,5,525,61"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a8128a64f4d0f2a6af78ed636d5fbbb57" title=" " alt="" coords="305,85,510,141"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a895a66b4284ec38cf93dadbb8ffc826d" title="Get the project title." alt="" coords="309,165,506,221"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryData.html#a447c24a8880aa1098b47ad923ec33b70" title="Get the address of the station that is sending the telemetry data." alt="" coords="573,5,788,61"/>
+</map>

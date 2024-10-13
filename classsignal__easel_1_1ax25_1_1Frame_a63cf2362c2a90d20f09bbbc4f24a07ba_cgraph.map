@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="5,228,185,269"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb" title=" " alt="" coords="239,64,454,105"/>
 <area shape="rect" id="node7" href="$namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396" title="Convert a bit stream from NRZI to standard encoding." alt="" coords="275,260,418,301"/>
-<area shape="rect" id="node14" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="275,424,418,465"/>
+<area shape="rect" id="node14" href="$namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" title=" " alt="" coords="275,424,418,465"/>
 <area shape="rect" id="node17" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="275,359,418,400"/>
 <area shape="rect" id="node20" href="$classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d" title="setters/getters for the frame." alt="" coords="233,129,460,171"/>
 <area shape="rect" id="node21" href="$classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e" title=" " alt="" coords="249,195,444,236"/>
@@ -18,6 +18,6 @@
 <area shape="rect" id="node9" href="$classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6" title=" " alt="" coords="757,167,933,208"/>
 <area shape="rect" id="node15" href="$classsignal__easel_1_1BitStream.html#ad7b803a89b3a53ec1e4108122861a90b" title="Returns the next bit of the bit stream without removing it." alt="" coords="509,587,685,628"/>
 <area shape="rect" id="node16" href="$namespacesignal__easel_1_1ax25.html#a464aaf0b31941db183dcd08d641a793c" title=" " alt="" coords="526,652,669,693"/>
-<area shape="rect" id="node18" href="$classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" title=" " alt="" coords="509,456,685,497"/>
+<area shape="rect" id="node18" href="$classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" title=" " alt="" coords="509,456,685,497"/>
 <area shape="rect" id="node19" href="$classsignal__easel_1_1BitStream.html#a3212a6021fa0e315170f8654c8e1c103" title=" " alt="" coords="509,521,685,563"/>
 </map>

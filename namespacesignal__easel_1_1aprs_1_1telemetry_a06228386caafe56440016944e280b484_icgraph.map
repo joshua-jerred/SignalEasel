@@ -1,0 +1,15 @@
+<map id="signal_easel::aprs::telemetry::validateCoefficient" name="signal_easel::aprs::telemetry::validateCoefficient">
+<area shape="rect" id="node1" title="Validate the format of a coefficient." alt="" coords="1072,195,1296,236"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a581c58aa360dc40ddcbc475b96b25942" title="Decode the parameter coefficients message." alt="" coords="752,27,1024,83"/>
+<area shape="rect" id="node7" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a7c5705a070a081de4a4888dc7c38557d" title="Set the A coefficient in the formula y = ax^2 + bx + c." alt="" coords="781,267,995,323"/>
+<area shape="rect" id="node11" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a8e660d1c9ddcd71c21ac1ea4750e1a81" title="Set the B coefficient in the formula y = ax^2 + bx + c." alt="" coords="781,107,995,163"/>
+<area shape="rect" id="node12" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#ad289542e484756aae17ca7c77b6cb58e" title="Set the C coefficient in the formula y = ax^2 + bx + c." alt="" coords="781,187,995,243"/>
+<area shape="rect" id="node13" href="$namespacesignal__easel_1_1aprs_1_1telemetry.html#a0e65807c1f6ab9b52169a21387a00d71" title="Wrapper for validateCoefficient that does not require the numerical value." alt="" coords="776,348,1000,389"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a8728ebd6e5dbd7ca50a219fda62b7375" title="Takes in the information field of an APRS telemetry message and decodes it with the appropriate metho..." alt="" coords="468,27,704,83"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#a97af61f7afb63db275020ba523abcc3a" title="If the packet was a telemetry packet, this function will try to parse the packet and populate the tel..." alt="" coords="196,27,420,83"/>
+<area shape="rect" id="node5" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" id="node6" href="$aprs__test_8cpp.html#a8de4b7853d7e8c5ad2bb05a656082327" title=" " alt="" coords="49,71,104,98"/>
+<area shape="rect" id="node8" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1AnalogParameter.html#a4fd035e5379315eaab869673edb0477a" title="Set all coefficients in the formula y = ax^2 + bx + c." alt="" coords="479,187,693,243"/>
+<area shape="rect" id="node10" href="$aprs__telemetry__parameter__test_8cpp.html#a35cf05db9e0ef8d678cb9cce3c6e6b27" title=" " alt="" coords="559,282,613,309"/>
+<area shape="rect" id="node9" href="$aprs__telemetry__parameter__test_8cpp.html#aa8357c93b7e821465e22baa9912ace89" title=" " alt="" coords="281,202,335,229"/>
+</map>

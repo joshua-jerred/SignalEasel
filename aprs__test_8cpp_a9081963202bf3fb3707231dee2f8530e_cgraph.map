@@ -4,11 +4,11 @@
 <area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa" title=" " alt="" coords="111,237,315,293"/>
 <area shape="rect" id="node26" href="$classsignal__easel_1_1aprs_1_1Demodulator.html#a093fdacf32fe29bf475a21196b477cd9" title=" " alt="" coords="116,318,311,359"/>
 <area shape="rect" id="node27" href="$classsignal__easel_1_1afsk_1_1Demodulator.html#a1d00e5b759f208be2751c4f2302a9c57" title=" " alt="" coords="108,553,319,609"/>
-<area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Frame.html#a9e6110247fa4368c64e39cf17f08759d" title=" " alt="" coords="388,179,564,221"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603" title=" " alt="" coords="388,179,564,221"/>
 <area shape="rect" id="node5" href="$classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba" title="Attempt to parse an incoming bit stream into an AX.25 frame." alt="" coords="386,245,566,286"/>
 <area shape="rect" id="node6" href="$classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb" title=" " alt="" coords="639,179,854,221"/>
 <area shape="rect" id="node11" href="$namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396" title="Convert a bit stream from NRZI to standard encoding." alt="" coords="675,474,818,515"/>
-<area shape="rect" id="node18" href="$namespacesignal__easel_1_1ax25.html#a1bccc37a6ac48ed9be96218dd46bcb41" title=" " alt="" coords="675,310,818,351"/>
+<area shape="rect" id="node18" href="$namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b" title=" " alt="" coords="675,310,818,351"/>
 <area shape="rect" id="node21" href="$namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3" title="Finds the start flags in the bit stream and removes them." alt="" coords="675,245,818,286"/>
 <area shape="rect" id="node24" href="$classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d" title="setters/getters for the frame." alt="" coords="633,49,860,90"/>
 <area shape="rect" id="node25" href="$classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e" title=" " alt="" coords="649,114,844,155"/>
@@ -24,15 +24,15 @@
 <area shape="rect" id="node13" href="$classsignal__easel_1_1BitStream.html#a9df75eb28c03717c9fad2d30a85de6e6" title=" " alt="" coords="1178,539,1354,581"/>
 <area shape="rect" id="node19" href="$classsignal__easel_1_1BitStream.html#ad7b803a89b3a53ec1e4108122861a90b" title="Returns the next bit of the bit stream without removing it." alt="" coords="919,310,1095,351"/>
 <area shape="rect" id="node20" href="$namespacesignal__easel_1_1ax25.html#a464aaf0b31941db183dcd08d641a793c" title=" " alt="" coords="936,375,1079,417"/>
-<area shape="rect" id="node22" href="$classsignal__easel_1_1BitStream.html#a4cf488a318e02146a94d58cbb540fe69" title=" " alt="" coords="919,114,1095,155"/>
+<area shape="rect" id="node22" href="$classsignal__easel_1_1BitStream.html#a2c744d357c9a6fb449fed550770e56f3" title=" " alt="" coords="919,114,1095,155"/>
 <area shape="rect" id="node23" href="$classsignal__easel_1_1BitStream.html#a3212a6021fa0e315170f8654c8e1c103" title=" " alt="" coords="919,179,1095,221"/>
 <area shape="rect" id="node28" href="$classsignal__easel_1_1afsk_1_1Demodulator.html#a66398f52101a153c5158930c0584f161" title="Takes the raw signal and converts it into the FSK baseband signal." alt="" coords="377,553,575,609"/>
 <area shape="rect" id="node36" href="$classsignal__easel_1_1afsk_1_1Demodulator.html#afa479089583504851b2a4a767e397458" title="Takes the base band signal and converts it into a bit stream if the signal is valid." alt="" coords="367,633,585,689"/>
-<area shape="rect" id="node29" href="$namespacesignal__easel.html#a62db979f7f4a67d6a7d263788813e1b9" title="A band&#45;pass filter implementation." alt="" coords="644,739,849,765"/>
-<area shape="rect" id="node30" href="$namespacesignal__easel.html#ab828fd4a325ae3f35f6c4c707ffb6886" title=" " alt="" coords="910,819,1105,861"/>
-<area shape="rect" id="node32" href="$namespacesignal__easel.html#a61e5160a96fbff531fdbecf3737f80b9" title=" " alt="" coords="908,702,1107,743"/>
-<area shape="rect" id="node35" href="$namespacesignal__easel.html#a24d8e6d8aa467d22058b77158b2f137a" title=" " alt="" coords="937,768,1078,795"/>
-<area shape="rect" id="node31" href="$namespacesignal__easel.html#a52622d8b5a12dedeb59e5442e887a8e5" title=" " alt="" coords="1155,827,1377,853"/>
-<area shape="rect" id="node33" href="$namespacesignal__easel.html#aec86a114666943d1400f780edb69eab0" title=" " alt="" coords="1173,709,1359,736"/>
-<area shape="rect" id="node34" href="$namespacesignal__easel.html#a6049a00d790189b698bd2dfb04885a31" title=" " alt="" coords="1425,709,1608,736"/>
+<area shape="rect" id="node29" href="$namespacesignal__easel.html#a62db979f7f4a67d6a7d263788813e1b9" title="A simple band&#45;pass filter." alt="" coords="644,739,849,765"/>
+<area shape="rect" id="node30" href="$namespacesignal__easel.html#afd47c8498c742658f934b9fccf52a74d" title=" " alt="" coords="910,819,1105,861"/>
+<area shape="rect" id="node32" href="$namespacesignal__easel.html#af5443e0125b511759ebeb7e4defb112d" title=" " alt="" coords="908,702,1107,743"/>
+<area shape="rect" id="node35" href="$namespacesignal__easel.html#a1b9537a0b58c35ffe0048a0eb3826ba4" title=" " alt="" coords="937,768,1078,795"/>
+<area shape="rect" id="node31" href="$namespacesignal__easel.html#a3895406ee8a9253b288a6a015583be42" title=" " alt="" coords="1155,827,1377,853"/>
+<area shape="rect" id="node33" href="$namespacesignal__easel.html#a27a021f34e5a88ec2faa0b01087f9ec9" title=" " alt="" coords="1173,709,1359,736"/>
+<area shape="rect" id="node34" href="$namespacesignal__easel.html#a9772e972ada009af79d3f18221aca4e3" title=" " alt="" coords="1425,709,1608,736"/>
 </map>

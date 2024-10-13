@@ -1,7 +1,8 @@
 # SignalEasel
+
+[![SignalEasel CI](https://github.com/joshua-jerred/SignalEasel/actions/workflows/signal_easel_ci_cd.yaml/badge.svg)](https://github.com/joshua-jerred/SignalEasel/actions/workflows/signal_easel_ci_cd.yaml)
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/joshua-jerred/b51272b5db76d6d818ada419ce2d1bef/raw/code_coverage.json)
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/joshua-jerred/b51272b5db76d6d818ada419ce2d1bef/raw/doxygen_coverage.json)
-[![SignalEasel](https://github.com/joshua-jerred/SignalEasel/actions/workflows/signal_easel_ci_cd.yaml/badge.svg)](https://github.com/joshua-jerred/SignalEasel/actions/workflows/signal_easel_ci_cd.yaml)
 
 SignalEasel is a C++ library for audio modulation and demodulation through a
 variety of analog and digital modes via PulseAudio and `.wav` files. It also

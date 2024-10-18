@@ -17,6 +17,7 @@
 #ifndef SIGNAL_EASEL_MODULATOR_HPP_
 #define SIGNAL_EASEL_MODULATOR_HPP_
 
+#include <cstdint>
 #include <vector>
 
 #include <SignalEasel/settings.hpp>

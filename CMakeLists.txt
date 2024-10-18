@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
 option(USE_PULSEAUDIO "Use PulseAudio for audio input/output" ON)
 option(SSTV_ENABLED "Enable SSTV - Requires Magick++" OFF)
-option(SIGNALEASEL_UNIT_TESTS "Enable unit tests" ON)
+option(SIGNALEASEL_UNIT_TESTS "Enable unit tests" OFF)
 option(SIGNALEASEL_COVERAGE "Enable code coverage" OFF)
 
 # ---------------------------------

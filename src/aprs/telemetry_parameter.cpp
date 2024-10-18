@@ -157,6 +157,12 @@ bool AnalogParameter::setCoefficientC(const std::string &coefficient) {
   return true;
 }
 
+double AnalogParameter::getCoefficientAd() const { return a_; }
+
+double AnalogParameter::getCoefficientBd() const { return b_; }
+
+double AnalogParameter::getCoefficientCd() const { return c_; }
+
 bool AnalogParameter::setCoefficients(const std::string &coefficient_a,
                                       const std::string &coefficient_b,
                                       const std::string &coefficient_c) {

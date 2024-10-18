@@ -184,6 +184,10 @@ public:
     coefficient_c = coefficient_c_;
   }
 
+  double getCoefficientAd() const;
+  double getCoefficientBd() const;
+  double getCoefficientCd() const;
+
 private:
   /// @brief The raw value of the analog parameter (0-255).
   uint8_t raw_value_{0};

@@ -1,5 +1,11 @@
 var NAVTREEINDEX7 =
 {
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a80bfce192e6e722c2947184e05969a80":[9,0,0,1,2,3],
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a80bfce192e6e722c2947184e05969a80":[10,0,0,1,2,3],
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402":[9,0,0,1,2,1],
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402":[10,0,0,1,2,1],
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402a2bd566f488f3cd962385e3da2cf2eda7":[9,0,0,1,2,1,6],
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402a2bd566f488f3cd962385e3da2cf2eda7":[10,0,0,1,2,1,6],
 "structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199":[9,0,0,1,2,1,3],
 "structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199":[10,0,0,1,2,1,3],
 "structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3":[10,0,0,1,2,1,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX7 =
 "structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bba94e94133f4bdc1794c6b647b8ea134d0":[9,0,0,1,9,0,0],
 "structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bba94e94133f4bdc1794c6b647b8ea134d0":[10,0,0,1,9,0,0],
 "structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bbaf914fecd9d18211d33c0d2edcaf63dd7":[9,0,0,1,9,0,1],
-"structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bbaf914fecd9d18211d33c0d2edcaf63dd7":[10,0,0,1,9,0,1],
-"structsignal__easel_1_1aprs_1_1Settings.html#ad09124792069e234b8a664ba2842f00f":[9,0,0,1,9,6],
-"structsignal__easel_1_1aprs_1_1Settings.html#ad09124792069e234b8a664ba2842f00f":[10,0,0,1,9,6],
-"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3":[10,0,0,1,9,1],
-"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3":[9,0,0,1,9,1],
-"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3a1259d5beade8955b50dec08a1f8e6304":[10,0,0,1,9,1,3],
-"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3a1259d5beade8955b50dec08a1f8e6304":[9,0,0,1,9,1,3]
+"structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bbaf914fecd9d18211d33c0d2edcaf63dd7":[10,0,0,1,9,0,1]
 };

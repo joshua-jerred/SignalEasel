@@ -1,5 +1,11 @@
 var NAVTREEINDEX8 =
 {
+"structsignal__easel_1_1aprs_1_1Settings.html#ad09124792069e234b8a664ba2842f00f":[9,0,0,1,9,6],
+"structsignal__easel_1_1aprs_1_1Settings.html#ad09124792069e234b8a664ba2842f00f":[10,0,0,1,9,6],
+"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3":[10,0,0,1,9,1],
+"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3":[9,0,0,1,9,1],
+"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3a1259d5beade8955b50dec08a1f8e6304":[10,0,0,1,9,1,3],
+"structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3a1259d5beade8955b50dec08a1f8e6304":[9,0,0,1,9,1,3],
 "structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3a3525317285c6126ce3b62a8df8c00b07":[9,0,0,1,9,1,1],
 "structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3a3525317285c6126ce3b62a8df8c00b07":[10,0,0,1,9,1,1],
 "structsignal__easel_1_1aprs_1_1Settings.html#af6812132249078cc9794611e430665f3ab50339a10e1de285ac99d4c3990b8693":[9,0,0,1,9,1,0],

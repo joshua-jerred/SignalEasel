@@ -1,5 +1,5 @@
 <map id="signal_easel::aprs::telemetry::AnalogParameter" name="signal_easel::aprs::telemetry::AnalogParameter">
-<area shape="rect" id="node1" title=" " alt="" coords="262,476,475,729"/>
+<area shape="rect" id="node1" title=" " alt="" coords="262,476,475,773"/>
 <area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html" title="A representation of APRS telemetry parameters." alt="" coords="5,160,233,384"/>
 <area shape="rect" id="node3" title=" " alt="" coords="15,5,53,83"/>
 <area shape="rect" id="node4" title=" " alt="" coords="77,5,129,83"/>

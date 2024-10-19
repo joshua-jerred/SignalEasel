@@ -9,7 +9,7 @@ cd build
 rm -f coverage_data.*
 
 # Configure
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DSIGNALEASEL_COVERAGE=ON
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DSIGNALEASEL_COVERAGE=ON -DSIGNALEASEL_UNIT_TESTS=ON
 
 # Build
 cmake --build . --target signal_easel_unit_tests

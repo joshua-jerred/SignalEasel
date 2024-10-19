@@ -13,6 +13,7 @@ set(signal_easel_unit_tests_sources
   ${CMAKE_CURRENT_SOURCE_DIR}/ax25_crc_test.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/ax25_frame_test.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/psk_test.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilities_test.cpp
 )
 
 if(SSTV_TEST_ENABLED)
@@ -25,7 +26,7 @@ add_executable(signal_easel_unit_tests
 )
 target_link_libraries(signal_easel_unit_tests GTest::GTest GTest::Main SignalEasel BoosterSeat)
 # target_link_libraries(signal_easel_unit_tests SignalEasel)
-target_include_directories(signal_easel_unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
+target_include_directories(signal_easel_unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 gtest_discover_tests(signal_easel_unit_tests)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/afsk_timing_skew.wav ${CMAKE_CURRENT_BINARY_DIR}/afsk_timing_skew.wav COPYONLY)

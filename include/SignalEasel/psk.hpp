@@ -77,7 +77,8 @@ public:
    * @brief Constructor for the PSK Modulator
    * @param settings The settings for the modulator
    */
-  Modulator(psk::Settings settings = psk::Settings()) : settings_(settings) {}
+  Modulator(psk::Settings settings = psk::Settings())
+      : signal_easel::Modulator(settings), settings_(settings) {}
   ~Modulator() = default;
 
   void encodeString(const std::string &input);

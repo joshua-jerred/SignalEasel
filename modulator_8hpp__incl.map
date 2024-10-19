@@ -1,6 +1,7 @@
 <map id="modulator.hpp" name="modulator.hpp">
-<area shape="rect" id="node1" title="Modulator base class." alt="" coords="52,5,168,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" id="node3" href="$settings_8hpp.html" title="Settings structures for SignalEasel." alt="" coords="93,80,274,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="154,155,213,181"/>
+<area shape="rect" id="node1" title="Modulator base class." alt="" coords="70,5,186,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,80,159,107"/>
+<area shape="rect" id="node4" href="$settings_8hpp.html" title="Settings structures for SignalEasel." alt="" coords="184,80,365,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="245,155,304,181"/>
 </map>

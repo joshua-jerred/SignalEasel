@@ -83,8 +83,8 @@ var NAVTREEINDEX =
 "classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#ae5cf20126e2243b8d35d1e25303092b6a27f237e6b7f96587b6202ff3607ad88a",
 "classsignal__easel_1_1psk_1_1Modulator.html#a67263d2a46fdb510adb0b4211699bf26",
 "globals.html",
-"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a80bfce192e6e722c2947184e05969a80",
-"structsignal__easel_1_1aprs_1_1Settings.html#ad09124792069e234b8a664ba2842f00f"
+"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a71a822e1a5dbdc6d96968a5034649a2c",
+"structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bbaf914fecd9d18211d33c0d2edcaf63dd7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

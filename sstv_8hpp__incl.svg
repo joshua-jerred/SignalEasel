@@ -5,15 +5,15 @@
  -->
 <!-- Title: sstv.hpp Pages: 1 -->
 <svg width="464pt" height="196pt"
- viewBox="0.00 0.00 464.34 196.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 463.78 196.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 192)">
 <title>sstv.hpp</title>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="SSTV implementation.">
-<polygon fill="#bfbfbf" stroke="black" points="146.84,-168.5 146.84,-187.5 203.84,-187.5 203.84,-168.5 146.84,-168.5"/>
-<text text-anchor="middle" x="175.34" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">sstv.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="146.28,-168.5 146.28,-187.5 203.28,-187.5 203.28,-168.5 146.28,-168.5"/>
+<text text-anchor="middle" x="174.78" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">sstv.hpp</text>
 </a>
 </g>
 </g>
@@ -21,118 +21,133 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="10.34,-0.5 10.34,-19.5 54.34,-19.5 54.34,-0.5 10.34,-0.5"/>
-<text text-anchor="middle" x="32.34" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">string</text>
+<polygon fill="none" stroke="#bfbfbf" points="14.78,-0.5 14.78,-19.5 58.78,-19.5 58.78,-0.5 14.78,-0.5"/>
+<text text-anchor="middle" x="36.78" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">string</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M146.58,-173.3C104.06,-167.17 27.67,-153.42 11.34,-132 -11.95,-101.47 7.92,-54.01 21.75,-28.55"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="24.9,-30.09 26.82,-19.67 18.83,-26.62 24.9,-30.09"/>
+<path fill="none" stroke="midnightblue" d="M146.03,-173.3C103.51,-167.17 27.12,-153.42 10.78,-132 -12.79,-101.09 9.93,-53.45 25.29,-28.15"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="28.3,-29.95 30.71,-19.63 22.39,-26.2 28.3,-29.95"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="exception_8hpp.html" target="_top" xlink:title="SignalEasel exceptions.">
-<polygon fill="none" stroke="black" points="20.84,-112.5 20.84,-131.5 165.84,-131.5 165.84,-112.5 20.84,-112.5"/>
-<text text-anchor="middle" x="93.34" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/exception.hpp</text>
+<polygon fill="none" stroke="black" points="20.28,-112.5 20.28,-131.5 165.28,-131.5 165.28,-112.5 20.28,-112.5"/>
+<text text-anchor="middle" x="92.78" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/exception.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M162.16,-168.32C149.49,-159.98 130.1,-147.21 115.13,-137.35"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="116.75,-134.23 106.48,-131.65 112.9,-140.08 116.75,-134.23"/>
+<path fill="none" stroke="midnightblue" d="M161.6,-168.32C148.93,-159.98 129.55,-147.21 114.57,-137.35"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="116.2,-134.23 105.92,-131.65 112.35,-140.08 116.2,-134.23"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="modulator_8hpp.html" target="_top" xlink:title="Modulator base class.">
-<polygon fill="none" stroke="black" points="184.34,-112.5 184.34,-131.5 330.34,-131.5 330.34,-112.5 184.34,-112.5"/>
-<text text-anchor="middle" x="257.34" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/modulator.hpp</text>
+<polygon fill="none" stroke="black" points="183.78,-112.5 183.78,-131.5 329.78,-131.5 329.78,-112.5 183.78,-112.5"/>
+<text text-anchor="middle" x="256.78" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/modulator.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge5" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M188.51,-168.32C201.18,-159.98 220.57,-147.21 235.54,-137.35"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="237.77,-140.08 244.19,-131.65 233.92,-134.23 237.77,-140.08"/>
+<path fill="none" stroke="midnightblue" d="M187.95,-168.32C200.63,-159.98 220.01,-147.21 234.99,-137.35"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="237.21,-140.08 243.64,-131.65 233.36,-134.23 237.21,-140.08"/>
 </g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="348.34,-112.5 348.34,-131.5 456.34,-131.5 456.34,-112.5 348.34,-112.5"/>
-<text text-anchor="middle" x="402.34" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">sstv&#45;image&#45;tools.h</text>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:title=" ">
+<polygon fill="none" stroke="#bfbfbf" points="347.78,-112.5 347.78,-131.5 455.78,-131.5 455.78,-112.5 347.78,-112.5"/>
+<text text-anchor="middle" x="401.78" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">sstv&#45;image&#45;tools.h</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node8 -->
-<g id="edge9" class="edge">
-<title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M204.09,-170.16C242.46,-161.03 310.87,-144.76 356.43,-133.92"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="357.43,-137.28 366.35,-131.56 355.81,-130.47 357.43,-137.28"/>
+<!-- Node1&#45;&gt;Node9 -->
+<g id="edge10" class="edge">
+<title>Node1&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M203.53,-170.16C241.91,-161.03 310.31,-144.76 355.87,-133.92"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="356.87,-137.28 365.79,-131.56 355.25,-130.47 356.87,-137.28"/>
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge4" class="edge">
 <title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M82.89,-112.4C73.38,-104.03 59.59,-90.49 51.34,-76 43.15,-61.63 38.23,-43.44 35.45,-29.95"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="38.85,-29.12 33.6,-19.92 31.97,-30.39 38.85,-29.12"/>
+<path fill="none" stroke="midnightblue" d="M83.95,-112.48C75.59,-103.96 63.25,-90.13 55.78,-76 48.05,-61.38 43.08,-43.21 40.17,-29.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="43.57,-28.97 38.19,-19.84 36.71,-30.33 43.57,-28.97"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="60.84,-56.5 60.84,-75.5 125.84,-75.5 125.84,-56.5 60.84,-56.5"/>
-<text text-anchor="middle" x="93.34" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
+<polygon fill="none" stroke="#bfbfbf" points="65.28,-56.5 65.28,-75.5 130.28,-75.5 130.28,-56.5 65.28,-56.5"/>
+<text text-anchor="middle" x="97.78" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M93.34,-112.08C93.34,-105.01 93.34,-94.86 93.34,-85.99"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="96.84,-85.75 93.34,-75.75 89.84,-85.75 96.84,-85.75"/>
+<path fill="none" stroke="midnightblue" d="M93.61,-112.08C94.26,-105.01 95.2,-94.86 96.02,-85.99"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="99.53,-86.03 96.97,-75.75 92.56,-85.39 99.53,-86.03"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="143.84,-56.5 143.84,-75.5 190.84,-75.5 190.84,-56.5 143.84,-56.5"/>
-<text text-anchor="middle" x="167.34" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector</text>
+<polygon fill="none" stroke="#bfbfbf" points="158.78,-56.5 158.78,-75.5 208.78,-75.5 208.78,-56.5 158.78,-56.5"/>
+<text text-anchor="middle" x="183.78" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">cstdint</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge6" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M242.88,-112.32C228.84,-103.9 207.29,-90.97 190.79,-81.07"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="192.14,-77.8 181.76,-75.65 188.53,-83.8 192.14,-77.8"/>
+<path fill="none" stroke="midnightblue" d="M245.05,-112.32C233.94,-104.11 217.04,-91.6 203.8,-81.81"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="205.84,-78.97 195.72,-75.83 201.68,-84.59 205.84,-78.97"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="settings_8hpp.html" target="_top" xlink:title="Settings structures for SignalEasel.">
-<polygon fill="none" stroke="black" points="209.34,-56.5 209.34,-75.5 345.34,-75.5 345.34,-56.5 209.34,-56.5"/>
-<text text-anchor="middle" x="277.34" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/settings.hpp</text>
+<g id="a_node7"><a xlink:title=" ">
+<polygon fill="none" stroke="#bfbfbf" points="227.28,-56.5 227.28,-75.5 274.28,-75.5 274.28,-56.5 227.28,-56.5"/>
+<text text-anchor="middle" x="250.78" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node7 -->
 <g id="edge7" class="edge">
 <title>Node5&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M260.64,-112.08C263.32,-104.85 267.18,-94.41 270.52,-85.4"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="273.9,-86.34 274.09,-75.75 267.34,-83.91 273.9,-86.34"/>
+<path fill="none" stroke="midnightblue" d="M255.79,-112.08C254.99,-104.93 253.85,-94.64 252.86,-85.69"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="256.33,-85.3 251.75,-75.75 249.38,-86.08 256.33,-85.3"/>
 </g>
-<!-- Node7&#45;&gt;Node2 -->
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="settings_8hpp.html" target="_top" xlink:title="Settings structures for SignalEasel.">
+<polygon fill="none" stroke="black" points="292.78,-56.5 292.78,-75.5 428.78,-75.5 428.78,-56.5 292.78,-56.5"/>
+<text text-anchor="middle" x="360.78" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">SignalEasel/settings.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node8 -->
 <g id="edge8" class="edge">
-<title>Node7&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M238.51,-56.44C190.42,-45.84 109.37,-27.98 64.55,-18.1"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="65.03,-14.62 54.51,-15.89 63.52,-21.46 65.03,-14.62"/>
+<title>Node5&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M273.49,-112.32C290.09,-103.7 315.78,-90.36 335,-80.39"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="336.85,-83.37 344.11,-75.65 333.62,-77.16 336.85,-83.37"/>
+</g>
+<!-- Node8&#45;&gt;Node2 -->
+<g id="edge9" class="edge">
+<title>Node8&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M309.44,-56.44C241.88,-45.18 125.15,-25.73 68.91,-16.35"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="69.25,-12.86 58.81,-14.67 68.1,-19.77 69.25,-12.86"/>
 </g>
 </g>
 </svg>

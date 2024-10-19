@@ -1,10 +1,11 @@
 <map id="sstv.hpp" name="sstv.hpp">
-<area shape="rect" id="node1" title="SSTV implementation." alt="" coords="201,5,277,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="19,229,78,256"/>
-<area shape="rect" id="node3" href="$exception_8hpp.html" title="SignalEasel exceptions." alt="" coords="33,80,226,107"/>
-<area shape="rect" id="node5" href="$modulator_8hpp.html" title="Modulator base class." alt="" coords="251,80,446,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="470,80,614,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="86,155,173,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="197,155,260,181"/>
-<area shape="rect" id="node7" href="$settings_8hpp.html" title="Settings structures for SignalEasel." alt="" coords="284,155,466,181"/>
+<area shape="rect" id="node1" title="SSTV implementation." alt="" coords="200,5,276,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="25,229,84,256"/>
+<area shape="rect" id="node3" href="$exception_8hpp.html" title="SignalEasel exceptions." alt="" coords="32,80,226,107"/>
+<area shape="rect" id="node5" href="$modulator_8hpp.html" title="Modulator base class." alt="" coords="250,80,445,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="469,80,613,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="92,155,179,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="217,155,284,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="308,155,371,181"/>
+<area shape="rect" id="node8" href="$settings_8hpp.html" title="Settings structures for SignalEasel." alt="" coords="396,155,577,181"/>
 </map>

@@ -6,5 +6,6 @@ var searchData=
   ['user_20manual_3',['User Manual',['../md_docs_user_manual.html',1,'']]],
   ['user_5fmanual_2emd_4',['user_manual.md',['../user__manual_8md.html',1,'']]],
   ['utilities_2ecpp_5',['utilities.cpp',['../utilities_8cpp.html',1,'']]],
-  ['utilities_2ehpp_6',['utilities.hpp',['../utilities_8hpp.html',1,'']]]
+  ['utilities_2ehpp_6',['utilities.hpp',['../utilities_8hpp.html',1,'']]],
+  ['utilities_5ftest_2ecpp_7',['utilities_test.cpp',['../utilities__test_8cpp.html',1,'']]]
 ];

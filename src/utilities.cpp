@@ -15,6 +15,7 @@
  */
 
 #include <algorithm>
+#include <cctype>
 
 #include "utilities.hpp"
 
@@ -22,19 +23,26 @@ namespace signal_easel {
 
 bool isCallSignValid(const std::string &call_sign) {
   constexpr size_t k_min_call_sign_length = 3;
-  constexpr size_t k_max_call_sign_length = 6;
+  constexpr size_t k_max_call_sign_length = 7;
 
   if (call_sign.length() < k_min_call_sign_length ||
       call_sign.length() > k_max_call_sign_length) {
     return false;
   }
 
-  if (std::all_of(call_sign.begin(), call_sign.end(),
-                  [](char symbol) { return std::isdigit(symbol); })) {
-    return false;
+  bool contains_digit = false;
+  bool contains_letter = false;
+  for (const auto &symbol : call_sign) {
+    if (std::isdigit(symbol)) { // Check if there is at least one digit
+      contains_digit = true;
+    } else if (std::isalpha(symbol)) { // Check if there is at least one letter
+      contains_letter = true;
+    } else {
+      return false; // non-alphanumeric character
+    }
   }
 
-  return true;
+  return contains_digit && contains_letter;
 }
 
 } // namespace signal_easel

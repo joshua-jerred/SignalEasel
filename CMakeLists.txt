@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
-project(SignalEasel VERSION 1.0 DESCRIPTION "A WAV file utility library for modulating audio")
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
+project(SignalEasel 
+    VERSION 0.1
+    DESCRIPTION "SignalEasel is a C++ library for audio modulation and demodulation through a variety of analog and digital modes."
+    HOMEPAGE_URL "https://signaleasel.joshuajer.red"
+)
 
 # --- Configuration ---------------
 # The following options can be set to enable/disable features.
@@ -13,13 +16,12 @@ option(SIGNALEASEL_COVERAGE "Enable code coverage" OFF)
 # ---------------------------------
 
 # # Check if SignalEasel is being used directly or via add_subdirectory
-set(MAIN_PROJECT OFF)
-
+set(SIG_EAS_MAIN_PROJECT OFF)
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-    set(MAIN_PROJECT ON)
+    set(SIG_EAS_MAIN_PROJECT ON)
 endif()
 
-message(STATUS "=== SignalEasel Main project: ${MAIN_PROJECT}")
+message(STATUS "=== SignalEasel Main project: ${SIG_EAS_MAIN_PROJECT}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
@@ -39,13 +41,14 @@ if(SSTV_ENABLED)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/SSTV-Image-Tools EXCLUDE_FROM_ALL SYSTEM)
 endif()
 
-if(MAIN_PROJECT)
+if(SIG_EAS_MAIN_PROJECT)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/Boost_erSeat EXCLUDE_FROM_ALL SYSTEM)
-endif()
 
-if(SIGNALEASEL_COVERAGE)
-    list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/project/cmake)
-    include(CodeCoverage)
+    if(SIGNALEASEL_COVERAGE)
+        set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
+        list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/project/cmake)
+        include(CodeCoverage)
+    endif()
 endif()
 
 # --------------------------------
@@ -109,7 +112,7 @@ target_include_directories(SignalEasel
 set_target_properties(SignalEasel PROPERTIES FOLDER include/signal_easel.hpp)
 
 if(SSTV_ENABLED)
-    message(STATUS "=== - SSTV          : Enabled")
+    message(STATUS "=== - SSTV          : ON")
     target_link_libraries(SignalEasel sstv-image-tools)
     add_definitions(-DMAGICKCORE_QUANTUM_DEPTH=8)
     add_definitions(-DMAGICKCORE_HDRI_ENABLE=1) # Required or there are linking errors with Magick::Color::Color
@@ -125,7 +128,7 @@ endif()
 unset(SSTV_ENABLED CACHE)
 
 if(USE_PULSEAUDIO)
-    message(STATUS "=== - PulseAudio    : Enabled")
+    message(STATUS "=== - PulseAudio    : ON")
     find_path(PULSEAUDIO_INCLUDE_DIR
         NAMES pulse/pulseaudio.h
     )
@@ -142,14 +145,14 @@ endif()
 # --------------------------------
 # Code Coverage & Unit Tests
 if(SIGNALEASEL_COVERAGE)
-    message(STATUS "=== - Code Coverage : Enabled")
+    message(STATUS "=== - Code Coverage : ON")
     append_coverage_compiler_flags_to_target(SignalEasel)
 else()
     message(STATUS "=== - Code Coverage : Disabled")
 endif()
 
 if(SIGNALEASEL_UNIT_TESTS)
-    message(STATUS "=== - Unit Tests    : Enabled")
+    message(STATUS "=== - Unit Tests    : ON")
     enable_testing()
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/modules)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)

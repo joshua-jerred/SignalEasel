@@ -57,18 +57,18 @@ void Modulator::writeToFile(const std::string &filename) {
     throw Exception(Exception::Id::INVALID_CALL_SIGN);
   }
 
+  if (settings_.call_sign_mode == Settings::CallSignMode::AFTER ||
+      settings_.call_sign_mode == Settings::CallSignMode::BEFORE_AND_AFTER) {
+    addSilence(static_cast<uint32_t>(settings_.call_sign_pause_seconds *
+                                     AUDIO_SAMPLE_RATE));
+    addMorseCode(settings_.call_sign);
+  }
+
   try {
     wavgen::Writer wav_file(filename);
 
     for (const auto &sample : audio_buffer_) {
       wav_file.addSample(sample);
-    }
-
-    if (settings_.call_sign_mode == Settings::CallSignMode::AFTER ||
-        settings_.call_sign_mode == Settings::CallSignMode::BEFORE_AND_AFTER) {
-      addSilence(static_cast<uint32_t>(settings_.call_sign_pause_seconds *
-                                       AUDIO_SAMPLE_RATE));
-      addMorseCode(settings_.call_sign);
     }
 
     wav_file.done();

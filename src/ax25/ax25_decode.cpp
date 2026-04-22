@@ -50,7 +50,6 @@ BitStream decodeNrzi(BitStream &bit_stream) {
   while (num_bits > 0) {
     int8_t bit = bit_stream.popNextBit();
     if (bit == -1) {
-      std::cout << "No more bits in bit stream" << std::endl;
       break;
     }
     if (bit == previous_bit) {
@@ -72,51 +71,45 @@ BitStream decodeNrzi(BitStream &bit_stream) {
  * @return int -1 if no flags were found, otherwise the number of opening flags
  */
 int findStartFlags(BitStream &bit_stream) {
-  size_t num_bits = bit_stream.getBitStreamLength();
-  const auto &bit_vector = bit_stream.getBitVector();
-  uint8_t byte_buffer = 0;
-  int32_t bit_offset = -1;
-  int word_offset = 0;
-  for (uint32_t word : bit_vector) {
-    for (int32_t i = 0; i < 32; i++) {
-      byte_buffer = (word >> (24 - i)) & 0xFF;
-      if (byte_buffer == AX25_FLAG) {
-        bit_offset = i;
-        break;
-      }
-    }
-    if (bit_offset != -1) {
+  // Scan bit-by-bit for the flag byte, maintaining a sliding 8-bit buffer.
+  // This correctly detects flags that cross the 32-bit word boundaries in
+  // the underlying storage (the previous implementation only inspected
+  // byte-aligned windows within a single word and therefore missed roughly
+  // one in five flags).
+  uint8_t rolling = 0;
+  int bits_in_rolling = 0;
+  bool found = false;
+  while (bit_stream.getBitStreamLength() > 0) {
+    int8_t bit = bit_stream.popNextBit();
+    if (bit == -1) {
       break;
     }
-    word_offset++;
+    rolling = static_cast<uint8_t>((rolling << 1) | (bit & 0x01));
+    if (bits_in_rolling < 8) {
+      bits_in_rolling++;
+    }
+    if (bits_in_rolling == 8 && rolling == AX25_FLAG) {
+      found = true;
+      break;
+    }
   }
 
-  if (bit_offset < 0) {
+  if (!found) {
     return -1;
   }
 
-  bit_offset = 32 * word_offset + bit_offset;
-
-  while (bit_offset > 0) { // burn off the bits before the first flag
-    bit_stream.popNextBit();
-    bit_offset--;
-  }
-
-  num_bits = bit_stream.getBitStreamLength();
-  byte_buffer = 0;
-  int num_flags = 0;
-  while (num_bits > 8) { // burn off the flags at the start of the frame
-    byte_buffer = bit_stream.peakNextByte();
-
-    if (byte_buffer == AX25_FLAG) {
-      num_flags++;
-      for (int i = 0; i < 8; i++) {
-        bit_stream.popNextBit();
-      }
-    } else {
+  // We have just consumed one full flag byte. Check for additional
+  // consecutive flag bytes (byte-aligned from here).
+  int num_flags = 1;
+  while (bit_stream.getBitStreamLength() >= 8) {
+    int next = bit_stream.peakNextByte();
+    if (next != AX25_FLAG) {
       break;
     }
-    num_bits -= 8;
+    num_flags++;
+    for (int i = 0; i < 8; i++) {
+      bit_stream.popNextBit();
+    }
   }
 
   return num_flags;
@@ -164,11 +157,26 @@ std::vector<uint8_t> deStuffBytes(BitStream &bit_stream) {
 }
 
 bool Frame::parseBitStream(BitStream &bit_stream) {
-  constexpr int MIN_START_FLAGS = 2;
+  BitStream nrzi_bit_stream = decodeNrzi(bit_stream);
+  return parseNrziDecodedBitStream(nrzi_bit_stream);
+}
+
+bool Frame::parseNrziDecodedBitStream(BitStream &nrzi_bit_stream) {
+  // Only one flag byte is guaranteed before the frame (in particular, a
+  // closing flag of a previous frame may double as the opening flag of the
+  // next). Requiring two consecutive preamble flags caused back-to-back
+  // packets to be dropped.
+  constexpr int MIN_START_FLAGS = 1;
   constexpr int MIN_BYTES = 20;
 
-  BitStream nrzi_bit_stream = decodeNrzi(bit_stream);
-  // nrzi_bit_stream.dumpBitStream();
+  // Reset any previously-parsed state so repeated calls behave like fresh
+  // parses.
+  destination_address_ = Address();
+  source_address_ = Address();
+  repeater_addresses_.clear();
+  information_.clear();
+  fcs_ = 0xFFFF;
+
   auto start_flags = findStartFlags(nrzi_bit_stream);
   if (start_flags < MIN_START_FLAGS) {
     // std::cout << "Not enough start flags: " << start_flags << std::endl;
@@ -178,7 +186,6 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
   std::vector<uint8_t> destuffed_bytes = deStuffBytes(nrzi_bit_stream);
 
   if (destuffed_bytes.size() < MIN_BYTES) {
-    // std::cout << "Not enough bytes" << std::endl;
     return false;
   }
 
@@ -194,14 +201,21 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
     dest_address_string += new_char;
   }
   uint8_t dest_ssid = (destuffed_bytes.at(iterator++) >> 1) & 0x0F;
-  Address dest_address(dest_address_string, dest_ssid, false);
-  setDestinationAddress(dest_address);
+  try {
+    Address dest_address(dest_address_string, dest_ssid, false);
+    setDestinationAddress(dest_address);
+  } catch (...) {
+    return false;
+  }
 
-  // parse the source address
+  // parse the source address (+ optional repeater addresses)
   std::string source_address_string;
   bool last_address = false;
   int num_sources = 0;
   while (!last_address) {
+    if (iterator + 7 > destuffed_bytes.size()) {
+      return false;
+    }
     source_address_string = "";
     size_t start = iterator;
     for (; iterator < start + 6; iterator++) {
@@ -214,25 +228,30 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
     uint8_t ssid_byte = destuffed_bytes.at(iterator++);
     last_address = ssid_byte & 0x01;
     uint8_t source_ssid = (ssid_byte >> 1) & 0x0F;
-    Address source_address(source_address_string, source_ssid, last_address);
-    if (num_sources == 0) {
-      setSourceAddress(source_address);
-    } else {
-      addRepeaterAddress(source_address);
+    try {
+      Address source_address(source_address_string, source_ssid, last_address);
+      if (num_sources == 0) {
+        setSourceAddress(source_address);
+      } else if (repeater_addresses_.size() < K_MAX_REPEATER_ADDRESSES) {
+        addRepeaterAddress(source_address);
+      } else {
+        return false; // too many repeater addresses for this frame
+      }
+    } catch (...) {
+      return false;
     }
+    num_sources++;
   }
 
   // parse the control byte
   uint8_t control_byte = destuffed_bytes.at(iterator++);
   if (control_byte != 0x03) {
-    std::cout << "Control byte is not 0x03" << std::endl;
     return false;
   }
 
   // parse the PID byte
   uint8_t pid_byte = destuffed_bytes.at(iterator++);
   if (pid_byte != 0xF0) {
-    std::cout << "PID byte is not 0xF0" << std::endl;
     return false;
   }
 
@@ -248,7 +267,6 @@ bool Frame::parseBitStream(BitStream &bit_stream) {
   fcs_ |= destuffed_bytes.at(iterator++) & 0xFF;
 
   if (iterator != destuffed_bytes.size()) {
-    std::cout << "Didn't parse all bytes" << std::endl;
     return false;
   }
 

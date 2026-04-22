@@ -48,9 +48,24 @@ int main() {
   signal_easel::aprs::Receiver receiver;
 
   while (true) {
-    receiver.process();
+    if (receiver.process()) {
+      std::cout << "Last Packet / Live SNR: " << receiver.getSNR() << "dB"
+                << " " << receiver.getLiveSnr() << "dB" << std::endl;
+      auto stats = receiver.getStats();
+      std::cout << "Total message packets: " << stats.total_message_packets
+                << std::endl;
+      std::cout << "Total position packets: " << stats.total_position_packets
+                << std::endl;
+      std::cout << "Total experimental packets: "
+                << stats.total_experimental_packets << std::endl;
+      std::cout << "Total telemetry packets: " << stats.total_telemetry_packets
+                << std::endl;
+      std::cout << "Total other packets: " << stats.total_other_packets
+                << std::endl;
+    }
+
     // reader.process();
-    // printVolumeBar(reader.getVolume(), reader.getLatency());
+    printVolumeBar(receiver.getVolume(), receiver.getLatency());
   }
 
   return 0;

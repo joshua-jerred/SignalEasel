@@ -75,85 +75,103 @@ bool Receiver::getOtherAprsPacket(ax25::Frame &frame) {
   return true;
 }
 
-void Receiver::decode() {
-  demodulation_res_ = demodulator_.processAudioBuffer();
-
-  // std::cout << "Decoding [";
-  // std::cout << std::setprecision(2) << std::fixed
-  //           << "SNR: " << demodulation_res.snr << "]" << std::endl;
-
-  aprs_demodulator_.output_bit_stream_ = demodulator_.output_bit_stream_;
-  bool res = false;
-  try {
-    res = aprs_demodulator_.lookForAx25Packet();
-  } catch (Exception &e) {
-    // std::cout << "Exception: " << e.what() << std::endl;
-    return;
-  }
-
+void Receiver::processDecodedFrame() {
   const auto type = aprs_demodulator_.getType();
 
-  if (res && type == aprs::Packet::Type::MESSAGE) {
-
+  switch (type) {
+  case aprs::Packet::Type::MESSAGE: {
     aprs::MessagePacket message_packet;
-    bool success = aprs_demodulator_.parseMessagePacket(message_packet);
-    if (success) {
-      aprs_messages_.push_back(std::pair<ax25::Frame, aprs::MessagePacket>(
-          aprs_demodulator_.frame_, message_packet));
+    if (aprs_demodulator_.parseMessagePacket(message_packet)) {
+      aprs_messages_.emplace_back(aprs_demodulator_.frame_, message_packet);
       stats_.total_message_packets++;
     } else {
       stats_.num_message_packets_failed++;
+      other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+      stats_.total_other_packets++;
     }
-
-  } else if (res && type == aprs::Packet::Type::POSITION) {
-
+    break;
+  }
+  case aprs::Packet::Type::POSITION: {
     aprs::PositionPacket position_packet;
-    bool success = aprs_demodulator_.parsePositionPacket(position_packet);
-    if (success) {
+    if (aprs_demodulator_.parsePositionPacket(position_packet)) {
       position_packet.decoded_timestamp.setToNow();
-      aprs_positions_.push_back(std::pair<ax25::Frame, aprs::PositionPacket>(
-          aprs_demodulator_.frame_, position_packet));
+      aprs_positions_.emplace_back(aprs_demodulator_.frame_, position_packet);
       stats_.total_position_packets++;
     } else {
       stats_.num_position_packets_failed++;
+      other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+      stats_.total_other_packets++;
     }
-
-  } else if (res && type == aprs::Packet::Type::EXPERIMENTAL) {
-
+    break;
+  }
+  case aprs::Packet::Type::EXPERIMENTAL: {
     aprs::ExperimentalPacket experimental_packet;
-    bool success =
-        aprs_demodulator_.parseExperimentalPacket(experimental_packet);
-    if (success) {
-      aprs_experimental_.push_back(
-          std::pair<ax25::Frame, aprs::ExperimentalPacket>(
-              aprs_demodulator_.frame_, experimental_packet));
+    if (aprs_demodulator_.parseExperimentalPacket(experimental_packet)) {
+      aprs_experimental_.emplace_back(aprs_demodulator_.frame_,
+                                      experimental_packet);
       stats_.total_experimental_packets++;
     } else {
       stats_.num_experimental_packets_failed++;
+      other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+      stats_.total_other_packets++;
     }
-
-  } else if (res &&
-             (type == aprs::Packet::Type::TELEMETRY_DATA_REPORT ||
-              type == aprs::Packet::Type::TELEMETRY_COEFFICIENT ||
-              type == aprs::Packet::Type::TELEMETRY_PARAMETER_NAME ||
-              type == aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT ||
-              type == aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME)) {
-
+    break;
+  }
+  case aprs::Packet::Type::TELEMETRY_DATA_REPORT:
+  case aprs::Packet::Type::TELEMETRY_COEFFICIENT:
+  case aprs::Packet::Type::TELEMETRY_PARAMETER_NAME:
+  case aprs::Packet::Type::TELEMETRY_PARAMETER_UNIT:
+  case aprs::Packet::Type::TELEMETRY_BIT_SENSE_PROJ_NAME: {
     aprs::TelemetryPacket telemetry_packet;
-    bool success = aprs_demodulator_.parseTelemetryPacket(telemetry_packet);
-    if (success) {
-      aprs_telemetry_.push_back(std::pair<ax25::Frame, aprs::TelemetryPacket>(
-          aprs_demodulator_.frame_, telemetry_packet));
+    if (aprs_demodulator_.parseTelemetryPacket(telemetry_packet)) {
+      aprs_telemetry_.emplace_back(aprs_demodulator_.frame_, telemetry_packet);
       stats_.total_telemetry_packets++;
     } else {
       stats_.num_telemetry_packets_failed++;
+      other_aprs_packets_.push_back(aprs_demodulator_.frame_);
+      stats_.total_other_packets++;
     }
-
-  } else if (res) {
+    break;
+  }
+  default:
     other_aprs_packets_.push_back(aprs_demodulator_.frame_);
     stats_.total_other_packets++;
-  } else {
-    // std::cout << "No packet found" << std::endl;
+    break;
+  }
+}
+
+void Receiver::decode() {
+  demodulation_res_ = demodulator_.processAudioBuffer();
+
+  // NRZI-decode the bit stream once, then repeatedly extract frames from
+  // the resulting stream. This allows multiple AX.25 frames that were
+  // captured in a single receive buffer (back-to-back packets) to all be
+  // decoded, instead of only the first one.
+  aprs_demodulator_.output_bit_stream_ = demodulator_.output_bit_stream_;
+  BitStream nrzi_stream =
+      ax25::decodeNrzi(aprs_demodulator_.output_bit_stream_);
+
+  int frame_count = 0;
+  while (nrzi_stream.getBitStreamLength() > 0) {
+    const int bits_before = nrzi_stream.getBitStreamLength();
+    bool res = false;
+    try {
+      res = aprs_demodulator_.lookForNextAx25Packet(nrzi_stream);
+    } catch (...) {
+      if (nrzi_stream.getBitStreamLength() == bits_before) {
+        break; // no progress; avoid infinite loop
+      }
+      continue;
+    }
+    if (nrzi_stream.getBitStreamLength() == bits_before) {
+      break; // no progress; avoid infinite loop
+    }
+    if (res) {
+      frame_count++;
+      processDecodedFrame();
+    }
+    // if !res but bits were consumed, a false-positive flag was rejected;
+    // keep scanning for the next real flag
   }
 
   constexpr size_t MAX_FRAMES = 10;

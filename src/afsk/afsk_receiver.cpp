@@ -22,10 +22,13 @@
 namespace signal_easel {
 
 bool afsk::Receiver::process() {
-  if (!pulse_audio_reader_.process()) {
+  if (!pulse_audio_reader_) {
+    pulse_audio_reader_ = std::make_unique<PulseAudioReader>();
+  }
+  if (!pulse_audio_reader_->process()) {
     return false;
   }
-  detectSignal(pulse_audio_reader_.getAudioBuffer());
+  detectSignal(pulse_audio_reader_->getAudioBuffer());
   return true;
 }
 
@@ -37,50 +40,53 @@ bool afsk::Receiver::detectSignal(const PulseAudioBuffer &audio_buffer) {
   afsk::Demodulator::ProcessResults results{};
   demodulator_.audioBufferToBaseBandSignal(results);
 
-  bool signal_detected = false;
-  if (results.snr > AFSK_SNR_THRESHOLD) {
-    signal_detected = true;
-  }
-
+  const bool signal_detected = results.snr > AFSK_SNR_THRESHOLD;
+  live_snr_ = results.snr;
   if (signal_detected) {
     receive_buffer_.insert(receive_buffer_.end(), audio_buffer.begin(),
                            audio_buffer.end());
+
+    // If the signal is sustained (e.g. back-to-back packets with no gap),
+    // periodically decode so that the receive buffer doesn't grow without
+    // bound and so that packets are delivered in a timely fashion. After
+    // decoding, keep a tail of audio samples so that a packet straddling
+    // the decode boundary can still be recovered on the next decode.
+    if (receive_buffer_.size() >= PERIODIC_DECODE_SAMPLE_COUNT) {
+      demodulator_.audio_buffer_ = receive_buffer_;
+      decode();
+      retainTailSamples();
+    }
   } else if (receive_buffer_.size() > AFSK_RECEIVED_MIN_SAMPLES) {
+    // Signal dropped after we had been receiving: treat as end-of-burst and
+    // decode everything we've accumulated.
     receive_buffer_.insert(receive_buffer_.end(), audio_buffer.begin(),
                            audio_buffer.end());
     demodulator_.audio_buffer_ = receive_buffer_;
     decode();
     receive_buffer_.clear();
   } else {
-    // Did not receive a signal, but we should keep the last few samples
-    // in case the signal comes back.
+    // Did not receive a signal, and no meaningful buffer to flush.
     receive_buffer_.clear();
-    // receive_buffer_ =
-    // std::vector<int16_t>(audio_buffer.begin(), audio_buffer.end());
   }
 
-  return true;
+  return signal_detected;
+}
+
+void afsk::Receiver::retainTailSamples() {
+  if (receive_buffer_.size() <= DECODE_TAIL_SAMPLE_COUNT) {
+    receive_buffer_.clear();
+    return;
+  }
+  const size_t drop_count = receive_buffer_.size() - DECODE_TAIL_SAMPLE_COUNT;
+  receive_buffer_.erase(receive_buffer_.begin(),
+                        receive_buffer_.begin() + drop_count);
 }
 
 void afsk::Receiver::decode() {
-  auto demodulation_res = demodulator_.processAudioBuffer();
-
-  std::cout << "Decoding [";
-  std::cout << std::setprecision(2) << std::fixed
-            << "SNR: " << demodulation_res.snr << "]: ";
+  demodulator_.processAudioBuffer();
 
   std::string out_str;
-  auto str_res = demodulator_.lookForString(out_str);
-
-  if (str_res == afsk::Demodulator::AsciiResult::SUCCESS) {
-    std::cout << out_str << std::endl;
-  } else if (str_res == afsk::Demodulator::AsciiResult::NO_SYN) {
-    // std::cout << "No SYN" << std::endl;
-  } else if (str_res == afsk::Demodulator::AsciiResult::NO_EOT) {
-    // std::cout << "No EOT" << std::endl;
-  } else {
-    std::cout << "Unknown" << std::endl;
-  }
+  demodulator_.lookForString(out_str);
 }
 
 } // namespace signal_easel

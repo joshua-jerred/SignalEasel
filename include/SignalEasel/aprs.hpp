@@ -53,6 +53,16 @@ public:
       : afsk::Demodulator(settings) {}
 
   bool lookForAx25Packet();
+
+  /**
+   * @brief Like lookForAx25Packet, but parses a single AX.25 frame from an
+   * already NRZI-decoded bit stream. Call repeatedly to extract multiple
+   * frames from a single receive buffer.
+   * @param nrzi_decoded_stream The post-NRZI bit stream to consume.
+   * @return true if a frame was successfully parsed.
+   */
+  bool lookForNextAx25Packet(BitStream &nrzi_decoded_stream);
+
   aprs::Packet::Type getType() { return type_; }
 
   /**
@@ -132,6 +142,14 @@ public:
 
 private:
   void decode() override;
+
+  /// @brief Categorises and stores a frame that has already been parsed by
+  /// aprs_demodulator_ (i.e. aprs_demodulator_.frame_ and getType() reflect
+  /// the decoded frame). Falls back to other_aprs_packets_ when the
+  /// packet-type-specific parse fails so that successfully-received frames
+  /// are not silently dropped.
+  void processDecodedFrame();
+
   std::vector<std::pair<ax25::Frame, aprs::MessagePacket>> aprs_messages_{};
   std::vector<std::pair<ax25::Frame, aprs::PositionPacket>> aprs_positions_{};
   std::vector<std::pair<ax25::Frame, aprs::ExperimentalPacket>>

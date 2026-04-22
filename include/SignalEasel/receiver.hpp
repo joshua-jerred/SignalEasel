@@ -17,6 +17,8 @@
 #ifndef SIGNAL_EASEL_RECEIVER_HPP_
 #define SIGNAL_EASEL_RECEIVER_HPP_
 
+#include <memory>
+
 #include <SignalEasel/pulse_audio.hpp>
 #include <SignalEasel/settings.hpp>
 
@@ -29,12 +31,18 @@ public:
 
   virtual bool process() = 0;
 
-  uint64_t getLatency() const { return pulse_audio_reader_.getLatency(); }
+  uint64_t getLatency() const {
+    return pulse_audio_reader_ ? pulse_audio_reader_->getLatency() : 0;
+  }
 
-  double getVolume() const { return pulse_audio_reader_.getVolume(); }
+  double getVolume() const {
+    return pulse_audio_reader_ ? pulse_audio_reader_->getVolume() : 0.0;
+  }
 
 protected:
-  PulseAudioReader pulse_audio_reader_{};
+  /// @brief Lazily constructed on first process() call so that tests can
+  /// override process() without triggering a real PulseAudio connection.
+  std::unique_ptr<PulseAudioReader> pulse_audio_reader_{};
   Settings settings_;
 };
 

@@ -1,0 +1,6 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node1" title="Test that the receiver properly decodes a real APRS packet from aprs_real.wav using the full aprs::Re..." alt="" coords="5,50,60,77"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1Receiver.html#a8aa6795f2c030716f18264be70fc0f88" title=" " alt="" coords="119,5,268,47"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html#a22e1bb72a3eea1cf5b72ecb6c83185da" title="Returns true if there was enough data to process." alt="" coords="108,71,279,127"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3" title=" " alt="" coords="327,79,503,120"/>
+</map>

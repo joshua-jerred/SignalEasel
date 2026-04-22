@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::TestableAprsReceiver::process" name="signal_easel::aprs::TestableAprsReceiver::process">
+<area shape="rect" id="node1" title="Returns true if there was enough data to process." alt="" coords="5,5,176,61"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3" title=" " alt="" coords="224,13,400,54"/>
+</map>

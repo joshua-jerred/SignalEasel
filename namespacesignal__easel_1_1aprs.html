@@ -121,6 +121,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1ExperimentalPacket.html">ExperimentalPacket</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw packet with two '{' characters at the start.  <a href="structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1FakePulseAudioReader.html">FakePulseAudioReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fake <a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a> that reads from a WAV file in chunks.  <a href="classsignal__easel_1_1aprs_1_1FakePulseAudioReader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1MessageAckPacket.html">MessageAckPacket</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1MessagePacket.html">MessagePacket</a></td></tr>
@@ -137,6 +140,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1Settings.html">Settings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsignal__easel_1_1aprs_1_1TelemetryPacket.html">TelemetryPacket</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html">TestableAprsReceiver</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Testable version of <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html">aprs::Receiver</a> that injects a fake pulse audio reader, exercising the full <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html">aprs::Receiver</a> decode path.  <a href="classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -157,6 +163,8 @@ Functions</h2></td></tr>
 <tr class="separator:a7e5cf8507153513e6f422dc8ead78da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae16006b4c75ab6423ad8b90ea814a14f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1aprs.html#ae16006b4c75ab6423ad8b90ea814a14f">CheckPacketData</a> (const <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html">aprs::Packet</a> &amp;packet)</td></tr>
 <tr class="separator:ae16006b4c75ab6423ad8b90ea814a14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee238dfb028415d1bb8604764e23c60"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402">aprs::Packet::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1aprs.html#aaee238dfb028415d1bb8604764e23c60">classifyFrameType</a> (const <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> &amp;frame)</td></tr>
+<tr class="separator:aaee238dfb028415d1bb8604764e23c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77481001a5b78a839972bb4220b43e4d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d">encodePacket</a> (const <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html">aprs::Packet</a> &amp;required_fields, std::vector&lt; uint8_t &gt; &amp;info)</td></tr>
 <tr class="memdesc:a77481001a5b78a839972bb4220b43e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base function to encode an APRS packet with the provided base data and info field.  <a href="namespacesignal__easel_1_1aprs.html#a77481001a5b78a839972bb4220b43e4d">More...</a><br /></td></tr>
 <tr class="separator:a77481001a5b78a839972bb4220b43e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,7 +250,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesignal__easel_1_1aprs_a53b79c5e1cab35addb27026b3e9e0e21_icgraph.svg" width="599" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesignal__easel_1_1aprs_a53b79c5e1cab35addb27026b3e9e0e21_icgraph.svg" width="850" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -389,6 +397,48 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacesignal__easel_1_1aprs_a77481001a5b78a839972bb4220b43e4d_icgraph.svg" width="451" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aaee238dfb028415d1bb8604764e23c60" name="aaee238dfb028415d1bb8604764e23c60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee238dfb028415d1bb8604764e23c60">&#9670;&nbsp;</a></span>classifyFrameType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402">aprs::Packet::Type</a> signal_easel::aprs::classifyFrameType </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html">ax25::Frame</a> &amp;&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199">signal_easel::aprs::Packet::EXPERIMENTAL</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">signal_easel::ax25::Frame::getInformation()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4">signal_easel::aprs::Packet::MESSAGE</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1">signal_easel::aprs::Packet::POSITION</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402aff4d8347b205cf6fff215887c98e84ff">signal_easel::aprs::Packet::TELEMETRY_BIT_SENSE_PROJ_NAME</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402aa78fc49e8fd46e367275b5e6483f4150">signal_easel::aprs::Packet::TELEMETRY_COEFFICIENT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a978270d962aa29e9ad7da961e567c1c4">signal_easel::aprs::Packet::TELEMETRY_DATA_REPORT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a2bd566f488f3cd962385e3da2cf2eda7">signal_easel::aprs::Packet::TELEMETRY_PARAMETER_NAME</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402ad844901c37a114e6b31ae868b45ed7a9">signal_easel::aprs::Packet::TELEMETRY_PARAMETER_UNIT</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3">signal_easel::aprs::Packet::UNKNOWN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">signal_easel::aprs::Demodulator::lookForAx25Packet()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df">signal_easel::aprs::Demodulator::lookForNextAx25Packet()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesignal__easel_1_1aprs_aaee238dfb028415d1bb8604764e23c60_cgraph.svg" width="386" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesignal__easel_1_1aprs_aaee238dfb028415d1bb8604764e23c60_icgraph.svg" width="604" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

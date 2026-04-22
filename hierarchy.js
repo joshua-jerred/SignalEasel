@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "signal_easel::afsk::Demodulator::ProcessResults", "classsignal__easel_1_1afsk_1_1Demodulator.html#structsignal__easel_1_1afsk_1_1Demodulator_1_1ProcessResults", null ],
+    [ "signal_easel::aprs::FakePulseAudioReader", "classsignal__easel_1_1aprs_1_1FakePulseAudioReader.html", null ],
     [ "signal_easel::aprs::Packet", "structsignal__easel_1_1aprs_1_1Packet.html", [
       [ "signal_easel::aprs::ExperimentalPacket", "structsignal__easel_1_1aprs_1_1ExperimentalPacket.html", null ],
       [ "signal_easel::aprs::MessageAckPacket", "structsignal__easel_1_1aprs_1_1MessageAckPacket.html", null ],
@@ -37,7 +38,9 @@ var hierarchy =
     [ "signal_easel::PulseAudioReader", "classsignal__easel_1_1PulseAudioReader.html", null ],
     [ "signal_easel::Receiver", "classsignal__easel_1_1Receiver.html", [
       [ "signal_easel::afsk::Receiver", "classsignal__easel_1_1afsk_1_1Receiver.html", [
-        [ "signal_easel::aprs::Receiver", "classsignal__easel_1_1aprs_1_1Receiver.html", null ]
+        [ "signal_easel::aprs::Receiver", "classsignal__easel_1_1aprs_1_1Receiver.html", [
+          [ "signal_easel::aprs::TestableAprsReceiver", "classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "signal_easel::Settings", "structsignal__easel_1_1Settings.html", [

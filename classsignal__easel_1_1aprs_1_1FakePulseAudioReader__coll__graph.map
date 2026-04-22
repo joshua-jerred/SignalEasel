@@ -1,0 +1,6 @@
+<map id="signal_easel::aprs::FakePulseAudioReader" name="signal_easel::aprs::FakePulseAudioReader">
+<area shape="rect" id="node1" title="Fake PulseAudioReader that reads from a WAV file in chunks." alt="" coords="103,160,297,281"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,144,90"/>
+<area shape="rect" id="node3" title=" " alt="" coords="170,13,230,90"/>
+<area shape="rect" id="node4" title=" " alt="" coords="261,5,443,97"/>
+</map>

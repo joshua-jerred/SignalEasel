@@ -1,5 +1,7 @@
 <map id="signal_easel::afsk::Receiver::detectSignal" name="signal_easel::afsk::Receiver::detectSignal">
-<area shape="rect" id="node1" title=" " alt="" coords="301,5,477,47"/>
-<area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481" title="Returns true if there was enough data to process." alt="" coords="108,5,253,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="327,43,503,84"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481" title="Returns true if there was enough data to process." alt="" coords="121,5,266,47"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html#a22e1bb72a3eea1cf5b72ecb6c83185da" title="Returns true if there was enough data to process." alt="" coords="108,71,279,127"/>
 <area shape="rect" id="node3" href="$pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node5" href="$aprs__receiver__test_8cpp.html#a6da409628ac7ef9e2a77432a7b00e984" title="Test that the receiver properly decodes a real APRS packet from aprs_real.wav using the full aprs::Re..." alt="" coords="5,86,60,113"/>
 </map>

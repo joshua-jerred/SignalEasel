@@ -162,6 +162,12 @@ Variables</h2></td></tr>
 <tr class="separator:a56d213270c70b093e09495df632ba12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab235dbbed9f3d00241757c8ec84bc5d5"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1afsk.html#ab235dbbed9f3d00241757c8ec84bc5d5">AFSK_SPACE_FREQUENCY</a> = 2200</td></tr>
 <tr class="separator:ab235dbbed9f3d00241757c8ec84bc5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad8ec37d47c542d72d2927e06910233"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1afsk.html#a1ad8ec37d47c542d72d2927e06910233">DECODE_TAIL_SAMPLE_COUNT</a> = 1 * <a class="el" href="namespacesignal__easel.html#aed90c60637ea63f57f997e0e07c9954d">AUDIO_SAMPLE_RATE</a></td></tr>
+<tr class="memdesc:a1ad8ec37d47c542d72d2927e06910233"><td class="mdescLeft">&#160;</td><td class="mdescRight">After a periodic decode, keep this many trailing samples in the receive buffer so that a packet that straddled the decode boundary can still be recovered on the next decode attempt. One second is comfortably longer than any APRS frame.  <a href="namespacesignal__easel_1_1afsk.html#a1ad8ec37d47c542d72d2927e06910233">More...</a><br /></td></tr>
+<tr class="separator:a1ad8ec37d47c542d72d2927e06910233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61aff5930d7cc70d2b6897ce92be261"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1afsk.html#ad61aff5930d7cc70d2b6897ce92be261">PERIODIC_DECODE_SAMPLE_COUNT</a> = 2 * <a class="el" href="namespacesignal__easel.html#aed90c60637ea63f57f997e0e07c9954d">AUDIO_SAMPLE_RATE</a></td></tr>
+<tr class="memdesc:ad61aff5930d7cc70d2b6897ce92be261"><td class="mdescLeft">&#160;</td><td class="mdescRight">When the receive buffer has accumulated this many samples during a sustained-signal burst, force a decode pass even though the signal has not yet dropped below the detection threshold. An APRS packet is at most ~500 samples of bits; 2 seconds worth of audio is more than enough to contain several packets. Keeping this window small ensures packets in a continuous-signal stream are delivered promptly.  <a href="namespacesignal__easel_1_1afsk.html#ad61aff5930d7cc70d2b6897ce92be261">More...</a><br /></td></tr>
+<tr class="separator:ad61aff5930d7cc70d2b6897ce92be261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Audio Frequency Shift Keying (AFSK) </p>
@@ -580,6 +586,58 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3">signal_easel::afsk::Receiver::detectSignal()</a>.</p>
+
+</div>
+</div>
+<a id="ad61aff5930d7cc70d2b6897ce92be261" name="ad61aff5930d7cc70d2b6897ce92be261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61aff5930d7cc70d2b6897ce92be261">&#9670;&nbsp;</a></span>PERIODIC_DECODE_SAMPLE_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t signal_easel::afsk::PERIODIC_DECODE_SAMPLE_COUNT = 2 * <a class="el" href="namespacesignal__easel.html#aed90c60637ea63f57f997e0e07c9954d">AUDIO_SAMPLE_RATE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>When the receive buffer has accumulated this many samples during a sustained-signal burst, force a decode pass even though the signal has not yet dropped below the detection threshold. An APRS packet is at most ~500 samples of bits; 2 seconds worth of audio is more than enough to contain several packets. Keeping this window small ensures packets in a continuous-signal stream are delivered promptly. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3">signal_easel::afsk::Receiver::detectSignal()</a>.</p>
+
+</div>
+</div>
+<a id="a1ad8ec37d47c542d72d2927e06910233" name="a1ad8ec37d47c542d72d2927e06910233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ad8ec37d47c542d72d2927e06910233">&#9670;&nbsp;</a></span>DECODE_TAIL_SAMPLE_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t signal_easel::afsk::DECODE_TAIL_SAMPLE_COUNT = 1 * <a class="el" href="namespacesignal__easel.html#aed90c60637ea63f57f997e0e07c9954d">AUDIO_SAMPLE_RATE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>After a periodic decode, keep this many trailing samples in the receive buffer so that a packet that straddled the decode boundary can still be recovered on the next decode attempt. One second is comfortably longer than any APRS frame. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a458ffb64697eaa0d2017c56ef621df4b">signal_easel::afsk::Receiver::retainTailSamples()</a>.</p>
 
 </div>
 </div>

@@ -7,6 +7,7 @@ var classsignal__easel_1_1aprs_1_1Demodulator =
     ] ],
     [ "Demodulator", "classsignal__easel_1_1aprs_1_1Demodulator.html#a8b99c8abbc0e3f840f8cc93c90d7123c", null ],
     [ "lookForAx25Packet", "classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa", null ],
+    [ "lookForNextAx25Packet", "classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df", null ],
     [ "getType", "classsignal__easel_1_1aprs_1_1Demodulator.html#a0149ecf3027f6dcaff8b3d40f7a2d488", null ],
     [ "parseMessagePacket", "classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d", null ],
     [ "parsePositionPacket", "classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb", null ],

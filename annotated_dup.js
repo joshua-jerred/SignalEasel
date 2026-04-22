@@ -17,6 +17,7 @@ var annotated_dup =
         ] ],
         [ "Demodulator", "classsignal__easel_1_1aprs_1_1Demodulator.html", "classsignal__easel_1_1aprs_1_1Demodulator" ],
         [ "ExperimentalPacket", "structsignal__easel_1_1aprs_1_1ExperimentalPacket.html", "structsignal__easel_1_1aprs_1_1ExperimentalPacket" ],
+        [ "FakePulseAudioReader", "classsignal__easel_1_1aprs_1_1FakePulseAudioReader.html", "classsignal__easel_1_1aprs_1_1FakePulseAudioReader" ],
         [ "MessageAckPacket", "structsignal__easel_1_1aprs_1_1MessageAckPacket.html", "structsignal__easel_1_1aprs_1_1MessageAckPacket" ],
         [ "MessagePacket", "structsignal__easel_1_1aprs_1_1MessagePacket.html", "structsignal__easel_1_1aprs_1_1MessagePacket" ],
         [ "Modulator", "classsignal__easel_1_1aprs_1_1Modulator.html", "classsignal__easel_1_1aprs_1_1Modulator" ],
@@ -24,7 +25,8 @@ var annotated_dup =
         [ "PositionPacket", "structsignal__easel_1_1aprs_1_1PositionPacket.html", "structsignal__easel_1_1aprs_1_1PositionPacket" ],
         [ "Receiver", "classsignal__easel_1_1aprs_1_1Receiver.html", "classsignal__easel_1_1aprs_1_1Receiver" ],
         [ "Settings", "structsignal__easel_1_1aprs_1_1Settings.html", "structsignal__easel_1_1aprs_1_1Settings" ],
-        [ "TelemetryPacket", "structsignal__easel_1_1aprs_1_1TelemetryPacket.html", "structsignal__easel_1_1aprs_1_1TelemetryPacket" ]
+        [ "TelemetryPacket", "structsignal__easel_1_1aprs_1_1TelemetryPacket.html", "structsignal__easel_1_1aprs_1_1TelemetryPacket" ],
+        [ "TestableAprsReceiver", "classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html", "classsignal__easel_1_1aprs_1_1TestableAprsReceiver" ]
       ] ],
       [ "ax25", "namespacesignal__easel_1_1ax25.html", [
         [ "Address", "classsignal__easel_1_1ax25_1_1Address.html", "classsignal__easel_1_1ax25_1_1Address" ],

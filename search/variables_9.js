@@ -5,5 +5,6 @@ var searchData=
   ['latitude_2',['latitude',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c',1,'signal_easel::aprs::PositionPacket']]],
   ['letter_5fspace_5flength_3',['LETTER_SPACE_LENGTH',['../namespacesignal__easel.html#ac57d7cbfe79997c9b5d5c527a5aa9de4',1,'signal_easel']]],
   ['line_5fwidth_5f_4',['line_width_',['../classsignal__easel_1_1sstv_1_1Modulator.html#ae4c4ea9629553821b870a9023b696d8d',1,'signal_easel::sstv::Modulator']]],
-  ['longitude_5',['longitude',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d',1,'signal_easel::aprs::PositionPacket']]]
+  ['live_5fsnr_5f_5',['live_snr_',['../classsignal__easel_1_1afsk_1_1Receiver.html#ad7d7ac03b00201b0d52bde95dd668ea3',1,'signal_easel::afsk::Receiver']]],
+  ['longitude_6',['longitude',['../structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d',1,'signal_easel::aprs::PositionPacket']]]
 ];

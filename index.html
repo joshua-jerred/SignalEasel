@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 SignalEasel</div></div>
     <p ><a href="https://signaleasel.joshuajer.red">Detailed Documentation</a></p>
 <p ><a href="https://github.com/joshua-jerred/SignalEasel">Repository</a></p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Features</h1>
 <ul>
 <li>APRS<ul>
@@ -146,29 +146,29 @@ Features</h1>
 </li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Build / Install</h1>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Optional Features &amp; Dependencies</h2>
 <p >There are a few optional features that require additional dependencies. These features can be toggled in the root CMakeLists.txt</p>
 <div class="fragment"><div class="line">option(USE_PULSEAUDIO ... ON)</div>
 <div class="line">option(SSTV_ENABLED ... OFF)</div>
 <div class="line">option(UNIT_TESTS ... OFF)</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
 Real-Time Modulation/Demodulation - PulseAudio</h3>
 <p >PulseAudio is required for real-time modulation and demodulation. If enabled, in the root CMakeLists.txt, SignalEasel will use PulseAudio for audio I/O. Without PulseAudio, you can still use the library to generate and read <code>.wav</code> files.</p>
 <div class="fragment"><div class="line">sudo apt-get install libpulse-dev</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
 SSTV - ImageMagick++</h3>
 <p >SSTV requires that you have magick++ installed with the modules related to fonts and the image formats you want to use. This is <em><b>optional</b></em>. If you want to use the other modes, then you do not need any 3rd party libraries. This library was developed on a Linux system but it may work on others.</p>
 <p >Installation instructions: <a href="https://imagemagick.org/Magick++/Install.html">https://imagemagick.org/Magick++/Install.html</a></p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Method 1: CMake</h2>
 <p >This library is designed to be used as a part of another CMake project. To use it, you simply add the subdirectory to your project and link against it.</p>
 <div class="fragment"><div class="line">add_subdirectory(lib/SignalEasel)</div>
 <div class="line"> </div>
 <div class="line">target_link_libraries(your_target SignalEasel)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
 Method 2: Manual Installation</h2>
 <p >Not recommended, but it's as simple as building the static library and including the <code>include</code> directory in your project.</p>
 <div class="fragment"><div class="line"># Clone the repository with submodules (WavGen and SSTV-Image-Tools)</div>
@@ -183,7 +183,7 @@ Method 2: Manual Installation</h2>
 <div class="line"># Build</div>
 <div class="line">make SignalEasel # Builds a static library at `build/libSignalEasel.a`</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Building/Installing Magick++</h1>
 <div class="fragment"><div class="line">sudo apt-get update</div>
 <div class="line">sudo apt-get install build-essential</div>
@@ -196,7 +196,7 @@ Building/Installing Magick++</h1>
 <div class="line">sudo make install</div>
 <div class="line">sudo ldconfig # May need to do more for linking</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Resources</h1>
 <ul>
 <li><a href="https://user.engineering.uiowa.edu/~eedesign/algorithm.pdf">https://user.engineering.uiowa.edu/~eedesign/algorithm.pdf</a></li>

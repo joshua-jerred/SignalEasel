@@ -1,0 +1,6 @@
+<map id="signal_easel::aprs::TestableAprsReceiver" name="signal_easel::aprs::TestableAprsReceiver">
+<area shape="rect" id="node1" title="Testable version of aprs::Receiver that injects a fake pulse audio reader, exercising the full aprs::..." alt="" coords="7,851,193,957"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1Receiver.html" title=" " alt="" coords="5,476,195,803"/>
+<area shape="rect" id="node3" href="$classsignal__easel_1_1afsk_1_1Receiver.html" title="For receiving AFSK signals via a pulse audio stream." alt="" coords="19,204,181,428"/>
+<area shape="rect" id="node4" href="$classsignal__easel_1_1Receiver.html" title=" " alt="" coords="15,5,185,156"/>
+</map>

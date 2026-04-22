@@ -117,13 +117,13 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1afsk_1_1Receiver
 <div class="dynheader">
 Inheritance diagram for signal_easel::afsk::Receiver:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver__inherit__graph.svg" width="195" height="750"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver__inherit__graph.svg" width="200" height="963"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::afsk::Receiver:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver__coll__graph.svg" width="1575" height="1103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver__coll__graph.svg" width="1522" height="1103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -135,6 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5170dbba364c692cc1c12e967b967ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad544feeeb5431a5f978d1d7bb59628a1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#ad544feeeb5431a5f978d1d7bb59628a1">getLatency</a> () const</td></tr>
 <tr class="separator:ad544feeeb5431a5f978d1d7bb59628a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617516e492ce135884a5072873b9670a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a617516e492ce135884a5072873b9670a">getLiveSnr</a> ()</td></tr>
+<tr class="memdesc:a617516e492ce135884a5072873b9670a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the SNR regardless of whether a valid signal was detected.  <a href="classsignal__easel_1_1afsk_1_1Receiver.html#a617516e492ce135884a5072873b9670a">More...</a><br /></td></tr>
+<tr class="separator:a617516e492ce135884a5072873b9670a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bda553f48b26f8ad7f4f2eff525a9fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa">getVolume</a> () const</td></tr>
 <tr class="separator:a5bda553f48b26f8ad7f4f2eff525a9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf047fb76c3792173b5b2b46c5167481"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481">process</a> () override</td></tr>
@@ -147,6 +150,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ac73db08c49c3f3c0b9dc0b8bb2fee6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a516bafcdb924ea09c44233dcca6069c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3">detectSignal</a> (const <a class="el" href="namespacesignal__easel.html#a7016c069fb9b7e8a412d48b970980fe1">PulseAudioBuffer</a> &amp;audio_buffer)</td></tr>
 <tr class="separator:a516bafcdb924ea09c44233dcca6069c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458ffb64697eaa0d2017c56ef621df4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a458ffb64697eaa0d2017c56ef621df4b">retainTailSamples</a> ()</td></tr>
+<tr class="memdesc:a458ffb64697eaa0d2017c56ef621df4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">After a periodic decode, trim the receive buffer to keep only the last DECODE_TAIL_SAMPLE_COUNT samples. This gives a packet that straddled the decode boundary a chance to be recovered by the next decode pass.  <a href="classsignal__easel_1_1afsk_1_1Receiver.html#a458ffb64697eaa0d2017c56ef621df4b">More...</a><br /></td></tr>
+<tr class="separator:a458ffb64697eaa0d2017c56ef621df4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -154,8 +160,11 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aa04f90577b1d8b3f3294e21879f7ddf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9c90ecbb5bfca347601f138bdd7a80e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html">afsk::Demodulator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#ac9c90ecbb5bfca347601f138bdd7a80e">demodulator_</a></td></tr>
 <tr class="separator:ac9c90ecbb5bfca347601f138bdd7a80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fd535a984729bb27e6135a54b949914"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914">pulse_audio_reader_</a> {}</td></tr>
-<tr class="separator:a0fd535a984729bb27e6135a54b949914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7d7ac03b00201b0d52bde95dd668ea3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#ad7d7ac03b00201b0d52bde95dd668ea3">live_snr_</a> = 0.0</td></tr>
+<tr class="separator:ad7d7ac03b00201b0d52bde95dd668ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc1ddb12e1809124987bc75d79b96ab5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#afc1ddb12e1809124987bc75d79b96ab5">pulse_audio_reader_</a> {}</td></tr>
+<tr class="memdesc:afc1ddb12e1809124987bc75d79b96ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lazily constructed on first <a class="el" href="classsignal__easel_1_1Receiver.html#a884498d47cb4820092d4b3c661287154">process()</a> call so that tests can override <a class="el" href="classsignal__easel_1_1Receiver.html#a884498d47cb4820092d4b3c661287154">process()</a> without triggering a real PulseAudio connection.  <a href="classsignal__easel_1_1Receiver.html#afc1ddb12e1809124987bc75d79b96ab5">More...</a><br /></td></tr>
+<tr class="separator:afc1ddb12e1809124987bc75d79b96ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a464304ea4d2ad3a090a03bc7f8767c04"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a464304ea4d2ad3a090a03bc7f8767c04">receive_buffer_</a> {}</td></tr>
 <tr class="separator:a464304ea4d2ad3a090a03bc7f8767c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb1447382eadb0b512a10214dd55c70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsignal__easel_1_1afsk_1_1Settings.html">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1Receiver.html#a1cb1447382eadb0b512a10214dd55c70">settings_</a></td></tr>
@@ -248,19 +257,59 @@ false </dd></dl>
 
 <p>Implements <a class="el" href="classsignal__easel_1_1Receiver.html#a884498d47cb4820092d4b3c661287154">signal_easel::Receiver</a>.</p>
 
-<p class="reference">References <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3">detectSignal()</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#acab1af66b45821dc593e77e10d73d185">signal_easel::PulseAudioReader::getAudioBuffer()</a>, <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#a1d505ed5ac75100f13312c6311883604">signal_easel::PulseAudioReader::process()</a>, and <a class="el" href="classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+<p>Reimplemented in <a class="el" href="classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html#a22e1bb72a3eea1cf5b72ecb6c83185da">signal_easel::aprs::TestableAprsReceiver</a>.</p>
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3">detectSignal()</a>, and <a class="el" href="classsignal__easel_1_1Receiver.html#afc1ddb12e1809124987bc75d79b96ab5">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver_aaf047fb76c3792173b5b2b46c5167481_cgraph.svg" width="387" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver_aaf047fb76c3792173b5b2b46c5167481_cgraph.svg" width="380" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver_aaf047fb76c3792173b5b2b46c5167481_icgraph.svg" width="259" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a617516e492ce135884a5072873b9670a" name="a617516e492ce135884a5072873b9670a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a617516e492ce135884a5072873b9670a">&#9670;&nbsp;</a></span>getLiveSnr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double signal_easel::afsk::Receiver::getLiveSnr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the SNR regardless of whether a valid signal was detected. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current SNR </dd></dl>
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#ad7d7ac03b00201b0d52bde95dd668ea3">live_snr_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver_a617516e492ce135884a5072873b9670a_icgraph.svg" width="278" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -290,13 +339,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespacesignal__easel_1_1afsk.html#a8176ed1643dfce0226b6aa1f8eb3544c">signal_easel::afsk::AFSK_RECEIVED_MIN_SAMPLES</a>, and <a class="el" href="namespacesignal__easel_1_1afsk.html#a56d213270c70b093e09495df632ba12d">signal_easel::afsk::AFSK_SNR_THRESHOLD</a>.</p>
+<p class="reference">References <a class="el" href="namespacesignal__easel_1_1afsk.html#a8176ed1643dfce0226b6aa1f8eb3544c">signal_easel::afsk::AFSK_RECEIVED_MIN_SAMPLES</a>, <a class="el" href="namespacesignal__easel_1_1afsk.html#a56d213270c70b093e09495df632ba12d">signal_easel::afsk::AFSK_SNR_THRESHOLD</a>, <a class="el" href="namespacesignal__easel_1_1afsk.html#ad61aff5930d7cc70d2b6897ce92be261">signal_easel::afsk::PERIODIC_DECODE_SAMPLE_COUNT</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a5ce8af5b8ffe175c2aafc0ef78be3e0f">signal_easel::afsk::Demodulator::ProcessResults::snr</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481">process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481">process()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1TestableAprsReceiver.html#a22e1bb72a3eea1cf5b72ecb6c83185da">signal_easel::aprs::TestableAprsReceiver::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver_a516bafcdb924ea09c44233dcca6069c3_icgraph.svg" width="483" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1afsk_1_1Receiver_a516bafcdb924ea09c44233dcca6069c3_icgraph.svg" width="508" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -327,7 +376,34 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver</a>.</p>
 
-<p class="reference">References <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a9a0f2bdbb47f42793d863f8f83c85a7ea0dcf9341e66c7821ed39ed5e833a3042">signal_easel::afsk::Demodulator::NO_EOT</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a9a0f2bdbb47f42793d863f8f83c85a7ea49a05a24b1a45a6d237c2243a2b50027">signal_easel::afsk::Demodulator::NO_SYN</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a9a0f2bdbb47f42793d863f8f83c85a7ead0749aaba8b833466dfcbb0428e4f89c">signal_easel::afsk::Demodulator::SUCCESS</a>.</p>
+</div>
+</div>
+<a id="a458ffb64697eaa0d2017c56ef621df4b" name="a458ffb64697eaa0d2017c56ef621df4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458ffb64697eaa0d2017c56ef621df4b">&#9670;&nbsp;</a></span>retainTailSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void signal_easel::afsk::Receiver::retainTailSamples </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>After a periodic decode, trim the receive buffer to keep only the last DECODE_TAIL_SAMPLE_COUNT samples. This gives a packet that straddled the decode boundary a chance to be recovered by the next decode pass. </p>
+
+<p class="reference">References <a class="el" href="namespacesignal__easel_1_1afsk.html#a1ad8ec37d47c542d72d2927e06910233">signal_easel::afsk::DECODE_TAIL_SAMPLE_COUNT</a>.</p>
 
 </div>
 </div>
@@ -354,11 +430,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#ae13d17e25a6c22178dc02d0a503df329">signal_easel::PulseAudioReader::getLatency()</a>, and <a class="el" href="classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+<p class="reference">References <a class="el" href="classsignal__easel_1_1Receiver.html#afc1ddb12e1809124987bc75d79b96ab5">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1Receiver_ad544feeeb5431a5f978d1d7bb59628a1_cgraph.svg" width="410" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1Receiver_ad544feeeb5431a5f978d1d7bb59628a1_icgraph.svg" width="282" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -387,11 +465,13 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classsignal__easel_1_1PulseAudioReader.html#aacddf2165d35b263875e80bcd2325424">signal_easel::PulseAudioReader::getVolume()</a>, and <a class="el" href="classsignal__easel_1_1Receiver.html#a0fd535a984729bb27e6135a54b949914">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+<p class="reference">References <a class="el" href="classsignal__easel_1_1Receiver.html#afc1ddb12e1809124987bc75d79b96ab5">signal_easel::Receiver::pulse_audio_reader_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pulse__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>.</p>
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1Receiver_a5bda553f48b26f8ad7f4f2eff525a9fa_cgraph.svg" width="410" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1Receiver_a5bda553f48b26f8ad7f4f2eff525a9fa_icgraph.svg" width="282" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -466,8 +546,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a0fd535a984729bb27e6135a54b949914" name="a0fd535a984729bb27e6135a54b949914"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fd535a984729bb27e6135a54b949914">&#9670;&nbsp;</a></span>pulse_audio_reader_</h2>
+<a id="ad7d7ac03b00201b0d52bde95dd668ea3" name="ad7d7ac03b00201b0d52bde95dd668ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d7ac03b00201b0d52bde95dd668ea3">&#9670;&nbsp;</a></span>live_snr_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -476,7 +556,31 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a> signal_easel::Receiver::pulse_audio_reader_ {}</td>
+          <td class="memname">double signal_easel::afsk::Receiver::live_snr_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#a617516e492ce135884a5072873b9670a">getLiveSnr()</a>.</p>
+
+</div>
+</div>
+<a id="afc1ddb12e1809124987bc75d79b96ab5" name="afc1ddb12e1809124987bc75d79b96ab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc1ddb12e1809124987bc75d79b96ab5">&#9670;&nbsp;</a></span>pulse_audio_reader_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classsignal__easel_1_1PulseAudioReader.html">PulseAudioReader</a>&gt; signal_easel::Receiver::pulse_audio_reader_ {}</td>
         </tr>
       </table>
   </td>
@@ -485,6 +589,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Lazily constructed on first <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481" title="Returns true if there was enough data to process.">process()</a> call so that tests can override <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481" title="Returns true if there was enough data to process.">process()</a> without triggering a real PulseAudio connection. </p>
 
 <p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1Receiver.html#ad544feeeb5431a5f978d1d7bb59628a1">signal_easel::Receiver::getLatency()</a>, <a class="el" href="classsignal__easel_1_1Receiver.html#a5bda553f48b26f8ad7f4f2eff525a9fa">signal_easel::Receiver::getVolume()</a>, and <a class="el" href="classsignal__easel_1_1afsk_1_1Receiver.html#aaf047fb76c3792173b5b2b46c5167481">process()</a>.</p>
 

@@ -25,17 +25,17 @@
 var NAVTREE =
 [
   [ "SignalEasel", "index.html", [
-    [ "Features", "index.html#autotoc_md4", null ],
-    [ "Build / Install", "index.html#autotoc_md5", [
-      [ "Optional Features & Dependencies", "index.html#autotoc_md6", [
-        [ "Real-Time Modulation/Demodulation - PulseAudio", "index.html#autotoc_md7", null ],
-        [ "SSTV - ImageMagick++", "index.html#autotoc_md8", null ]
+    [ "Features", "index.html#autotoc_md7", null ],
+    [ "Build / Install", "index.html#autotoc_md8", [
+      [ "Optional Features & Dependencies", "index.html#autotoc_md9", [
+        [ "Real-Time Modulation/Demodulation - PulseAudio", "index.html#autotoc_md10", null ],
+        [ "SSTV - ImageMagick++", "index.html#autotoc_md11", null ]
       ] ],
-      [ "Method 1: CMake", "index.html#autotoc_md9", null ],
-      [ "Method 2: Manual Installation", "index.html#autotoc_md10", null ]
+      [ "Method 1: CMake", "index.html#autotoc_md12", null ],
+      [ "Method 2: Manual Installation", "index.html#autotoc_md13", null ]
     ] ],
-    [ "Building/Installing Magick++", "index.html#autotoc_md11", null ],
-    [ "Resources", "index.html#autotoc_md12", null ],
+    [ "Building/Installing Magick++", "index.html#autotoc_md14", null ],
+    [ "Resources", "index.html#autotoc_md15", null ],
     [ "minimodem raw binary decode", "md_docs_legacy_minimodem_raw_binary_decode.html", null ],
     [ "PSK Envelope Filter", "md_docs_psk_notes.html", null ],
     [ "SSTV Usage", "md_docs_sstv.html", null ],
@@ -77,14 +77,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "afsk_8hpp.html",
-"classsignal__easel_1_1Exception.html#a45f91afa482d22f72ef2a5489f2e4c55",
-"classsignal__easel_1_1afsk_1_1Modulator.html#a39e52e97a95a761b73ba928f8a29e916",
-"classsignal__easel_1_1aprs_1_1Receiver.html#aa04f90577b1d8b3f3294e21879f7ddf7",
-"classsignal__easel_1_1aprs_1_1telemetry_1_1Parameter.html#ae5cf20126e2243b8d35d1e25303092b6a27f237e6b7f96587b6202ff3607ad88a",
-"classsignal__easel_1_1psk_1_1Modulator.html#a67263d2a46fdb510adb0b4211699bf26",
-"globals.html",
-"structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a71a822e1a5dbdc6d96968a5034649a2c",
-"structsignal__easel_1_1aprs_1_1Settings.html#ac7fad39c32aae17c13a0a0751cef28bbaf914fecd9d18211d33c0d2edcaf63dd7"
+"classsignal__easel_1_1Demodulator.html#aa5c625d6f4d9deeb1e812de2c4f62e94",
+"classsignal__easel_1_1afsk_1_1Modulator.html#a1e92acffea7ae5b5ecd593ba75604dbf",
+"classsignal__easel_1_1aprs_1_1Receiver.html#a516bafcdb924ea09c44233dcca6069c3",
+"classsignal__easel_1_1aprs_1_1telemetry_1_1DigitalParameter.html#a30138377d2d858272b50780313ceaee9",
+"classsignal__easel_1_1ax25_1_1Address.html#a6a2594f26aa1d2a46e33d7da1a1d5fdd",
+"classsignal__easel_1_1sstv_1_1Modulator.html#aeca7981c008736fe09b89b845693b26baac2b9bd0be63420cb255ef9f5a305000",
+"pages.html",
+"structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199",
+"structsignal__easel_1_1sstv_1_1Settings.html#ada3eec2b3bdcabf11893e7548829fd54"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -120,13 +120,13 @@ $(document).ready(function(){initNavTree('afsk_8hpp.html',''); initResizable(); 
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for afsk.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="afsk_8hpp__incl.svg" width="1108" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="afsk_8hpp__incl.svg" width="1119" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="afsk_8hpp__dep__incl.svg" width="1136" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="afsk_8hpp__dep__incl.svg" width="1251" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -196,6 +196,12 @@ Variables</h2></td></tr>
 <tr class="separator:a56d213270c70b093e09495df632ba12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab235dbbed9f3d00241757c8ec84bc5d5"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1afsk.html#ab235dbbed9f3d00241757c8ec84bc5d5">signal_easel::afsk::AFSK_SPACE_FREQUENCY</a> = 2200</td></tr>
 <tr class="separator:ab235dbbed9f3d00241757c8ec84bc5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad8ec37d47c542d72d2927e06910233"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1afsk.html#a1ad8ec37d47c542d72d2927e06910233">signal_easel::afsk::DECODE_TAIL_SAMPLE_COUNT</a> = 1 * AUDIO_SAMPLE_RATE</td></tr>
+<tr class="memdesc:a1ad8ec37d47c542d72d2927e06910233"><td class="mdescLeft">&#160;</td><td class="mdescRight">After a periodic decode, keep this many trailing samples in the receive buffer so that a packet that straddled the decode boundary can still be recovered on the next decode attempt. One second is comfortably longer than any APRS frame.  <a href="namespacesignal__easel_1_1afsk.html#a1ad8ec37d47c542d72d2927e06910233">More...</a><br /></td></tr>
+<tr class="separator:a1ad8ec37d47c542d72d2927e06910233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61aff5930d7cc70d2b6897ce92be261"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesignal__easel_1_1afsk.html#ad61aff5930d7cc70d2b6897ce92be261">signal_easel::afsk::PERIODIC_DECODE_SAMPLE_COUNT</a> = 2 * AUDIO_SAMPLE_RATE</td></tr>
+<tr class="memdesc:ad61aff5930d7cc70d2b6897ce92be261"><td class="mdescLeft">&#160;</td><td class="mdescRight">When the receive buffer has accumulated this many samples during a sustained-signal burst, force a decode pass even though the signal has not yet dropped below the detection threshold. An APRS packet is at most ~500 samples of bits; 2 seconds worth of audio is more than enough to contain several packets. Keeping this window small ensures packets in a continuous-signal stream are delivered promptly.  <a href="namespacesignal__easel_1_1afsk.html#ad61aff5930d7cc70d2b6897ce92be261">More...</a><br /></td></tr>
+<tr class="separator:ad61aff5930d7cc70d2b6897ce92be261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >AFSK related modulation/demodulation. </p>

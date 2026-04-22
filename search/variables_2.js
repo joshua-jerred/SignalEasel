@@ -25,6 +25,7 @@ var searchData=
   ['current_5fmessage_5fpackets_5fin_5fqueue_22',['current_message_packets_in_queue',['../classsignal__easel_1_1aprs_1_1Receiver.html#a4c523f6fc9c49063f78f740af9f4307d',1,'signal_easel::aprs::Receiver::Stats']]],
   ['current_5fother_5fpackets_5fin_5fqueue_23',['current_other_packets_in_queue',['../classsignal__easel_1_1aprs_1_1Receiver.html#acab5e248ec448296de4a36e9fa7f2189',1,'signal_easel::aprs::Receiver::Stats']]],
   ['current_5fphase_5f_24',['current_phase_',['../classsignal__easel_1_1psk_1_1PskWaveShaper.html#a215887c4c3ff0ba366b17f0ca6004940',1,'signal_easel::psk::PskWaveShaper']]],
-  ['current_5fposition_5fpackets_5fin_5fqueue_25',['current_position_packets_in_queue',['../classsignal__easel_1_1aprs_1_1Receiver.html#a8951f94a494faf71f69ab1c14324bde3',1,'signal_easel::aprs::Receiver::Stats']]],
-  ['current_5ftelemetry_5fpackets_5fin_5fqueue_26',['current_telemetry_packets_in_queue',['../classsignal__easel_1_1aprs_1_1Receiver.html#ae44d4e915279239614cc16f260460138',1,'signal_easel::aprs::Receiver::Stats']]]
+  ['current_5fposition_5f_25',['current_position_',['../classsignal__easel_1_1aprs_1_1FakePulseAudioReader.html#a8c2d9e737ee82b7f62f9cf2f654c74f1',1,'signal_easel::aprs::FakePulseAudioReader']]],
+  ['current_5fposition_5fpackets_5fin_5fqueue_26',['current_position_packets_in_queue',['../classsignal__easel_1_1aprs_1_1Receiver.html#a8951f94a494faf71f69ab1c14324bde3',1,'signal_easel::aprs::Receiver::Stats']]],
+  ['current_5ftelemetry_5fpackets_5fin_5fqueue_27',['current_telemetry_packets_in_queue',['../classsignal__easel_1_1aprs_1_1Receiver.html#ae44d4e915279239614cc16f260460138',1,'signal_easel::aprs::Receiver::Stats']]]
 ];

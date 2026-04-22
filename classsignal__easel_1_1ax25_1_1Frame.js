@@ -17,6 +17,7 @@ var classsignal__easel_1_1ax25_1_1Frame =
     [ "buildFrame", "classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e", null ],
     [ "encodeFrame", "classsignal__easel_1_1ax25_1_1Frame.html#a2b4f6ebcb7592a7e5a21114c8fafa503", null ],
     [ "parseBitStream", "classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba", null ],
+    [ "parseNrziDecodedBitStream", "classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c", null ],
     [ "addToBuildBuffer", "classsignal__easel_1_1ax25_1_1Frame.html#a1389edfa566006427db42adfd700f37d", null ],
     [ "calculateFcsOnBuildBuffer", "classsignal__easel_1_1ax25_1_1Frame.html#a74910dd155260adc257b5bf36aaf1ebb", null ],
     [ "AddByteForFcs", "classsignal__easel_1_1ax25_1_1Frame.html#a9fcf77b58aa77883a2b08d6f5d36d151", null ],

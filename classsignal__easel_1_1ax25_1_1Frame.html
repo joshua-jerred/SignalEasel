@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1ax25_1_1Frame.ht
 <div class="dynheader">
 Collaboration diagram for signal_easel::ax25::Frame:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame__coll__graph.svg" width="1019" height="1058"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame__coll__graph.svg" width="1019" height="1072"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -142,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a63cf2362c2a90d20f09bbbc4f24a07ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream</a> (<a class="el" href="classsignal__easel_1_1BitStream.html">BitStream</a> &amp;bit_stream)</td></tr>
 <tr class="memdesc:a63cf2362c2a90d20f09bbbc4f24a07ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to parse an incoming bit stream into an AX.25 frame.  <a href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">More...</a><br /></td></tr>
 <tr class="separator:a63cf2362c2a90d20f09bbbc4f24a07ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40b07872c291deee87c677459a27c21c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream</a> (<a class="el" href="classsignal__easel_1_1BitStream.html">BitStream</a> &amp;nrzi_decoded_stream)</td></tr>
+<tr class="memdesc:a40b07872c291deee87c677459a27c21c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to parse a single AX.25 frame from an already NRZI-decoded bit stream. Unlike parseBitStream, this does not perform NRZI decoding, so multiple frames can be extracted from a single decoded bit stream by calling this repeatedly until it returns false.  <a href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">More...</a><br /></td></tr>
+<tr class="separator:a40b07872c291deee87c677459a27c21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a57b163ece54317da8d95f3b18b47c23d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d">setDestinationAddress</a> (<a class="el" href="classsignal__easel_1_1ax25_1_1Address.html">Address</a> address)</td></tr>
 <tr class="memdesc:a57b163ece54317da8d95f3b18b47c23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">setters/getters for the frame.  <a href="classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d">More...</a><br /></td></tr>
@@ -279,7 +282,7 @@ Friends</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1ax25_1_1Address.html#a7fa6b0ef4241413893f201660991e4ea">signal_easel::ax25::Address::assertIsValid()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad704c0d5ede308ee6088979c65b31e6c">destination_address_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream()</a>, and <a class="el" href="ax25__frame__test_8cpp.html#a091d83d42783f2a0b3fd33a0521dc2ce">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>, and <a class="el" href="ax25__frame__test_8cpp.html#a091d83d42783f2a0b3fd33a0521dc2ce">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -289,7 +292,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a57b163ece54317da8d95f3b18b47c23d_icgraph.svg" width="1019" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a57b163ece54317da8d95f3b18b47c23d_icgraph.svg" width="1107" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -324,7 +327,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a84c80d41e67e5091d2a77553f3941d5f_icgraph.svg" width="1002" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a84c80d41e67e5091d2a77553f3941d5f_icgraph.svg" width="1252" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -348,7 +351,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1ax25_1_1Address.html#a7fa6b0ef4241413893f201660991e4ea">signal_easel::ax25::Address::assertIsValid()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a6e29fc8fa0fc374d4ccb2b5ab8d8e161">source_address_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream()</a>, and <a class="el" href="ax25__frame__test_8cpp.html#a091d83d42783f2a0b3fd33a0521dc2ce">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#a586b022fa0c917fa8557bbd5cdc6aeeb">signal_easel::aprs::AddRequiredFields()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>, and <a class="el" href="ax25__frame__test_8cpp.html#a091d83d42783f2a0b3fd33a0521dc2ce">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -358,7 +361,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a402d26a81f82bb5c477e8930b75a771e_icgraph.svg" width="987" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a402d26a81f82bb5c477e8930b75a771e_icgraph.svg" width="1075" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -393,7 +396,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_af84ab589067667886d9e54abe213109c_icgraph.svg" width="971" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_af84ab589067667886d9e54abe213109c_icgraph.svg" width="1222" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -417,7 +420,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1ax25_1_1Address.html#a7fa6b0ef4241413893f201660991e4ea">signal_easel::ax25::Address::assertIsValid()</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#ad221df448014e35c13107be9c679dbe1">signal_easel::ax25::K_MAX_REPEATER_ADDRESSES</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a42d5ab89b83dea7c2d0c7c41d8c0ec03">repeater_addresses_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -427,7 +430,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_af86d4b534367a8faf6b628301c9ffceb_icgraph.svg" width="896" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_af86d4b534367a8faf6b628301c9ffceb_icgraph.svg" width="1095" height="140"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -513,11 +516,11 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a08c3f03b6f4600ef8d15dd2187c5570e">information_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">signal_easel::aprs::Demodulator::lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">signal_easel::aprs::Demodulator::parseExperimentalPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">signal_easel::aprs::Demodulator::parseMessagePacket()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacesignal__easel_1_1aprs.html#aaee238dfb028415d1bb8604764e23c60">signal_easel::aprs::classifyFrameType()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">signal_easel::aprs::Demodulator::parseExperimentalPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">signal_easel::aprs::Demodulator::parseMessagePacket()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">signal_easel::aprs::Demodulator::parsePositionPacket()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_ad902c58dd3b47ed11d64057409b36603_icgraph.svg" width="672" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_ad902c58dd3b47ed11d64057409b36603_icgraph.svg" width="924" height="379"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -555,7 +558,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_ad48d93e63f0870a7bc7f7c10fde78ba8_icgraph.svg" width="672" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_ad48d93e63f0870a7bc7f7c10fde78ba8_icgraph.svg" width="923" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -683,7 +686,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Attempt to parse an incoming bit stream into an AX.25 frame. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >This consumes the input bit_stream during NRZI decoding. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bit_stream</td><td>The bit stream to parse (NRZI encoded) </td></tr>
   </table>
@@ -693,19 +696,62 @@ Here is the caller graph for this function:</div>
 <dd>
 false if the frame was not successfully parsed </dd></dl>
 
-<p class="reference">References <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb">addRepeaterAddress()</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396">signal_easel::ax25::decodeNrzi()</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b">signal_easel::ax25::deStuffBytes()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a5b1d51a7dfa145da5fb731b8f154729e">fcs_</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3">signal_easel::ax25::findStartFlags()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a08c3f03b6f4600ef8d15dd2187c5570e">information_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d">setDestinationAddress()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e">setSourceAddress()</a>.</p>
+<p class="reference">References <a class="el" href="namespacesignal__easel_1_1ax25.html#a84e1d1bf82ef828a150bc94cf065e396">signal_easel::ax25::decodeNrzi()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">signal_easel::aprs::Demodulator::lookForAx25Packet()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a63cf2362c2a90d20f09bbbc4f24a07ba_cgraph.svg" width="1168" height="699"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a63cf2362c2a90d20f09bbbc4f24a07ba_cgraph.svg" width="1432" height="619"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a63cf2362c2a90d20f09bbbc4f24a07ba_icgraph.svg" width="634" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a63cf2362c2a90d20f09bbbc4f24a07ba_icgraph.svg" width="546" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a40b07872c291deee87c677459a27c21c" name="a40b07872c291deee87c677459a27c21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40b07872c291deee87c677459a27c21c">&#9670;&nbsp;</a></span>parseNrziDecodedBitStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool signal_easel::ax25::Frame::parseNrziDecodedBitStream </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsignal__easel_1_1BitStream.html">BitStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>nrzi_decoded_stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempt to parse a single AX.25 frame from an already NRZI-decoded bit stream. Unlike parseBitStream, this does not perform NRZI decoding, so multiple frames can be extracted from a single decoded bit stream by calling this repeatedly until it returns false. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nrzi_decoded_stream</td><td>The post-NRZI-decoded bit stream to search for a frame in. The stream is consumed up to and including the end of the parsed frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if a frame was successfully parsed, false otherwise. </dd></dl>
+
+<p class="reference">References <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb">addRepeaterAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad704c0d5ede308ee6088979c65b31e6c">destination_address_</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#aa3ad759477950552b79497f19c77ba0b">signal_easel::ax25::deStuffBytes()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a5b1d51a7dfa145da5fb731b8f154729e">fcs_</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#aedc3a21287bb20d2f0b01c9a2d6797f3">signal_easel::ax25::findStartFlags()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a08c3f03b6f4600ef8d15dd2187c5570e">information_</a>, <a class="el" href="namespacesignal__easel_1_1ax25.html#ad221df448014e35c13107be9c679dbe1">signal_easel::ax25::K_MAX_REPEATER_ADDRESSES</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a42d5ab89b83dea7c2d0c7c41d8c0ec03">repeater_addresses_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d">setDestinationAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e">setSourceAddress()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a6e29fc8fa0fc374d4ccb2b5ab8d8e161">source_address_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df">signal_easel::aprs::Demodulator::lookForNextAx25Packet()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a40b07872c291deee87c677459a27c21c_cgraph.svg" width="1202" height="444"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1ax25_1_1Frame_a40b07872c291deee87c677459a27c21c_icgraph.svg" width="832" height="140"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -864,7 +910,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a84c80d41e67e5091d2a77553f3941d5f">getDestinationAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d">setDestinationAddress()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a84c80d41e67e5091d2a77553f3941d5f">getDestinationAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a57b163ece54317da8d95f3b18b47c23d">setDestinationAddress()</a>.</p>
 
 </div>
 </div>
@@ -888,7 +934,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#af84ab589067667886d9e54abe213109c">getSourceAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e">setSourceAddress()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#af84ab589067667886d9e54abe213109c">getSourceAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a402d26a81f82bb5c477e8930b75a771e">setSourceAddress()</a>.</p>
 
 </div>
 </div>
@@ -912,7 +958,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb">addRepeaterAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad1f1a64febaf195bb320de8471eeb8b1">getRepeaterAddresses()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#af86d4b534367a8faf6b628301c9ffceb">addRepeaterAddress()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad1f1a64febaf195bb320de8471eeb8b1">getRepeaterAddresses()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>.</p>
 
 </div>
 </div>
@@ -984,7 +1030,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">getInformation()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad48d93e63f0870a7bc7f7c10fde78ba8">getInformationRef()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#afc5c722b419621f2a4dccbe2208faea1">setInformation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">getInformation()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad48d93e63f0870a7bc7f7c10fde78ba8">getInformationRef()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a640edeabbda34e78cc243e3561747bf9">isFrameValid()</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#afc5c722b419621f2a4dccbe2208faea1">setInformation()</a>.</p>
 
 </div>
 </div>
@@ -1008,7 +1054,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">parseBitStream()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a24e7d5ffc6504a3380e97142d1bc084e">buildFrame()</a>, and <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">parseNrziDecodedBitStream()</a>.</p>
 
 </div>
 </div>

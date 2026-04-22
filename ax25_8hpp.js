@@ -3,6 +3,7 @@ var ax25_8hpp =
     [ "signal_easel::ax25::Address", "classsignal__easel_1_1ax25_1_1Address.html", "classsignal__easel_1_1ax25_1_1Address" ],
     [ "signal_easel::ax25::Frame", "classsignal__easel_1_1ax25_1_1Frame.html", "classsignal__easel_1_1ax25_1_1Frame" ],
     [ "calculateFcs", "ax25_8hpp.html#a6d799107f96d783e620cd508488ab8eb", null ],
+    [ "decodeNrzi", "ax25_8hpp.html#a84e1d1bf82ef828a150bc94cf065e396", null ],
     [ "operator<<", "ax25_8hpp.html#a045e37043ec985ae61922db1bc6bc7a3", null ],
     [ "K_MINIMUM_ADDRESS_LENGTH", "ax25_8hpp.html#a2aec61fa01de12913975fa0c4f942493", null ],
     [ "K_MAXIMUM_ADDRESS_LENGTH", "ax25_8hpp.html#a3828c56a3928456aa087311c652337a1", null ],

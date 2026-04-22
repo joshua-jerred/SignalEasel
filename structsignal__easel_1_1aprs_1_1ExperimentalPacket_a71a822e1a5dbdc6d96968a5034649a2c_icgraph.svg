@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="aprs__test_8cpp.html#a94163b9a63db7738e0cf4c49259e1565" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="aprs__receiver__test_8cpp.html#a15bdf0d57f73eb3793090478c6e4c2c1" target="_top" xlink:title="Test that the receiver decodes multiple APRS packets from multi_packet_aprs.wav. All packets should b...">
 <polygon fill="none" stroke="black" points="0,-11.5 0,-30.5 41,-30.5 41,-11.5 0,-11.5"/>
 <text text-anchor="middle" x="20.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
 </a>

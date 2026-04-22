@@ -118,13 +118,13 @@ $(document).ready(function(){initNavTree('classsignal__easel_1_1aprs_1_1Demodula
 <div class="dynheader">
 Inheritance diagram for signal_easel::aprs::Demodulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__inherit__graph.svg" width="246" height="676"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__inherit__graph.svg" width="246" height="691"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for signal_easel::aprs::Demodulator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__coll__graph.svg" width="1656" height="1499"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator__coll__graph.svg" width="1656" height="1528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -150,6 +150,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9cc9df67eabbfac3aecb04f113726afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5a8e7634c1bc8d215a0c454a9a737fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">lookForAx25Packet</a> ()</td></tr>
 <tr class="separator:ae5a8e7634c1bc8d215a0c454a9a737fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4819ac606d0ebf3e5ac235a3bf916df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df">lookForNextAx25Packet</a> (<a class="el" href="classsignal__easel_1_1BitStream.html">BitStream</a> &amp;nrzi_decoded_stream)</td></tr>
+<tr class="memdesc:ab4819ac606d0ebf3e5ac235a3bf916df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like lookForAx25Packet, but parses a single AX.25 frame from an already NRZI-decoded bit stream. Call repeatedly to extract multiple frames from a single receive buffer.  <a href="classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df">More...</a><br /></td></tr>
+<tr class="separator:ab4819ac606d0ebf3e5ac235a3bf916df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef7bf1f641de1283d710f23003dc6c58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a9a0f2bdbb47f42793d863f8f83c85a7e">AsciiResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#aef7bf1f641de1283d710f23003dc6c58">lookForString</a> (std::string &amp;output)</td></tr>
 <tr class="separator:aef7bf1f641de1283d710f23003dc6c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e60a65289d36d717431705ed142be7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">parseExperimentalPacket</a> (<a class="el" href="structsignal__easel_1_1aprs_1_1ExperimentalPacket.html">aprs::ExperimentalPacket</a> &amp;experimental)</td></tr>
@@ -280,19 +283,62 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199">signal_easel::aprs::Packet::EXPERIMENTAL</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">signal_easel::ax25::Frame::getInformation()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4">signal_easel::aprs::Packet::MESSAGE</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a737069a72a958d9cc0a6c777f191a626">signal_easel::afsk::Demodulator::output_bit_stream_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">signal_easel::ax25::Frame::parseBitStream()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1">signal_easel::aprs::Packet::POSITION</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402aff4d8347b205cf6fff215887c98e84ff">signal_easel::aprs::Packet::TELEMETRY_BIT_SENSE_PROJ_NAME</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402aa78fc49e8fd46e367275b5e6483f4150">signal_easel::aprs::Packet::TELEMETRY_COEFFICIENT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a978270d962aa29e9ad7da961e567c1c4">signal_easel::aprs::Packet::TELEMETRY_DATA_REPORT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a2bd566f488f3cd962385e3da2cf2eda7">signal_easel::aprs::Packet::TELEMETRY_PARAMETER_NAME</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402ad844901c37a114e6b31ae868b45ed7a9">signal_easel::aprs::Packet::TELEMETRY_PARAMETER_UNIT</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3">signal_easel::aprs::Packet::UNKNOWN</a>.</p>
+<p class="reference">References <a class="el" href="namespacesignal__easel_1_1aprs.html#aaee238dfb028415d1bb8604764e23c60">signal_easel::aprs::classifyFrameType()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1afsk_1_1Demodulator.html#a737069a72a958d9cc0a6c777f191a626">signal_easel::afsk::Demodulator::output_bit_stream_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a63cf2362c2a90d20f09bbbc4f24a07ba">signal_easel::ax25::Frame::parseBitStream()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3">signal_easel::aprs::Packet::UNKNOWN</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_ae5a8e7634c1bc8d215a0c454a9a737fa_cgraph.svg" width="1420" height="699"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_ae5a8e7634c1bc8d215a0c454a9a737fa_cgraph.svg" width="1684" height="619"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_ae5a8e7634c1bc8d215a0c454a9a737fa_icgraph.svg" width="406" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_ae5a8e7634c1bc8d215a0c454a9a737fa_icgraph.svg" width="318" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ab4819ac606d0ebf3e5ac235a3bf916df" name="ab4819ac606d0ebf3e5ac235a3bf916df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4819ac606d0ebf3e5ac235a3bf916df">&#9670;&nbsp;</a></span>lookForNextAx25Packet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool signal_easel::aprs::Demodulator::lookForNextAx25Packet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsignal__easel_1_1BitStream.html">BitStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>nrzi_decoded_stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Like lookForAx25Packet, but parses a single AX.25 frame from an already NRZI-decoded bit stream. Call repeatedly to extract multiple frames from a single receive buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nrzi_decoded_stream</td><td>The post-NRZI bit stream to consume. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if a frame was successfully parsed. </dd></dl>
+
+<p class="reference">References <a class="el" href="namespacesignal__easel_1_1aprs.html#aaee238dfb028415d1bb8604764e23c60">signal_easel::aprs::classifyFrameType()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#a40b07872c291deee87c677459a27c21c">signal_easel::ax25::Frame::parseNrziDecodedBitStream()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>, and <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a696b031073e74bf2cb98e5ef201d4aa3">signal_easel::aprs::Packet::UNKNOWN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_ab4819ac606d0ebf3e5ac235a3bf916df_cgraph.svg" width="1452" height="444"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_ab4819ac606d0ebf3e5ac235a3bf916df_icgraph.svg" width="404" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -323,11 +369,11 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#adc3c303795edba521a1e55e454ba610d">signal_easel::aprs::Receiver::processDecodedFrame()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a0149ecf3027f6dcaff8b3d40f7a2d488_icgraph.svg" width="376" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a0149ecf3027f6dcaff8b3d40f7a2d488_icgraph.svg" width="627" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -360,7 +406,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1MessagePacket.html#aed8f7810ed3a7532186e619bbf73b7f4">signal_easel::aprs::MessagePacket::addressee</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">signal_easel::ax25::Frame::getInformation()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90791ed805bd5b00d78527d39d9ef7e4">signal_easel::aprs::Packet::MESSAGE</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1MessagePacket.html#a6d506827c7220a00bb386de8176e48f9">signal_easel::aprs::MessagePacket::message</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1MessagePacket.html#a018f0d9c6cb18de7b7f2849d1d5a4a3a">signal_easel::aprs::MessagePacket::message_id</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f">populateGenericFields()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#adc3c303795edba521a1e55e454ba610d">signal_easel::aprs::Receiver::processDecodedFrame()</a>, and <a class="el" href="aprs__test_8cpp.html#aea66d1824e3f1e27598adf99ac6a089a">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -370,7 +416,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a8ea92084a8f961d7a11200652516177d_icgraph.svg" width="419" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a8ea92084a8f961d7a11200652516177d_icgraph.svg" width="670" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -406,7 +452,7 @@ false if the packet was not a valid position packet </dd></dl>
 
 <p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a7c00cc8d3bdf29e8f82b50891bc56882">signal_easel::aprs::PositionPacket::altitude</a>, <a class="el" href="namespacesignal__easel_1_1aprs.html#a53b79c5e1cab35addb27026b3e9e0e21">signal_easel::aprs::base91Decode()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#af253a90967bc821c06d764f2523407d4">signal_easel::aprs::PositionPacket::comment</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a59a8ed3b50e5be03d0a6fbac39448e80">signal_easel::aprs::PositionPacket::course</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">signal_easel::ax25::Frame::getInformation()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#ad18a52de88ffadc17d5c881c833f992c">signal_easel::aprs::PositionPacket::latitude</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a26acfd266b0ca4bbef36ef6d79a6a14d">signal_easel::aprs::PositionPacket::longitude</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f">populateGenericFields()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a90b4ba73224408e82ade8a072a3712c1">signal_easel::aprs::Packet::POSITION</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a428429ba9ea83e4841036fb0508fd6dc">signal_easel::aprs::Packet::PRIMARY</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a98e229a0a3f74f1f9751233e3a66dd28a371b09d93ca01e09a42fbd5a2a423f8e">signal_easel::aprs::Packet::SECONDARY</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a3808e1fbfc37a41d009d5d19a2fc58e2">signal_easel::aprs::PositionPacket::speed</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a896553cf78ab348a52f3a646eb264805">signal_easel::aprs::Packet::symbol</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a0428a9a37731cbdd63d24107fe68952a">signal_easel::aprs::Packet::symbol_table</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1PositionPacket.html#a4a5e1cb3790c19eea6fd4d0e21488136">signal_easel::aprs::PositionPacket::time_code</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#adc3c303795edba521a1e55e454ba610d">signal_easel::aprs::Receiver::processDecodedFrame()</a>, and <a class="el" href="aprs__test_8cpp.html#a8f1884a85326fa2424719d09dd551947">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -416,7 +462,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a285cd33e16fa28925fe2acd3fe5029fb_icgraph.svg" width="412" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a285cd33e16fa28925fe2acd3fe5029fb_icgraph.svg" width="663" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -441,7 +487,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#a58587a7801fa8e325f39a121a23b23f5">signal_easel::aprs::ExperimentalPacket::data</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a5b510199f120aa9383547fff035a7199">signal_easel::aprs::Packet::EXPERIMENTAL</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad902c58dd3b47ed11d64057409b36603">signal_easel::ax25::Frame::getInformation()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1ExperimentalPacket.html#af305f38594b9fd3debf9724bd441568b">signal_easel::aprs::ExperimentalPacket::packet_type_char</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f">populateGenericFields()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, and <a class="el" href="aprs__test_8cpp.html#a94163b9a63db7738e0cf4c49259e1565">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#adc3c303795edba521a1e55e454ba610d">signal_easel::aprs::Receiver::processDecodedFrame()</a>, and <a class="el" href="aprs__test_8cpp.html#a94163b9a63db7738e0cf4c49259e1565">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -451,7 +497,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a75e60a65289d36d717431705ed142be7_icgraph.svg" width="448" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a75e60a65289d36d717431705ed142be7_icgraph.svg" width="699" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -485,7 +531,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="classsignal__easel_1_1aprs_1_1telemetry_1_1TelemetryTranscoder.html#a8728ebd6e5dbd7ca50a219fda62b7375">signal_easel::aprs::telemetry::TelemetryTranscoder::decodeMessage()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#aa41a64db242d0f8da9c3504a6fcab6b5">frame_</a>, <a class="el" href="classsignal__easel_1_1ax25_1_1Frame.html#ad48d93e63f0870a7bc7f7c10fde78ba8">signal_easel::ax25::Frame::getInformationRef()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f">populateGenericFields()</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402aff4d8347b205cf6fff215887c98e84ff">signal_easel::aprs::Packet::TELEMETRY_BIT_SENSE_PROJ_NAME</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402aa78fc49e8fd46e367275b5e6483f4150">signal_easel::aprs::Packet::TELEMETRY_COEFFICIENT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1TelemetryPacket.html#a58cbec3774c9f283eb38e6bedaad7d27">signal_easel::aprs::TelemetryPacket::telemetry_data</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a978270d962aa29e9ad7da961e567c1c4">signal_easel::aprs::Packet::TELEMETRY_DATA_REPORT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402a2bd566f488f3cd962385e3da2cf2eda7">signal_easel::aprs::Packet::TELEMETRY_PARAMETER_NAME</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1Packet.html#a88fd2774f44e0c08805a4770d61c2402ad844901c37a114e6b31ae868b45ed7a9">signal_easel::aprs::Packet::TELEMETRY_PARAMETER_UNIT</a>, <a class="el" href="structsignal__easel_1_1aprs_1_1TelemetryPacket.html#ac2c23c7c9e21a8a71b63e13420427d71">signal_easel::aprs::TelemetryPacket::telemetry_type</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ada5519511b785a014a8cbfeeda59c3fd">type_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, and <a class="el" href="aprs__test_8cpp.html#a8de4b7853d7e8c5ad2bb05a656082327">TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#adc3c303795edba521a1e55e454ba610d">signal_easel::aprs::Receiver::processDecodedFrame()</a>, and <a class="el" href="aprs__test_8cpp.html#a8de4b7853d7e8c5ad2bb05a656082327">TEST()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -495,7 +541,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a97af61f7afb63db275020ba523abcc3a_icgraph.svg" width="426" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_a97af61f7afb63db275020ba523abcc3a_icgraph.svg" width="676" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -564,7 +610,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_af7459f32656249c73e0b957dfe13bf2f_icgraph.svg" width="727" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsignal__easel_1_1aprs_1_1Demodulator_af7459f32656249c73e0b957dfe13bf2f_icgraph.svg" width="978" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -890,7 +936,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818">signal_easel::aprs::Receiver::decode()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">parseExperimentalPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">parseMessagePacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">parsePositionPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a97af61f7afb63db275020ba523abcc3a">parseTelemetryPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f">populateGenericFields()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a093fdacf32fe29bf475a21196b477cd9">printFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df">lookForNextAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">parseExperimentalPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">parseMessagePacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">parsePositionPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a97af61f7afb63db275020ba523abcc3a">parseTelemetryPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#af7459f32656249c73e0b957dfe13bf2f">populateGenericFields()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a093fdacf32fe29bf475a21196b477cd9">printFrame()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Receiver.html#adc3c303795edba521a1e55e454ba610d">signal_easel::aprs::Receiver::processDecodedFrame()</a>.</p>
 
 </div>
 </div>
@@ -914,7 +960,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a0149ecf3027f6dcaff8b3d40f7a2d488">getType()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">parseExperimentalPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">parseMessagePacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">parsePositionPacket()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a97af61f7afb63db275020ba523abcc3a">parseTelemetryPacket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a0149ecf3027f6dcaff8b3d40f7a2d488">getType()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ae5a8e7634c1bc8d215a0c454a9a737fa">lookForAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#ab4819ac606d0ebf3e5ac235a3bf916df">lookForNextAx25Packet()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a75e60a65289d36d717431705ed142be7">parseExperimentalPacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a8ea92084a8f961d7a11200652516177d">parseMessagePacket()</a>, <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a285cd33e16fa28925fe2acd3fe5029fb">parsePositionPacket()</a>, and <a class="el" href="classsignal__easel_1_1aprs_1_1Demodulator.html#a97af61f7afb63db275020ba523abcc3a">parseTelemetryPacket()</a>.</p>
 
 </div>
 </div>

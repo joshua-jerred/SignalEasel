@@ -1,0 +1,4 @@
+<map id="signal_easel::aprs::Receiver::processDecodedFrame" name="signal_easel::aprs::Receiver::processDecodedFrame">
+<area shape="rect" id="node1" title="Categorises and stores a frame that has already been parsed by aprs_demodulator_ (i...." alt="" coords="196,5,399,61"/>
+<area shape="rect" id="node2" href="$classsignal__easel_1_1aprs_1_1Receiver.html#afbf7869aceaf2ea7ab0be8b9af16e818" title=" " alt="" coords="5,13,148,54"/>
+</map>

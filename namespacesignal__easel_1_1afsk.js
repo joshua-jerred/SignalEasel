@@ -20,5 +20,7 @@ var namespacesignal__easel_1_1afsk =
     [ "AFSK_MINIMUM_SNR", "namespacesignal__easel_1_1afsk.html#a536a89fef11da51bad6c484e3d2a8d17", null ],
     [ "AFSK_SNR_THRESHOLD", "namespacesignal__easel_1_1afsk.html#a56d213270c70b093e09495df632ba12d", null ],
     [ "AFSK_RECEIVER_SAMPLE_BUFFER_SIZE", "namespacesignal__easel_1_1afsk.html#ab1647a0500e4ea10b34fb7372559716b", null ],
-    [ "AFSK_RECEIVED_MIN_SAMPLES", "namespacesignal__easel_1_1afsk.html#a8176ed1643dfce0226b6aa1f8eb3544c", null ]
+    [ "AFSK_RECEIVED_MIN_SAMPLES", "namespacesignal__easel_1_1afsk.html#a8176ed1643dfce0226b6aa1f8eb3544c", null ],
+    [ "PERIODIC_DECODE_SAMPLE_COUNT", "namespacesignal__easel_1_1afsk.html#ad61aff5930d7cc70d2b6897ce92be261", null ],
+    [ "DECODE_TAIL_SAMPLE_COUNT", "namespacesignal__easel_1_1afsk.html#a1ad8ec37d47c542d72d2927e06910233", null ]
 ];

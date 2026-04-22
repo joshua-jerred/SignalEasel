@@ -35,7 +35,7 @@ inline constexpr size_t K_MAXIMUM_ADDRESS_LENGTH = 6;
 inline constexpr size_t K_MAX_SSID_VALUE = 15;
 inline constexpr size_t K_ADDRESS_CHARS_LENGTH = 6;
 
-inline constexpr size_t K_MAX_REPEATER_ADDRESSES = 2;
+inline constexpr size_t K_MAX_REPEATER_ADDRESSES = 4;
 inline constexpr size_t K_MAX_INFORMATION_LENGTH = 256;
 
 inline constexpr uint8_t K_FLAG = 0x7E;
@@ -51,6 +51,14 @@ inline constexpr size_t K_POSTAMBLE_LENGTH = 33;
  * @return uint16_t The calculated FCS
  */
 uint16_t calculateFcs(const std::vector<uint8_t> &input_data);
+
+/**
+ * @brief Convert an NRZI-encoded bit stream to a standard bit stream.
+ * @details Consumes all bits from the input stream.
+ * @param bit_stream The NRZI-encoded bit stream to decode
+ * @return BitStream The decoded (non-NRZI) bit stream
+ */
+BitStream decodeNrzi(BitStream &bit_stream);
 
 /**
  * @brief AX.25 Address class. For encoding and decoding AX.25 addresses.
@@ -198,12 +206,25 @@ public:
   std::vector<uint8_t> encodeFrame();
 
   /**
-   * @brief Attempt to parse an incoming bit stream into an AX.25 frame
+   * @brief Attempt to parse an incoming bit stream into an AX.25 frame.
+   * @details This consumes the input bit_stream during NRZI decoding.
    * @param bit_stream The bit stream to parse (NRZI encoded)
    * @return true if the frame was successfully parsed
    * @return false if the frame was not successfully parsed
    */
   bool parseBitStream(BitStream &bit_stream);
+
+  /**
+   * @brief Attempt to parse a single AX.25 frame from an already
+   * NRZI-decoded bit stream. Unlike parseBitStream, this does not perform
+   * NRZI decoding, so multiple frames can be extracted from a single decoded
+   * bit stream by calling this repeatedly until it returns false.
+   * @param nrzi_decoded_stream The post-NRZI-decoded bit stream to search
+   * for a frame in. The stream is consumed up to and including the end of
+   * the parsed frame.
+   * @return true if a frame was successfully parsed, false otherwise.
+   */
+  bool parseNrziDecodedBitStream(BitStream &nrzi_decoded_stream);
 
   friend std::ostream &operator<<(std::ostream &os, const Frame &address);
 

@@ -59,6 +59,20 @@ inline constexpr size_t AFSK_RECEIVER_SAMPLE_BUFFER_SIZE =
 // Minimum number of samples that need to be received before demodulation
 inline constexpr size_t AFSK_RECEIVED_MIN_SAMPLES = 2000;
 
+/// @brief When the receive buffer has accumulated this many samples during a
+/// sustained-signal burst, force a decode pass even though the signal has not
+/// yet dropped below the detection threshold. An APRS packet is at most ~500
+/// samples of bits; 2 seconds worth of audio is more than enough to contain
+/// several packets. Keeping this window small ensures packets in a
+/// continuous-signal stream are delivered promptly.
+inline constexpr size_t PERIODIC_DECODE_SAMPLE_COUNT = 2 * AUDIO_SAMPLE_RATE;
+
+/// @brief After a periodic decode, keep this many trailing samples in the
+/// receive buffer so that a packet that straddled the decode boundary can
+/// still be recovered on the next decode attempt. One second is comfortably
+/// longer than any APRS frame.
+inline constexpr size_t DECODE_TAIL_SAMPLE_COUNT = 1 * AUDIO_SAMPLE_RATE;
+
 /**
  * @brief Settings for AFSK modulation/demodulation.
  */
@@ -197,6 +211,12 @@ public:
 protected:
   bool detectSignal(const PulseAudioBuffer &audio_buffer);
   virtual void decode();
+
+  /// @brief After a periodic decode, trim the receive buffer to keep only
+  /// the last ::DECODE_TAIL_SAMPLE_COUNT samples. This gives a packet that
+  /// straddled the decode boundary a chance to be recovered by the next
+  /// decode pass.
+  void retainTailSamples();
 
   afsk::Demodulator demodulator_;
 

@@ -208,6 +208,10 @@ public:
    */
   bool process() override;
 
+  /// @brief Get the SNR regardless of whether a valid signal was detected.
+  /// @return The current SNR
+  double getLiveSnr() { return live_snr_; }
+
 protected:
   bool detectSignal(const PulseAudioBuffer &audio_buffer);
   virtual void decode();
@@ -223,6 +227,8 @@ protected:
   afsk::Settings afsk_settings_;
 
   std::vector<int16_t> receive_buffer_{};
+
+  double live_snr_ = 0.0;
 };
 
 } // namespace afsk

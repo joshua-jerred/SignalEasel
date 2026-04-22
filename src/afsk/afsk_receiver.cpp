@@ -41,7 +41,7 @@ bool afsk::Receiver::detectSignal(const PulseAudioBuffer &audio_buffer) {
   demodulator_.audioBufferToBaseBandSignal(results);
 
   const bool signal_detected = results.snr > AFSK_SNR_THRESHOLD;
-
+  live_snr_ = results.snr;
   if (signal_detected) {
     receive_buffer_.insert(receive_buffer_.end(), audio_buffer.begin(),
                            audio_buffer.end());

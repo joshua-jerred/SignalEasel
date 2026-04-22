@@ -49,8 +49,8 @@ int main() {
 
   while (true) {
     if (receiver.process()) {
-      std::cout << "Received a packet! SNR: " << receiver.getSNR() << "dB"
-                << std::endl;
+      std::cout << "Last Packet / Live SNR: " << receiver.getSNR() << "dB"
+                << " " << receiver.getLiveSnr() << "dB" << std::endl;
       auto stats = receiver.getStats();
       std::cout << "Total message packets: " << stats.total_message_packets
                 << std::endl;
